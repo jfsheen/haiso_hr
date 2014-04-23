@@ -1,4 +1,4 @@
 haiso hr system
 ========
 
-2014
+20140423 creaated by jfsheen
