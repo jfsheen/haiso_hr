@@ -1,0 +1,75 @@
+[LOG] 2014-04-18 10:45:58,673 - org.springframework.test.context.TestContextManager -1907 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@3049aad2] to prepare test instance [com.haiso.hr.service.AddTest@346dd9c2]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:154)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:100)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:307)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:284)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:74)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:202)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:65)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from URL [file:src/resources/AppContext.xml]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'personInfoService' for bean class [com.haiso.hr.service.PersonInfoServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.haiso.hr.service.PersonServiceImpl]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:412)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:174)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:209)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:180)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:243)
+	at org.springframework.test.context.web.GenericXmlWebContextLoader.loadBeanDefinitions(GenericXmlWebContextLoader.java:38)
+	at org.springframework.test.context.web.AbstractGenericWebContextLoader.loadContext(AbstractGenericWebContextLoader.java:125)
+	at org.springframework.test.context.web.AbstractGenericWebContextLoader.loadContext(AbstractGenericWebContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:248)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64)
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91)
+	... 23 more
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'personInfoService' for bean class [com.haiso.hr.service.PersonInfoServiceImpl] conflicts with existing, non-compatible bean definition of same name and class [com.haiso.hr.service.PersonServiceImpl]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:312)
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:253)
+	at org.springframework.context.annotation.ComponentScanBeanDefinitionParser.parse(ComponentScanBeanDefinitionParser.java:84)
+	at org.springframework.beans.factory.xml.NamespaceHandlerSupport.parse(NamespaceHandlerSupport.java:73)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1438)
+	at org.springframework.beans.factory.xml.BeanDefinitionParserDelegate.parseCustomElement(BeanDefinitionParserDelegate.java:1428)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.parseBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:195)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.doRegisterBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:139)
+	at org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader.registerBeanDefinitions(DefaultBeanDefinitionDocumentReader.java:108)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.registerBeanDefinitions(XmlBeanDefinitionReader.java:493)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:390)
+	... 36 more
+[LOG] 2014-04-18 10:52:08,081 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9120 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+[LOG] 2014-04-18 10:52:08,087 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9126 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry '0' for key 'PRIMARY'
+[LOG] 2014-04-18 10:53:36,991 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8869 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+[LOG] 2014-04-18 10:53:36,992 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8870 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry '0' for key 'PRIMARY'
+[LOG] 2014-04-18 10:59:46,192 - org.hibernate.tool.hbm2ddl.SchemaUpdate -8262 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: create table t_employee (empl_sn varchar(20) not null auto_increment, address varchar(50) not null, email varchar(45), ethinic varchar(12) not null, hometown varchar(16) not null, idcard_num varchar(18) not null, idcard_path varchar(45), introduction varchar(500), mobile varchar(16), name varchar(10) not null, partisan varchar(20), party_date date, person_id integer not null, phone varchar(16), photo_path varchar(45), postalcode varchar(6) not null, qq varchar(12), weixin varchar(20), primary key (empl_sn)) ENGINE=InnoDB
+[LOG] 2014-04-18 10:59:46,198 - org.hibernate.tool.hbm2ddl.SchemaUpdate -8268 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Incorrect column specifier for column 'empl_sn'
+[LOG] 2014-04-18 11:11:55,819 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9706 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+[LOG] 2014-04-18 11:11:55,820 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9707 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry '0' for key 'PRIMARY'
+[LOG] 2014-04-18 11:14:23,956 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8889 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-18 11:14:23,957 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8890 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'id' doesn't have a default value
+[LOG] 2014-04-18 11:18:22,579 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9499 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-18 11:18:22,580 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9500 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'id' doesn't have a default value
+[LOG] 2014-04-18 11:19:07,659 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8881 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-18 11:19:07,660 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8882 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'id' doesn't have a default value
+[LOG] 2014-04-18 13:48:50,307 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9076 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-18 13:48:50,308 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9077 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'id' doesn't have a default value
+[LOG] 2014-04-18 13:49:29,680 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8296 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-18 13:49:29,681 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8297 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'id' doesn't have a default value
+[LOG] 2014-04-18 13:51:35,464 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9194 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-18 13:51:35,465 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9195 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'id' doesn't have a default value

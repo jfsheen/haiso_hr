@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2655408196">
+    <data-source source="LOCAL" name="MySQL - dbhaiso@localhost" uuid="a3b3c28a-6ca1-4d75-8f3c-b8cbcdd576ca">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/dbhaiso</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df9bdf9bdf9bdf9bdf9bdf9b</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="MySQL - haisodb0403@localhost" uuid="749492bc-5952-49cc-90ca-0a817b3285eb">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/haisodb0403</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df9bdf9bdf9bdf9bdf9bdf9b</user-password>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

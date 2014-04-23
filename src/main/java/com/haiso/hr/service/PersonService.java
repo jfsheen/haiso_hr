@@ -1,0 +1,12 @@
+package com.haiso.hr.service;
+
+import com.haiso.hr.entity.Person;
+
+/**
+ * Created by ff on 4/11/14.
+ */
+public interface PersonService {
+    public void addPerson(Person person);
+
+    public Person getPerson(int id);
+}
