@@ -1,6 +1,6 @@
 package com.haiso.hr.service;
 
-import com.haiso.hr.entity.Person;
+import com.haiso.hr.entity.person.Person;
 
 /**
  * Created by ff on 4/11/14.

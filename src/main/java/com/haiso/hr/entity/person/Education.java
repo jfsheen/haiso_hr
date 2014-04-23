@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.person;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -9,7 +9,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "t_prsn_edu")
-public class PersonEducation {
+public class Education {
     private int id;
     private String school;
     private String major;
@@ -41,7 +41,7 @@ public class PersonEducation {
         this.id = id;
     }
 
-    @Basic
+
     @Column(name = "school", nullable = false, insertable = true, updatable = true, length = 45, precision = 0)
     public String getSchool() {
         return school;
@@ -51,7 +51,7 @@ public class PersonEducation {
         this.school = school;
     }
 
-    @Basic
+
     @Column(name = "major", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
     public String getMajor() {
         return major;
@@ -61,7 +61,7 @@ public class PersonEducation {
         this.major = major;
     }
 
-    @Basic
+
     @Column(name = "start_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getStartDate() {
         return startDate;
@@ -71,7 +71,7 @@ public class PersonEducation {
         this.startDate = startDate;
     }
 
-    @Basic
+
     @Column(name = "end_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getEndDate() {
         return endDate;
@@ -81,7 +81,7 @@ public class PersonEducation {
         this.endDate = endDate;
     }
 
-    @Basic
+
     @Column(name = "qualify", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getQualify() {
         return qualify;
@@ -91,7 +91,7 @@ public class PersonEducation {
         this.qualify = qualify;
     }
 
-    @Basic
+
     @Column(name = "degree", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getDegree() {
         return degree;
@@ -106,7 +106,7 @@ public class PersonEducation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PersonEducation that = (PersonEducation) o;
+        Education that = (Education) o;
 
         if (id != that.id) return false;
         if (degree != null ? !degree.equals(that.degree) : that.degree != null) return false;

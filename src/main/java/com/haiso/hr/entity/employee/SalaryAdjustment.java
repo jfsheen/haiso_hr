@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,7 +9,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_empl_salary_adjust")
-public class EmplSalaryAdjustment {
+public class SalaryAdjustment {
 
     private int id;
     private int amount; //单位为:分
@@ -39,7 +39,6 @@ public class EmplSalaryAdjustment {
         this.employee = employee;
     }
 
-    @Basic
     @Column(name = "time_adjust", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
     @Temporal(TemporalType.TIMESTAMP)
     public java.util.Date getTimeAdjust() {
@@ -86,6 +85,7 @@ public class EmplSalaryAdjustment {
     }
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public int getId() {
         return id;
@@ -120,7 +120,7 @@ public class EmplSalaryAdjustment {
 //        if (this == o) return true;
 //        if (o == null || getClass() != o.getClass()) return false;
 //
-//        EmplSalaryAdjustment that = (EmplSalaryAdjustment) o;
+//        SalaryAdjustment that = (SalaryAdjustment) o;
 //
 //        if (id != that.id) return false;
 //        if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;

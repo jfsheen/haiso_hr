@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.person;
 
 import javax.persistence.*;
 
@@ -7,8 +7,8 @@ import javax.persistence.*;
  * 个人社会信息表
  */
 @Entity
-@Table(name = "t_prsn_sclrltn")
-public class PersonSocialRelation {
+@Table(name = "t_prsn_sclrlt")
+public class SocialRelationship {
 
     private int id;
     private String relation;

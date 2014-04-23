@@ -1,4 +1,4 @@
-[LOG] 2014-04-17 09:12:52,052 - org.springframework.test.context.TestContextManager -8461 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@3d57369e] to prepare test instance [com.haiso.hr.service.AddTest@28c2de88]
+[LOG] 2014-04-17 09:12:52,052 - org.springframework.test.context.TestContextManager -8461 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@3d57369e] to prepare test instance [com.haiso.hr.service.AddPersonTest@28c2de88]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -78,7 +78,7 @@ Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @OneTo
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
-[LOG] 2014-04-17 09:21:12,426 - org.springframework.test.context.TestContextManager -7957 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@63cd18fd] to prepare test instance [com.haiso.hr.service.AddTest@2e23bd3b]
+[LOG] 2014-04-17 09:21:12,426 - org.springframework.test.context.TestContextManager -7957 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@63cd18fd] to prepare test instance [com.haiso.hr.service.AddPersonTest@2e23bd3b]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)

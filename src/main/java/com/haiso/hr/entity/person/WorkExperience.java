@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.person;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -8,10 +8,10 @@ import java.sql.Date;
  * 个人工作简历表
  */
 @Entity
-@Table(name = "t_prsn_workexp")
-public class PersonWorkExperience {
+@Table(name = "t_prsn_wrkexp")
+public class WorkExperience {
     private int id;
-    private String company;
+    private String companyName;
     private String position;
     private Date startDate;
     private Date endDate;
@@ -69,17 +69,17 @@ public class PersonWorkExperience {
         this.id = id;
     }
 
-    @Basic
+
     @Column(name = "company", nullable = false, insertable = true, updatable = true, length = 50, precision = 0)
-    public String getCompany() {
-        return company;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setCompany(String company) {
-        this.company = company;
+    public void setCompanyName(String company) {
+        this.companyName = company;
     }
 
-    @Basic
+
     @Column(name = "position", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
     public String getPosition() {
         return position;
@@ -89,7 +89,7 @@ public class PersonWorkExperience {
         this.position = position;
     }
 
-    @Basic
+
     @Column(name = "start_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getStartDate() {
         return startDate;
@@ -99,7 +99,7 @@ public class PersonWorkExperience {
         this.startDate = startDate;
     }
 
-    @Basic
+
     @Column(name = "end_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getEndDate() {
         return endDate;
@@ -109,7 +109,7 @@ public class PersonWorkExperience {
         this.endDate = endDate;
     }
 
-    @Basic
+
     @Column(name = "com_phone", nullable = true, insertable = true, updatable = true, length = 50, precision = 0)
     public String getComPhone() {
         return comPhone;
@@ -124,10 +124,10 @@ public class PersonWorkExperience {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PersonWorkExperience that = (PersonWorkExperience) o;
+        WorkExperience that = (WorkExperience) o;
 
         if (id != that.id) return false;
-        if (company != null ? !company.equals(that.company) : that.company != null) return false;
+        if (companyName != null ? !companyName.equals(that.companyName) : that.companyName != null) return false;
         if (comPhone != null ? !comPhone.equals(that.comPhone) : that.comPhone != null) return false;
         if (endDate != null ? !endDate.equals(that.endDate) : that.endDate != null) return false;
         if (position != null ? !position.equals(that.position) : that.position != null) return false;
@@ -139,7 +139,7 @@ public class PersonWorkExperience {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (company != null ? company.hashCode() : 0);
+        result = 31 * result + (companyName != null ? companyName.hashCode() : 0);
         result = 31 * result + (position != null ? position.hashCode() : 0);
         result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
         result = 31 * result + (endDate != null ? endDate.hashCode() : 0);

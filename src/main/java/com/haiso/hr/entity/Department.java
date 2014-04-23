@@ -1,16 +1,18 @@
 package com.haiso.hr.entity;
 
+import com.haiso.hr.entity.employee.Employee;
 import com.haiso.hr.utils.SnGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Created by ff on 4/15/14.
  * 部门表
  */
 @Entity
-@Table(name = "t_organization")
+@Table(name = "t_department")
 public class Department {
     private int id;
     private String deptSn;
@@ -21,6 +23,26 @@ public class Department {
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
     private int version;
+    private Set<Employee> employeeSet;
+    private Set<Position> positionSet;
+
+    @OneToMany(mappedBy = "department")
+    public Set<Position> getPositionSet() {
+        return positionSet;
+    }
+
+    public void setPositionSet(Set<Position> positionSet) {
+        this.positionSet = positionSet;
+    }
+
+    @ManyToMany(mappedBy = "dempartmentSet")
+    public Set<Employee> getEmployeeSet() {
+        return employeeSet;
+    }
+
+    public void setEmployeeSet(Set<Employee> employeeSet) {
+        this.employeeSet = employeeSet;
+    }
 
     @Version
     @Column(name = "version_lock", length = 10)
@@ -64,7 +86,6 @@ public class Department {
         this.deptSn = SnGenerator.DepartmentSnGenerator();
         this.createDate = new java.util.Date();
         this.lastUpdate = new java.util.Date();
-        System.out.println("person @PrePersist run!");
     }
 
     @PreRemove

@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
 
 import javax.persistence.*;
 
@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "t_empl_bankinfo")
-public class EmplBankinfo {
+public class BankInfo {
 
     private int id;
     private String accOwner;
@@ -72,7 +72,6 @@ public class EmplBankinfo {
     public void prePersist() {
         this.createDate = new java.util.Date();
         this.lastUpdate = new java.util.Date();
-        System.out.println("person @PrePersist run!");
     }
 
     @PreRemove
@@ -101,7 +100,8 @@ public class EmplBankinfo {
     }
 
     @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, length = 10, precision = 0)
     public int getId() {
         return id;
     }
@@ -110,8 +110,7 @@ public class EmplBankinfo {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "acc_owner", nullable = false, insertable = true, updatable = true, length = 45, precision = 0)
+    @Column(name = "acc_owner", nullable = false, length = 20, precision = 0)
     public String getAccOwner() {
         return accOwner;
     }
@@ -120,8 +119,7 @@ public class EmplBankinfo {
         this.accOwner = accOwner;
     }
 
-    @Basic
-    @Column(name = "bankcard_num", nullable = false, insertable = true, updatable = true, length = 30, precision = 0)
+    @Column(name = "bankcard_num", nullable = false, length = 20, precision = 0)
     public String getBankcardNum() {
         return bankcardNum;
     }
@@ -130,8 +128,7 @@ public class EmplBankinfo {
         this.bankcardNum = bankcardNum;
     }
 
-    @Basic
-    @Column(name = "cardpic_path", nullable = false, insertable = true, updatable = true, length = 100, precision = 0)
+    @Column(name = "cardpic_path", nullable = true, length = 100, precision = 0)
     public String getCardpicPath() {
         return cardpicPath;
     }
@@ -140,8 +137,7 @@ public class EmplBankinfo {
         this.cardpicPath = cardpicPath;
     }
 
-    @Basic
-    @Column(name = "acc_bank", nullable = false, insertable = true, updatable = true, length = 45, precision = 0)
+    @Column(name = "acc_bank", nullable = false, length = 40, precision = 0)
     public String getAccBank() {
         return accBank;
     }
@@ -155,7 +151,7 @@ public class EmplBankinfo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EmplBankinfo that = (EmplBankinfo) o;
+        BankInfo that = (BankInfo) o;
 
         if (id != that.id) return false;
         if (accBank != null ? !accBank.equals(that.accBank) : that.accBank != null) return false;

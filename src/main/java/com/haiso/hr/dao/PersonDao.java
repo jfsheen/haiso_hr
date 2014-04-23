@@ -1,6 +1,6 @@
 package com.haiso.hr.dao;
 
-import com.haiso.hr.entity.Person;
+import com.haiso.hr.entity.person.Person;
 import org.springframework.data.repository.CrudRepository;
 
 /**

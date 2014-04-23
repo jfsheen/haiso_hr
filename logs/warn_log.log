@@ -71,7 +71,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonCertificate.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.Certificate.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)
@@ -151,7 +151,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonCertificate.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.Certificate.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)
@@ -231,7 +231,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonCertificate.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.Certificate.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)
@@ -311,7 +311,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonWorkExperience.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.WorkExperience.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)
@@ -322,3 +322,17 @@ Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyT
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
+[LOG] 2014-04-23 11:39:10,063 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -7107 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1048, SQLState: 23000
+[LOG] 2014-04-23 11:39:10,064 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -7108 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'ethnic' cannot be null
+[LOG] 2014-04-23 11:42:25,713 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8204 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-23 11:42:25,715 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8206 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'ethnic' doesn't have a default value
+[LOG] 2014-04-23 13:57:34,220 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7114 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: alter table t_empl_salary add index FK_q38ewx6edufweu39hxy1ing6m (person_id), add constraint FK_q38ewx6edufweu39hxy1ing6m foreign key (person_id) references t_person (id)
+[LOG] 2014-04-23 13:57:34,222 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7116 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Can't create table 'haisodb0418.#sql-44d_90' (errno: 150)
+[LOG] 2014-04-23 14:02:22,384 - org.hibernate.tool.hbm2ddl.SchemaUpdate -6334 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: alter table t_empl_salary add index FK_q38ewx6edufweu39hxy1ing6m (person_id), add constraint FK_q38ewx6edufweu39hxy1ing6m foreign key (person_id) references t_person (id)
+[LOG] 2014-04-23 14:02:22,386 - org.hibernate.tool.hbm2ddl.SchemaUpdate -6336 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Can't create table 'haisodb0418.#sql-44d_92' (errno: 150)
+[LOG] 2014-04-23 14:02:23,226 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -7176 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1062, SQLState: 23000
+[LOG] 2014-04-23 14:02:23,227 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -7177 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Duplicate entry '0' for key 'PRIMARY'
+[LOG] 2014-04-23 14:03:29,921 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7220 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: alter table t_empl_salary add index FK_q38ewx6edufweu39hxy1ing6m (person_id), add constraint FK_q38ewx6edufweu39hxy1ing6m foreign key (person_id) references t_person (id)
+[LOG] 2014-04-23 14:03:29,924 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7223 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Can't create table 'haisodb0418.#sql-44d_94' (errno: 150)
+[LOG] 2014-04-23 14:03:30,691 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -7990 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-23 14:03:30,692 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -7991 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'id' doesn't have a default value

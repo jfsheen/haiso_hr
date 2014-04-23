@@ -8,6 +8,6 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("EmpSts")
-public class EmplStatus extends Parameters {
+public class EmplStatus extends Param {
 
 }

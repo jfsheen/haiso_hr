@@ -1,7 +1,7 @@
 package com.haiso.hr.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by ff on 4/15/14.
@@ -15,7 +15,75 @@ public class Log {
     private int rowId;
     private int rowsAffected;
     private String manager;
-    private Timestamp time;
+    private Date lastUpdate;
+    private Date createDate;
+    private int version;
+
+    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    @Version
+    @Column(name = "version_lock", length = 10)
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
+    @Temporal(TemporalType.TIMESTAMP)
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.lastUpdate = new Date();
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.createDate = new Date();
+        this.lastUpdate = new Date();
+    }
+
+    @PreRemove
+    public void preRemove() {
+
+    }
+
+    @PostPersist
+    public void postPersist() {
+
+    }
+
+    @PostLoad
+    public void postLoad() {
+
+    }
+
+    @PostRemove
+    public void postRemove() {
+
+    }
+
+    @PostUpdate
+    public void postUpdate() {
+
+    }
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
@@ -77,16 +145,6 @@ public class Log {
         this.manager = manager;
     }
 
-    @Basic
-    @Column(name = "time", nullable = false, insertable = true, updatable = true, length = 19, precision = 0)
-    public Timestamp getTime() {
-        return time;
-    }
-
-    public void setTime(Timestamp time) {
-        this.time = time;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -100,7 +158,6 @@ public class Log {
         if (action != null ? !action.equals(log.action) : log.action != null) return false;
         if (manager != null ? !manager.equals(log.manager) : log.manager != null) return false;
         if (tableName != null ? !tableName.equals(log.tableName) : log.tableName != null) return false;
-        if (time != null ? !time.equals(log.time) : log.time != null) return false;
 
         return true;
     }
@@ -113,7 +170,6 @@ public class Log {
         result = 31 * result + rowId;
         result = 31 * result + rowsAffected;
         result = 31 * result + (manager != null ? manager.hashCode() : 0);
-        result = 31 * result + (time != null ? time.hashCode() : 0);
         return result;
     }
 }

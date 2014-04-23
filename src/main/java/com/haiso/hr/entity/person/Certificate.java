@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.person;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,7 +9,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_prsn_crtf")
-public class PersonCertificate {
+public class Certificate {
     private int id;
     private int eduId;
     private String name;
@@ -40,7 +40,7 @@ public class PersonCertificate {
         this.id = id;
     }
 
-    @Basic
+
     @Column(name = "edu_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public int getEduId() {
         return eduId;
@@ -50,7 +50,7 @@ public class PersonCertificate {
         this.eduId = eduId;
     }
 
-    @Basic
+
     @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getName() {
         return name;
@@ -60,7 +60,7 @@ public class PersonCertificate {
         this.name = name;
     }
 
-    @Basic
+
     @Column(name = "obtain_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getObtainDate() {
         return obtainDate;
@@ -70,7 +70,7 @@ public class PersonCertificate {
         this.obtainDate = obtainDate;
     }
 
-    @Basic
+
     @Column(name = "crtf_sn", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getSerialNum() {
         return serialNum;
@@ -80,7 +80,7 @@ public class PersonCertificate {
         this.serialNum = serialNum;
     }
 
-    @Basic
+
     @Column(name = "expiry_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getExpiryDate() {
         return expiryDate;
@@ -90,7 +90,7 @@ public class PersonCertificate {
         this.expiryDate = expiryDate;
     }
 
-    @Basic
+
     @Column(name = "authority", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getAuthority() {
         return authority;
@@ -106,7 +106,7 @@ public class PersonCertificate {
 //        if (this == o) return true;
 //        if (o == null || getClass() != o.getClass()) return false;
 //
-//        PersonCertificate that = (PersonCertificate) o;
+//        Certificate that = (Certificate) o;
 //
 //        if (id != that.id) return false;
 //        if (company != null ? !company.equals(that.company) : that.company != null) return false;

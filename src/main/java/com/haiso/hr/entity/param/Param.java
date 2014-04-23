@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.param;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -7,17 +7,42 @@ import java.util.Date;
  * Created by ff on 4/21/14.
  */
 @Entity
-@Table(name = "custom_params")
-public class CustomParameters {
+@DiscriminatorValue("Param")
+@Table(name = "t_param")
+public abstract class Param {
 
     private long id;
     private String pKey;
     private String pValue;
+    private String defaultValue;
+
+
     private String explanation;
     private String description;
     private Date createDate;
     private Date lastUpdate;
     private int version;
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Column(name = "default_value", length = 20)
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
 
     @Version
     @Column(name = "version_lock", length = 10)
@@ -85,16 +110,6 @@ public class CustomParameters {
     @PostUpdate
     public void postUpdate() {
 
-    }
-
-    @Id
-    @Column(name = "id", length = 20)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     @Column(name = "para_key", nullable = false, length = 20)

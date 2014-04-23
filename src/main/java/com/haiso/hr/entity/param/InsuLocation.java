@@ -8,6 +8,6 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue("IsLoc")
-public class InsuLocation extends Parameters {
+public class InsuLocation extends Param {
 
 }

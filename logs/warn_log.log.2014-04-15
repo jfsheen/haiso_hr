@@ -1,4 +1,4 @@
-[LOG] 2014-04-15 12:02:58,750 - org.springframework.test.context.TestContextManager -6987 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6038a3ba] to prepare test instance [com.haiso.hr.service.AddTest@268539b0]
+[LOG] 2014-04-15 12:02:58,750 - org.springframework.test.context.TestContextManager -6987 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@6038a3ba] to prepare test instance [com.haiso.hr.service.AddPersonTest@268539b0]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -75,7 +75,7 @@ Caused by: org.hibernate.MappingException: Composite-id class must implement Ser
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
-[LOG] 2014-04-15 12:14:10,969 - org.springframework.test.context.TestContextManager -5950 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@30f063ae] to prepare test instance [com.haiso.hr.service.AddTest@76204d9b]
+[LOG] 2014-04-15 12:14:10,969 - org.springframework.test.context.TestContextManager -5950 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@30f063ae] to prepare test instance [com.haiso.hr.service.AddPersonTest@76204d9b]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -152,7 +152,7 @@ Caused by: org.hibernate.MappingException: Composite-id class must implement Ser
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
-[LOG] 2014-04-15 12:32:05,133 - org.springframework.test.context.TestContextManager -6451 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@379d8cbc] to prepare test instance [com.haiso.hr.service.AddTest@4882a72a]
+[LOG] 2014-04-15 12:32:05,133 - org.springframework.test.context.TestContextManager -6451 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@379d8cbc] to prepare test instance [com.haiso.hr.service.AddPersonTest@4882a72a]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -229,7 +229,7 @@ Caused by: org.hibernate.MappingException: Composite-id class must implement Ser
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
-[LOG] 2014-04-15 12:41:40,555 - org.springframework.test.context.TestContextManager -6826 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@50cb23c5] to prepare test instance [com.haiso.hr.service.AddTest@489983f3]
+[LOG] 2014-04-15 12:41:40,555 - org.springframework.test.context.TestContextManager -6826 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@50cb23c5] to prepare test instance [com.haiso.hr.service.AddPersonTest@489983f3]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -306,7 +306,7 @@ Caused by: org.hibernate.MappingException: Composite-id class must implement Ser
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
-[LOG] 2014-04-15 12:44:44,725 - org.springframework.test.context.TestContextManager -5319 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@cd6cecb] to prepare test instance [com.haiso.hr.service.AddTest@6aa27802]
+[LOG] 2014-04-15 12:44:44,725 - org.springframework.test.context.TestContextManager -5319 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@cd6cecb] to prepare test instance [com.haiso.hr.service.AddPersonTest@6aa27802]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -383,7 +383,7 @@ Caused by: org.hibernate.MappingException: Composite-id class must implement Ser
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
-[LOG] 2014-04-15 12:46:17,064 - org.springframework.test.context.TestContextManager -5793 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@3bcc60b9] to prepare test instance [com.haiso.hr.service.AddTest@66e2305a]
+[LOG] 2014-04-15 12:46:17,064 - org.springframework.test.context.TestContextManager -5793 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@3bcc60b9] to prepare test instance [com.haiso.hr.service.AddPersonTest@66e2305a]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -460,7 +460,7 @@ Caused by: org.hibernate.MappingException: Composite-id class must implement Ser
 	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:96)
 	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:914)
 	... 57 more
-[LOG] 2014-04-15 12:47:19,108 - org.springframework.test.context.TestContextManager -5071 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@39c748e3] to prepare test instance [com.haiso.hr.service.AddTest@4a824cb7]
+[LOG] 2014-04-15 12:47:19,108 - org.springframework.test.context.TestContextManager -5071 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@39c748e3] to prepare test instance [com.haiso.hr.service.AddPersonTest@4a824cb7]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)

@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -9,7 +9,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "t_empl_contract")
-public class EmplContract {
+public class Contract {
     private int id;
     private String contractSn;
     private Date contractDate;
@@ -166,7 +166,7 @@ public class EmplContract {
 //        if (this == o) return true;
 //        if (o == null || getClass() != o.getClass()) return false;
 //
-//        EmplContract that = (EmplContract) o;
+//        Contract that = (Contract) o;
 //
 //        if (id != that.id) return false;
 //        if (contractDate != null ? !contractDate.equals(that.contractDate) : that.contractDate != null) return false;

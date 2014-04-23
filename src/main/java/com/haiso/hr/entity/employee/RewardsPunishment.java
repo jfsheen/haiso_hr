@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -9,7 +9,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "t_prsn_rwpns")
-public class EmplRewardsPunishment {
+public class RewardsPunishment {
     private int id;
     private String school;
     private String major;
@@ -31,6 +31,7 @@ public class EmplRewardsPunishment {
     }
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public int getId() {
         return id;
@@ -105,7 +106,7 @@ public class EmplRewardsPunishment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EmplRewardsPunishment that = (EmplRewardsPunishment) o;
+        RewardsPunishment that = (RewardsPunishment) o;
 
         if (id != that.id) return false;
         if (degree != null ? !degree.equals(that.degree) : that.degree != null) return false;

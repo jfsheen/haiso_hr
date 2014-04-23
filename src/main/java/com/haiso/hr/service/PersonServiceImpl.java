@@ -1,7 +1,7 @@
 package com.haiso.hr.service;
 
 import com.haiso.hr.dao.PersonDao;
-import com.haiso.hr.entity.Person;
+import com.haiso.hr.entity.person.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

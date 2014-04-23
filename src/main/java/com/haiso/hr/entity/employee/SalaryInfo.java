@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "t_empl_salary_info")
-public class EmplSalaryInfo {
+public class SalaryInfo {
     private int id;
     private boolean isPost;
     private boolean byTime;
@@ -93,6 +93,7 @@ public class EmplSalaryInfo {
     }
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public int getId() {
         return id;
@@ -209,7 +210,7 @@ public class EmplSalaryInfo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EmplSalaryInfo that = (EmplSalaryInfo) o;
+        SalaryInfo that = (SalaryInfo) o;
 
         if (byPiece != that.byPiece) return false;
         if (byTime != that.byTime) return false;

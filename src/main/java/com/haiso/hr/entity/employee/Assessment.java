@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -8,8 +8,8 @@ import java.sql.Date;
  * 员工考核记录表
  */
 @Entity
-@Table(name = "t_empl_appra")
-public class EmplAppraisal {
+@Table(name = "t_empl_assess")
+public class Assessment {
     private int id;
     private String title;
     private String content;
@@ -160,7 +160,7 @@ public class EmplAppraisal {
 //        if (this == o) return true;
 //        if (o == null || getClass() != o.getClass()) return false;
 //
-//        EmplAppraisal that = (EmplAppraisal) o;
+//        Assessment that = (Assessment) o;
 //
 //        if (id != that.id) return false;
 //        if (degree != null ? !degree.equals(that.degree) : that.degree != null) return false;

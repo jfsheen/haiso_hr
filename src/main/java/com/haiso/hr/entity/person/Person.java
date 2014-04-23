@@ -1,4 +1,6 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.person;
+
+import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,25 +13,20 @@ import java.util.Date;
 @Table(name = "t_person")
 public class Person {
 
-    private int id;
-    private String idcardNum;
-    private String idcardPath;
-    private String photoPath;
+    private long id;
+
+    private IdCard idCard;
     private String name;
-    private Date birthdate;
-    private boolean gender;
-    private String ethinic;
+    private String photoPath;
     private String partisan;
     private Date joinPartyDate;
-    private String hometown;
-    private String hukou;
     private String hukouType;
-    private String hukouAddress;
+    private String hometown;
     private String lastDegree;
     private String lastSchool;
     private String lastMajor;
-    private String currentAddress;
-    private String postalcode;
+    private String residentailAddress;
+    private String postalCode;
     private String mobile;
     private String phone;
     private String email;
@@ -41,9 +38,6 @@ public class Person {
     private String emergencyContactAddress;
     private String sponsorName;
     private String sponsorPhone;
-    private Date lastUpdate;
-    private Date createDate;
-    private int version;
 
     private Employee employee;
 
@@ -56,7 +50,254 @@ public class Person {
         this.employee = employee;
     }
 
-    @Basic
+
+    @Embedded
+    public IdCard getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(IdCard idCard) {
+        this.idCard = idCard;
+    }
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
+    @Column(name = "photo_path", nullable = true, insertable = true, updatable = true, length = 45, precision = 0)
+    public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
+    }
+
+
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    @Column(name = "hukou_type", nullable = true, length = 10)
+    public String getHukouType() {
+        return hukouType;
+    }
+
+    public void setHukouType(String hukouType) {
+        this.hukouType = hukouType;
+    }
+
+
+    @Column(name = "partisan", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    public String getPartisan() {
+        return partisan;
+    }
+
+    public void setPartisan(String partisan) {
+        this.partisan = partisan;
+    }
+
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "join_party_date", nullable = true, insertable = true, updatable = true, length = 1)
+    public Date getJoinPartyDate() {
+        return joinPartyDate;
+    }
+
+    public void setJoinPartyDate(Date partyDate) {
+        this.joinPartyDate = partyDate;
+    }
+
+
+    @Column(name = "hometown", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    public String getHometown() {
+        return hometown;
+    }
+
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
+
+
+    @Column(name = "postal_code", nullable = true, insertable = true, updatable = true, length = 6, precision = 0)
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalcode) {
+        this.postalCode = postalcode;
+    }
+
+
+    @Column(name = "mobile", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+
+    @Column(name = "phone", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+
+    @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 45, precision = 0)
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+    @Column(name = "qq", nullable = true, insertable = true, updatable = true, length = 12, precision = 0)
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+
+    @Column(name = "weixin", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    public String getWeixin() {
+        return weixin;
+    }
+
+    public void setWeixin(String weixin) {
+        this.weixin = weixin;
+    }
+
+
+    @Column(name = "introduction", nullable = true, insertable = true, updatable = true, length = 500, precision = 0)
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+
+    @Column(name = "last_degree", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    public String getLastDegree() {
+        return lastDegree;
+    }
+
+    public void setLastDegree(String lastDegree) {
+        this.lastDegree = lastDegree;
+    }
+
+
+    @Column(name = "last_school", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    public String getLastSchool() {
+        return lastSchool;
+    }
+
+    public void setLastSchool(String lastSchool) {
+        this.lastSchool = lastSchool;
+    }
+
+
+    @Column(name = "last_major", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    public String getLastMajor() {
+        return lastMajor;
+    }
+
+    public void setLastMajor(String lastMajor) {
+        this.lastMajor = lastMajor;
+    }
+
+
+    @Column(name = "resi_address", nullable = true, insertable = true, updatable = true, length = 50, precision = 0)
+    public String getResidentailAddress() {
+        return residentailAddress;
+    }
+
+    public void setResidentailAddress(String currentAddress) {
+        this.residentailAddress = currentAddress;
+    }
+
+
+    @Column(name = "ec_name", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
+    public String getEmergencyContactName() {
+        return emergencyContactName;
+    }
+
+    public void setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
+    }
+
+
+    @Column(name = "ec_phone", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    public String getEmergencyContactPhone() {
+        return emergencyContactPhone;
+    }
+
+    public void setEmergencyContactPhone(String emergencyContactPhone) {
+        this.emergencyContactPhone = emergencyContactPhone;
+    }
+
+
+    @Column(name = "ec_address", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
+    public String getEmergencyContactAddress() {
+        return emergencyContactAddress;
+    }
+
+    public void setEmergencyContactAddress(String emergencyContactAddress) {
+        this.emergencyContactAddress = emergencyContactAddress;
+    }
+
+
+    @Column(name = "sp_name", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
+    public String getSponsorName() {
+        return sponsorName;
+    }
+
+    public void setSponsorName(String sponsorName) {
+        this.sponsorName = sponsorName;
+    }
+
+
+    @Column(name = "sp_phone", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
+    public String getSponsorPhone() {
+        return sponsorPhone;
+    }
+
+    public void setSponsorPhone(String sponsorPhone) {
+        this.sponsorPhone = sponsorPhone;
+    }
+
+
+    private Date lastUpdate;
+    private Date createDate;
+    private int version;
+
     @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
     @Temporal(TemporalType.TIMESTAMP)
     public Date getLastUpdate() {
@@ -77,7 +318,6 @@ public class Person {
         this.version = version;
     }
 
-    @Basic
     @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
     @Temporal(TemporalType.TIMESTAMP)
     public Date getCreateDate() {
@@ -86,309 +326,6 @@ public class Person {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Basic
-    @Column(name = "idcard_num", nullable = false, insertable = true, updatable = true, length = 18, precision = 0)
-    public String getIdcardNum() {
-        return idcardNum;
-    }
-
-    public void setIdcardNum(String idcardNum) {
-        this.idcardNum = idcardNum;
-    }
-
-    @Basic
-    @Column(name = "birthdate", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
-    public Date getBirthdate() {
-        return birthdate;
-    }
-
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-
-
-    @Basic
-    @Column(name = "gender", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
-    public boolean isGender() {
-        return gender;
-    }
-
-    public void setGender(boolean gender) {
-        this.gender = gender;
-    }
-
-    @Basic
-    @Column(name = "idcard_path", nullable = true, insertable = true, updatable = true, length = 45, precision = 0)
-    public String getIdcardPath() {
-        return idcardPath;
-    }
-
-    public void setIdcardPath(String idcardPath) {
-        this.idcardPath = idcardPath;
-    }
-
-    @Basic
-    @Column(name = "photo_path", nullable = true, insertable = true, updatable = true, length = 45, precision = 0)
-    public String getPhotoPath() {
-        return photoPath;
-    }
-
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
-    }
-
-    @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Basic
-    @Column(name = "ethinic", nullable = true, insertable = true, updatable = true, length = 12, precision = 0)
-    public String getEthinic() {
-        return ethinic;
-    }
-
-    public void setEthinic(String ethinic) {
-        this.ethinic = ethinic;
-    }
-
-    @Basic
-    @Column(name = "partisan", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getPartisan() {
-        return partisan;
-    }
-
-    public void setPartisan(String partisan) {
-        this.partisan = partisan;
-    }
-
-    @Basic
-    @Column(name = "join_party_date", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
-    public Date getJoinPartyDate() {
-        return joinPartyDate;
-    }
-
-    public void setJoinPartyDate(Date partyDate) {
-        this.joinPartyDate = partyDate;
-    }
-
-    @Basic
-    @Column(name = "hometown", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
-    public String getHometown() {
-        return hometown;
-    }
-
-    public void setHometown(String hometown) {
-        this.hometown = hometown;
-    }
-
-    @Basic
-    @Column(name = "postalcode", nullable = true, insertable = true, updatable = true, length = 6, precision = 0)
-    public String getPostalcode() {
-        return postalcode;
-    }
-
-    public void setPostalcode(String postalcode) {
-        this.postalcode = postalcode;
-    }
-
-    @Basic
-    @Column(name = "mobile", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    @Basic
-    @Column(name = "phone", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    @Basic
-    @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 45, precision = 0)
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Basic
-    @Column(name = "qq", nullable = true, insertable = true, updatable = true, length = 12, precision = 0)
-    public String getQq() {
-        return qq;
-    }
-
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
-
-    @Basic
-    @Column(name = "weixin", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getWeixin() {
-        return weixin;
-    }
-
-    public void setWeixin(String weixin) {
-        this.weixin = weixin;
-    }
-
-    @Basic
-    @Column(name = "introduction", nullable = true, insertable = true, updatable = true, length = 500, precision = 0)
-    public String getIntroduction() {
-        return introduction;
-    }
-
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
-
-
-    @Basic
-    @Column(name = "hukou", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getHukou() {
-        return hukou;
-    }
-
-    public void setHukou(String hukou) {
-        this.hukou = hukou;
-    }
-
-    @Basic
-    @Column(name = "hukou_type", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
-    public String getHukouType() {
-        return hukouType;
-    }
-
-    public void setHukouType(String hukouType) {
-        this.hukouType = hukouType;
-    }
-
-    @Basic
-    @Column(name = "hukou_address", nullable = true, insertable = true, updatable = true, length = 50, precision = 0)
-    public String getHukouAddress() {
-        return hukouAddress;
-    }
-
-    public void setHukouAddress(String hukouAddress) {
-        this.hukouAddress = hukouAddress;
-    }
-
-    @Basic
-    @Column(name = "last_degree", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getLastDegree() {
-        return lastDegree;
-    }
-
-    public void setLastDegree(String lastDegree) {
-        this.lastDegree = lastDegree;
-    }
-
-    @Basic
-    @Column(name = "last_school", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getLastSchool() {
-        return lastSchool;
-    }
-
-    public void setLastSchool(String lastSchool) {
-        this.lastSchool = lastSchool;
-    }
-
-    @Basic
-    @Column(name = "last_major", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getLastMajor() {
-        return lastMajor;
-    }
-
-    public void setLastMajor(String lastMajor) {
-        this.lastMajor = lastMajor;
-    }
-
-    @Basic
-    @Column(name = "current_address", nullable = true, insertable = true, updatable = true, length = 50, precision = 0)
-    public String getCurrentAddress() {
-        return currentAddress;
-    }
-
-    public void setCurrentAddress(String currentAddress) {
-        this.currentAddress = currentAddress;
-    }
-
-    @Basic
-    @Column(name = "ec_name", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
-    public String getEmergencyContactName() {
-        return emergencyContactName;
-    }
-
-    public void setEmergencyContactName(String emergencyContactName) {
-        this.emergencyContactName = emergencyContactName;
-    }
-
-    @Basic
-    @Column(name = "ec_phone", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
-    public String getEmergencyContactPhone() {
-        return emergencyContactPhone;
-    }
-
-    public void setEmergencyContactPhone(String emergencyContactPhone) {
-        this.emergencyContactPhone = emergencyContactPhone;
-    }
-
-    @Basic
-    @Column(name = "ec_address", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
-    public String getEmergencyContactAddress() {
-        return emergencyContactAddress;
-    }
-
-    public void setEmergencyContactAddress(String emergencyContactAddress) {
-        this.emergencyContactAddress = emergencyContactAddress;
-    }
-
-    @Basic
-    @Column(name = "sp_name", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
-    public String getSponsorName() {
-        return sponsorName;
-    }
-
-    public void setSponsorName(String sponsorName) {
-        this.sponsorName = sponsorName;
-    }
-
-    @Basic
-    @Column(name = "sp_phone", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
-    public String getSponsorPhone() {
-        return sponsorPhone;
-    }
-
-    public void setSponsorPhone(String sponsorPhone) {
-        this.sponsorPhone = sponsorPhone;
     }
 
     @PreUpdate

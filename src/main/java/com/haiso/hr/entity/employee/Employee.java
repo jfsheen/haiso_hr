@@ -1,6 +1,11 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
+
+import com.haiso.hr.entity.Department;
+import com.haiso.hr.entity.Position;
+import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by ff on 4/15/14.
@@ -13,17 +18,16 @@ public class Employee {
     //private int id;
     private String emplSn;
     private String name;
-    private Department department;
-    private Position position;
     private String introduction;
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
     private int version;
-
+    private Set<Department> departmentSet;
+    private Set<Position> positionSet;
     private Person person;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "person_id", nullable = false, insertable = true, updatable = true)
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "person_id", nullable = false)
     public Person getPerson() {
         return person;
     }
@@ -31,6 +35,27 @@ public class Employee {
     public void setPerson(Person person) {
         this.person = person;
     }
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "empl_dept", joinColumns = {})
+    public Set<Department> getDepartmentSet() {
+        return departmentSet;
+    }
+
+    public void setDepartmentSet(Set<Department> departmentSet) {
+        this.departmentSet = departmentSet;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "empl_post", joinColumns = {})
+    public Set<Position> getPositionSet() {
+        return positionSet;
+    }
+
+    public void setPositionSet(Set<Position> positionSet) {
+        this.positionSet = positionSet;
+    }
+
 
     @Version
     @Column(name = "version_lock", length = 10)

@@ -173,7 +173,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonCertificate.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.Certificate.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)
@@ -268,7 +268,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonCertificate.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.Certificate.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)
@@ -363,7 +363,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonCertificate.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.Certificate.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)
@@ -458,7 +458,7 @@ Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Un
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1571)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1509)
 	... 51 more
-Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.PersonWorkExperience.person
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @ManyToOne property: com.haiso.hr.entity.person.WorkExperience.person
 	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:1709)
 	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:895)
 	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:728)

@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.employee;
 
 import javax.persistence.*;
 
@@ -7,12 +7,13 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "t_empl_pos_tx")
-public class EmplPostTransaction {
+public class PostTransaction {
     private int id;
     private String status;
     private String remark;
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public int getId() {
         return id;
@@ -47,7 +48,7 @@ public class EmplPostTransaction {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EmplPostTransaction that = (EmplPostTransaction) o;
+        PostTransaction that = (PostTransaction) o;
 
         if (id != that.id) return false;
         if (remark != null ? !remark.equals(that.remark) : that.remark != null) return false;
