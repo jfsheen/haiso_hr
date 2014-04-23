@@ -37,7 +37,7 @@ public class Employee {
     }
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "empl_dept", joinColumns = {})
+    @JoinTable(name = "empl_dept")
     public Set<Department> getDepartmentSet() {
         return departmentSet;
     }
@@ -47,7 +47,7 @@ public class Employee {
     }
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "empl_post", joinColumns = {})
+    @JoinTable(name = "empl_post")
     public Set<Position> getPositionSet() {
         return positionSet;
     }
