@@ -15,7 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name = "t_department")
 public class Department {
-    private int id;
+    //private int id;
     private String deptSn;
     private String name;
     private String duty;
@@ -124,8 +124,8 @@ public class Department {
         this.duty = duty;
     }
 
-    @Basic
-    @Column(name = "leaddept_sn", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @OneToMany(mappedBy = "dept_sn")
+    @JoinColumn(name = "leaddept_sn", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getLeadDeptSn() {
         return leadDeptSn;
     }
@@ -135,17 +135,18 @@ public class Department {
     }
 
 
+    //@Id
+    //@Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+   // public int getId() {
+      //  return id;
+   // }
+
+  //  public void setId(int id) {
+     //   this.id = id;
+    //}
+
     @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Basic
+@ManyToOne
     @Column(name = "dept_sn", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getDeptSn() {
         return deptSn;
@@ -155,7 +156,7 @@ public class Department {
         this.deptSn = orgSn;
     }
 
-    @Basic
+    
     @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 50, precision = 0)
     public String getName() {
         return name;
@@ -165,7 +166,7 @@ public class Department {
         this.name = name;
     }
 
-    @Basic
+    
     @Column(name = "description", nullable = true, insertable = true, updatable = true, length = 500, precision = 0)
     public String getDescription() {
         return description;
