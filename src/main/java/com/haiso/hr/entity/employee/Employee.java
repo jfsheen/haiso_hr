@@ -5,6 +5,7 @@ import com.haiso.hr.entity.Position;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,8 +23,8 @@ public class Employee {
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
     private int version;
-    private Set<Department> departmentSet;
-    private Set<Position> positionSet;
+    private Set<Department> departmentSet = new HashSet<Department>();
+    private Set<Position> positionSet = new HashSet<Position>();
     private Person person;
 
     @OneToOne(cascade = CascadeType.ALL, optional = false)

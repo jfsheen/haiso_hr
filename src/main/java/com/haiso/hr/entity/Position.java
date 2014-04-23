@@ -5,6 +5,7 @@ import com.haiso.hr.utils.SnGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -21,7 +22,6 @@ public class Position {
     private byte amountLimit;
     private String postDuty;
     private String remark;
-
     private Date lastUpdate;
     private Date createDate;
     private int version;
@@ -94,7 +94,7 @@ public class Position {
     }
 
     private Department department;
-    private Set<Employee> employeeSet;
+    private Set<Employee> employeeSet = new HashSet<Employee>();
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "dept_sn", nullable = false)

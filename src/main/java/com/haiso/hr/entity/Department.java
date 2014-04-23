@@ -5,6 +5,7 @@ import com.haiso.hr.utils.SnGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,8 +24,8 @@ public class Department {
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
     private int version;
-    private Set<Employee> employeeSet;
-    private Set<Position> positionSet;
+    private Set<Employee> employeeSet = new HashSet<Employee>();
+    private Set<Position> positionSet = new HashSet<Position>();
 
     @OneToMany(mappedBy = "department")
     public Set<Position> getPositionSet() {
