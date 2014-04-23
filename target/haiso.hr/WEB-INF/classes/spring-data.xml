@@ -2,12 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
-       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -26,10 +24,10 @@
     </bean>-->
     <!-- 配置 DBCP 数据源 -->
     <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="${jdbc.driverClassName}" />
-        <property name="url" value="${jdbc.url}" />
-        <property name="username" value="${jdbc.username}" />
-        <property name="password" value="${jdbc.password}" />
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
     <!-- 配置 c3p0 数据源
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
@@ -47,16 +45,16 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="generateDdl" value="true" />
-                <property name="showSql" value="true" />
+                <property name="generateDdl" value="true"/>
+                <property name="showSql" value="true"/>
                 <property name="database" value="MYSQL"/>
             </bean>
         </property>
         <property name="jpaPropertyMap">
             <map>
-                <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-                <entry key="hibernate.hbm2ddl.auto" value="update" />
-                <entry key="hibernate.format_sql" value="true" />
+                <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+                <entry key="hibernate.hbm2ddl.auto" value="update"/>
+                <entry key="hibernate.format_sql" value="true"/>
             </map>
         </property>
         <!--
@@ -101,20 +99,20 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
         <property name="jpaDialect">
-            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
         </property>
     </bean>
 
     <!-- User declarative transaction management -->
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- This will ensure that Hibernate or JPA exceptions are automatically
         translated into Spring's generic DataAccessException hierarchy for those
         classes annotated with Repository. -->
-    <bean  class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
     <!-- Activate Spring Data JPA repository support -->
-    <jpa:repositories base-package="com.haiso.hr.dao" />
+    <jpa:repositories base-package="com.haiso.hr.dao"/>
 
 </beans>
         <!--==============================不使用 Spring data JPA ==================================================-->
@@ -150,7 +148,6 @@
 
         <!-- 开启注解事务 只对当前配置文件有效
         <tx:annotation-driven transaction-manager="txManager"/>-->
-
 
 
         <!-- 定义事务规则
