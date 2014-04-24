@@ -2032,7 +2032,7 @@
     </table>
   </data-source>
   <data-source source="LOCAL" name="MySQL - haisodb0403@localhost" uuid="749492bc-5952-49cc-90ca-0a817b3285eb">
-    <database-info product="MySQL" version="5.5.35-0ubuntu0.12.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
+    <database-info product="MySQL" version="5.5.37-0ubuntu0.12.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>

@@ -8,5 +8,5 @@ import com.haiso.hr.entity.person.Person;
 public interface PersonService {
     public void addPerson(Person person);
 
-    public Person getPerson(int id);
+    public Person getPerson(long id);
 }

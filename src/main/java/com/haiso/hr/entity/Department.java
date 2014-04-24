@@ -15,7 +15,8 @@ import java.util.Set;
 @Entity
 @Table(name = "t_department")
 public class Department {
-    //private int id;
+
+//    private int id;
     private String deptSn;
     private String name;
     private String duty;
@@ -36,7 +37,7 @@ public class Department {
         this.positionSet = positionSet;
     }
 
-    @ManyToMany(mappedBy = "dempartmentSet")
+    @ManyToMany(mappedBy = "departmentSet")
     public Set<Employee> getEmployeeSet() {
         return employeeSet;
     }
@@ -124,8 +125,7 @@ public class Department {
         this.duty = duty;
     }
 
-    @OneToMany(mappedBy = "dept_sn")
-    @JoinColumn(name = "leaddept_sn", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "leaddept_sn", nullable = false, insertable = true, updatable = true, length = 20)
     public String getLeadDeptSn() {
         return leadDeptSn;
     }
@@ -135,18 +135,16 @@ public class Department {
     }
 
 
-    //@Id
-    //@Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-   // public int getId() {
-      //  return id;
-   // }
-
-  //  public void setId(int id) {
-     //   this.id = id;
-    //}
+//    @Id
+//    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+//   public int getId() {
+//        return id;
+//   }
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     @Id
-@ManyToOne
     @Column(name = "dept_sn", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getDeptSn() {
         return deptSn;

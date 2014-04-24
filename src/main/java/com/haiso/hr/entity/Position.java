@@ -26,7 +26,7 @@ public class Position {
     private Date createDate;
     private int version;
 
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
+    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
     public Date getLastUpdate() {
         return lastUpdate;
@@ -46,7 +46,7 @@ public class Position {
         this.version = version;
     }
 
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
+    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
     public Date getCreateDate() {
         return createDate;
@@ -55,6 +55,91 @@ public class Position {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+
+    private Department department;
+    private Set<Employee> employeeSet = new HashSet<Employee>();
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "dept_sn", nullable = false)
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    @ManyToMany(mappedBy = "positionSet")
+    public Set<Employee> getEmployeeSet() {
+        return employeeSet;
+    }
+
+    public void setEmployeeSet(Set<Employee> employeeSet) {
+        this.employeeSet = employeeSet;
+    }
+
+    @Id
+    @Column(name = "position_sn", nullable = false, insertable = true, updatable = true, length = 20)
+    public String getPositionSn() {
+        return positionSn;
+    }
+
+    public void setPositionSn(String positionSn) {
+        this.positionSn = positionSn;
+    }
+
+    @Basic
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 20)
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String name) {
+        this.title = name;
+    }
+
+    @Basic
+    @Column(name = "sequence", nullable = false, insertable = true, updatable = true, length = 20)
+    public String getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(String sequence) {
+        this.sequence = sequence;
+    }
+
+    @Basic
+    @Column(name = "amount_limit", nullable = false, insertable = true, updatable = true, length = 3)
+    public byte getAmountLimit() {
+        return amountLimit;
+    }
+
+    public void setAmountLimit(byte amountLimit) {
+        this.amountLimit = amountLimit;
+    }
+
+    @Basic
+    @Column(name = "duty", nullable = true, insertable = true, updatable = true, length = 500)
+    public String getPostDuty() {
+        return postDuty;
+    }
+
+    public void setPostDuty(String duty) {
+        this.postDuty = duty;
+    }
+
+    @Basic
+    @Column(name = "remark", nullable = true, insertable = true, updatable = true, length = 500)
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+
 
     @PreUpdate
     public void preUpdate() {
@@ -92,94 +177,11 @@ public class Position {
     public void postUpdate() {
 
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-    private Department department;
-    private Set<Employee> employeeSet = new HashSet<Employee>();
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_sn", nullable = false)
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    @ManyToMany(mappedBy = "positionSet")
-    public Set<Employee> getEmployeeSet() {
-        return employeeSet;
-    }
-
-    public void setEmployeeSet(Set<Employee> employeeSet) {
-        this.employeeSet = employeeSet;
-    }
-
-    @Id
-    @Column(name = "position_sn", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getPositionSn() {
-        return positionSn;
-    }
-
-    public void setPositionSn(String positionSn) {
-        this.positionSn = positionSn;
-    }
-
-    @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String name) {
-        this.title = name;
-    }
-
-    @Basic
-    @Column(name = "sequence", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getSequence() {
-        return sequence;
-    }
-
-    public void setSequence(String sequence) {
-        this.sequence = sequence;
-    }
-
-    @Basic
-    @Column(name = "amount_limit", nullable = false, insertable = true, updatable = true, length = 3, precision = 0)
-    public byte getAmountLimit() {
-        return amountLimit;
-    }
-
-    public void setAmountLimit(byte amountLimit) {
-        this.amountLimit = amountLimit;
-    }
-
-    @Basic
-    @Column(name = "duty", nullable = true, insertable = true, updatable = true, length = 500, precision = 0)
-    public String getPostDuty() {
-        return postDuty;
-    }
-
-    public void setPostDuty(String duty) {
-        this.postDuty = duty;
-    }
-
-    @Basic
-    @Column(name = "remark", nullable = true, insertable = true, updatable = true, length = 500, precision = 0)
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
 //        Position position = (Position) o;
 //
 //        if (amountLimit != position.amountLimit) return false;
@@ -190,18 +192,17 @@ public class Position {
 //        if (remark != null ? !remark.equals(position.remark) : position.remark != null) return false;
 //        if (sequence != null ? !sequence.equals(position.sequence) : position.sequence != null) return false;
 //
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = id;
-//        result = 31 * result + (positionSn != null ? positionSn.hashCode() : 0);
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (positionSn != null ? positionSn.hashCode() : 0);
 //        result = 31 * result + (name != null ? name.hashCode() : 0);
 //        result = 31 * result + (sequence != null ? sequence.hashCode() : 0);
 //        result = 31 * result + (int) amountLimit;
 //        result = 31 * result + (postDuty != null ? postDuty.hashCode() : 0);
 //        result = 31 * result + (remark != null ? remark.hashCode() : 0);
-//        return result;
-//    }
+        return result;
+    }
 }

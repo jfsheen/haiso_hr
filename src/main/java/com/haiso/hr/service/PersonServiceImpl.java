@@ -24,7 +24,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person getPerson(int id) {
+    public Person getPerson(long id) {
         Person p = (Person) personDao.findOne(id);
         return p;
     }

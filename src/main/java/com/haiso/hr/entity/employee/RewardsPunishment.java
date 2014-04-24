@@ -8,7 +8,7 @@ import java.sql.Date;
  * 个人奖惩记录表
  */
 @Entity
-@Table(name = "t_prsn_rwpns")
+@Table(name = "t_empl_rwpns")
 public class RewardsPunishment {
     private int id;
     private String school;
