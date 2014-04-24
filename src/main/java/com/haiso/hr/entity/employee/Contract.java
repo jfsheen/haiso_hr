@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.employee;
 
+import com.haiso.hr.entity.person.Person;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -19,19 +21,31 @@ public class Contract {
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
     private int version;
-
-    private Employee employee;
+    private Person person;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "empl_sn", nullable = false, insertable = true, updatable = false)
-    public Employee getEmployee() {
-        return employee;
+    @JoinColumn(name = "person_id", nullable = false, updatable = false)
+    public Person getPerson() {
+        return person;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
+    //
+//    private Employee employee;
+//
+//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "empl_sn", nullable = false, insertable = true, updatable = false)
+//    public Employee getEmployee() {
+//        return employee;
+//    }
+//
+//    public void setEmployee(Employee employee) {
+//        this.employee = employee;
+//    }
+//
     @Version
     @Column(name = "version_lock", length = 10)
     public int getVersion() {
@@ -42,7 +56,6 @@ public class Contract {
         this.version = version;
     }
 
-    @Basic
     @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
     @Temporal(TemporalType.TIMESTAMP)
     public java.util.Date getCreateDate() {
@@ -53,7 +66,6 @@ public class Contract {
         this.createDate = createDate;
     }
 
-    @Basic
     @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
     @Temporal(TemporalType.TIMESTAMP)
     public java.util.Date getLastUpdate() {
@@ -111,7 +123,6 @@ public class Contract {
         this.id = id;
     }
 
-    @Basic
     @Column(name = "contract_sn", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
     public String getContractSn() {
         return contractSn;
@@ -121,7 +132,6 @@ public class Contract {
         this.contractSn = contractSn;
     }
 
-    @Basic
     @Column(name = "contract_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getContractDate() {
         return contractDate;
@@ -131,7 +141,6 @@ public class Contract {
         this.contractDate = contractDate;
     }
 
-    @Basic
     @Column(name = "expiry_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getExpiryDate() {
         return expiryDate;
@@ -141,7 +150,6 @@ public class Contract {
         this.expiryDate = expiryDate;
     }
 
-    @Basic
     @Column(name = "location", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
     public String getLocation() {
         return location;
@@ -151,7 +159,6 @@ public class Contract {
         this.location = location;
     }
 
-    @Basic
     @Column(name = "remark", nullable = true, insertable = true, updatable = true, length = 100, precision = 0)
     public String getRemark() {
         return remark;

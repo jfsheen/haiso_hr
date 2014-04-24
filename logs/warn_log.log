@@ -1,4 +1,4 @@
-[LOG] 2014-04-24 09:52:33,840 - org.springframework.test.context.TestContextManager -5147 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@24e4af4d] to prepare test instance [com.haiso.hr.service.AddPersonTest@21b0fb27]
+[LOG] 2014-04-24 09:52:33,840 - org.springframework.test.context.TestContextManager -5147 [main] ERROR org.springframework.test.context.TestContextManager  - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@24e4af4d] to prepare test instance [com.haiso.hr.service.AddTest@21b0fb27]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99)
 	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122)
@@ -83,3 +83,11 @@ Caused by: org.hibernate.AnnotationException: mappedBy reference an unknown targ
 [LOG] 2014-04-24 10:00:45,650 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7228 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Incorrect column specifier for column 'id'
 [LOG] 2014-04-24 10:04:48,772 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7049 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: create table t_prsn_info (id varchar(255) not null auto_increment, primary key (id)) ENGINE=InnoDB
 [LOG] 2014-04-24 10:04:48,773 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7050 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Incorrect column specifier for column 'id'
+[LOG] 2014-04-24 16:33:34,295 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8080 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1048, SQLState: 23000
+[LOG] 2014-04-24 16:33:34,296 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8081 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'level' cannot be null
+[LOG] 2014-04-24 16:34:59,815 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8323 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1048, SQLState: 23000
+[LOG] 2014-04-24 16:34:59,816 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8324 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'level' cannot be null
+[LOG] 2014-04-24 16:35:46,726 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9093 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1048, SQLState: 23000
+[LOG] 2014-04-24 16:35:46,727 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -9094 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Column 'name' cannot be null
+[LOG] 2014-04-24 16:38:13,368 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8420 [main] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - SQL Error: 1364, SQLState: HY000
+[LOG] 2014-04-24 16:38:13,369 - org.hibernate.engine.jdbc.spi.SqlExceptionHelper -8421 [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper  - Field 'name' doesn't have a default value

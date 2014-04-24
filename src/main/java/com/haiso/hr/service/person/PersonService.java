@@ -1,4 +1,4 @@
-package com.haiso.hr.service;
+package com.haiso.hr.service.person;
 
 import com.haiso.hr.entity.person.Person;
 

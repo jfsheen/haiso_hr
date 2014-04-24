@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL - dbhaiso@localhost" uuid="a3b3c28a-6ca1-4d75-8f3c-b8cbcdd576ca">
-    <database-info product="MySQL" version="5.5.35-0ubuntu0.12.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
+    <database-info product="MySQL" version="5.5.37-0ubuntu0.12.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -596,30 +596,35 @@
       <column name="subsidy" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="custom_params" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
-      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="description" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
-      <column name="explanation" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
-      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="para_key" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
-      <column name="para_value" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
+    <table name="empl_dept" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="employeeSet_empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="departmentSet_dept_sn" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="employeeSet_empl_sn,departmentSet_dept_sn"/>
+      <foreign-key name="FK_agndtep97uqarnwiprlni1agy" columns="departmentSet_dept_sn" ref-table="t_department" ref-schema="" ref-catalog="haisodb0418" ref-columns="dept_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_ny3hkbm5vlkw677ff7hxscphm" columns="employeeSet_empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
-    <table name="params" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="DTYPE" sqlType="VARCHAR" length="31" precision="0" nullable="false" jdbcType="12"/>
-      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
-      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="description" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
-      <column name="explanation" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
-      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="para_key" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
-      <column name="para_value" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
+    <table name="empl_post" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="employeeSet_empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="positionSet_position_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="employeeSet_empl_sn,positionSet_position_sn"/>
+      <foreign-key name="FK_kvltefnwu4ynmci8b2j87ooj" columns="positionSet_position_sn" ref-table="t_position" ref-schema="" ref-catalog="haisodb0418" ref-columns="position_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_r5ovwb3769uayv41hh0gg22hl" columns="employeeSet_empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
-    <table name="t_empl_appra" schema="" catalog="haisodb0418" type="TABLE">
+    <table name="t_department" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="dept_sn" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="description" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="duty" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
+      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="leaddept_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="dept_sn"/>
+      <exported-key name="FK_agndtep97uqarnwiprlni1agy" table="empl_dept" schema="" catalog="haisodb0418" columns="departmentSet_dept_sn"/>
+      <exported-key name="FK_ojm8l7vw3ulwnpk1x343amqqj" table="t_employee_t_department" schema="" catalog="haisodb0418" columns="departmentSet_dept_sn"/>
+      <exported-key name="FK_qbcai8em252q5n87b8q4eipho" table="t_position" schema="" catalog="haisodb0418" columns="dept_sn"/>
+    </table>
+    <table name="t_empl_assess" schema="" catalog="haisodb0418" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="comment" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="conclusion" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
@@ -634,14 +639,14 @@
       <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_nvtb8ieuhy4qdrj0ujqhgb8id" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_rdr7yomvin462gk4pa04q7rvh" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="t_empl_bankinfo" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="acc_bank" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
-      <column name="acc_owner" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
-      <column name="bankcard_num" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
-      <column name="cardpic_path" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="acc_bank" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="acc_owner" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="bankcard_num" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="cardpic_path" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
       <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
@@ -665,13 +670,68 @@
       <foreign-key name="FK_ny54ha7j0ucbgd8mhurt76qnk" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="t_empl_pos_tx" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="remark" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
       <column name="status" sqlType="VARCHAR" length="45" precision="0" nullable="true" jdbcType="12"/>
+      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_rqvnx239tu2imgc1mhmnaia1k" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="t_empl_rwpns" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="degree" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="end_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="major" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="qualify" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="school" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
+      <column name="start_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_laie47ghx4ygg2b1b9re06rji" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="t_empl_salary" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="cost_rent" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="dues_union" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="fee_electric" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="fee_gas" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="fee_property" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="fee_water" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="fund_house" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="insu_lqmed" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="insu_medical" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="insu_pension" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="insu_unempl" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="tax_income" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="tax_stamp" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="allo_child" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="allo_duty" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="allo_educate" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="allo_health" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="allo_meal" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="bonus" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="fee_coultant" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="pay_attendance" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="pay_callback" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="pay_merit" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="pay_post" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="pay_regular" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="pay_seniority" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="pay_watcher" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="perquisite" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="subs_rent" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="subsidy" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="period_end" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="period_start" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="person_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_q38ewx6edufweu39hxy1ing6m" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="t_empl_salary_adjust" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="amount" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="remark" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="time_adjust" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
@@ -681,7 +741,7 @@
       <foreign-key name="FK_rab1v8wr4nf10sdgwsr27dh6b" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="t_empl_salary_info" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="by_piece" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="by_time" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
       <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
@@ -705,58 +765,111 @@
       <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="name" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
       <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="person_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="person_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="empl_sn"/>
       <foreign-key name="FK_pae93txu2fenecdbm4kl1k7iw" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_nvtb8ieuhy4qdrj0ujqhgb8id" table="t_empl_appra" schema="" catalog="haisodb0418" columns="empl_sn"/>
+      <exported-key name="FK_ny3hkbm5vlkw677ff7hxscphm" table="empl_dept" schema="" catalog="haisodb0418" columns="employeeSet_empl_sn"/>
+      <exported-key name="FK_r5ovwb3769uayv41hh0gg22hl" table="empl_post" schema="" catalog="haisodb0418" columns="employeeSet_empl_sn"/>
+      <exported-key name="FK_rdr7yomvin462gk4pa04q7rvh" table="t_empl_assess" schema="" catalog="haisodb0418" columns="empl_sn"/>
       <exported-key name="FK_hj8foms78sjr8d4vy24ryw0hx" table="t_empl_bankinfo" schema="" catalog="haisodb0418" columns="empl_sn"/>
       <exported-key name="FK_ny54ha7j0ucbgd8mhurt76qnk" table="t_empl_contract" schema="" catalog="haisodb0418" columns="empl_sn"/>
+      <exported-key name="FK_rqvnx239tu2imgc1mhmnaia1k" table="t_empl_pos_tx" schema="" catalog="haisodb0418" columns="empl_sn"/>
+      <exported-key name="FK_laie47ghx4ygg2b1b9re06rji" table="t_empl_rwpns" schema="" catalog="haisodb0418" columns="empl_sn"/>
       <exported-key name="FK_rab1v8wr4nf10sdgwsr27dh6b" table="t_empl_salary_adjust" schema="" catalog="haisodb0418" columns="empl_sn"/>
       <exported-key name="FK_nu04nciu2vr3nw0jtpdsu5wh3" table="t_empl_salary_info" schema="" catalog="haisodb0418" columns="empl_sn"/>
+      <exported-key name="FK_aifnpj3i0n0wniynwb180o5yd" table="t_employee_t_department" schema="" catalog="haisodb0418" columns="employeeSet_empl_sn"/>
+      <exported-key name="FK_8pukorsy3ktyrkmj81ndptygm" table="t_employee_t_position" schema="" catalog="haisodb0418" columns="employeeSet_empl_sn"/>
+      <exported-key name="FK_25t40xu9octe8q2muiwkidupi" table="t_event" schema="" catalog="haisodb0418" columns="event_manager"/>
+      <exported-key name="FK_4oqt2bot9om7ci3391jbjv0xk" table="t_event" schema="" catalog="haisodb0418" columns="com_leader"/>
+      <exported-key name="FK_db5hrm5edlrwgc1teu8g2nh9e" table="t_event" schema="" catalog="haisodb0418" columns="dept_leader"/>
+      <exported-key name="FK_fnw953imcr753iae18tihogaj" table="t_event" schema="" catalog="haisodb0418" columns="empl_sn"/>
+      <exported-key name="FK_q692t70b38d3n2a6vm80b5b2a" table="t_event" schema="" catalog="haisodb0418" columns="hr_leader"/>
       <exported-key name="FK_4qrwmafb936nmyujahxys8aqc" table="t_prsn_rwpns" schema="" catalog="haisodb0418" columns="empl_sn"/>
       <index name="UK_pae93txu2fenecdbm4kl1k7iw" unique="true" columns="person_id"/>
+    </table>
+    <table name="t_employee_t_department" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="employeeSet_empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="departmentSet_dept_sn" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="employeeSet_empl_sn,departmentSet_dept_sn"/>
+      <foreign-key name="FK_aifnpj3i0n0wniynwb180o5yd" columns="employeeSet_empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_ojm8l7vw3ulwnpk1x343amqqj" columns="departmentSet_dept_sn" ref-table="t_department" ref-schema="" ref-catalog="haisodb0418" ref-columns="dept_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="t_employee_t_position" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="employeeSet_empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="positionSet_position_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="employeeSet_empl_sn,positionSet_position_sn"/>
+      <foreign-key name="FK_8pukorsy3ktyrkmj81ndptygm" columns="employeeSet_empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_ddvf4h799cyf1xn0sfv0js11a" columns="positionSet_position_sn" ref-table="t_position" ref-schema="" ref-catalog="haisodb0418" ref-columns="position_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="t_event" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="com_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="com_opinion" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="date_end" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="date_start" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="dept_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="dept_opinion" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="hr_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="hr_opinion" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="com_leader" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="dept_leader" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="hr_leader" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="event_manager" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_25t40xu9octe8q2muiwkidupi" columns="event_manager" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_4oqt2bot9om7ci3391jbjv0xk" columns="com_leader" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_db5hrm5edlrwgc1teu8g2nh9e" columns="dept_leader" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_fnw953imcr753iae18tihogaj" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_q692t70b38d3n2a6vm80b5b2a" columns="hr_leader" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="t_log" schema="" catalog="haisodb0418" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="action" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="manager" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
       <column name="row_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="rows_affected" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="table_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
-      <column name="time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="t_organization" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="dept_sn" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
-      <column name="description" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
-      <column name="duty" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
-      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="leaddept_sn" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
-      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="t_person" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="birthdate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+    <table name="t_param" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="DTYPE" sqlType="VARCHAR" length="31" precision="0" nullable="false" jdbcType="12"/>
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="current_address" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="default_value" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="explanation" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="para_key" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="para_value" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="seq" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="t_person" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="email" sqlType="VARCHAR" length="45" precision="0" nullable="true" jdbcType="12"/>
       <column name="ec_address" sqlType="VARCHAR" length="1" precision="0" nullable="true" jdbcType="12"/>
       <column name="ec_name" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
       <column name="ec_phone" sqlType="VARCHAR" length="16" precision="0" nullable="true" jdbcType="12"/>
-      <column name="ethinic" sqlType="VARCHAR" length="12" precision="0" nullable="true" jdbcType="12"/>
-      <column name="gender" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6"/>
       <column name="hometown" sqlType="VARCHAR" length="16" precision="0" nullable="true" jdbcType="12"/>
-      <column name="hukou" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
-      <column name="hukou_address" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
       <column name="hukou_type" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
-      <column name="idcard_num" sqlType="VARCHAR" length="18" precision="0" nullable="false" jdbcType="12"/>
-      <column name="idcard_path" sqlType="VARCHAR" length="45" precision="0" nullable="true" jdbcType="12"/>
+      <column name="idcard_ethnic" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="idcard_gender" sqlType="TINYINT" length="3" precision="0" nullable="true" jdbcType="-6"/>
+      <column name="idcard_address" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="idcard_num" sqlType="VARCHAR" length="18" precision="0" nullable="true" jdbcType="12"/>
+      <column name="idcard_path" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="idcard_name" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="issue_auth" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="valid_start" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="valid_until" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
       <column name="introduction" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
-      <column name="join_party_date" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="join_party_date" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
       <column name="last_degree" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
       <column name="last_major" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
       <column name="last_school" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
@@ -766,28 +879,36 @@
       <column name="partisan" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
       <column name="phone" sqlType="VARCHAR" length="16" precision="0" nullable="true" jdbcType="12"/>
       <column name="photo_path" sqlType="VARCHAR" length="45" precision="0" nullable="true" jdbcType="12"/>
-      <column name="postalcode" sqlType="VARCHAR" length="6" precision="0" nullable="true" jdbcType="12"/>
+      <column name="postal_code" sqlType="VARCHAR" length="6" precision="0" nullable="true" jdbcType="12"/>
       <column name="qq" sqlType="VARCHAR" length="12" precision="0" nullable="true" jdbcType="12"/>
+      <column name="resi_address" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
       <column name="sp_name" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
       <column name="sp_phone" sqlType="VARCHAR" length="1" precision="0" nullable="true" jdbcType="12"/>
       <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="weixin" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_q38ewx6edufweu39hxy1ing6m" table="t_empl_salary" schema="" catalog="haisodb0418" columns="person_id"/>
       <exported-key name="FK_pae93txu2fenecdbm4kl1k7iw" table="t_employee" schema="" catalog="haisodb0418" columns="person_id"/>
       <exported-key name="FK_eh08c8g7jamqoc0f82c28e1kw" table="t_prsn_crtf" schema="" catalog="haisodb0418" columns="person_id"/>
       <exported-key name="FK_o9nr7kkifltui35qxnmpmrlau" table="t_prsn_edu" schema="" catalog="haisodb0418" columns="person_id"/>
-      <exported-key name="FK_c7tua44b5x9rvwdola50qa9lp" table="t_prsn_sclrltn" schema="" catalog="haisodb0418" columns="person_id"/>
-      <exported-key name="FK_jvol4826lq53eh1p8buqa0eyd" table="t_prsn_workexp" schema="" catalog="haisodb0418" columns="person_id"/>
+      <exported-key name="FK_l5x3er82asx2lrq7ouadgn95o" table="t_prsn_sclrlt" schema="" catalog="haisodb0418" columns="person_id"/>
+      <exported-key name="FK_5rkx5xc773wqoh9k0ab1yeah6" table="t_prsn_wrkexp" schema="" catalog="haisodb0418" columns="person_id"/>
     </table>
     <table name="t_position" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="amount_limit" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
-      <column name="duty" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
-      <column name="name" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
       <column name="position_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="amount_limit" sqlType="TINYINT" length="3" precision="0" nullable="false" jdbcType="-6"/>
+      <column name="create_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="last_update" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="duty" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
       <column name="remark" sqlType="VARCHAR" length="500" precision="0" nullable="true" jdbcType="12"/>
       <column name="sequence" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
+      <column name="name" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="version_lock" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="dept_sn" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="position_sn"/>
+      <foreign-key name="FK_qbcai8em252q5n87b8q4eipho" columns="dept_sn" ref-table="t_department" ref-schema="" ref-catalog="haisodb0418" ref-columns="dept_sn" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_kvltefnwu4ynmci8b2j87ooj" table="empl_post" schema="" catalog="haisodb0418" columns="positionSet_position_sn"/>
+      <exported-key name="FK_ddvf4h799cyf1xn0sfv0js11a" table="t_employee_t_position" schema="" catalog="haisodb0418" columns="positionSet_position_sn"/>
     </table>
     <table name="t_prsn_crtf" schema="" catalog="haisodb0418" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
@@ -797,7 +918,7 @@
       <column name="name" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
       <column name="obtain_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="crtf_sn" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
-      <column name="person_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="person_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="FK_eh08c8g7jamqoc0f82c28e1kw" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
@@ -809,12 +930,16 @@
       <column name="qualify" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
       <column name="school" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
       <column name="start_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="person_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="person_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="FK_o9nr7kkifltui35qxnmpmrlau" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
+    <table name="t_prsn_info" schema="" catalog="haisodb0418" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
     <table name="t_prsn_rwpns" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="degree" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
       <column name="end_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="major" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
@@ -825,7 +950,7 @@
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="FK_4qrwmafb936nmyujahxys8aqc" columns="empl_sn" ref-table="t_employee" ref-schema="" ref-catalog="haisodb0418" ref-columns="empl_sn" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
-    <table name="t_prsn_sclrltn" schema="" catalog="haisodb0418" type="TABLE">
+    <table name="t_prsn_sclrlt" schema="" catalog="haisodb0418" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="age" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="company" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
@@ -833,11 +958,11 @@
       <column name="phone" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="post" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="relation" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
-      <column name="person_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="person_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_c7tua44b5x9rvwdola50qa9lp" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_l5x3er82asx2lrq7ouadgn95o" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
-    <table name="t_prsn_workexp" schema="" catalog="haisodb0418" type="TABLE">
+    <table name="t_prsn_wrkexp" schema="" catalog="haisodb0418" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="com_address" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
       <column name="com_email" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
@@ -847,51 +972,9 @@
       <column name="end_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="position" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
       <column name="start_date" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="person_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="person_id" sqlType="BIGINT" length="19" precision="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_jvol4826lq53eh1p8buqa0eyd" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
-    <table name="t_salary_deduct" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="cost_rent" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="dues_union" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
-      <column name="fee_electric" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="fee_gas" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="fee_property" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="fee_water" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="fund_house" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="insu_lqmed" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="insu_medical" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="insu_pension" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="insu_unempl" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="lastupdate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="tax_income" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="tax_stamp" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <primary-key name="PRIMARY" columns="id"/>
-    </table>
-    <table name="t_salary_pay" schema="" catalog="haisodb0418" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="allo_child" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="allo_duty" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="allo_educate" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="allo_health" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="allo_meal" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="bonus" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="empl_sn" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
-      <column name="fee_coultant" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="lastupdate" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="pay_attendance" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="pay_callback" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="pay_merit" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="pay_post" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="pay_regular" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="pay_seniority" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="pay_watcher" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="perquisite" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="subs_rent" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <column name="subsidy" sqlType="DECIMAL" length="2" precision="0" nullable="false" jdbcType="3"/>
-      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_5rkx5xc773wqoh9k0ab1yeah6" columns="person_id" ref-table="t_person" ref-schema="" ref-catalog="haisodb0418" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM TABLE">
       <column name="CHARACTER_SET_NAME" sqlType="VARCHAR" length="32" precision="0" nullable="false" jdbcType="12" def="Jyc="/>

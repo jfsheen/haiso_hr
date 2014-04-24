@@ -2,18 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17c2059f-7170-4b4e-9041-a7a42fb9a841" name="Default" comment="20140423">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/EmployeeDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_0_0_GA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_4_3_1_Final.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddPersonTest.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonService.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddParamTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/BasicInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/BasicInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Department.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Department.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Contract.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Contract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplLevel.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplLevel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplSequence.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplSequence.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplStatus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/PersonDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/PersonDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonService.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Position.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Position.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/PostTransaction.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/PostTransaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/RewardsPunishment.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/RewardsPunishment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Event.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Event.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/InsuLocation.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/InsuLocation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Param.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Param.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haiso.iml" afterPath="$PROJECT_DIR$/haiso.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/haiso_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/haiso_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/info_log.log" afterPath="$PROJECT_DIR$/logs/info_log.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/warn_log.log" afterPath="$PROJECT_DIR$/logs/warn_log.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -85,13 +97,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Person.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java">
+      <file leaf-file-name="Employee.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="32" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5070">
+            <state line="61" column="37" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1965">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="33" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0" vertical-offset="656" max-vertical-offset="1305">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/EmployeeDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="16" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Person.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="322" column="81" selection-start="7376" selection-end="7376" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4695">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="17" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmployeeServiceImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="1" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonServiceImpl.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="3" selection-start="327" selection-end="327" vertical-scroll-proportion="0.14900662" vertical-offset="0" max-vertical-offset="604">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="32" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,82 +184,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonServiceImpl.java">
+      <file leaf-file-name="ParamDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/ParamDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="32" selection-start="649" selection-end="649" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="495">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="32" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicInfo.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/BasicInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="24" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Education.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Education.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Certificate.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Certificate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="29" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RewardsPunishment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/RewardsPunishment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="21" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1590">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostTransaction.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/PostTransaction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="30" selection-start="1447" selection-end="1447" vertical-scroll-proportion="2.0379746" vertical-offset="31" max-vertical-offset="2010">
+            <state line="8" column="63" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2199#2200#0" expanded="true" />
-                <element signature="e#2230#2231#0" expanded="true" />
-                <element signature="e#2280#2281#0" expanded="true" />
-                <element signature="e#2320#2321#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="5" selection-start="1578" selection-end="3031" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2535">
-              <folding>
-                <element signature="e#623#635#0" expanded="true" />
-                <element signature="e#690#700#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -204,23 +213,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/DigestTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/EmplRewardsPunishment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/EmplBankinfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/EmplSalaryDeduct.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/EmplSalaryPay.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Employee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/EmplSalaryInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/InsuLocation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplLevel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Parameters.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/PersonBasic.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/PersonCertificate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/PersonCertificate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Certificate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Education.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Contract.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Bankinfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/BankInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/SalaryAdjustment.java" />
@@ -233,19 +231,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/ParamDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/param/ParamService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/param/ParamServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddPersonTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplSequence.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Assessment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Param.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddParamTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/IdCard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/SocialRelationship.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/WorkExperience.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Log.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Leave.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Event.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Position.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Department.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/PersonDao.java" />
@@ -253,8 +244,26 @@
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/BasicInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/RewardsPunishment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/PostTransaction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Contract.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Contract.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Event.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/InsuLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplLevel.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplSequence.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Param.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddParamTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddPersonTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/EmployeeDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/PersonService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -279,29 +288,18 @@
             <id />
           </State>
           <State>
-            <id>Error handling</id>
-          </State>
-          <State>
             <id>General</id>
           </State>
           <State>
-            <id>Internationalization issues</id>
+            <id>J2ME Plugin</id>
           </State>
           <State>
-            <id>JUnit issues</id>
+            <id>Maven</id>
           </State>
           <State>
-            <id>Serialization issues</id>
-          </State>
-          <State>
-            <id>TestNG</id>
+            <id>XPath</id>
           </State>
         </expanded-state>
-        <selected-state>
-          <State>
-            <id>SerializableHasSerialVersionUIDField</id>
-          </State>
-        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -338,6 +336,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -345,297 +345,19 @@
               <option name="myItemId" value="haiso" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="haiso" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="param" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="person" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="employee" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="haiso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -669,25 +391,25 @@
       <recent name="com.haiso.hr.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee" />
       <recent name="$PROJECT_DIR$/../haiso_v0.2" />
       <recent name="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity" />
       <recent name="$PROJECT_DIR$/src/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/com/haiso/hr/Utils" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/haiso/hr/Entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.haiso.hr.entity" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.haiso.hr.entity.employee" />
       <recent name="com.haiso.hr.entity" />
     </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="com.haiso.hr.entity" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/haiso/hr/entity" />
-    </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddPersonTest.testAddPerson">
-    <configuration default="false" name="AddPersonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration default="false" name="AddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.haiso.hr.service.*" />
@@ -698,7 +420,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.haiso.hr.service" />
-      <option name="MAIN_CLASS_NAME" value="com.haiso.hr.service.AddPersonTest" />
+      <option name="MAIN_CLASS_NAME" value="com.haiso.hr.service.AddTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -817,7 +539,7 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="AddPersonTest.testAddPerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="AddTest.testAddPerson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.haiso.hr.service.*" />
@@ -828,7 +550,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.haiso.hr.service" />
-      <option name="MAIN_CLASS_NAME" value="com.haiso.hr.service.AddPersonTest" />
+      <option name="MAIN_CLASS_NAME" value="com.haiso.hr.service.AddTest" />
       <option name="METHOD_NAME" value="testAddPerson" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -860,6 +582,19 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -886,19 +621,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -937,12 +659,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -952,6 +668,12 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="Tomcat 7.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.52" ALTERNATIVE_JRE_ENABLED="false">
@@ -1007,19 +729,19 @@
       <item index="0" class="java.lang.String" itemvalue="JUnit.AppTests" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7.0.52" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.com.haiso.hr.service in haiso" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AddPersonTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AddTest" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.AddParamTest.testAddPerson" />
       <item index="5" class="java.lang.String" itemvalue="JUnit.AddParamTest.testAddParam" />
       <item index="6" class="java.lang.String" itemvalue="JUnit.AddParamTest" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.AddPersonTest.testAddPerson" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.AddTest.testAddPerson" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AddPersonTest.testAddPerson" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AddParamTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AddParamTest.testAddParam" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AddParamTest.testAddPerson" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AddPersonTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AddTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AddTest.testAddPerson" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AddParamTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AddParamTest.testAddParam" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AddParamTest.testAddPerson" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -1105,13 +827,14 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8192956" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28392157" sideWeight="0.31007752" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.330781" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.059607845" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40122512" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23529412" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42113322" sideWeight="0.49960783" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39509955" sideWeight="0.49960783" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12557428" sideWeight="0.50039214" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1122,7 +845,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25411764" sideWeight="0.68798447" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2564706" sideWeight="0.68798447" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07810107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17254902" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1154,44 +877,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="44" selection-start="1467" selection-end="1467" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/AppContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="637" selection-end="637" vertical-scroll-proportion="-5.4" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/dispatcher-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="28" selection-start="570" selection-end="570" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/interceptor/TimeStampInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="48" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/spring-data.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="67" selection-start="2545" selection-end="2545" vertical-scroll-proportion="-8.76" vertical-offset="456" max-vertical-offset="3015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/utils/HashCodeUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="19" selection-start="565" selection-end="565" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680" />
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/rt.jar!/java/sql/Date.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="37" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840" />
@@ -1222,13 +907,6 @@
         <state line="15" column="13" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9255" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="21" selection-start="4907" selection-end="4907" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5070">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/service/DigestTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="49" selection-start="1617" selection-end="1617" vertical-scroll-proportion="0.75165564" vertical-offset="206" max-vertical-offset="855">
@@ -1238,23 +916,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20580">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="24" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/InsuLocation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="28" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="285">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20580" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/SalaryAdjustment.java">
@@ -1266,139 +928,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/salary/Deduct.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3165">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#916#917#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
-            <element signature="e#1047#1048#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
-            <element signature="e#1195#1196#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1288#1289#0" expanded="true" />
-            <element signature="e#1401#1402#0" expanded="true" />
-            <element signature="e#1433#1434#0" expanded="true" />
-            <element signature="e#1480#1481#0" expanded="true" />
-            <element signature="e#1522#1523#0" expanded="true" />
-            <element signature="e#1635#1636#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1714#1715#0" expanded="true" />
-            <element signature="e#1756#1757#0" expanded="true" />
-            <element signature="e#1867#1868#0" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1943#1944#0" expanded="true" />
-            <element signature="e#1983#1984#0" expanded="true" />
-            <element signature="e#2100#2101#0" expanded="true" />
-            <element signature="e#2134#2135#0" expanded="true" />
-            <element signature="e#2185#2186#0" expanded="true" />
-            <element signature="e#2231#2232#0" expanded="true" />
-            <element signature="e#2338#2339#0" expanded="true" />
-            <element signature="e#2367#2368#0" expanded="true" />
-            <element signature="e#2408#2409#0" expanded="true" />
-            <element signature="e#2444#2445#0" expanded="true" />
-            <element signature="e#2561#2562#0" expanded="true" />
-            <element signature="e#2595#2596#0" expanded="true" />
-            <element signature="e#2646#2647#0" expanded="true" />
-            <element signature="e#2692#2693#0" expanded="true" />
-            <element signature="e#2805#2806#0" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
-            <element signature="e#2884#2885#0" expanded="true" />
-            <element signature="e#2926#2927#0" expanded="true" />
-            <element signature="e#3039#3040#0" expanded="true" />
-            <element signature="e#3071#3072#0" expanded="true" />
-            <element signature="e#3118#3119#0" expanded="true" />
-            <element signature="e#3160#3161#0" expanded="true" />
-            <element signature="e#3271#3272#0" expanded="true" />
-            <element signature="e#3302#3303#0" expanded="true" />
-            <element signature="e#3347#3348#0" expanded="true" />
-            <element signature="e#3387#3388#0" expanded="true" />
-            <element signature="e#3498#3499#0" expanded="true" />
-            <element signature="e#3529#3530#0" expanded="true" />
-            <element signature="e#3574#3575#0" expanded="true" />
-            <element signature="e#3614#3615#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="25" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3165" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/salary/Pay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="11" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4155">
-          <folding>
-            <element signature="e#337#338#0" expanded="true" />
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-            <element signature="e#995#996#0" expanded="true" />
-            <element signature="e#1133#1134#0" expanded="true" />
-            <element signature="e#1164#1165#0" expanded="true" />
-            <element signature="e#1209#1210#0" expanded="true" />
-            <element signature="e#1249#1250#0" expanded="true" />
-            <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="e#1430#1431#0" expanded="true" />
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1696#1697#0" expanded="true" />
-            <element signature="e#1741#1742#0" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#1970#1971#0" expanded="true" />
-            <element signature="e#2025#2026#0" expanded="true" />
-            <element signature="e#2075#2076#0" expanded="true" />
-            <element signature="e#2222#2223#0" expanded="true" />
-            <element signature="e#2256#2257#0" expanded="true" />
-            <element signature="e#2307#2308#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
-            <element signature="e#2497#2498#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2579#2580#0" expanded="true" />
-            <element signature="e#2623#2624#0" expanded="true" />
-            <element signature="e#2767#2768#0" expanded="true" />
-            <element signature="e#2800#2801#0" expanded="true" />
-            <element signature="e#2849#2850#0" expanded="true" />
-            <element signature="e#2893#2894#0" expanded="true" />
-            <element signature="e#3040#3041#0" expanded="true" />
-            <element signature="e#3074#3075#0" expanded="true" />
-            <element signature="e#3125#3126#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
-            <element signature="e#3305#3306#0" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#3378#3379#0" expanded="true" />
-            <element signature="e#3416#3417#0" expanded="true" />
-            <element signature="e#3559#3560#0" expanded="true" />
-            <element signature="e#3592#3593#0" expanded="true" />
-            <element signature="e#3641#3642#0" expanded="true" />
-            <element signature="e#3685#3686#0" expanded="true" />
-            <element signature="e#3813#3814#0" expanded="true" />
-            <element signature="e#3841#3842#0" expanded="true" />
-            <element signature="e#3880#3881#0" expanded="true" />
-            <element signature="e#3914#3915#0" expanded="true" />
-            <element signature="e#4055#4056#0" expanded="true" />
-            <element signature="e#4087#4088#0" expanded="true" />
-            <element signature="e#4134#4135#0" expanded="true" />
-            <element signature="e#4176#4177#0" expanded="true" />
-            <element signature="e#4314#4315#0" expanded="true" />
-            <element signature="e#4345#4346#0" expanded="true" />
-            <element signature="e#4390#4391#0" expanded="true" />
-            <element signature="e#4430#4431#0" expanded="true" />
-            <element signature="e#4568#4569#0" expanded="true" />
-            <element signature="e#4599#4600#0" expanded="true" />
-            <element signature="e#4644#4645#0" expanded="true" />
-            <element signature="e#4684#4685#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="8" column="11" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4155" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/SalaryInfo.java">
@@ -1410,30 +945,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/salary/Salary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="31" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.0" vertical-offset="335" max-vertical-offset="930">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#836#837#0" expanded="false" />
-            <element signature="e#864#865#0" expanded="false" />
-            <element signature="e#1064#1065#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplLevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/ParamDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="63" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="49" column="31" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.0" vertical-offset="335" max-vertical-offset="930" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/param/ParamService.java">
@@ -1447,31 +959,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="31" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplSequence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="24" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding>
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Param.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="30" selection-start="1893" selection-end="1893" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1860">
-          <folding>
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#865#866#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1487,9 +975,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/WorkExperience.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="53" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1710">
-          <folding />
-        </state>
+        <state line="25" column="53" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="1710" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/SocialRelationship.java">
@@ -1515,15 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Contract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="7" selection-start="2318" selection-end="2318" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2340">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/com.haiso.hr.entity.Position">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1536,7 +1013,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="78.5" y="54.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="79.0" y="54.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1548,75 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="27" selection-start="393" selection-end="393" vertical-scroll-proportion="0.38071066" vertical-offset="0" max-vertical-offset="2160">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="645" selection-end="645" vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="2715">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#911#912#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
-            <element signature="e#1190#1191#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
-            <element signature="e#1378#1379#0" expanded="true" />
-            <element signature="e#1409#1410#0" expanded="true" />
-            <element signature="e#1569#1570#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1761#1762#0" expanded="true" />
-            <element signature="e#1791#1792#0" expanded="true" />
-            <element signature="e#1845#1846#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1939#1940#0" expanded="true" />
-            <element signature="e#1979#1980#0" expanded="true" />
-            <element signature="e#2031#2032#0" expanded="true" />
-            <element signature="e#2073#2074#0" expanded="true" />
-            <element signature="e#2121#2122#0" expanded="true" />
-            <element signature="e#2159#2160#0" expanded="true" />
-            <element signature="e#2296#2297#0" expanded="true" />
-            <element signature="e#2329#2330#0" expanded="true" />
-            <element signature="e#2379#2380#0" expanded="true" />
-            <element signature="e#2423#2424#0" expanded="true" />
-            <element signature="e#2558#2559#0" expanded="true" />
-            <element signature="e#2590#2591#0" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-            <element signature="e#2680#2681#0" expanded="true" />
-            <element signature="e#2811#2812#0" expanded="true" />
-            <element signature="e#2841#2842#0" expanded="true" />
-            <element signature="e#2885#2886#0" expanded="true" />
-            <element signature="e#2923#2924#0" expanded="true" />
-            <element signature="e#3057#3058#0" expanded="true" />
-            <element signature="e#3088#3089#0" expanded="true" />
-            <element signature="e#3134#3135#0" expanded="true" />
-            <element signature="e#3174#3175#0" expanded="true" />
-            <element signature="e#3260#3261#0" expanded="true" />
-            <element signature="e#3294#3295#0" expanded="true" />
-            <element signature="e#3348#3349#0" expanded="true" />
-            <element signature="e#3394#3395#0" expanded="true" />
-            <element signature="e#3523#3524#0" expanded="true" />
-            <element signature="e#3552#3553#0" expanded="true" />
-            <element signature="e#3594#3595#0" expanded="true" />
-            <element signature="e#3630#3631#0" expanded="true" />
-            <element signature="e#3712#3713#0" expanded="true" />
-            <element signature="e#3744#3745#0" expanded="true" />
-            <element signature="e#3794#3795#0" expanded="true" />
-            <element signature="e#3836#3837#0" expanded="true" />
-            <element signature="e#3968#3969#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#4042#4043#0" expanded="true" />
-            <element signature="e#4080#4081#0" expanded="true" />
-            <element signature="e#4164#4165#0" expanded="true" />
-            <element signature="e#4197#4198#0" expanded="true" />
-            <element signature="e#4249#4250#0" expanded="true" />
-            <element signature="e#4293#4294#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1674,20 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddParamTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="25" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddPersonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="24" selection-start="1110" selection-end="1110" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/Department.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="43" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="2730">
@@ -1718,48 +1112,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="32" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="5115">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/PersonDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="65" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="32" selection-start="649" selection-end="649" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/PersonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="32" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/BasicInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="24" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
+        <state line="11" column="24" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Education.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1590">
-          <folding />
-        </state>
+        <state line="21" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1590" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Certificate.java">
@@ -1776,26 +1136,212 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/PostTransaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="5" selection-start="1578" selection-end="3031" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2535">
+        <state line="57" column="30" selection-start="1447" selection-end="1447" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Contract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="22" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar!/javax/persistence/CascadeType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="12" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="25" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1890">
           <folding>
-            <element signature="e#623#635#0" expanded="true" />
-            <element signature="e#690#700#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/PostTransaction.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="30" selection-start="1447" selection-end="1447" vertical-scroll-proportion="2.0379746" vertical-offset="31" max-vertical-offset="2010">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/AppContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/dispatcher-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="0" selection-start="6318" selection-end="6318" vertical-scroll-proportion="0.0" vertical-offset="2250" max-vertical-offset="5205">
+          <folding>
+            <marker date="1398322129060" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplSequence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/InsuLocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Param.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2355">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#680#681#0" expanded="false" />
+            <element signature="e#705#706#0" expanded="false" />
+            <element signature="e#738#739#0" expanded="false" />
+            <element signature="e#766#767#0" expanded="false" />
+            <element signature="e#854#855#0" expanded="false" />
+            <element signature="e#889#890#0" expanded="false" />
+            <element signature="e#945#946#0" expanded="false" />
+            <element signature="e#993#994#0" expanded="false" />
+            <element signature="e#1086#1087#0" expanded="false" />
+            <element signature="e#1116#1117#0" expanded="false" />
+            <element signature="e#1159#1160#0" expanded="false" />
+            <element signature="e#1197#1198#0" expanded="false" />
+            <element signature="e#1364#1365#0" expanded="false" />
+            <element signature="e#1397#1398#0" expanded="false" />
+            <element signature="e#1457#1458#0" expanded="false" />
+            <element signature="e#1501#1502#0" expanded="false" />
+            <element signature="e#1639#1640#0" expanded="false" />
+            <element signature="e#1672#1673#0" expanded="false" />
+            <element signature="e#1722#1723#0" expanded="false" />
+            <element signature="e#1766#1767#0" expanded="false" />
+            <element signature="e#2380#2381#0" expanded="false" />
+            <element signature="e#2407#2408#0" expanded="false" />
+            <element signature="e#2447#2448#0" expanded="false" />
+            <element signature="e#2479#2480#0" expanded="false" />
+            <element signature="e#2576#2577#0" expanded="false" />
+            <element signature="e#2605#2606#0" expanded="false" />
+            <element signature="e#2649#2650#0" expanded="false" />
+            <element signature="e#2685#2686#0" expanded="false" />
+            <element signature="e#2788#2789#0" expanded="false" />
+            <element signature="e#2822#2823#0" expanded="false" />
+            <element signature="e#2876#2877#0" expanded="false" />
+            <element signature="e#2922#2923#0" expanded="false" />
+            <element signature="e#3025#3026#0" expanded="false" />
+            <element signature="e#3059#3060#0" expanded="false" />
+            <element signature="e#3113#3114#0" expanded="false" />
+            <element signature="e#3159#3160#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/ParamDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="63" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2199#2200#0" expanded="true" />
-            <element signature="e#2230#2231#0" expanded="true" />
-            <element signature="e#2280#2281#0" expanded="true" />
-            <element signature="e#2320#2321#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/PersonDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="65" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="322" column="81" selection-start="7376" selection-end="7376" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="6375">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="1" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="17" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/EmployeeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="16" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/employee/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="37" selection-start="1788" selection-end="1788" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="33" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0" vertical-offset="656" max-vertical-offset="1305">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="32" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="3" selection-start="327" selection-end="327" vertical-scroll-proportion="0.14900662" vertical-offset="0" max-vertical-offset="604">
+          <folding />
         </state>
       </provider>
     </entry>

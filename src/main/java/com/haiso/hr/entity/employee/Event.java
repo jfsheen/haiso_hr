@@ -22,7 +22,6 @@ public class Event {
     private Employee hrLeader;
     private Date hrDate;
     private String hrOpinion;
-
     private Employee comLeader;
     private Date comDate;
     private String comOpinion;

@@ -1,4 +1,4 @@
-package com.haiso.hr.service;
+package com.haiso.hr.service.person;
 
 import com.haiso.hr.dao.PersonDao;
 import com.haiso.hr.entity.person.Person;
@@ -20,6 +20,7 @@ public class PersonServiceImpl implements PersonService {
     @Override
     @Transactional
     public void addPerson(Person person) {
+
         personDao.save(person);
     }
 

@@ -7,16 +7,16 @@ import java.util.Date;
  * Created by ff on 4/21/14.
  */
 @Entity
-@DiscriminatorValue("Param")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "P_TYPE", discriminatorType = DiscriminatorType.CHAR)
+@DiscriminatorValue("G")
 @Table(name = "t_param")
 public abstract class Param {
 
-    private long id;
+    private int id;
     private String pKey;
     private String pValue;
     private String defaultValue;
-
-
     private String explanation;
     private String description;
     private Date createDate;
@@ -26,11 +26,11 @@ public abstract class Param {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -54,8 +54,8 @@ public abstract class Param {
         this.version = version;
     }
 
-    @Basic
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
+
+    @Column(name = "create_date", nullable = false, updatable = false, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
     public java.util.Date getCreateDate() {
         return createDate;
@@ -65,8 +65,8 @@ public abstract class Param {
         this.createDate = createDate;
     }
 
-    @Basic
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
+
+    @Column(name = "last_update", nullable = false, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
     public Date getLastUpdate() {
         return lastUpdate;

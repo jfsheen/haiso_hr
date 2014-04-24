@@ -1,5 +1,6 @@
 package com.haiso.hr.entity.person;
 
+import com.google.common.base.Objects;
 import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
@@ -73,7 +74,7 @@ public class Person {
     }
 
 
-    @Column(name = "photo_path", nullable = true, insertable = true, updatable = true, length = 45, precision = 0)
+    @Column(name = "photo_path", length = 100)
     public String getPhotoPath() {
         return photoPath;
     }
@@ -83,7 +84,7 @@ public class Person {
     }
 
 
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "name", length = 10)
     public String getName() {
         return name;
     }
@@ -103,7 +104,7 @@ public class Person {
     }
 
 
-    @Column(name = "partisan", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    @Column(name = "partisan", nullable = true, length = 20)
     public String getPartisan() {
         return partisan;
     }
@@ -114,7 +115,7 @@ public class Person {
 
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "join_party_date", nullable = true, insertable = true, updatable = true, length = 1)
+    @Column(name = "join_party_date", nullable = true, length = 1)
     public Date getJoinPartyDate() {
         return joinPartyDate;
     }
@@ -124,7 +125,7 @@ public class Person {
     }
 
 
-    @Column(name = "hometown", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    @Column(name = "hometown", nullable = true, length = 16)
     public String getHometown() {
         return hometown;
     }
@@ -134,7 +135,7 @@ public class Person {
     }
 
 
-    @Column(name = "postal_code", nullable = true, insertable = true, updatable = true, length = 6, precision = 0)
+    @Column(name = "postal_code", nullable = true, length = 6)
     public String getPostalCode() {
         return postalCode;
     }
@@ -144,7 +145,7 @@ public class Person {
     }
 
 
-    @Column(name = "mobile", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    @Column(name = "mobile", nullable = true, length = 16)
     public String getMobile() {
         return mobile;
     }
@@ -154,7 +155,7 @@ public class Person {
     }
 
 
-    @Column(name = "phone", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    @Column(name = "phone", nullable = true, length = 16)
     public String getPhone() {
         return phone;
     }
@@ -164,7 +165,7 @@ public class Person {
     }
 
 
-    @Column(name = "email", nullable = true, insertable = true, updatable = true, length = 45, precision = 0)
+    @Column(name = "email", nullable = true, length = 45)
     public String getEmail() {
         return email;
     }
@@ -174,7 +175,7 @@ public class Person {
     }
 
 
-    @Column(name = "qq", nullable = true, insertable = true, updatable = true, length = 12, precision = 0)
+    @Column(name = "qq", nullable = true, length = 12)
     public String getQq() {
         return qq;
     }
@@ -184,7 +185,7 @@ public class Person {
     }
 
 
-    @Column(name = "weixin", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    @Column(name = "weixin", nullable = true, length = 20)
     public String getWeixin() {
         return weixin;
     }
@@ -194,7 +195,7 @@ public class Person {
     }
 
 
-    @Column(name = "introduction", nullable = true, insertable = true, updatable = true, length = 500, precision = 0)
+    @Column(name = "introduction", nullable = true, length = 500)
     public String getIntroduction() {
         return introduction;
     }
@@ -204,7 +205,7 @@ public class Person {
     }
 
 
-    @Column(name = "last_degree", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    @Column(name = "last_degree", nullable = true, length = 20)
     public String getLastDegree() {
         return lastDegree;
     }
@@ -214,7 +215,7 @@ public class Person {
     }
 
 
-    @Column(name = "last_school", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    @Column(name = "last_school", nullable = true, length = 20)
     public String getLastSchool() {
         return lastSchool;
     }
@@ -224,7 +225,7 @@ public class Person {
     }
 
 
-    @Column(name = "last_major", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+    @Column(name = "last_major", nullable = true, length = 20)
     public String getLastMajor() {
         return lastMajor;
     }
@@ -234,7 +235,7 @@ public class Person {
     }
 
 
-    @Column(name = "resi_address", nullable = true, insertable = true, updatable = true, length = 50, precision = 0)
+    @Column(name = "resi_address", nullable = true, length = 50)
     public String getResidentailAddress() {
         return residentailAddress;
     }
@@ -244,7 +245,7 @@ public class Person {
     }
 
 
-    @Column(name = "ec_name", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "ec_name", nullable = true, length = 10)
     public String getEmergencyContactName() {
         return emergencyContactName;
     }
@@ -254,7 +255,7 @@ public class Person {
     }
 
 
-    @Column(name = "ec_phone", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
+    @Column(name = "ec_phone", nullable = true, length = 16)
     public String getEmergencyContactPhone() {
         return emergencyContactPhone;
     }
@@ -264,7 +265,7 @@ public class Person {
     }
 
 
-    @Column(name = "ec_address", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
+    @Column(name = "ec_address", nullable = true, length = 1)
     public String getEmergencyContactAddress() {
         return emergencyContactAddress;
     }
@@ -274,7 +275,7 @@ public class Person {
     }
 
 
-    @Column(name = "sp_name", nullable = true, insertable = true, updatable = true, length = 10, precision = 0)
+    @Column(name = "sp_name", nullable = true, length = 10)
     public String getSponsorName() {
         return sponsorName;
     }
@@ -284,7 +285,7 @@ public class Person {
     }
 
 
-    @Column(name = "sp_phone", nullable = true, insertable = true, updatable = true, length = 1, precision = 0)
+    @Column(name = "sp_phone", nullable = true, length = 1)
     public String getSponsorPhone() {
         return sponsorPhone;
     }
@@ -298,7 +299,7 @@ public class Person {
     private Date createDate;
     private int version;
 
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
+    @Column(name = "last_update", nullable = false, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
     public Date getLastUpdate() {
         return lastUpdate;
@@ -318,7 +319,7 @@ public class Person {
         this.version = version;
     }
 
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
+    @Column(name = "create_date", nullable = false, updatable = false, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
     public Date getCreateDate() {
         return createDate;
@@ -364,81 +365,54 @@ public class Person {
 
     }
 
-//    @Override
-//    public java.util.Date getCreatedDate() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void setCreatedDate(java.util.Date createdDate) {
-//
-//    }
-//
-//    @Override
-//    public java.util.Date getLastUpdated() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void setLastUpdated(java.util.Date lastUpdatedDate) {
-//
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int ret = HashCodeUtil.SEED;
-//        ret = HashCodeUtil.hash(ret, id);
-//        ret = HashCodeUtil.hash(ret, name);
-//        ret = HashCodeUtil.hash(ret, idcardNum);
-//        ret = HashCodeUtil.hash(ret, idcardPath);
-//        ret = HashCodeUtil.hash(ret, photoPath);
-//        ret = HashCodeUtil.hash(ret, name);
-//        ret = HashCodeUtil.hash(ret, ethinic);
-//        ret = HashCodeUtil.hash(ret, partisan);
-//        ret = HashCodeUtil.hash(ret, joinPartyDate);
-//        ret = HashCodeUtil.hash(ret, hometown);
-//        ret = HashCodeUtil.hash(ret, address);
-//        ret = HashCodeUtil.hash(ret, mobile);
-//        ret = HashCodeUtil.hash(ret, postalcode);
-//        ret = HashCodeUtil.hash(ret, phone);
-//        ret = HashCodeUtil.hash(ret, email);
-//        ret = HashCodeUtil.hash(ret, qq);
-//        ret = HashCodeUtil.hash(ret, weixin);
-//        ret = HashCodeUtil.hash(ret, introduction);
-//        return ret;
-//    }
-//
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Person2 personInfo = (Person2) o;
-//
-//        if (id != personInfo.id) return false;
-//        if (address != null ? !address.equals(personInfo.address) : personInfo.address != null) return false;
-//        if (email != null ? !email.equals(personInfo.email) : personInfo.email != null) return false;
-//        if (emplSn != null ? !emplSn.equals(personInfo.emplSn) : personInfo.emplSn != null) return false;
-//        if (ethinic != null ? !ethinic.equals(personInfo.ethinic) : personInfo.ethinic != null) return false;
-//        if (hometown != null ? !hometown.equals(personInfo.hometown) : personInfo.hometown != null) return false;
-//        if (idcardNum != null ? !idcardNum.equals(personInfo.idcardNum) : personInfo.idcardNum != null) return false;
-//        if (idcardPath != null ? !idcardPath.equals(personInfo.idcardPath) : personInfo.idcardPath != null) return false;
-//        if (introduction != null ? !introduction.equals(personInfo.introduction) : personInfo.introduction != null) return false;
-//        if (mobile != null ? !mobile.equals(personInfo.mobile) : personInfo.mobile != null) return false;
-//        if (name != null ? !name.equals(personInfo.name) : personInfo.name != null) return false;
-//        if (partisan != null ? !partisan.equals(personInfo.partisan) : personInfo.partisan != null) return false;
-//        if (joinPartyDate != null ? !joinPartyDate.equals(personInfo.joinPartyDate) : personInfo.joinPartyDate != null) return false;
-//        if (phone != null ? !phone.equals(personInfo.phone) : personInfo.phone != null) return false;
-//        if (photoPath != null ? !photoPath.equals(personInfo.photoPath) : personInfo.photoPath != null) return false;
-//        if (postalcode != null ? !postalcode.equals(personInfo.postalcode) : personInfo.postalcode != null) return false;
-//        if (qq != null ? !qq.equals(personInfo.qq) : personInfo.qq != null) return false;
-//        if (weixin != null ? !weixin.equals(personInfo.weixin) : personInfo.weixin != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return super.toString();
-//    }
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("idCard", idCard)
+                .add("name", name)
+                .add("photoPath", photoPath)
+                .add("partisan", partisan)
+                .add("joinPartyDate", joinPartyDate)
+                .add("hukouType", hukouType)
+                .add("hometown", hometown)
+                .add("lastDegree", lastDegree)
+                .add("lastSchool", lastSchool)
+                .add("lastMajor", lastMajor)
+                .add("residentailAddress", residentailAddress)
+                .add("postalCode", postalCode)
+                .add("mobile", mobile)
+                .add("phone", phone)
+                .add("email", email)
+                .add("qq", qq)
+                .add("weixin", weixin)
+                .add("introduction", introduction)
+                .add("emergencyContactName", emergencyContactName)
+                .add("emergencyContactPhone", emergencyContactPhone)
+                .add("emergencyContactAddress", emergencyContactAddress)
+                .add("sponsorName", sponsorName)
+                .add("sponsorPhone", sponsorPhone)
+                .add("employee", employee)
+                .add("lastUpdate", lastUpdate)
+                .add("createDate", createDate)
+                .add("version", version)
+                .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id, idCard, name, photoPath, partisan, joinPartyDate, hukouType, hometown, lastDegree, lastSchool, lastMajor, residentailAddress, postalCode, mobile, phone, email, qq, weixin, introduction, emergencyContactName, emergencyContactPhone, emergencyContactAddress, sponsorName, sponsorPhone, employee, lastUpdate, createDate, version);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Person other = (Person) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.idCard, other.idCard) && Objects.equal(this.name, other.name) && Objects.equal(this.photoPath, other.photoPath) && Objects.equal(this.partisan, other.partisan) && Objects.equal(this.joinPartyDate, other.joinPartyDate) && Objects.equal(this.hukouType, other.hukouType) && Objects.equal(this.hometown, other.hometown) && Objects.equal(this.lastDegree, other.lastDegree) && Objects.equal(this.lastSchool, other.lastSchool) && Objects.equal(this.lastMajor, other.lastMajor) && Objects.equal(this.residentailAddress, other.residentailAddress) && Objects.equal(this.postalCode, other.postalCode) && Objects.equal(this.mobile, other.mobile) && Objects.equal(this.phone, other.phone) && Objects.equal(this.email, other.email) && Objects.equal(this.qq, other.qq) && Objects.equal(this.weixin, other.weixin) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.emergencyContactName, other.emergencyContactName) && Objects.equal(this.emergencyContactPhone, other.emergencyContactPhone) && Objects.equal(this.emergencyContactAddress, other.emergencyContactAddress) && Objects.equal(this.sponsorName, other.sponsorName) && Objects.equal(this.sponsorPhone, other.sponsorPhone) && Objects.equal(this.employee, other.employee) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version);
+    }
 }

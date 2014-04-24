@@ -7,7 +7,7 @@ import javax.persistence.Entity;
  * Created by ff on 4/22/14.
  */
 @Entity
-@DiscriminatorValue("EmpSts")
+@DiscriminatorValue("S")
 public class EmplStatus extends Param {
 
 }
