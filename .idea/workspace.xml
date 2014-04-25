@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17c2059f-7170-4b4e-9041-a7a42fb9a841" name="Default" comment="0425">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/logs/haisohr.log" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/controller/AppTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/resources/AppContext.xml" afterPath="$PROJECT_DIR$/src/resources/ApplicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/DigestTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/haiso/hr/service/DigestTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/controller/ListPersonController.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/controller/ListPersonController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonService.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/resources/dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/hello.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/hello.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/index.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/index.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/info_log.log" afterPath="$PROJECT_DIR$/logs/info_log.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/list.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/list.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/warn_log.log" afterPath="$PROJECT_DIR$/logs/warn_log.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+    <list default="true" id="17c2059f-7170-4b4e-9041-a7a42fb9a841" name="Default" comment="0426">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="haiso.iws" />
@@ -102,8 +86,10 @@
       <file leaf-file-name="ListPersonController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/controller/ListPersonController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="60" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-              <folding />
+            <state line="35" column="60" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,7 +133,7 @@
       <file leaf-file-name="list.ftl" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/list.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="9" selection-start="285" selection-end="285" vertical-scroll-proportion="0.280083" vertical-offset="0" max-vertical-offset="482">
+            <state line="9" column="9" selection-start="285" selection-end="285" vertical-scroll-proportion="0.4340836" vertical-offset="0" max-vertical-offset="311">
               <folding />
             </state>
           </provider>
@@ -1155,7 +1141,11 @@
       <created>1398432989612</created>
       <updated>1398432989612</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="0426">
+      <created>1398443379317</created>
+      <updated>1398443379317</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1183,7 +1173,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8192956" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41194487" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28392157" sideWeight="0.31007752" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1203,8 +1193,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28627452" sideWeight="0.68798447" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15007657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28627452" sideWeight="0.68798447" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15007657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17254902" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24941176" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1229,7 +1219,8 @@
     </option>
     <MESSAGE value="20140423" />
     <MESSAGE value="0425" />
-    <option name="LAST_COMMIT_MESSAGE" value="0425" />
+    <MESSAGE value="0426" />
+    <option name="LAST_COMMIT_MESSAGE" value="0426" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1392,7 +1383,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="0.879017" vertical-offset="180" max-vertical-offset="750">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1415,8 +1406,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/controller/ListPersonController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="60" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <folding />
+        <state line="35" column="60" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1457,7 +1450,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/list.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="9" selection-start="285" selection-end="285" vertical-scroll-proportion="0.280083" vertical-offset="0" max-vertical-offset="482">
+        <state line="9" column="9" selection-start="285" selection-end="285" vertical-scroll-proportion="0.4340836" vertical-offset="0" max-vertical-offset="311">
           <folding />
         </state>
       </provider>

@@ -52,6 +52,8 @@
         </property>
         <property name="jpaPropertyMap">
             <map>
+                <!-- #validator annotation not apply to DDL [verified]-->
+                <entry key="hibernate.validator.apply_to_ddl" value="true"/>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
                 <entry key="hibernate.hbm2ddl.auto" value="update"/>
                 <entry key="hibernate.format_sql" value="true"/>
