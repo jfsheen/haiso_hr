@@ -7,19 +7,36 @@
         http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
 
-    <!-- Enables the Spring MVC @controller programming model -->
-    <mvc:annotation-driven/>
+    <!-- Enables the Spring MVC @controller programming model-->
+    <mvc:annotation-driven validator="validator"/>
+
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory-->
     <mvc:resources mapping="/static/**" location="/static/"/>
 
-    <!-- FreeMarker view resolver id="fmViewResolver" -->
+    <!--validator for customer validation Messages-->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="fallbackToSystemLocale" value="true"/>
+        <property name="useCodeAsDefaultMessage" value="false"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="basenames">
+            <list>
+                <value>classpath:/Validation/zh_CN</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="validationMessageSource" ref="messageSource"/>
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+    </bean>
+
+    <!-- FreeMarker view resolver order = 优先级0  -->
     <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
         <property name="contentType" value="text/html;charset=utf-8"/>
         <property name="suffix" value=".ftl"/>
         <property name="cache" value="false"/>
         <property name="order" value="0"/>
-        <!-- 优先级0 -->
     </bean>
 
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
@@ -41,14 +58,12 @@
 
     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
 
-    <!-- common view resolver id="itnlViewResolver" -->
+    <!-- common view resolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
-        <!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑  -->
         <property name="order" value="1"/>
-        <!-- 优先级1 -->
     </bean>
 
 

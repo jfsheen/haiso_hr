@@ -6,7 +6,8 @@ package com.haiso.hr.utils;
 public final class SnGenerator {
 
     public static String EmployeeSnGenerator() {
-        String sn = "em-sn00001";
+        String time = String.valueOf(System.currentTimeMillis());
+        String sn = "em-sn" + time;
         return sn;
     }
 

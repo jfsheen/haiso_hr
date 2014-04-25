@@ -18,6 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+
 /**
  * Created by ff on 4/11/14.
  */
@@ -51,7 +52,7 @@ public class AddTest {
     public void testAddPerson() throws Exception {
         Person p = new Person();
         IdCard id = new IdCard();
-        p.setName("网劳务");
+        p.setName("www");
         id.setIdCardNum("121231212312312312");
         p.setIdCard(id);
         Employee e = new Employee();
@@ -60,6 +61,8 @@ public class AddTest {
         //personService.addPerson(p);
         employeeService.addEmployee(e);
         System.out.println(personService.getPerson(1).getName());
+        System.out.println(personService.getPerson(1).getEmployee().getEmplSn());
+        System.out.println(employeeService.getEmployee("em-sn00001").getPerson().getName());
 
     }
 

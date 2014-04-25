@@ -9,6 +9,8 @@ import com.haiso.hr.entity.person.Person;
 import com.haiso.hr.utils.SnGenerator;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -64,6 +66,8 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "person_id", nullable = false)
+    @NotNull
+    @Valid
     public Person getPerson() {
         return person;
     }

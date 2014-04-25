@@ -9,4 +9,7 @@ public interface PersonService {
     public void addPerson(Person person);
 
     public Person getPerson(long id);
+
+    public Iterable<Person> getPersons();
+
 }

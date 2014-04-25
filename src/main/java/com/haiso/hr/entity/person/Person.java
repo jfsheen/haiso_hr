@@ -2,8 +2,12 @@ package com.haiso.hr.entity.person;
 
 import com.google.common.base.Objects;
 import com.haiso.hr.entity.employee.Employee;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -11,7 +15,7 @@ import java.util.Date;
  * 个人信息表
  */
 @Entity
-@Table(name = "t_person")
+@Table(name = "t_person")//, uniqueConstraints = @UniqueConstraint(columnNames = {"idcard_num","name"}))
 public class Person {
 
     private long id;
@@ -39,7 +43,6 @@ public class Person {
     private String emergencyContactAddress;
     private String sponsorName;
     private String sponsorPhone;
-
     private Employee employee;
 
     @OneToOne(mappedBy = "person", optional = true)
@@ -64,7 +67,8 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
+    @NotNull
     public long getId() {
         return id;
     }
@@ -75,6 +79,7 @@ public class Person {
 
 
     @Column(name = "photo_path", length = 100)
+
     public String getPhotoPath() {
         return photoPath;
     }
@@ -84,7 +89,9 @@ public class Person {
     }
 
 
-    @Column(name = "name", length = 10)
+    @Column(name = "name", length = 10, nullable = true)
+    @NotNull
+    @Size(min = 2, max = 20, message = "An name must contain between 2 and 20 characters")
     public String getName() {
         return name;
     }
@@ -156,6 +163,7 @@ public class Person {
 
 
     @Column(name = "phone", nullable = true, length = 16)
+    //@Pattern(regexp = "[0-9][-\\s]{11,20}")
     public String getPhone() {
         return phone;
     }
@@ -166,6 +174,7 @@ public class Person {
 
 
     @Column(name = "email", nullable = true, length = 45)
+    @Email
     public String getEmail() {
         return email;
     }
@@ -176,6 +185,7 @@ public class Person {
 
 
     @Column(name = "qq", nullable = true, length = 12)
+    @Pattern(regexp = "^[1-9][0-9]{4,11}]")
     public String getQq() {
         return qq;
     }

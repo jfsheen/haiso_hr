@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by ff on 4/11/14.
  */
@@ -28,5 +31,12 @@ public class PersonServiceImpl implements PersonService {
     public Person getPerson(long id) {
         Person p = (Person) personDao.findOne(id);
         return p;
+    }
+
+    @Override
+    public Iterable<Person> getPersons() {
+        Set<Person> persons = new HashSet<Person>();
+        persons = (Set<Person>) personDao.findAll();
+        return persons;
     }
 }
