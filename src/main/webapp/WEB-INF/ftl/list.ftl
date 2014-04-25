@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>LIST</title>
 </head>
 <body>
 <#list persons as person>
-username : ${person.name}<br/>
-password :
+name : ${person.name}
+date: ${person.createDate}<br/>
 </#list>
 </body>
 </html>

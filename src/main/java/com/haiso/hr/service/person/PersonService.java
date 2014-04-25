@@ -2,6 +2,8 @@ package com.haiso.hr.service.person;
 
 import com.haiso.hr.entity.person.Person;
 
+import java.util.List;
+
 /**
  * Created by ff on 4/11/14.
  */
@@ -10,6 +12,6 @@ public interface PersonService {
 
     public Person getPerson(long id);
 
-    public Iterable<Person> getPersons();
+    public List<Person> findAll();
 
 }

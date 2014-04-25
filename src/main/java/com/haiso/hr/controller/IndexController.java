@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public ModelAndView hello() {
         ModelAndView mv = new ModelAndView("index");
         mv.addObject("message", "你好 java ");

@@ -15,7 +15,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("file:src/resources/AppContext.xml")
+@ContextConfiguration("classpath:/ApplicationContext.xml")
 public class DigestTest {
 
     @Before

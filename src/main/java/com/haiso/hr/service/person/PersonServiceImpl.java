@@ -1,13 +1,13 @@
 package com.haiso.hr.service.person;
 
+import com.google.common.collect.Lists;
 import com.haiso.hr.dao.PersonDao;
 import com.haiso.hr.entity.person.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by ff on 4/11/14.
@@ -34,9 +34,9 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Iterable<Person> getPersons() {
-        Set<Person> persons = new HashSet<Person>();
-        persons = (Set<Person>) personDao.findAll();
-        return persons;
+    public List<Person> findAll() {
+        return Lists.newArrayList(personDao.findAll());
     }
+
 }
+
