@@ -28,9 +28,22 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person getPerson(long id) {
-        Person p = (Person) personDao.findOne(id);
-        return p;
+    @Transactional
+    public void removePerson(Person person) {
+        personDao.delete(person.getId());
+
+    }
+
+    @Override
+    @Transactional
+    public void removePersonById(long id) {
+        personDao.delete(id);
+    }
+
+    @Override
+    public Person findPersonById(long id) {
+        Person person = personDao.findOne(id);
+        return person;
     }
 
     @Override

@@ -8,9 +8,14 @@ import java.util.List;
  * Created by ff on 4/11/14.
  */
 public interface PersonService {
+
     public void addPerson(Person person);
 
-    public Person getPerson(long id);
+    public void removePerson(Person person);
+
+    public void removePersonById(long id);
+
+    public Person findPersonById(long id);
 
     public List<Person> findAll();
 
