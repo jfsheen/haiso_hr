@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.employee;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -206,40 +208,39 @@ public class SalaryInfo {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        SalaryInfo that = (SalaryInfo) o;
-
-        if (byPiece != that.byPiece) return false;
-        if (byTime != that.byTime) return false;
-        if (id != that.id) return false;
-        if (isPost != that.isPost) return false;
-        if (employee != null ? !employee.equals(that.employee) : that.employee != null) return false;
-        if (lsnInsuHouse != null ? !lsnInsuHouse.equals(that.lsnInsuHouse) : that.lsnInsuHouse != null) return false;
-        if (lsnInsuLqMed != null ? !lsnInsuLqMed.equals(that.lsnInsuLqMed) : that.lsnInsuLqMed != null) return false;
-        if (lsnInsuMed != null ? !lsnInsuMed.equals(that.lsnInsuMed) : that.lsnInsuMed != null) return false;
-        if (lsnInsuPesn != null ? !lsnInsuPesn.equals(that.lsnInsuPesn) : that.lsnInsuPesn != null) return false;
-        if (ratioEval != null ? !ratioEval.equals(that.ratioEval) : that.ratioEval != null) return false;
-        if (ratioPrepay != null ? !ratioPrepay.equals(that.ratioPrepay) : that.ratioPrepay != null) return false;
-
-        return true;
+    public int hashCode() {
+        return Objects.hashCode(id, isPost, byTime, byPiece, ratioEval, ratioPrepay, lsnInsuPesn, lsnInsuMed, lsnInsuLqMed, lsnInsuHouse, lastUpdate, createDate, version, employee);
     }
 
     @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (employee != null ? employee.hashCode() : 0);
-        result = 31 * result + (isPost ? 1 : 0);
-        result = 31 * result + (byTime ? 1 : 0);
-        result = 31 * result + (byPiece ? 1 : 0);
-        result = 31 * result + (ratioEval != null ? ratioEval.hashCode() : 0);
-        result = 31 * result + (ratioPrepay != null ? ratioPrepay.hashCode() : 0);
-        result = 31 * result + (lsnInsuPesn != null ? lsnInsuPesn.hashCode() : 0);
-        result = 31 * result + (lsnInsuMed != null ? lsnInsuMed.hashCode() : 0);
-        result = 31 * result + (lsnInsuLqMed != null ? lsnInsuLqMed.hashCode() : 0);
-        result = 31 * result + (lsnInsuHouse != null ? lsnInsuHouse.hashCode() : 0);
-        return result;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final SalaryInfo other = (SalaryInfo) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.isPost, other.isPost) && Objects.equal(this.byTime, other.byTime) && Objects.equal(this.byPiece, other.byPiece) && Objects.equal(this.ratioEval, other.ratioEval) && Objects.equal(this.ratioPrepay, other.ratioPrepay) && Objects.equal(this.lsnInsuPesn, other.lsnInsuPesn) && Objects.equal(this.lsnInsuMed, other.lsnInsuMed) && Objects.equal(this.lsnInsuLqMed, other.lsnInsuLqMed) && Objects.equal(this.lsnInsuHouse, other.lsnInsuHouse) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("isPost", isPost)
+                .add("byTime", byTime)
+                .add("byPiece", byPiece)
+                .add("ratioEval", ratioEval)
+                .add("ratioPrepay", ratioPrepay)
+                .add("lsnInsuPesn", lsnInsuPesn)
+                .add("lsnInsuMed", lsnInsuMed)
+                .add("lsnInsuLqMed", lsnInsuLqMed)
+                .add("lsnInsuHouse", lsnInsuHouse)
+                .add("lastUpdate", lastUpdate)
+                .add("createDate", createDate)
+                .add("version", version)
+                .add("employee", employee)
+                .toString();
     }
 }

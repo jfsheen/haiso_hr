@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li th:each="person : ${persons}">
+        <th th:text="#{person.createDate}">000001</th>
+        <th th:text="#{person.name}">wangwu</th>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.person;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
@@ -103,5 +105,37 @@ public class IdCard {
 
     public void setValidUntil(Date validUntil) {
         this.validUntil = validUntil;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("idCardNum", idCardNum)
+                .add("idName", idName)
+                .add("gender", gender)
+                .add("idAddress", idAddress)
+                .add("ethnic", ethnic)
+                .add("idCardPicPath", idCardPicPath)
+                .add("issueAuth", issueAuth)
+                .add("validStart", validStart)
+                .add("validUntil", validUntil)
+                .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(idCardNum, idName, gender, idAddress, ethnic, idCardPicPath, issueAuth, validStart, validUntil);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final IdCard other = (IdCard) obj;
+        return Objects.equal(this.idCardNum, other.idCardNum) && Objects.equal(this.idName, other.idName) && Objects.equal(this.gender, other.gender) && Objects.equal(this.idAddress, other.idAddress) && Objects.equal(this.ethnic, other.ethnic) && Objects.equal(this.idCardPicPath, other.idCardPicPath) && Objects.equal(this.issueAuth, other.issueAuth) && Objects.equal(this.validStart, other.validStart) && Objects.equal(this.validUntil, other.validUntil);
     }
 }

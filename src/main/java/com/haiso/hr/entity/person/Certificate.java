@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.person;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -100,32 +102,34 @@ public class Certificate {
         this.authority = authority;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id, eduId, name, serialNum, obtainDate, expiryDate, authority, person);
+    }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Certificate that = (Certificate) o;
-//
-//        if (id != that.id) return false;
-//        if (company != null ? !company.equals(that.company) : that.company != null) return false;
-//        if (contact != null ? !contact.equals(that.contact) : that.contact != null) return false;
-//        if (endDate != null ? !endDate.equals(that.endDate) : that.endDate != null) return false;
-//        if (position != null ? !position.equals(that.position) : that.position != null) return false;
-//        if (startDate != null ? !startDate.equals(that.startDate) : that.startDate != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = id;
-//        result = 31 * result + (company != null ? company.hashCode() : 0);
-//        result = 31 * result + (position != null ? position.hashCode() : 0);
-//        result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
-//        result = 31 * result + (endDate != null ? endDate.hashCode() : 0);
-//        result = 31 * result + (contact != null ? contact.hashCode() : 0);
-//        return result;
-//    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Certificate other = (Certificate) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.eduId, other.eduId) && Objects.equal(this.name, other.name) && Objects.equal(this.serialNum, other.serialNum) && Objects.equal(this.obtainDate, other.obtainDate) && Objects.equal(this.expiryDate, other.expiryDate) && Objects.equal(this.authority, other.authority) && Objects.equal(this.person, other.person);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("eduId", eduId)
+                .add("name", name)
+                .add("serialNum", serialNum)
+                .add("obtainDate", obtainDate)
+                .add("expiryDate", expiryDate)
+                .add("authority", authority)
+                .add("person", person)
+                .toString();
+    }
 }

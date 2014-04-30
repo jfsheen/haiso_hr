@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.employee;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -176,5 +178,41 @@ public class Event {
         this.comOpinion = comOpinion;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id, employee, createDate, dateStart, dateEnd, deptLeader, deptDate, deptOpinion, hrLeader, hrDate, hrOpinion, comLeader, comDate, comOpinion, manager);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Event other = (Event) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.employee, other.employee) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.dateStart, other.dateStart) && Objects.equal(this.dateEnd, other.dateEnd) && Objects.equal(this.deptLeader, other.deptLeader) && Objects.equal(this.deptDate, other.deptDate) && Objects.equal(this.deptOpinion, other.deptOpinion) && Objects.equal(this.hrLeader, other.hrLeader) && Objects.equal(this.hrDate, other.hrDate) && Objects.equal(this.hrOpinion, other.hrOpinion) && Objects.equal(this.comLeader, other.comLeader) && Objects.equal(this.comDate, other.comDate) && Objects.equal(this.comOpinion, other.comOpinion) && Objects.equal(this.manager, other.manager);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("employee", employee)
+                .add("createDate", createDate)
+                .add("dateStart", dateStart)
+                .add("dateEnd", dateEnd)
+                .add("deptLeader", deptLeader)
+                .add("deptDate", deptDate)
+                .add("deptOpinion", deptOpinion)
+                .add("hrLeader", hrLeader)
+                .add("hrDate", hrDate)
+                .add("hrOpinion", hrOpinion)
+                .add("comLeader", comLeader)
+                .add("comDate", comDate)
+                .add("comOpinion", comOpinion)
+                .add("manager", manager)
+                .toString();
+    }
 }

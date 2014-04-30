@@ -1,5 +1,6 @@
 package com.haiso.hr.entity.employee;
 
+import com.google.common.base.Objects;
 import com.haiso.hr.entity.Department;
 import com.haiso.hr.entity.Position;
 import com.haiso.hr.entity.param.EmplLevel;
@@ -182,5 +183,37 @@ public class Employee {
         this.introduction = introduction;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(emplSn, introduction, lastUpdate, createDate, version, departmentSet, positionSet, person, emplStatus, emplSequence, emplLevel);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Employee other = (Employee) obj;
+        return Objects.equal(this.emplSn, other.emplSn) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.departmentSet, other.departmentSet) && Objects.equal(this.positionSet, other.positionSet) && Objects.equal(this.person, other.person) && Objects.equal(this.emplStatus, other.emplStatus) && Objects.equal(this.emplSequence, other.emplSequence) && Objects.equal(this.emplLevel, other.emplLevel);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("emplSn", emplSn)
+                .add("introduction", introduction)
+                .add("lastUpdate", lastUpdate)
+                .add("createDate", createDate)
+                .add("version", version)
+                .add("departmentSet", departmentSet)
+                .add("positionSet", positionSet)
+                .add("person", person)
+                .add("emplStatus", emplStatus)
+                .add("emplSequence", emplSequence)
+                .add("emplLevel", emplLevel)
+                .toString();
+    }
 }

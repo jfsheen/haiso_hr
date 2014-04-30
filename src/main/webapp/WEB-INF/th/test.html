@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+</head>
+<body>
+<ul>
+    <li th:each="feat : ${allFeatures}">
+        <input type="checkbox" th:field="*{features}" th:value="${feat}"/>
+        <label th:for="${#ids.prev('features')}" th:text="#{${'seedstarter.feature.' + feat}}">Heating</label>
+    </li>
+</ul>
+<ul>
+    <li>
+        <input id="features1" name="features" type="checkbox" value="SEEDSTARTER_SPECIFIC_SUBSTRATE"/>
+        <input name="_features" type="hidden" value="on"/>
+        <label for="features1">Seed starter-specific substrate</label>
+    </li>
+    <li>
+        <input id="features2" name="features" type="checkbox" value="FERTILIZER"/>
+        <input name="_features" type="hidden" value="on"/>
+        <label for="features2">Fertilizer used</label>
+    </li>
+    <li>
+        <input id="features3" name="features" type="checkbox" value="PH_CORRECTOR"/>
+        <input name="_features" type="hidden" value="on"/>
+        <label for="features3">PH Corrector used</label>
+    </li>
+</ul>
+</body>
+</html>

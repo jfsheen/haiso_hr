@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.employee;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -102,32 +104,33 @@ public class RewardsPunishment {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        RewardsPunishment that = (RewardsPunishment) o;
-
-        if (id != that.id) return false;
-        if (degree != null ? !degree.equals(that.degree) : that.degree != null) return false;
-        if (endDate != null ? !endDate.equals(that.endDate) : that.endDate != null) return false;
-        if (major != null ? !major.equals(that.major) : that.major != null) return false;
-        if (qualify != null ? !qualify.equals(that.qualify) : that.qualify != null) return false;
-        if (school != null ? !school.equals(that.school) : that.school != null) return false;
-        if (startDate != null ? !startDate.equals(that.startDate) : that.startDate != null) return false;
-
-        return true;
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("school", school)
+                .add("major", major)
+                .add("startDate", startDate)
+                .add("endDate", endDate)
+                .add("qualify", qualify)
+                .add("degree", degree)
+                .add("employee", employee)
+                .toString();
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (school != null ? school.hashCode() : 0);
-        result = 31 * result + (major != null ? major.hashCode() : 0);
-        result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
-        result = 31 * result + (endDate != null ? endDate.hashCode() : 0);
-        result = 31 * result + (qualify != null ? qualify.hashCode() : 0);
-        result = 31 * result + (degree != null ? degree.hashCode() : 0);
-        return result;
+        return Objects.hashCode(id, school, major, startDate, endDate, qualify, degree, employee);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final RewardsPunishment other = (RewardsPunishment) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.school, other.school) && Objects.equal(this.major, other.major) && Objects.equal(this.startDate, other.startDate) && Objects.equal(this.endDate, other.endDate) && Objects.equal(this.qualify, other.qualify) && Objects.equal(this.degree, other.degree) && Objects.equal(this.employee, other.employee);
     }
 }

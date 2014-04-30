@@ -19,4 +19,6 @@ public interface PersonService {
 
     public List<Person> findAll();
 
+    public void importPersons(String filePath);
+
 }

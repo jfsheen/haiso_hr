@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.param;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -148,4 +150,35 @@ public abstract class Param {
         this.description = description;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id, pKey, pValue, defaultValue, explanation, description, createDate, lastUpdate, version);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Param other = (Param) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.pKey, other.pKey) && Objects.equal(this.pValue, other.pValue) && Objects.equal(this.defaultValue, other.defaultValue) && Objects.equal(this.explanation, other.explanation) && Objects.equal(this.description, other.description) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.version, other.version);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("pKey", pKey)
+                .add("pValue", pValue)
+                .add("defaultValue", defaultValue)
+                .add("explanation", explanation)
+                .add("description", description)
+                .add("createDate", createDate)
+                .add("lastUpdate", lastUpdate)
+                .add("version", version)
+                .toString();
+    }
 }

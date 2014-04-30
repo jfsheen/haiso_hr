@@ -6,7 +6,7 @@
 </head>
 <body>
 <#list persons as person>
-name : ${person.name}
+name : <font color="red">${person.name}</font>
 date: ${person.createDate}<br/>
 </#list>
 </body>

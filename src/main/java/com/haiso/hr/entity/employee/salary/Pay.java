@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.employee.salary;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -214,60 +216,43 @@ public class Pay {
         this.subsRent = subsRent;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Pay that = (Pay) o;
-//
-//        if (id != that.id) return false;
-//        if (alloChild != null ? !alloChild.equals(that.alloChild) : that.alloChild != null) return false;
-//        if (alloDuty != null ? !alloDuty.equals(that.alloDuty) : that.alloDuty != null) return false;
-//        if (alloEducate != null ? !alloEducate.equals(that.alloEducate) : that.alloEducate != null) return false;
-//        if (alloHealth != null ? !alloHealth.equals(that.alloHealth) : that.alloHealth != null) return false;
-//        if (alloMeal != null ? !alloMeal.equals(that.alloMeal) : that.alloMeal != null) return false;
-//        if (bonus != null ? !bonus.equals(that.bonus) : that.bonus != null) return false;
-//        if (emplSn != null ? !emplSn.equals(that.emplSn) : that.emplSn != null) return false;
-//        if (feeCoultant != null ? !feeCoultant.equals(that.feeCoultant) : that.feeCoultant != null) return false;
-//        if (lastupdate != null ? !lastupdate.equals(that.lastupdate) : that.lastupdate != null) return false;
-//        if (payAttendance != null ? !payAttendance.equals(that.payAttendance) : that.payAttendance != null)
-//            return false;
-//        if (payCallback != null ? !payCallback.equals(that.payCallback) : that.payCallback != null) return false;
-//        if (payMerit != null ? !payMerit.equals(that.payMerit) : that.payMerit != null) return false;
-//        if (payPost != null ? !payPost.equals(that.payPost) : that.payPost != null) return false;
-//        if (payRegular != null ? !payRegular.equals(that.payRegular) : that.payRegular != null) return false;
-//        if (paySeniority != null ? !paySeniority.equals(that.paySeniority) : that.paySeniority != null) return false;
-//        if (payWatcher != null ? !payWatcher.equals(that.payWatcher) : that.payWatcher != null) return false;
-//        if (perquisite != null ? !perquisite.equals(that.perquisite) : that.perquisite != null) return false;
-//        if (subsRent != null ? !subsRent.equals(that.subsRent) : that.subsRent != null) return false;
-//        if (subsidy != null ? !subsidy.equals(that.subsidy) : that.subsidy != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = id;
-//        result = 31 * result + (emplSn != null ? emplSn.hashCode() : 0);
-//        result = 31 * result + (payRegular != null ? payRegular.hashCode() : 0);
-//        result = 31 * result + (paySeniority != null ? paySeniority.hashCode() : 0);
-//        result = 31 * result + (payPost != null ? payPost.hashCode() : 0);
-//        result = 31 * result + (alloDuty != null ? alloDuty.hashCode() : 0);
-//        result = 31 * result + (feeCoultant != null ? feeCoultant.hashCode() : 0);
-//        result = 31 * result + (payMerit != null ? payMerit.hashCode() : 0);
-//        result = 31 * result + (payAttendance != null ? payAttendance.hashCode() : 0);
-//        result = 31 * result + (payCallback != null ? payCallback.hashCode() : 0);
-//        result = 31 * result + (payWatcher != null ? payWatcher.hashCode() : 0);
-//        result = 31 * result + (alloHealth != null ? alloHealth.hashCode() : 0);
-//        result = 31 * result + (alloEducate != null ? alloEducate.hashCode() : 0);
-//        result = 31 * result + (subsidy != null ? subsidy.hashCode() : 0);
-//        result = 31 * result + (perquisite != null ? perquisite.hashCode() : 0);
-//        result = 31 * result + (bonus != null ? bonus.hashCode() : 0);
-//        result = 31 * result + (alloChild != null ? alloChild.hashCode() : 0);
-//        result = 31 * result + (alloMeal != null ? alloMeal.hashCode() : 0);
-//        result = 31 * result + (subsRent != null ? subsRent.hashCode() : 0);
-//        result = 31 * result + (lastupdate != null ? lastupdate.hashCode() : 0);
-//        return result;
-//    }
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("payRegular", payRegular)
+                .add("paySeniority", paySeniority)
+                .add("payPost", payPost)
+                .add("alloDuty", alloDuty)
+                .add("feeCoultant", feeCoultant)
+                .add("payMerit", payMerit)
+                .add("payAttendance", payAttendance)
+                .add("payCallback", payCallback)
+                .add("payWatcher", payWatcher)
+                .add("alloHealth", alloHealth)
+                .add("alloEducate", alloEducate)
+                .add("subsidy", subsidy)
+                .add("perquisite", perquisite)
+                .add("bonus", bonus)
+                .add("alloChild", alloChild)
+                .add("alloMeal", alloMeal)
+                .add("subsRent", subsRent)
+                .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(payRegular, paySeniority, payPost, alloDuty, feeCoultant, payMerit, payAttendance, payCallback, payWatcher, alloHealth, alloEducate, subsidy, perquisite, bonus, alloChild, alloMeal, subsRent);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pay other = (Pay) obj;
+        return Objects.equal(this.payRegular, other.payRegular) && Objects.equal(this.paySeniority, other.paySeniority) && Objects.equal(this.payPost, other.payPost) && Objects.equal(this.alloDuty, other.alloDuty) && Objects.equal(this.feeCoultant, other.feeCoultant) && Objects.equal(this.payMerit, other.payMerit) && Objects.equal(this.payAttendance, other.payAttendance) && Objects.equal(this.payCallback, other.payCallback) && Objects.equal(this.payWatcher, other.payWatcher) && Objects.equal(this.alloHealth, other.alloHealth) && Objects.equal(this.alloEducate, other.alloEducate) && Objects.equal(this.subsidy, other.subsidy) && Objects.equal(this.perquisite, other.perquisite) && Objects.equal(this.bonus, other.bonus) && Objects.equal(this.alloChild, other.alloChild) && Objects.equal(this.alloMeal, other.alloMeal) && Objects.equal(this.subsRent, other.subsRent);
+    }
 }

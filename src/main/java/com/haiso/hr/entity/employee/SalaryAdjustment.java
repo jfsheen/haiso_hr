@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.employee;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -115,27 +117,32 @@ public class SalaryAdjustment {
         this.remark = remark;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        SalaryAdjustment that = (SalaryAdjustment) o;
-//
-//        if (id != that.id) return false;
-//        if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
-//        if (timeChange != null ? !timeChange.equals(that.timeChange) : that.timeChange != null) return false;
-//        if (remark != null ? !remark.equals(that.remark) : that.remark != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = id;
-//        result = 31 * result + (amount != null ? amount.hashCode() : 0);
-//        result = 31 * result + (timeChange != null ? timeChange.hashCode() : 0);
-//        result = 31 * result + (remark != null ? remark.hashCode() : 0);
-//        return result;
-//    }
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("amount", amount)
+                .add("remark", remark)
+                .add("timeAdjust", timeAdjust)
+                .add("version", version)
+                .add("employee", employee)
+                .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id, amount, remark, timeAdjust, version, employee);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final SalaryAdjustment other = (SalaryAdjustment) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.amount, other.amount) && Objects.equal(this.remark, other.remark) && Objects.equal(this.timeAdjust, other.timeAdjust) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
+    }
 }

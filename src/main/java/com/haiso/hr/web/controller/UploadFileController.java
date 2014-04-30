@@ -1,4 +1,4 @@
-package com.haiso.hr.controller;
+package com.haiso.hr.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

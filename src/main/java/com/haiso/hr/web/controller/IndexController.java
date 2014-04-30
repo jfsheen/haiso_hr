@@ -1,4 +1,4 @@
-package com.haiso.hr.controller;
+package com.haiso.hr.web.controller;
 
 
 import org.springframework.stereotype.Controller;
@@ -14,9 +14,8 @@ public class IndexController {
 
     @RequestMapping("/")
     public ModelAndView hello() {
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("index.html");
         mv.addObject("message", "你好 java ");
-        System.out.println("hello java");
         return mv;
     }
 

@@ -1,5 +1,6 @@
 package com.haiso.hr.entity.employee.salary;
 
+import com.google.common.base.Objects;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
@@ -75,5 +76,34 @@ public class Salary {
 
     public void setPeriodEnd(Date periodEnd) {
         this.periodEnd = periodEnd;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("person", person)
+                .add("periodStart", periodStart)
+                .add("periodEnd", periodEnd)
+                .add("pay", pay)
+                .add("deduct", deduct)
+                .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id, person, periodStart, periodEnd, pay, deduct);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Salary other = (Salary) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.person, other.person) && Objects.equal(this.periodStart, other.periodStart) && Objects.equal(this.periodEnd, other.periodEnd) && Objects.equal(this.pay, other.pay) && Objects.equal(this.deduct, other.deduct);
     }
 }

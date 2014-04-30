@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.person;
 
+import com.google.common.base.Objects;
+
 import javax.persistence.*;
 
 /**
@@ -85,5 +87,36 @@ public class SocialRelationship {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("relation", relation)
+                .add("name", name)
+                .add("age", age)
+                .add("company", company)
+                .add("post", post)
+                .add("phone", phone)
+                .add("person", person)
+                .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id, relation, name, age, company, post, phone, person);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final SocialRelationship other = (SocialRelationship) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.relation, other.relation) && Objects.equal(this.name, other.name) && Objects.equal(this.age, other.age) && Objects.equal(this.company, other.company) && Objects.equal(this.post, other.post) && Objects.equal(this.phone, other.phone) && Objects.equal(this.person, other.person);
     }
 }

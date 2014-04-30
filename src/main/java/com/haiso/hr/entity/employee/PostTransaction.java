@@ -1,6 +1,6 @@
 package com.haiso.hr.entity.employee;
 
-import com.haiso.hr.utils.SnGenerator;
+import com.google.common.base.Objects;
 
 import javax.persistence.*;
 
@@ -129,24 +129,32 @@ public class PostTransaction {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PostTransaction that = (PostTransaction) o;
-
-        if (id != that.id) return false;
-        if (remark != null ? !remark.equals(that.remark) : that.remark != null) return false;
-        if (status != null ? !status.equals(that.status) : that.status != null) return false;
-
-        return true;
+    public int hashCode() {
+        return Objects.hashCode(id, employee, status, remark, lastUpdate, createDate, version);
     }
 
     @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (remark != null ? remark.hashCode() : 0);
-        return result;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final PostTransaction other = (PostTransaction) obj;
+        return Objects.equal(this.id, other.id) && Objects.equal(this.employee, other.employee) && Objects.equal(this.status, other.status) && Objects.equal(this.remark, other.remark) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("employee", employee)
+                .add("status", status)
+                .add("remark", remark)
+                .add("lastUpdate", lastUpdate)
+                .add("createDate", createDate)
+                .add("version", version)
+                .toString();
     }
 }
