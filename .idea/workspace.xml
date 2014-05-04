@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17c2059f-7170-4b4e-9041-a7a42fb9a841" name="Default" comment="0428">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/AppConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/ApplicationInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/Log4jConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/SpringDataConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/ViewResolverConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/message_en.properties" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/ApplicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/Validation/zh_CN.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/dispatcher-servlet.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/spring-data.xml" afterPath="" />
+    <list default="true" id="17c2059f-7170-4b4e-9041-a7a42fb9a841" name="Default" comment="javaconfig 0430">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/SpringDataConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/SpringDataConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="haiso.iws" />
@@ -84,13 +73,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppConfig.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AppConfig.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="47" selection-start="866" selection-end="866" vertical-scroll-proportion="0.25052193" vertical-offset="165" max-vertical-offset="975">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="20" column="47" selection-start="867" selection-end="867" vertical-scroll-proportion="0.0" vertical-offset="140" max-vertical-offset="825">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -98,22 +85,8 @@
       <file leaf-file-name="Log4jConfig.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/Log4jConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="16" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log4jWebConfigurer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.8.RELEASE/spring-web-3.2.8.RELEASE-sources.jar!/org/springframework/web/util/Log4jWebConfigurer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="833" selection-end="833" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="2670">
-              <folding>
-                <element signature="e#0#8353#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state line="9" column="16" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="270">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,7 +94,7 @@
       <file leaf-file-name="EmployeeServiceImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="1095">
+            <state line="14" column="0" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1170">
               <folding />
             </state>
           </provider>
@@ -130,10 +103,8 @@
       <file leaf-file-name="PersonServiceImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="17" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="50" column="17" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="1005">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,10 +112,8 @@
       <file leaf-file-name="ApplicationInitializer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/ApplicationInitializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="24" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="990">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="31" column="24" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="975">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,22 +121,28 @@
       <file leaf-file-name="Log4jConfigListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.8.RELEASE/spring-web-3.2.8.RELEASE-sources.jar!/org/springframework/web/util/Log4jConfigListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="13" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="213" max-vertical-offset="645">
+            <state line="41" column="13" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="870">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpringDataConfig.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/SpringDataConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="22" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.21305841" vertical-offset="371" max-vertical-offset="1515">
               <folding>
-                <element signature="e#0#2033#0" expanded="false" />
-                <element signature="imports" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpringDataConfig.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/SpringDataConfig.java">
+      <file leaf-file-name="Environment.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.2.8.RELEASE/spring-core-3.2.8.RELEASE.jar!/org/springframework/core/env/Environment.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="12" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.0" vertical-offset="326" max-vertical-offset="1590">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="6" column="17" selection-start="175" selection-end="175" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="255">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,10 +159,8 @@
       <file leaf-file-name="ViewResolverConfig.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/ViewResolverConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="24" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="36" column="24" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="690">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -382,6 +355,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -746,8 +721,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -981,19 +954,6 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1020,6 +980,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1058,6 +1031,12 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -1067,12 +1046,6 @@
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <method />
-    </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="Tomcat 7.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.52" ALTERNATIVE_JRE_ENABLED="false">
@@ -1254,7 +1227,11 @@
       <created>1398821295433</created>
       <updated>1398821295433</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="javaconfig 0430">
+      <created>1398842311396</created>
+      <updated>1398842311396</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1291,18 +1268,17 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23529412" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15773354" sideWeight="0.49960783" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22052068" sideWeight="0.49960783" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12557428" sideWeight="0.50039214" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27058825" sideWeight="0.42137405" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34303215" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27058825" sideWeight="0.42137405" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27529413" sideWeight="0.578626" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26431373" sideWeight="0.578626" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15007657" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17254902" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -1310,6 +1286,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34303215" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22052068" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1330,7 +1307,8 @@
     <MESSAGE value="0425" />
     <MESSAGE value="0426" />
     <MESSAGE value="0428" />
-    <option name="LAST_COMMIT_MESSAGE" value="0428" />
+    <MESSAGE value="javaconfig 0430" />
+    <option name="LAST_COMMIT_MESSAGE" value="javaconfig 0430" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1338,11 +1316,16 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/ViewResolverConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="4119" max-vertical-offset="4710">
+        <state line="36" column="24" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="690">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="13" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="4119" max-vertical-offset="4710" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/person/SocialRelationship.java">
@@ -1357,9 +1340,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/service/AddTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="56" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.0" vertical-offset="597" max-vertical-offset="1110">
-          <folding />
-        </state>
+        <state line="63" column="56" selection-start="1904" selection-end="1904" vertical-scroll-proportion="0.0" vertical-offset="597" max-vertical-offset="1110" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/Param.java">
@@ -1374,16 +1355,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplSequence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
+        <state line="10" column="13" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
+        <state line="11" column="0" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonService.java">
@@ -1395,9 +1372,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/entity/param/EmplLevel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
+        <state line="10" column="13" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeService.java">
@@ -1424,9 +1399,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/person/add_step1.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.519802" vertical-offset="0" max-vertical-offset="404">
-          <folding />
-        </state>
+        <state line="14" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.519802" vertical-offset="0" max-vertical-offset="404" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/conversion/DateFormatter.java">
@@ -1438,9 +1411,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/list0.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="7" selection-start="357" selection-end="357" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
+        <state line="12" column="7" selection-start="357" selection-end="357" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ListPersonController.java">
@@ -1475,37 +1446,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/th/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="16" selection-end="95" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="540">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="16" selection-end="95" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="540" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/th/thlist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="318" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="300">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="318" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="300" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/index.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="482">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="482" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/th/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="36" selection-start="333" selection-end="333" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="315">
-          <folding />
-        </state>
+        <state line="12" column="36" selection-start="333" selection-end="333" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/message_en.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="454">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="454" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
@@ -1515,25 +1476,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.2.8.RELEASE/spring-core-3.2.8.RELEASE.jar!/org/springframework/core/env/Environment.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="175" selection-end="175" vertical-scroll-proportion="0.17482518" vertical-offset="0" max-vertical-offset="429">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.2.8.RELEASE/spring-orm-3.2.8.RELEASE.jar!/org/springframework/orm/jpa/vendor/HibernateJpaVendorAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <folding />
-        </state>
+        <state line="10" column="11" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.2.8.RELEASE/spring-orm-3.2.8.RELEASE-sources.jar!/org/springframework/orm/jpa/JpaVendorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="17" selection-start="1163" selection-end="1163" vertical-scroll-proportion="-1.3809524" vertical-offset="849" max-vertical-offset="1290">
-          <folding />
-        </state>
+        <state line="34" column="17" selection-start="1163" selection-end="1163" vertical-scroll-proportion="-1.3809524" vertical-offset="849" max-vertical-offset="1290" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/IndexController.java">
@@ -1545,53 +1495,37 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.2.8.RELEASE/spring-orm-3.2.8.RELEASE-sources.jar!/org/springframework/orm/jpa/vendor/HibernateJpaDialect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="13" selection-start="1946" selection-end="1946" vertical-scroll-proportion="0.33259913" vertical-offset="104" max-vertical-offset="2370">
-          <folding />
-        </state>
+        <state line="51" column="13" selection-start="1946" selection-end="1946" vertical-scroll-proportion="0.33259913" vertical-offset="104" max-vertical-offset="2370" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.2.8.RELEASE/spring-orm-3.2.8.RELEASE-sources.jar!/org/springframework/orm/jpa/JpaDialect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="17" selection-start="2204" selection-end="2204" vertical-scroll-proportion="0.2907489" vertical-offset="333" max-vertical-offset="3045">
-          <folding />
-        </state>
+        <state line="54" column="17" selection-start="2204" selection-end="2204" vertical-scroll-proportion="0.2907489" vertical-offset="333" max-vertical-offset="3045" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.2.8.RELEASE/spring-orm-3.2.8.RELEASE-sources.jar!/org/springframework/orm/jpa/vendor/HibernateJpaVendorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="13" selection-start="2034" selection-end="2034" vertical-scroll-proportion="0.13436124" vertical-offset="224" max-vertical-offset="1470">
-          <folding>
-            <element signature="e#2548#2564#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="54" column="13" selection-start="2034" selection-end="2034" vertical-scroll-proportion="0.13436124" vertical-offset="224" max-vertical-offset="1470" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.8.RELEASE/spring-web-3.2.8.RELEASE.jar!/org/springframework/web/filter/CharacterEncodingFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
+        <state line="10" column="11" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.8.RELEASE/spring-web-3.2.8.RELEASE-sources.jar!/org/springframework/web/filter/CharacterEncodingFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2797357" vertical-offset="581" max-vertical-offset="1125">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2797357" vertical-offset="581" max-vertical-offset="1125" />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Dropbox/Java/plugins/apache-tomcat/current/lib/servlet-api.jar!/javax/servlet/FilterRegistration.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="9" selection-start="225" selection-end="225" vertical-scroll-proportion="0.20979021" vertical-offset="0" max-vertical-offset="429">
-          <folding />
-        </state>
+        <state line="7" column="9" selection-start="225" selection-end="225" vertical-scroll-proportion="0.20979021" vertical-offset="0" max-vertical-offset="429" />
       </provider>
     </entry>
     <entry file="jar:///usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/rt.jar!/java/util/HashMap.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="11" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.7929515" vertical-offset="0" max-vertical-offset="3225">
-          <folding />
-        </state>
+        <state line="25" column="11" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.7929515" vertical-offset="0" max-vertical-offset="3225" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/employee/EmployeeServiceImpl.java">
@@ -1604,70 +1538,38 @@
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.8.RELEASE/spring-web-3.2.8.RELEASE-sources.jar!/org/springframework/web/util/Log4jConfigListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="13" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="213" max-vertical-offset="645">
-          <folding>
-            <element signature="e#0#2033#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Dropbox/Java/plugins/apache-tomcat/current/lib/servlet-api.jar!/javax/servlet/ServletContext.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="46" selection-start="3892" selection-end="3892" vertical-scroll-proportion="0.41624364" vertical-offset="1501" max-vertical-offset="1920">
-          <folding />
-        </state>
+        <state line="112" column="46" selection-start="3892" selection-end="3892" vertical-scroll-proportion="0.41624364" vertical-offset="1501" max-vertical-offset="1920" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="17" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="454">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.8.RELEASE/spring-web-3.2.8.RELEASE-sources.jar!/org/springframework/web/util/Log4jWebConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="833" selection-end="833" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="2670">
-          <folding>
-            <element signature="e#0#8353#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/Log4jConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="16" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="454" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/ApplicationInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="24" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="206" max-vertical-offset="990">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="31" column="24" selection-start="1187" selection-end="1187" vertical-scroll-proportion="0.0" vertical-offset="191" max-vertical-offset="975">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/ViewResolverConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="24" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1678,18 +1580,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/SpringDataConfig.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.8.RELEASE/spring-web-3.2.8.RELEASE-sources.jar!/org/springframework/web/util/Log4jWebConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="12" selection-start="1597" selection-end="1597" vertical-scroll-proportion="0.0" vertical-offset="326" max-vertical-offset="1590">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="23" column="0" selection-start="833" selection-end="833" vertical-scroll-proportion="-1.8352941" vertical-offset="855" max-vertical-offset="2670" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/Log4jConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="16" selection-start="228" selection-end="228" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.2.8.RELEASE/spring-core-3.2.8.RELEASE.jar!/org/springframework/core/env/Environment.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="17" selection-start="175" selection-end="175" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="255">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="47" selection-start="866" selection-end="866" vertical-scroll-proportion="0.25052193" vertical-offset="165" max-vertical-offset="975">
+        <state line="20" column="47" selection-start="867" selection-end="867" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/configuration/SpringDataConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="22" selection-start="1330" selection-end="1330" vertical-scroll-proportion="0.21305841" vertical-offset="371" max-vertical-offset="1515">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -30,7 +30,7 @@ public class SpringDataConfig extends WebMvcConfigurerAdapter {
     @Autowired
     private Environment env;
 
-    @Value("jdbc.driverClassName")
+    @Value("#{jdbc.driverClassName}")
     private String dc;
 
     // Declare a datasource that has pooling capabilities
@@ -39,7 +39,8 @@ public class SpringDataConfig extends WebMvcConfigurerAdapter {
         try {
             /* dbcp datasource*/
             BasicDataSource ds = new BasicDataSource();
-            ds.setDriverClassName(env.getRequiredProperty("jdbc.driverClassName"));
+
+            ds.setDriverClassName(dc);
             ds.setUsername(env.getRequiredProperty("jdbc.username"));
             ds.setPassword(env.getRequiredProperty("jdbc.password"));
             ds.setUrl(env.getRequiredProperty("jdbc.url"));
