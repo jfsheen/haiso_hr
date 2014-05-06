@@ -18,11 +18,12 @@ import java.util.Date;
 @Table(name = "t_person")//, uniqueConstraints = @UniqueConstraint(columnNames = {"idcard_num","name"}))
 public class Person {
 
-    private long id;
+    private Long id;
 
     private IdCard idCard;
     private String name;
     private String photoPath;
+    private Boolean married;
     private String partisan;
     private Date joinPartyDate;
     private String hukouType;
@@ -54,7 +55,6 @@ public class Person {
         this.employee = employee;
     }
 
-
     @Embedded
     public IdCard getIdCard() {
         return idCard;
@@ -69,23 +69,31 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     @NotNull
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
 
     @Column(name = "photo_path", length = 100)
-
     public String getPhotoPath() {
         return photoPath;
     }
 
     public void setPhotoPath(String photoPath) {
         this.photoPath = photoPath;
+    }
+
+    @Column(name = "married", nullable = true, length = 1)
+    public Boolean getMarried() {
+        return married;
+    }
+
+    public void setMarried(Boolean married) {
+        this.married = married;
     }
 
 
@@ -307,7 +315,7 @@ public class Person {
 
     private Date lastUpdate;
     private Date createDate;
-    private int version;
+    private Integer version;
 
     @Column(name = "last_update", nullable = false, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
@@ -321,11 +329,11 @@ public class Person {
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -382,6 +390,7 @@ public class Person {
                 .add("idCard", idCard)
                 .add("name", name)
                 .add("photoPath", photoPath)
+                .add("married", married)
                 .add("partisan", partisan)
                 .add("joinPartyDate", joinPartyDate)
                 .add("hukouType", hukouType)
@@ -411,7 +420,7 @@ public class Person {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, idCard, name, photoPath, partisan, joinPartyDate, hukouType, hometown, lastDegree, lastSchool, lastMajor, residentailAddress, postalCode, mobile, phone, email, qq, weixin, introduction, emergencyContactName, emergencyContactPhone, emergencyContactAddress, sponsorName, sponsorPhone, employee, lastUpdate, createDate, version);
+        return Objects.hashCode(id, idCard, name, photoPath, married, partisan, joinPartyDate, hukouType, hometown, lastDegree, lastSchool, lastMajor, residentailAddress, postalCode, mobile, phone, email, qq, weixin, introduction, emergencyContactName, emergencyContactPhone, emergencyContactAddress, sponsorName, sponsorPhone, employee, lastUpdate, createDate, version);
     }
 
     @Override
@@ -423,6 +432,6 @@ public class Person {
             return false;
         }
         final Person other = (Person) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.idCard, other.idCard) && Objects.equal(this.name, other.name) && Objects.equal(this.photoPath, other.photoPath) && Objects.equal(this.partisan, other.partisan) && Objects.equal(this.joinPartyDate, other.joinPartyDate) && Objects.equal(this.hukouType, other.hukouType) && Objects.equal(this.hometown, other.hometown) && Objects.equal(this.lastDegree, other.lastDegree) && Objects.equal(this.lastSchool, other.lastSchool) && Objects.equal(this.lastMajor, other.lastMajor) && Objects.equal(this.residentailAddress, other.residentailAddress) && Objects.equal(this.postalCode, other.postalCode) && Objects.equal(this.mobile, other.mobile) && Objects.equal(this.phone, other.phone) && Objects.equal(this.email, other.email) && Objects.equal(this.qq, other.qq) && Objects.equal(this.weixin, other.weixin) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.emergencyContactName, other.emergencyContactName) && Objects.equal(this.emergencyContactPhone, other.emergencyContactPhone) && Objects.equal(this.emergencyContactAddress, other.emergencyContactAddress) && Objects.equal(this.sponsorName, other.sponsorName) && Objects.equal(this.sponsorPhone, other.sponsorPhone) && Objects.equal(this.employee, other.employee) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version);
+        return Objects.equal(this.id, other.id) && Objects.equal(this.idCard, other.idCard) && Objects.equal(this.name, other.name) && Objects.equal(this.photoPath, other.photoPath) && Objects.equal(this.married, other.married) && Objects.equal(this.partisan, other.partisan) && Objects.equal(this.joinPartyDate, other.joinPartyDate) && Objects.equal(this.hukouType, other.hukouType) && Objects.equal(this.hometown, other.hometown) && Objects.equal(this.lastDegree, other.lastDegree) && Objects.equal(this.lastSchool, other.lastSchool) && Objects.equal(this.lastMajor, other.lastMajor) && Objects.equal(this.residentailAddress, other.residentailAddress) && Objects.equal(this.postalCode, other.postalCode) && Objects.equal(this.mobile, other.mobile) && Objects.equal(this.phone, other.phone) && Objects.equal(this.email, other.email) && Objects.equal(this.qq, other.qq) && Objects.equal(this.weixin, other.weixin) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.emergencyContactName, other.emergencyContactName) && Objects.equal(this.emergencyContactPhone, other.emergencyContactPhone) && Objects.equal(this.emergencyContactAddress, other.emergencyContactAddress) && Objects.equal(this.sponsorName, other.sponsorName) && Objects.equal(this.sponsorPhone, other.sponsorPhone) && Objects.equal(this.employee, other.employee) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version);
     }
 }

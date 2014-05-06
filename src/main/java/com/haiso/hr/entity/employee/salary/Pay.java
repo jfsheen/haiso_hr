@@ -13,230 +13,207 @@ import javax.persistence.Embeddable;
 public class Pay {
 
 
-    private int payRegular;
+    private Integer payRegular;
 
     @Column(name = "pay_regular", nullable = false, length = 10, precision = 0)
-    public int getPayRegular() {
+    public Integer getPayRegular() {
         return payRegular;
     }
 
-    public void setPayRegular(int payRegular) {
+    public void setPayRegular(Integer payRegular) {
         this.payRegular = payRegular;
     }
 
-    private int paySeniority;
+    private Integer paySeniority;
 
 
     @Column(name = "pay_seniority", nullable = false, length = 10, precision = 0)
-    public int getPaySeniority() {
+    public Integer getPaySeniority() {
         return paySeniority;
     }
 
-    public void setPaySeniority(int paySeniority) {
+    public void setPaySeniority(Integer paySeniority) {
         this.paySeniority = paySeniority;
     }
 
-    private int payPost;
+    private Integer payPost;
 
 
     @Column(name = "pay_post", nullable = false, length = 10, precision = 0)
-    public int getPayPost() {
+    public Integer getPayPost() {
         return payPost;
     }
 
-    public void setPayPost(int payPost) {
+    public void setPayPost(Integer payPost) {
         this.payPost = payPost;
     }
 
-    private int alloDuty;
+    private Integer alloDuty;
 
 
     @Column(name = "allo_duty", nullable = false, length = 10, precision = 0)
-    public int getAlloDuty() {
+    public Integer getAlloDuty() {
         return alloDuty;
     }
 
-    public void setAlloDuty(int alloDuty) {
+    public void setAlloDuty(Integer alloDuty) {
         this.alloDuty = alloDuty;
     }
 
-    private int feeCoultant;
+    private Integer feeCoultant;
 
 
     @Column(name = "fee_coultant", nullable = false, length = 10, precision = 0)
-    public int getFeeCoultant() {
+    public Integer getFeeCoultant() {
         return feeCoultant;
     }
 
-    public void setFeeCoultant(int feeCoultant) {
+    public void setFeeCoultant(Integer feeCoultant) {
         this.feeCoultant = feeCoultant;
     }
 
-    private int payMerit;
+    private Integer payMerit;
 
 
     @Column(name = "pay_merit", nullable = false, length = 10, precision = 0)
-    public int getPayMerit() {
+    public Integer getPayMerit() {
         return payMerit;
     }
 
-    public void setPayMerit(int payMerit) {
+    public void setPayMerit(Integer payMerit) {
         this.payMerit = payMerit;
     }
 
-    private int payAttendance;
+    private Integer payAttendance;
 
 
     @Column(name = "pay_attendance", nullable = false, length = 10, precision = 0)
-    public int getPayAttendance() {
+    public Integer getPayAttendance() {
         return payAttendance;
     }
 
-    public void setPayAttendance(int payAttendance) {
+    public void setPayAttendance(Integer payAttendance) {
         this.payAttendance = payAttendance;
     }
 
-    private int payCallback;
+    private Integer payCallback;
 
 
     @Column(name = "pay_callback", nullable = false, length = 10, precision = 0)
-    public int getPayCallback() {
+    public Integer getPayCallback() {
         return payCallback;
     }
 
-    public void setPayCallback(int payCallback) {
+    public void setPayCallback(Integer payCallback) {
         this.payCallback = payCallback;
     }
 
-    private int payWatcher;
+    private Integer payWatcher;
 
 
     @Column(name = "pay_watcher", nullable = false, length = 10, precision = 0)
-    public int getPayWatcher() {
+    public Integer getPayWatcher() {
         return payWatcher;
     }
 
-    public void setPayWatcher(int payWatcher) {
+    public void setPayWatcher(Integer payWatcher) {
         this.payWatcher = payWatcher;
     }
 
-    private int alloHealth;
+    private Integer alloHealth;
 
 
     @Column(name = "allo_health", nullable = false, length = 10, precision = 0)
-    public int getAlloHealth() {
+    public Integer getAlloHealth() {
         return alloHealth;
     }
 
-    public void setAlloHealth(int alloHealth) {
+    public void setAlloHealth(Integer alloHealth) {
         this.alloHealth = alloHealth;
     }
 
-    private int alloEducate;
+    private Integer alloEducate;
 
 
     @Column(name = "allo_educate", nullable = false, length = 10, precision = 0)
-    public int getAlloEducate() {
+    public Integer getAlloEducate() {
         return alloEducate;
     }
 
-    public void setAlloEducate(int alloEducate) {
+    public void setAlloEducate(Integer alloEducate) {
         this.alloEducate = alloEducate;
     }
 
-    private int subsidy;
+    private Integer subsidy;
 
 
     @Column(name = "subsidy", nullable = false, length = 10, precision = 0)
-    public int getSubsidy() {
+    public Integer getSubsidy() {
         return subsidy;
     }
 
-    public void setSubsidy(int subsidy) {
+    public void setSubsidy(Integer subsidy) {
         this.subsidy = subsidy;
     }
 
-    private int perquisite;
+    private Integer perquisite;
 
 
     @Column(name = "perquisite", nullable = false, length = 10, precision = 0)
-    public int getPerquisite() {
+    public Integer getPerquisite() {
         return perquisite;
     }
 
-    public void setPerquisite(int perquisite) {
+    public void setPerquisite(Integer perquisite) {
         this.perquisite = perquisite;
     }
 
-    private int bonus;
+    private Integer bonus;
 
 
     @Column(name = "bonus", nullable = false, length = 10, precision = 0)
-    public int getBonus() {
+    public Integer getBonus() {
         return bonus;
     }
 
-    public void setBonus(int bonus) {
+    public void setBonus(Integer bonus) {
         this.bonus = bonus;
     }
 
-    private int alloChild;
+    private Integer alloChild;
 
 
     @Column(name = "allo_child", nullable = false, length = 10, precision = 0)
-    public int getAlloChild() {
+    public Integer getAlloChild() {
         return alloChild;
     }
 
-    public void setAlloChild(int alloChild) {
+    public void setAlloChild(Integer alloChild) {
         this.alloChild = alloChild;
     }
 
-    private int alloMeal;
+    private Integer alloMeal;
 
 
     @Column(name = "allo_meal", nullable = false, length = 10, precision = 0)
-    public int getAlloMeal() {
+    public Integer getAlloMeal() {
         return alloMeal;
     }
 
-    public void setAlloMeal(int alloMeal) {
+    public void setAlloMeal(Integer alloMeal) {
         this.alloMeal = alloMeal;
     }
 
-    private int subsRent;
+    private Integer subsRent;
 
 
     @Column(name = "subs_rent", nullable = false, length = 10, precision = 0)
-    public int getSubsRent() {
+    public Integer getSubsRent() {
         return subsRent;
     }
 
-    public void setSubsRent(int subsRent) {
+    public void setSubsRent(Integer subsRent) {
         this.subsRent = subsRent;
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("payRegular", payRegular)
-                .add("paySeniority", paySeniority)
-                .add("payPost", payPost)
-                .add("alloDuty", alloDuty)
-                .add("feeCoultant", feeCoultant)
-                .add("payMerit", payMerit)
-                .add("payAttendance", payAttendance)
-                .add("payCallback", payCallback)
-                .add("payWatcher", payWatcher)
-                .add("alloHealth", alloHealth)
-                .add("alloEducate", alloEducate)
-                .add("subsidy", subsidy)
-                .add("perquisite", perquisite)
-                .add("bonus", bonus)
-                .add("alloChild", alloChild)
-                .add("alloMeal", alloMeal)
-                .add("subsRent", subsRent)
-                .toString();
     }
 
     @Override

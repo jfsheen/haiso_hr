@@ -18,14 +18,15 @@ import java.io.File;
 public class UploadFileController {
 
     @RequestMapping(value = "upload/file", method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView uploadImages(@RequestParam(value = "file", required = false) MultipartFile file,
-                                     HttpServletRequest request, ModelMap model) {
+    public ModelAndView uploadFiles(@RequestParam(value = "file", required = false) MultipartFile file,
+                                    HttpServletRequest request, ModelMap model) {
 
         ModelAndView mav = new ModelAndView();
         String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
+        System.out.println(path);
         String fileName = file.getOriginalFilename();
 //          String fileName = new Date().getTime()+".jpg";
-//        System.out.println(path);
+        System.out.println(fileName);
         File targetFile = new File(path, fileName);
         if (!targetFile.exists()) {
             targetFile.mkdirs();

@@ -10,10 +10,10 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "t_event")
+@Table(name = "t_empl_event")
 public class Event {
 
-    private long id;
+    private Integer id;
     private Employee employee;
     private Date createDate;
     private Date dateStart;
@@ -31,11 +31,11 @@ public class Event {
 
     @Id
     @GeneratedValue
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

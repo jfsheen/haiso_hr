@@ -27,7 +27,7 @@ public class Employee {
     private String introduction;
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
-    private int version;
+    private Integer version;
     private Set<Department> departmentSet = new HashSet<Department>();
     private Set<Position> positionSet = new HashSet<Position>();
     private Person person;
@@ -99,11 +99,11 @@ public class Employee {
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -198,22 +198,5 @@ public class Employee {
         }
         final Employee other = (Employee) obj;
         return Objects.equal(this.emplSn, other.emplSn) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.departmentSet, other.departmentSet) && Objects.equal(this.positionSet, other.positionSet) && Objects.equal(this.person, other.person) && Objects.equal(this.emplStatus, other.emplStatus) && Objects.equal(this.emplSequence, other.emplSequence) && Objects.equal(this.emplLevel, other.emplLevel);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("emplSn", emplSn)
-                .add("introduction", introduction)
-                .add("lastUpdate", lastUpdate)
-                .add("createDate", createDate)
-                .add("version", version)
-                .add("departmentSet", departmentSet)
-                .add("positionSet", positionSet)
-                .add("person", person)
-                .add("emplStatus", emplStatus)
-                .add("emplSequence", emplSequence)
-                .add("emplLevel", emplLevel)
-                .toString();
     }
 }

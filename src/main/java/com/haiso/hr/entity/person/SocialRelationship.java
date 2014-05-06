@@ -12,10 +12,10 @@ import javax.persistence.*;
 @Table(name = "t_prsn_sclrlt")
 public class SocialRelationship {
 
-    private int id;
+    private Integer id;
     private String relation;
     private String name;
-    private int age;
+    private Integer age;
     private String company;
     private String post;
     private String phone;
@@ -33,12 +33,20 @@ public class SocialRelationship {
     }
 
     @Id
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getRelation() {
@@ -55,14 +63,6 @@ public class SocialRelationship {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getCompany() {

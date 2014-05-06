@@ -12,7 +12,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "t_empl_assess")
 public class Assessment {
-    private int id;
+    private Integer id;
     private String title;
     private String content;
     private Date startDate;
@@ -23,7 +23,7 @@ public class Assessment {
     private String conclusion;
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
-    private int version;
+    private Integer version;
 
     private Employee employee;
 
@@ -39,11 +39,11 @@ public class Assessment {
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -71,11 +71,11 @@ public class Assessment {
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -172,24 +172,5 @@ public class Assessment {
         }
         final Assessment other = (Assessment) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.title, other.title) && Objects.equal(this.content, other.content) && Objects.equal(this.startDate, other.startDate) && Objects.equal(this.endDate, other.endDate) && Objects.equal(this.qualify, other.qualify) && Objects.equal(this.score, other.score) && Objects.equal(this.comment, other.comment) && Objects.equal(this.conclusion, other.conclusion) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("title", title)
-                .add("content", content)
-                .add("startDate", startDate)
-                .add("endDate", endDate)
-                .add("qualify", qualify)
-                .add("score", score)
-                .add("comment", comment)
-                .add("conclusion", conclusion)
-                .add("lastUpdate", lastUpdate)
-                .add("createDate", createDate)
-                .add("version", version)
-                .add("employee", employee)
-                .toString();
     }
 }

@@ -12,7 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "t_empl_salary")
 public class Salary {
-    private long id;
+    private Long id;
     private Person person;
     private Date periodStart;
     private Date periodEnd;
@@ -40,11 +40,11 @@ public class Salary {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,18 +76,6 @@ public class Salary {
 
     public void setPeriodEnd(Date periodEnd) {
         this.periodEnd = periodEnd;
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("person", person)
-                .add("periodStart", periodStart)
-                .add("periodEnd", periodEnd)
-                .add("pay", pay)
-                .add("deduct", deduct)
-                .toString();
     }
 
     @Override

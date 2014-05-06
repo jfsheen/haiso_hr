@@ -26,7 +26,7 @@ public class ListPersonController {
         return persons;
     }
 
-    @RequestMapping("/listurl")
+    @RequestMapping("/list")
     public String listPersons() {
         return "thlist";
     }

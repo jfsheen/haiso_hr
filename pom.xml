@@ -45,12 +45,26 @@
         <!--POI MS office utils-->
         <dependency>
             <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
+            <artifactId>poi-ooxml</artifactId>
             <version>3.10-FINAL</version>
         </dependency>
 
 
         <!-- Web Utility -->
+        <!--JDOM XML
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom2</artifactId>
+            <version>2.0.5</version>
+        </dependency>-->
+        <!--dom4j xml-->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
+
         <!--freemarker-->
         <dependency>
             <groupId>org.freemarker</groupId>

@@ -12,8 +12,8 @@ import java.util.Date;
 @Entity
 @Table(name = "t_prsn_crtf")
 public class Certificate {
-    private int id;
-    private int eduId;
+    private Integer id;
+    private Integer eduId;
     private String name;
     private String serialNum;
     private Date obtainDate;
@@ -34,21 +34,21 @@ public class Certificate {
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
 
     @Column(name = "edu_id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getEduId() {
+    public Integer getEduId() {
         return eduId;
     }
 
-    public void setEduId(int eduId) {
+    public void setEduId(Integer eduId) {
         this.eduId = eduId;
     }
 
@@ -117,19 +117,5 @@ public class Certificate {
         }
         final Certificate other = (Certificate) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.eduId, other.eduId) && Objects.equal(this.name, other.name) && Objects.equal(this.serialNum, other.serialNum) && Objects.equal(this.obtainDate, other.obtainDate) && Objects.equal(this.expiryDate, other.expiryDate) && Objects.equal(this.authority, other.authority) && Objects.equal(this.person, other.person);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("eduId", eduId)
-                .add("name", name)
-                .add("serialNum", serialNum)
-                .add("obtainDate", obtainDate)
-                .add("expiryDate", expiryDate)
-                .add("authority", authority)
-                .add("person", person)
-                .toString();
     }
 }

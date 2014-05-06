@@ -12,7 +12,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "t_prsn_wrkexp")
 public class WorkExperience {
-    private int id;
+    private Integer id;
     private String companyName;
     private String position;
     private Date startDate;
@@ -63,11 +63,11 @@ public class WorkExperience {
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

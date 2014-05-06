@@ -1,6 +1,7 @@
-package com.haiso.hr.entity.employee;
+package com.haiso.hr.entity.employee.salary;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -11,11 +12,11 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "t_empl_salary_info")
-public class SalaryInfo {
-    private int id;
-    private boolean isPost;
-    private boolean byTime;
-    private boolean byPiece;
+public class EmplInfo {
+    private Integer id;
+    private Boolean isPost;
+    private Boolean byTime;
+    private Boolean byPiece;
     private BigDecimal ratioEval;
     private BigDecimal ratioPrepay;
     private String lsnInsuPesn;//location SN insurance pension
@@ -24,15 +25,15 @@ public class SalaryInfo {
     private String lsnInsuHouse;//location SN fund of housing
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
-    private int version;
+    private Integer version;
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -97,11 +98,11 @@ public class SalaryInfo {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -119,31 +120,31 @@ public class SalaryInfo {
 
     @Basic
     @Column(name = "is_post", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
-    public boolean isPost() {
+    public Boolean isPost() {
         return isPost;
     }
 
-    public void setPost(boolean isPost) {
+    public void setPost(Boolean isPost) {
         this.isPost = isPost;
     }
 
     @Basic
     @Column(name = "by_time", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
-    public boolean isByTime() {
+    public Boolean isByTime() {
         return byTime;
     }
 
-    public void setByTime(boolean byTime) {
+    public void setByTime(Boolean byTime) {
         this.byTime = byTime;
     }
 
     @Basic
     @Column(name = "by_piece", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
-    public boolean isByPiece() {
+    public Boolean isByPiece() {
         return byPiece;
     }
 
-    public void setByPiece(boolean byPiece) {
+    public void setByPiece(Boolean byPiece) {
         this.byPiece = byPiece;
     }
 
@@ -220,27 +221,7 @@ public class SalaryInfo {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final SalaryInfo other = (SalaryInfo) obj;
+        final EmplInfo other = (EmplInfo) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.isPost, other.isPost) && Objects.equal(this.byTime, other.byTime) && Objects.equal(this.byPiece, other.byPiece) && Objects.equal(this.ratioEval, other.ratioEval) && Objects.equal(this.ratioPrepay, other.ratioPrepay) && Objects.equal(this.lsnInsuPesn, other.lsnInsuPesn) && Objects.equal(this.lsnInsuMed, other.lsnInsuMed) && Objects.equal(this.lsnInsuLqMed, other.lsnInsuLqMed) && Objects.equal(this.lsnInsuHouse, other.lsnInsuHouse) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("isPost", isPost)
-                .add("byTime", byTime)
-                .add("byPiece", byPiece)
-                .add("ratioEval", ratioEval)
-                .add("ratioPrepay", ratioPrepay)
-                .add("lsnInsuPesn", lsnInsuPesn)
-                .add("lsnInsuMed", lsnInsuMed)
-                .add("lsnInsuLqMed", lsnInsuLqMed)
-                .add("lsnInsuHouse", lsnInsuHouse)
-                .add("lastUpdate", lastUpdate)
-                .add("createDate", createDate)
-                .add("version", version)
-                .add("employee", employee)
-                .toString();
     }
 }

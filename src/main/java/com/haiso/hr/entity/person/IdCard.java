@@ -16,7 +16,7 @@ public class IdCard {
 
     private String idCardNum;
     private String idName;
-    private boolean gender;
+    private Boolean gender;
     private String idAddress;
     private String ethnic;
     private String idCardPicPath;
@@ -43,11 +43,11 @@ public class IdCard {
     }
 
     @Column(name = "idcard_gender", nullable = true, length = 1)
-    public boolean isGender() {
+    public Boolean getGender() {
         return gender;
     }
 
-    public void setGender(boolean gender) {
+    public void setGender(Boolean gender) {
         this.gender = gender;
     }
 
@@ -105,21 +105,6 @@ public class IdCard {
 
     public void setValidUntil(Date validUntil) {
         this.validUntil = validUntil;
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("idCardNum", idCardNum)
-                .add("idName", idName)
-                .add("gender", gender)
-                .add("idAddress", idAddress)
-                .add("ethnic", ethnic)
-                .add("idCardPicPath", idCardPicPath)
-                .add("issueAuth", issueAuth)
-                .add("validStart", validStart)
-                .add("validUntil", validUntil)
-                .toString();
     }
 
     @Override

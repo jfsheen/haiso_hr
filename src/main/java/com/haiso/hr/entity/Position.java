@@ -1,5 +1,6 @@
 package com.haiso.hr.entity;
 
+import com.google.common.base.Objects;
 import com.haiso.hr.entity.employee.Employee;
 import com.haiso.hr.utils.SnGenerator;
 
@@ -19,12 +20,12 @@ public class Position {
     private String positionSn;
     private String title;
     private String sequence;
-    private byte amountLimit;
+    private Byte amountLimit;
     private String postDuty;
     private String remark;
     private Date lastUpdate;
     private Date createDate;
-    private int version;
+    private Integer version;
 
     @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1)
     @Temporal(TemporalType.TIMESTAMP)
@@ -38,11 +39,11 @@ public class Position {
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -111,11 +112,11 @@ public class Position {
 
     @Basic
     @Column(name = "amount_limit", nullable = false, insertable = true, updatable = true, length = 3)
-    public byte getAmountLimit() {
+    public Byte getAmountLimit() {
         return amountLimit;
     }
 
-    public void setAmountLimit(byte amountLimit) {
+    public void setAmountLimit(Byte amountLimit) {
         this.amountLimit = amountLimit;
     }
 
@@ -138,7 +139,6 @@ public class Position {
     public void setRemark(String remark) {
         this.remark = remark;
     }
-
 
 
     @PreUpdate
@@ -177,32 +177,21 @@ public class Position {
     public void postUpdate() {
 
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-//        Position position = (Position) o;
-//
-//        if (amountLimit != position.amountLimit) return false;
-//        if (id != position.id) return false;
-//        if (postDuty != null ? !postDuty.equals(position.postDuty) : position.postDuty != null) return false;
-//        if (name != null ? !name.equals(position.name) : position.name != null) return false;
-//        if (positionSn != null ? !positionSn.equals(position.positionSn) : position.positionSn != null) return false;
-//        if (remark != null ? !remark.equals(position.remark) : position.remark != null) return false;
-//        if (sequence != null ? !sequence.equals(position.sequence) : position.sequence != null) return false;
-//
-        return true;
-    }
 
     @Override
     public int hashCode() {
-        int result = (positionSn != null ? positionSn.hashCode() : 0);
-//        result = 31 * result + (name != null ? name.hashCode() : 0);
-//        result = 31 * result + (sequence != null ? sequence.hashCode() : 0);
-//        result = 31 * result + (int) amountLimit;
-//        result = 31 * result + (postDuty != null ? postDuty.hashCode() : 0);
-//        result = 31 * result + (remark != null ? remark.hashCode() : 0);
-        return result;
+        return Objects.hashCode(positionSn, title, sequence, amountLimit, postDuty, remark, lastUpdate, createDate, version, department, employeeSet);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Position other = (Position) obj;
+        return Objects.equal(this.positionSn, other.positionSn) && Objects.equal(this.title, other.title) && Objects.equal(this.sequence, other.sequence) && Objects.equal(this.amountLimit, other.amountLimit) && Objects.equal(this.postDuty, other.postDuty) && Objects.equal(this.remark, other.remark) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.department, other.department) && Objects.equal(this.employeeSet, other.employeeSet);
     }
 }

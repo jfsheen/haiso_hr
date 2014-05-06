@@ -12,7 +12,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "t_empl_contract")
 public class Contract {
-    private int id;
+    private Integer id;
     private String contractSn;
     private Date contractDate;
     private Date expiryDate;
@@ -20,20 +20,8 @@ public class Contract {
     private String remark;
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
-    private int version;
-    //    private Person person;
-//
-//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "person_id", nullable = false, updatable = false)
-//    public Person getPerson() {
-//        return person;
-//    }
-//
-//    public void setPerson(Person person) {
-//        this.person = person;
-//    }
-//
-//
+    private Integer version;
+
     private Employee employee;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
@@ -48,11 +36,11 @@ public class Contract {
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -115,11 +103,11 @@ public class Contract {
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -183,21 +171,5 @@ public class Contract {
         }
         final Contract other = (Contract) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.contractSn, other.contractSn) && Objects.equal(this.contractDate, other.contractDate) && Objects.equal(this.expiryDate, other.expiryDate) && Objects.equal(this.location, other.location) && Objects.equal(this.remark, other.remark) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("contractSn", contractSn)
-                .add("contractDate", contractDate)
-                .add("expiryDate", expiryDate)
-                .add("location", location)
-                .add("remark", remark)
-                .add("lastUpdate", lastUpdate)
-                .add("createDate", createDate)
-                .add("version", version)
-                .add("employee", employee)
-                .toString();
     }
 }

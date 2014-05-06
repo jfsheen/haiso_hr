@@ -1,6 +1,7 @@
-package com.haiso.hr.entity.employee;
+package com.haiso.hr.entity.employee.salary;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,21 +12,21 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_empl_salary_adjust")
-public class SalaryAdjustment {
+public class Adjustment {
 
-    private int id;
-    private int amount; //单位为:分
+    private Integer id;
+    private Integer amount; //单位为:分
     private String remark; //备注，必填
     private Date timeAdjust;
-    private int version;
+    private Integer version;
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -89,21 +90,21 @@ public class SalaryAdjustment {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Basic
     @Column(name = "amount", nullable = false, insertable = true, updatable = false, length = 10, precision = 0)
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 
@@ -115,18 +116,6 @@ public class SalaryAdjustment {
 
     public void setRemark(String remark) {
         this.remark = remark;
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("amount", amount)
-                .add("remark", remark)
-                .add("timeAdjust", timeAdjust)
-                .add("version", version)
-                .add("employee", employee)
-                .toString();
     }
 
     @Override
@@ -142,7 +131,7 @@ public class SalaryAdjustment {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        final SalaryAdjustment other = (SalaryAdjustment) obj;
+        final Adjustment other = (Adjustment) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.amount, other.amount) && Objects.equal(this.remark, other.remark) && Objects.equal(this.timeAdjust, other.timeAdjust) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
     }
 }

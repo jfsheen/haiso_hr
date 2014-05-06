@@ -1,5 +1,7 @@
 package com.haiso.hr;
 
+import com.haiso.hr.entity.person.Person;
+import com.haiso.hr.utils.DataTransferUtil.DataMappingConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +33,13 @@ public class AppTests {
     }
 
     @Test
+    public void testXmlMapping() throws Exception {
+        //DataMappingConfig.setXmlFieldsMapping(Person.class, "/home/ff/workspace/person1111.xml");
+        //DataMappingConfig.getMapping("/home/ff/workspace/person111.xml");
+        System.out.println(DataMappingConfig.getEntityFields(Person.class));
+    }
+
+
     public void simple() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())

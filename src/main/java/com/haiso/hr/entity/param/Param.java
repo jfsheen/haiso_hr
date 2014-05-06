@@ -15,7 +15,7 @@ import java.util.Date;
 @Table(name = "t_param")
 public abstract class Param {
 
-    private int id;
+    private Integer id;
     private String pKey;
     private String pValue;
     private String defaultValue;
@@ -23,16 +23,16 @@ public abstract class Param {
     private String description;
     private Date createDate;
     private Date lastUpdate;
-    private int version;
+    private Integer version;
 
     @Id
     @GeneratedValue
     @Column(name = "id")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -48,11 +48,11 @@ public abstract class Param {
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -165,20 +165,5 @@ public abstract class Param {
         }
         final Param other = (Param) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.pKey, other.pKey) && Objects.equal(this.pValue, other.pValue) && Objects.equal(this.defaultValue, other.defaultValue) && Objects.equal(this.explanation, other.explanation) && Objects.equal(this.description, other.description) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.version, other.version);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("pKey", pKey)
-                .add("pValue", pValue)
-                .add("defaultValue", defaultValue)
-                .add("explanation", explanation)
-                .add("description", description)
-                .add("createDate", createDate)
-                .add("lastUpdate", lastUpdate)
-                .add("version", version)
-                .toString();
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Person>
+    <property id="name">
+        <index>1</index>
+        <title>姓名</title>
+    </property>
+    <property id="ethnic">
+        <title>民族</title>
+        <index>3</index>
+    </property>
+    <property id="partisan">
+        <index>4</index>
+        <title>政治面貌</title>
+    </property>
+    <property id="maritalStatus">
+        <index>5</index>
+        <title>婚否</title>
+    </property>
+</Person>

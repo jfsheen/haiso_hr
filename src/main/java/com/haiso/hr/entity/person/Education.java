@@ -12,7 +12,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "t_prsn_edu")
 public class Education {
-    private int id;
+    private Integer id;
     private String school;
     private String major;
     private Date startDate;
@@ -35,11 +35,11 @@ public class Education {
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -101,20 +101,6 @@ public class Education {
 
     public void setDegree(String degree) {
         this.degree = degree;
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("school", school)
-                .add("major", major)
-                .add("startDate", startDate)
-                .add("endDate", endDate)
-                .add("qualify", qualify)
-                .add("degree", degree)
-                .add("person", person)
-                .toString();
     }
 
     @Override

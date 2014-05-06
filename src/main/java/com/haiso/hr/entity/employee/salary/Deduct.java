@@ -12,167 +12,148 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Deduct {
 
-    private int insuPension;
-    private int insuMedical;
-    private int insuUnempl;
-    private int insuLqmed;
-    private int fundHouse;
-    private int feeWater;
-    private int feeElectric;
-    private int feeGas;
-    private int feeProperty;
-    private int duesUnion;
-    private int taxIncome;
-    private int taxStamp;
-    private int costRent;
+    private Integer insuPension;
+    private Integer insuMedical;
+    private Integer insuUnempl;
+    private Integer insuLqmed;
+    private Integer fundHouse;
+    private Integer feeWater;
+    private Integer feeElectric;
+    private Integer feeGas;
+    private Integer feeProperty;
+    private Integer duesUnion;
+    private Integer taxIncome;
+    private Integer taxStamp;
+    private Integer costRent;
 
 
     @Column(name = "insu_pension", nullable = false, length = 10, precision = 0)
-    public int getInsuPension() {
+    public Integer getInsuPension() {
         return insuPension;
     }
 
-    public void setInsuPension(int insuPension) {
+    public void setInsuPension(Integer insuPension) {
         this.insuPension = insuPension;
     }
 
 
     @Column(name = "insu_medical", nullable = false, length = 10, precision = 0)
-    public int getInsuMedical() {
+    public Integer getInsuMedical() {
         return insuMedical;
     }
 
-    public void setInsuMedical(int insuMedical) {
+    public void setInsuMedical(Integer insuMedical) {
         this.insuMedical = insuMedical;
     }
 
 
     @Column(name = "insu_unempl", nullable = false, length = 10, precision = 0)
-    public int getInsuUnempl() {
+    public Integer getInsuUnempl() {
         return insuUnempl;
     }
 
-    public void setInsuUnempl(int insuUnempl) {
+    public void setInsuUnempl(Integer insuUnempl) {
         this.insuUnempl = insuUnempl;
     }
 
 
     @Column(name = "insu_lqmed", nullable = false, length = 10, precision = 0)
-    public int getInsuLqmed() {
+    public Integer getInsuLqmed() {
         return insuLqmed;
     }
 
-    public void setInsuLqmed(int insuLqmed) {
+    public void setInsuLqmed(Integer insuLqmed) {
         this.insuLqmed = insuLqmed;
     }
 
 
     @Column(name = "fund_house", nullable = false, length = 10, precision = 0)
-    public int getFundHouse() {
+    public Integer getFundHouse() {
         return fundHouse;
     }
 
-    public void setFundHouse(int fundHouse) {
+    public void setFundHouse(Integer fundHouse) {
         this.fundHouse = fundHouse;
     }
 
 
     @Column(name = "fee_water", nullable = false, length = 10, precision = 0)
-    public int getFeeWater() {
+    public Integer getFeeWater() {
         return feeWater;
     }
 
-    public void setFeeWater(int feeWater) {
+    public void setFeeWater(Integer feeWater) {
         this.feeWater = feeWater;
     }
 
 
     @Column(name = "fee_electric", nullable = false, length = 10, precision = 0)
-    public int getFeeElectric() {
+    public Integer getFeeElectric() {
         return feeElectric;
     }
 
-    public void setFeeElectric(int feeElectric) {
+    public void setFeeElectric(Integer feeElectric) {
         this.feeElectric = feeElectric;
     }
 
 
     @Column(name = "fee_gas", nullable = false, length = 10, precision = 0)
-    public int getFeeGas() {
+    public Integer getFeeGas() {
         return feeGas;
     }
 
-    public void setFeeGas(int feeGas) {
+    public void setFeeGas(Integer feeGas) {
         this.feeGas = feeGas;
     }
 
 
     @Column(name = "fee_property", nullable = false, length = 10, precision = 0)
-    public int getFeeProperty() {
+    public Integer getFeeProperty() {
         return feeProperty;
     }
 
-    public void setFeeProperty(int feeProperty) {
+    public void setFeeProperty(Integer feeProperty) {
         this.feeProperty = feeProperty;
     }
 
 
     @Column(name = "dues_union", nullable = false, length = 10, precision = 0)
-    public int getDuesUnion() {
+    public Integer getDuesUnion() {
         return duesUnion;
     }
 
-    public void setDuesUnion(int duesUnion) {
+    public void setDuesUnion(Integer duesUnion) {
         this.duesUnion = duesUnion;
     }
 
 
     @Column(name = "tax_income", nullable = false, length = 10, precision = 0)
-    public int getTaxIncome() {
+    public Integer getTaxIncome() {
         return taxIncome;
     }
 
-    public void setTaxIncome(int taxIncome) {
+    public void setTaxIncome(Integer taxIncome) {
         this.taxIncome = taxIncome;
     }
 
 
     @Column(name = "tax_stamp", nullable = false, length = 10, precision = 0)
-    public int getTaxStamp() {
+    public Integer getTaxStamp() {
         return taxStamp;
     }
 
-    public void setTaxStamp(int taxStamp) {
+    public void setTaxStamp(Integer taxStamp) {
         this.taxStamp = taxStamp;
     }
 
 
     @Column(name = "cost_rent", nullable = false, length = 10, precision = 0)
-    public int getCostRent() {
+    public Integer getCostRent() {
         return costRent;
     }
 
-    public void setCostRent(int costRent) {
+    public void setCostRent(Integer costRent) {
         this.costRent = costRent;
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("insuPension", insuPension)
-                .add("insuMedical", insuMedical)
-                .add("insuUnempl", insuUnempl)
-                .add("insuLqmed", insuLqmed)
-                .add("fundHouse", fundHouse)
-                .add("feeWater", feeWater)
-                .add("feeElectric", feeElectric)
-                .add("feeGas", feeGas)
-                .add("feeProperty", feeProperty)
-                .add("duesUnion", duesUnion)
-                .add("taxIncome", taxIncome)
-                .add("taxStamp", taxStamp)
-                .add("costRent", costRent)
-                .toString();
     }
 
     @Override

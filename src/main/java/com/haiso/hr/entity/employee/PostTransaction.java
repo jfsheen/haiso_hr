@@ -10,22 +10,22 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_empl_pos_tx")
 public class PostTransaction {
-    private int id;
+    private Integer id;
     private Employee employee;
     private String status;
     private String remark;
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
-    private int version;
+    private Integer version;
 
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -88,11 +88,11 @@ public class PostTransaction {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -143,18 +143,5 @@ public class PostTransaction {
         }
         final PostTransaction other = (PostTransaction) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.employee, other.employee) && Objects.equal(this.status, other.status) && Objects.equal(this.remark, other.remark) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("employee", employee)
-                .add("status", status)
-                .add("remark", remark)
-                .add("lastUpdate", lastUpdate)
-                .add("createDate", createDate)
-                .add("version", version)
-                .toString();
     }
 }

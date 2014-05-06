@@ -11,12 +11,12 @@ import javax.persistence.*;
 @Table(name = "t_prsn_info")
 public class BasicInfo {
 
-    private int id;
+    private Integer id;
 
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false, length = 10)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

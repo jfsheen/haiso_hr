@@ -1,5 +1,6 @@
 package com.haiso.hr.entity;
 
+import com.google.common.base.Objects;
 import com.haiso.hr.entity.employee.Employee;
 import com.haiso.hr.utils.SnGenerator;
 
@@ -16,7 +17,7 @@ import java.util.Set;
 @Table(name = "t_department")
 public class Department {
 
-//    private int id;
+    //    private int id;
     private String deptSn;
     private String name;
     private String duty;
@@ -24,7 +25,7 @@ public class Department {
     private String description;
     private java.util.Date lastUpdate;
     private java.util.Date createDate;
-    private int version;
+    private Integer version;
     private Set<Employee> employeeSet = new HashSet<Employee>();
     private Set<Position> positionSet = new HashSet<Position>();
 
@@ -48,11 +49,11 @@ public class Department {
 
     @Version
     @Column(name = "version_lock", length = 10)
-    public int getVersion() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
 
@@ -154,7 +155,7 @@ public class Department {
         this.deptSn = orgSn;
     }
 
-    
+
     @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 50, precision = 0)
     public String getName() {
         return name;
@@ -164,7 +165,7 @@ public class Department {
         this.name = name;
     }
 
-    
+
     @Column(name = "description", nullable = true, insertable = true, updatable = true, length = 500, precision = 0)
     public String getDescription() {
         return description;
@@ -174,29 +175,20 @@ public class Department {
         this.description = description;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        Department that = (Department) o;
-//
-//        if (id != that.id) return false;
-//        if (leadDeptSn != that.leadDeptSn) return false;
-//        if (description != null ? !description.equals(that.description) : that.description != null) return false;
-//        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-//        if (deptSn != null ? !deptSn.equals(that.deptSn) : that.deptSn != null) return false;
-//
-//        return true;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = id;
-//        result = 31 * result + (deptSn != null ? deptSn.hashCode() : 0);
-//        result = 31 * result + (name != null ? name.hashCode() : 0);
-//        result = 31 * result + (leadDeptSn != null? leadDeptSn.hashCode() : 0);
-//        result = 31 * result + (description != null ? description.hashCode() : 0);
-//        return result;
-//    }
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(deptSn, name, duty, leadDeptSn, description, lastUpdate, createDate, version, employeeSet, positionSet);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Department other = (Department) obj;
+        return Objects.equal(this.deptSn, other.deptSn) && Objects.equal(this.name, other.name) && Objects.equal(this.duty, other.duty) && Objects.equal(this.leadDeptSn, other.leadDeptSn) && Objects.equal(this.description, other.description) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employeeSet, other.employeeSet) && Objects.equal(this.positionSet, other.positionSet);
+    }
 }
