@@ -16,9 +16,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by ff on 5/5/14.
@@ -76,17 +74,26 @@ public final class ExcelReaderV2 {
         return list;
     }
 
-    public static final Map<String, String> listSheetTitles(Sheet sheet) {
-        Map<String, String> titles = new HashMap<String, String>();
+    /*   public static final Map<String, String> listSheetTitles(Sheet sheet) {
+           Map<String, String> titles = new TreeMap<String, String>();
+           Row row = sheet.getRow(0);
+           for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
+               Cell cell = row.getCell(i);
+               if (cell == null) continue;
+               titles.put(i+"", getValueFromCell(cell));
+           }
+           return titles;
+       }*/
+    public static final List<String> listSheetTitles(Sheet sheet) {
+        List<String> titles = new ArrayList<String>();
         Row row = sheet.getRow(0);
         for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
             Cell cell = row.getCell(i);
             if (cell == null) continue;
-            titles.put(i + "", getValueFromCell(cell));
+            titles.add(getValueFromCell(cell));
         }
         return titles;
     }
-
     /**
      * 获取单元格内文本信息
      *
@@ -130,7 +137,7 @@ public final class ExcelReaderV2 {
                 break;
         }
         // 使用[]记录坐标
-        return value + "[" + cell.getRowIndex() + "," + cell.getColumnIndex() + "]";
+        return "[" + cell.getRowIndex() + "," + cell.getColumnIndex() + "]" + value;
     }
 
 }

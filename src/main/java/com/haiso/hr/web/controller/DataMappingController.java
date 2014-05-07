@@ -1,6 +1,6 @@
 package com.haiso.hr.web.controller;
 
-import com.haiso.hr.entity.employee.salary.Salary;
+import com.haiso.hr.entity.person.Person;
 import com.haiso.hr.utils.DataTransferUtil.DataMappingConfig;
 import com.haiso.hr.utils.DataTransferUtil.ExcelReaderV2;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,8 +23,8 @@ import java.util.Map;
 public class DataMappingController {
 
     @ModelAttribute("exceltitles")
-    public Map<String, String> getTitles(HttpServletRequest request) {
-        Map<String, String> titles = new HashMap<String, String>();
+    public List<String> getTitles(HttpServletRequest request) {
+        List<String> titles = new ArrayList<String>();
         try {
             // 对读取Excel表格标题测试
             String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
@@ -31,14 +32,7 @@ public class DataMappingController {
             InputStream is = new FileInputStream(file);
             //ExcelReaderV2 excelReader = new ExcelReaderV2();
             titles = ExcelReaderV2.listSheetTitles(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0));
-            /*String[] title = excelReader.readExcelTitle(is);
-            System.out.println("获得Excel表格的标题:");
-            for (String s : title) {
-                System.out.print(s + " ");
-                titles.add(s);
-            }*/
         } catch (FileNotFoundException e) {
-            System.out.println("未找到指定路径的文件!");
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,7 +42,7 @@ public class DataMappingController {
 
     @ModelAttribute("classfields")
     public Map<String, String> getClassFields() {
-        return DataMappingConfig.getEntityFields(Salary.class);
+        return DataMappingConfig.getEntityFields(Person.class);
     }
 /*
 
@@ -84,6 +78,10 @@ public class DataMappingController {
         return "dataMapping";
     }
 
+    @RequestMapping("/dm4")
+    public String testExcel4() {
+        return "dataMapping4";
+    }
 //    public String printWelcome(ModelMap model) {
 //        model.addAttribute("message", "Hello world!");
 //        return "hello";

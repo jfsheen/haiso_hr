@@ -116,11 +116,13 @@ public final class DataMappingConfig {
                             //Map<String, String> fieldsMap = new HashMap<String, String>();
                             Field[] fields2 = c.getDeclaredFields();
                             for (int i2 = 0, len2 = fields2.length; i2 < len2; i2++) {
-                                fieldsMap.put(fields2[i2].getName(), fields2[i2].getType().toString());
+                                String type2 = fields[i].getType().toString();
+                                type2 = type2.substring(type2.lastIndexOf(".") + 1);
+                                fieldsMap.put(fields2[i2].getName(), type2);
                             }
                         }
+                        continue;
                     }
-                    // continue;
                 } catch (ClassNotFoundException e) {
                     System.out.println("-" + i + "-");
                     e.printStackTrace();
@@ -128,7 +130,9 @@ public final class DataMappingConfig {
                     ex.printStackTrace();
                 }
 
-                fieldsMap.put(fields[i].getName(), fields[i].getType().toString());
+                String type = fields[i].getType().toString();
+                type = type.substring(type.lastIndexOf(".") + 1);
+                fieldsMap.put(fields[i].getName(), type);
             }
         }
         return fieldsMap;
