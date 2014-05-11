@@ -1,4 +1,4 @@
-package com.haiso.hr.utils.DataTransferUtil;
+package com.haiso.commons.utils.DataTransferUtil;
 
 //import static net.yeah.likun_zhang.util.Debug.printf;
 //import net.yeah.likun_zhang.util.Debug;
@@ -94,6 +94,7 @@ public final class ExcelReaderV2 {
         }
         return titles;
     }
+
     /**
      * 获取单元格内文本信息
      *
@@ -137,7 +138,7 @@ public final class ExcelReaderV2 {
                 break;
         }
         // 使用[]记录坐标
-        return "[" + cell.getRowIndex() + "," + cell.getColumnIndex() + "]" + value;
+        return "[" + cell.getColumnIndex() + "]" + value;
     }
 
 }

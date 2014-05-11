@@ -28,21 +28,7 @@ public class ListPersonController {
 
     @RequestMapping("/list")
     public String listPersons() {
-        return "thlist";
+        return "list";
     }
-
-//    @RequestMapping("/list")
-//    public ModelAndView Add(HttpServletRequest request, HttpServletResponse response) {
-//
-//        Person person = new Person();
-//        person.setName("lisi");
-//        IdCard idCard = new IdCard();
-//        idCard.setIdCardNum("11111111111111111");
-//        person.setIdCard(idCard);
-//        personService.addPerson(person);
-//        List<Person> persons = personService.findAll();
-//        return new ModelAndView("list", "persons", persons);
-//        return
-//    }
 
 }

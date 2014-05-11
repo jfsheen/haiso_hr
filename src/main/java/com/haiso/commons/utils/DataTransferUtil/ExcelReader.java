@@ -1,4 +1,4 @@
-package com.haiso.hr.utils.DataTransferUtil;
+package com.haiso.commons.utils.DataTransferUtil;
 
 /**
  * Created by ff on 5/4/14.

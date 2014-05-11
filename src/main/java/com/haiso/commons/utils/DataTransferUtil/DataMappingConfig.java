@@ -1,4 +1,4 @@
-package com.haiso.hr.utils.DataTransferUtil;
+package com.haiso.commons.utils.DataTransferUtil;
 
 import org.dom4j.Attribute;
 import org.dom4j.Document;

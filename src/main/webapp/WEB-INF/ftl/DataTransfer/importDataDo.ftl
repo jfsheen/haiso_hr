@@ -5,8 +5,6 @@
     <title>hello.ftl</title>
 </head>
 <body>
-<h1>
-${msg}
-</h1>
+<h1>Data Importing </h1>
 </body>
 </html>

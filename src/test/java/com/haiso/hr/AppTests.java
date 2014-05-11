@@ -1,7 +1,7 @@
 package com.haiso.hr;
 
+import com.haiso.commons.utils.DataTransferUtil.DataMappingConfig;
 import com.haiso.hr.entity.person.Person;
-import com.haiso.hr.utils.DataTransferUtil.DataMappingConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

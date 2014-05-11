@@ -8,7 +8,6 @@
         http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-
     <!-- ***注：如果base-package=com.haiso.hr 则注解事务不起作用***  -->
     <context:component-scan base-package="com.haiso.hr.web.controller">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

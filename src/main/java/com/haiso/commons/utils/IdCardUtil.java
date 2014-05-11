@@ -1,4 +1,4 @@
-package com.haiso.hr.utils;
+package com.haiso.commons.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by ff on 4/2/14.
  */
-public final class IdCardUtils extends StringUtils {
+public final class IdCardUtil extends StringUtils {
 
     /**
      * 中国公民身份证号码最小长度。

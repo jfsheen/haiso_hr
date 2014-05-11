@@ -1,4 +1,4 @@
-package com.haiso.hr.utils;
+package com.haiso.commons.utils;
 
 /**
  * Created by ff on 4/18/14.

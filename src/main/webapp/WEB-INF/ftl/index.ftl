@@ -5,9 +5,7 @@
     <title>index.ftl</title>
 </head>
 <body>
-<h1>index.ftl</h1>
-
-<h2>${message},haha!</h2>
-
+<h1>STEP 1</h1>
+<a href="/dataTransfer/import1">Import Excel</a>
 </body>
 </html>

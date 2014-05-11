@@ -1,13 +1,12 @@
 package com.haiso.hr.web.controller;
 
-import com.haiso.hr.entity.person.Person;
-import com.haiso.hr.utils.DataTransferUtil.DataMappingConfig;
-import com.haiso.hr.utils.DataTransferUtil.ExcelReaderV2;
+import com.haiso.commons.utils.DataTransferUtil.DataMappingConfig;
+import com.haiso.commons.utils.DataTransferUtil.ExcelReaderV2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -20,15 +19,18 @@ import java.util.Map;
  * Created by ff on 5/5/14.
  */
 @Controller
+@RequestMapping("/dataTransfer")
 public class DataMappingController {
 
     @ModelAttribute("exceltitles")
-    public List<String> getTitles(HttpServletRequest request) {
+    public List<String> getTitles(@RequestParam(value = "importFrom", required = true) String fileName) {
+//                                  HttpServletRequest request) {
         List<String> titles = new ArrayList<String>();
         try {
             // 对读取Excel表格标题测试
-            String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
-            String file = path + "/pi.xlsx";
+//            String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
+            String file = fileName;
+            System.out.println(file);
             InputStream is = new FileInputStream(file);
             //ExcelReaderV2 excelReader = new ExcelReaderV2();
             titles = ExcelReaderV2.listSheetTitles(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0));
@@ -41,8 +43,10 @@ public class DataMappingController {
     }
 
     @ModelAttribute("classfields")
-    public Map<String, String> getClassFields() {
-        return DataMappingConfig.getEntityFields(Person.class);
+    public Map<String, String> getClassFields(@RequestParam(value = "importTo", required = true) String clazz) throws Exception {
+
+
+        return DataMappingConfig.getEntityFields(Class.forName(clazz));
     }
 /*
 
@@ -73,14 +77,14 @@ public class DataMappingController {
 */
 
 
-    @RequestMapping("/dm")
-    public String testExcel() {
-        return "dataMapping";
+    @RequestMapping("/dataMapping")
+    public String dataMapping() {
+        return "DataTransfer/importDataMapping";
     }
 
     @RequestMapping("/dm4")
     public String testExcel4() {
-        return "dataMapping4";
+        return "DataTransfer/importDataDo";
     }
 //    public String printWelcome(ModelMap model) {
 //        model.addAttribute("message", "Hello world!");

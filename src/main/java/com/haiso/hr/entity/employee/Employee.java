@@ -1,13 +1,13 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
+import com.haiso.commons.utils.SnGenerator;
 import com.haiso.hr.entity.Department;
 import com.haiso.hr.entity.Position;
 import com.haiso.hr.entity.param.EmplLevel;
 import com.haiso.hr.entity.param.EmplSequence;
 import com.haiso.hr.entity.param.EmplStatus;
 import com.haiso.hr.entity.person.Person;
-import com.haiso.hr.utils.SnGenerator;
 
 import javax.persistence.*;
 import javax.validation.Valid;

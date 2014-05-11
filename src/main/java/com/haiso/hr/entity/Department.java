@@ -1,8 +1,8 @@
 package com.haiso.hr.entity;
 
 import com.google.common.base.Objects;
+import com.haiso.commons.utils.SnGenerator;
 import com.haiso.hr.entity.employee.Employee;
-import com.haiso.hr.utils.SnGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
