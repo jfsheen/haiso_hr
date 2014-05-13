@@ -2,6 +2,7 @@ package com.haiso.hr.entity.employee.salary;
 
 import com.google.common.base.Objects;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -12,10 +13,75 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Pay {
 
-
+    @Basic
+    @Column(name = "pay_regular", nullable = false, length = 10, precision = 0)
     private Integer payRegular;
 
-    @Column(name = "pay_regular", nullable = false, length = 10, precision = 0)
+    @Basic
+    @Column(name = "pay_callback", nullable = false, length = 10, precision = 0)
+    private Integer payCallback;
+
+    @Basic
+    @Column(name = "pay_seniority", nullable = false, length = 10, precision = 0)
+    private Integer paySeniority;
+
+
+    @Basic
+    @Column(name = "pay_post", nullable = false, length = 10, precision = 0)
+    private Integer payPost;
+
+    @Basic
+    @Column(name = "allo_duty", nullable = false, length = 10, precision = 0)
+    private Integer alloDuty;
+
+    @Basic
+    @Column(name = "fee_coultant", nullable = false, length = 10, precision = 0)
+    private Integer feeCoultant;
+
+    @Basic
+    @Column(name = "pay_merit", nullable = false, length = 10, precision = 0)
+    private Integer payMerit;
+
+    @Basic
+    @Column(name = "pay_attendance", nullable = false, length = 10, precision = 0)
+    private Integer payAttendance;
+
+    @Basic
+    @Column(name = "pay_watcher", nullable = false, length = 10, precision = 0)
+    private Integer payWatcher;
+
+    @Basic
+    @Column(name = "allo_health", nullable = false, length = 10, precision = 0)
+    private Integer alloHealth;
+
+    @Basic
+    @Column(name = "allo_educate", nullable = false, length = 10, precision = 0)
+    private Integer alloEducate;
+
+    @Basic
+    @Column(name = "subsidy", nullable = false, length = 10, precision = 0)
+    private Integer subsidy;
+
+    @Basic
+    @Column(name = "perquisite", nullable = false, length = 10, precision = 0)
+    private Integer perquisite;
+
+    @Basic
+    @Column(name = "bonus", nullable = false, length = 10, precision = 0)
+    private Integer bonus;
+
+    @Basic
+    @Column(name = "allo_child", nullable = false, length = 10, precision = 0)
+    private Integer alloChild;
+
+    @Basic
+    @Column(name = "allo_meal", nullable = false, length = 10, precision = 0)
+    private Integer alloMeal;
+
+    @Basic
+    @Column(name = "subs_rent", nullable = false, length = 10, precision = 0)
+    private Integer subsRent;
+
     public Integer getPayRegular() {
         return payRegular;
     }
@@ -24,10 +90,6 @@ public class Pay {
         this.payRegular = payRegular;
     }
 
-    private Integer paySeniority;
-
-
-    @Column(name = "pay_seniority", nullable = false, length = 10, precision = 0)
     public Integer getPaySeniority() {
         return paySeniority;
     }
@@ -36,10 +98,6 @@ public class Pay {
         this.paySeniority = paySeniority;
     }
 
-    private Integer payPost;
-
-
-    @Column(name = "pay_post", nullable = false, length = 10, precision = 0)
     public Integer getPayPost() {
         return payPost;
     }
@@ -48,10 +106,6 @@ public class Pay {
         this.payPost = payPost;
     }
 
-    private Integer alloDuty;
-
-
-    @Column(name = "allo_duty", nullable = false, length = 10, precision = 0)
     public Integer getAlloDuty() {
         return alloDuty;
     }
@@ -60,10 +114,6 @@ public class Pay {
         this.alloDuty = alloDuty;
     }
 
-    private Integer feeCoultant;
-
-
-    @Column(name = "fee_coultant", nullable = false, length = 10, precision = 0)
     public Integer getFeeCoultant() {
         return feeCoultant;
     }
@@ -72,10 +122,6 @@ public class Pay {
         this.feeCoultant = feeCoultant;
     }
 
-    private Integer payMerit;
-
-
-    @Column(name = "pay_merit", nullable = false, length = 10, precision = 0)
     public Integer getPayMerit() {
         return payMerit;
     }
@@ -84,10 +130,6 @@ public class Pay {
         this.payMerit = payMerit;
     }
 
-    private Integer payAttendance;
-
-
-    @Column(name = "pay_attendance", nullable = false, length = 10, precision = 0)
     public Integer getPayAttendance() {
         return payAttendance;
     }
@@ -96,10 +138,6 @@ public class Pay {
         this.payAttendance = payAttendance;
     }
 
-    private Integer payCallback;
-
-
-    @Column(name = "pay_callback", nullable = false, length = 10, precision = 0)
     public Integer getPayCallback() {
         return payCallback;
     }
@@ -108,10 +146,6 @@ public class Pay {
         this.payCallback = payCallback;
     }
 
-    private Integer payWatcher;
-
-
-    @Column(name = "pay_watcher", nullable = false, length = 10, precision = 0)
     public Integer getPayWatcher() {
         return payWatcher;
     }
@@ -120,10 +154,6 @@ public class Pay {
         this.payWatcher = payWatcher;
     }
 
-    private Integer alloHealth;
-
-
-    @Column(name = "allo_health", nullable = false, length = 10, precision = 0)
     public Integer getAlloHealth() {
         return alloHealth;
     }
@@ -132,10 +162,7 @@ public class Pay {
         this.alloHealth = alloHealth;
     }
 
-    private Integer alloEducate;
 
-
-    @Column(name = "allo_educate", nullable = false, length = 10, precision = 0)
     public Integer getAlloEducate() {
         return alloEducate;
     }
@@ -144,10 +171,6 @@ public class Pay {
         this.alloEducate = alloEducate;
     }
 
-    private Integer subsidy;
-
-
-    @Column(name = "subsidy", nullable = false, length = 10, precision = 0)
     public Integer getSubsidy() {
         return subsidy;
     }
@@ -156,10 +179,6 @@ public class Pay {
         this.subsidy = subsidy;
     }
 
-    private Integer perquisite;
-
-
-    @Column(name = "perquisite", nullable = false, length = 10, precision = 0)
     public Integer getPerquisite() {
         return perquisite;
     }
@@ -168,10 +187,6 @@ public class Pay {
         this.perquisite = perquisite;
     }
 
-    private Integer bonus;
-
-
-    @Column(name = "bonus", nullable = false, length = 10, precision = 0)
     public Integer getBonus() {
         return bonus;
     }
@@ -180,10 +195,6 @@ public class Pay {
         this.bonus = bonus;
     }
 
-    private Integer alloChild;
-
-
-    @Column(name = "allo_child", nullable = false, length = 10, precision = 0)
     public Integer getAlloChild() {
         return alloChild;
     }
@@ -192,10 +203,7 @@ public class Pay {
         this.alloChild = alloChild;
     }
 
-    private Integer alloMeal;
 
-
-    @Column(name = "allo_meal", nullable = false, length = 10, precision = 0)
     public Integer getAlloMeal() {
         return alloMeal;
     }
@@ -204,10 +212,6 @@ public class Pay {
         this.alloMeal = alloMeal;
     }
 
-    private Integer subsRent;
-
-
-    @Column(name = "subs_rent", nullable = false, length = 10, precision = 0)
     public Integer getSubsRent() {
         return subsRent;
     }

@@ -16,7 +16,12 @@ import java.util.Map;
 
 /*
  * 操作Excel表格的功能类
+ *  ****************
+ *  **未使用，不可靠**
+ *  ****************
  */
+
+@Deprecated
 public class ExcelReader {
     private POIFSFileSystem fs;
     private HSSFWorkbook wb;

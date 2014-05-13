@@ -18,35 +18,127 @@ import java.util.Date;
 @Table(name = "t_person")//, uniqueConstraints = @UniqueConstraint(columnNames = {"idcard_num","name"}))
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    @NotNull
     private Long id;
 
+    @Embedded
     private IdCard idCard;
+
+    @Basic
+    @Column(name = "name", length = 10, nullable = true)
+    @NotNull
+    @Size(min = 2, max = 20, message = "An name must contain between 2 and 20 characters")
     private String name;
+
+    @Basic
+    @Column(name = "photo_path", length = 100)
     private String photoPath;
+
+    @Basic
+    @Column(name = "married", nullable = true, length = 1)
     private Boolean married;
+
+    @Basic
+    @Column(name = "partisan", nullable = true, length = 20)
     private String partisan;
+
+    @Basic
+    @Temporal(TemporalType.DATE)
+    @Column(name = "join_party_date", nullable = true, length = 1)
     private Date joinPartyDate;
+
+    @Basic
+    @Column(name = "hukou_type", nullable = true, length = 10)
     private String hukouType;
+
+    @Basic
+    @Column(name = "hometown", nullable = true, length = 16)
     private String hometown;
+
+    @Basic
+    @Column(name = "last_degree", nullable = true, length = 20)
     private String lastDegree;
+
+    @Basic
+    @Column(name = "last_school", nullable = true, length = 20)
     private String lastSchool;
+
+    @Basic
+    @Column(name = "last_major", nullable = true, length = 20)
     private String lastMajor;
+
+    @Basic
+    @Column(name = "resi_address", nullable = true, length = 50)
     private String residentailAddress;
+
+    @Basic
+    @Column(name = "postal_code", nullable = true, length = 6)
     private String postalCode;
+
+    @Basic
+    @Column(name = "mobile", nullable = true, length = 16)
     private String mobile;
+
+    @Basic
+    @Column(name = "phone", nullable = true, length = 16)
     private String phone;
+
+    @Basic
+    @Column(name = "email", nullable = true, length = 45)
+    @Email
     private String email;
+
+    @Basic
+    @Column(name = "qq", nullable = true, length = 12)
+    @Pattern(regexp = "^[1-9][0-9]{4,11}]")
     private String qq;
+
+    @Basic
+    @Column(name = "weixin", nullable = true, length = 20)
     private String weixin;
+
+    @Basic
+    @Column(name = "introduction", nullable = true, length = 500)
     private String introduction;
+
+    @Basic
+    @Column(name = "ec_name", nullable = true, length = 10)
     private String emergencyContactName;
+
+    @Basic
+    @Column(name = "ec_phone", nullable = true, length = 16)
     private String emergencyContactPhone;
+
+    @Basic
+    @Column(name = "ec_address", nullable = true, length = 1)
     private String emergencyContactAddress;
+
+    @Basic
+    @Column(name = "sp_name", nullable = true, length = 10)
     private String sponsorName;
+
+    @Basic
+    @Column(name = "sp_phone", nullable = true, length = 1)
     private String sponsorPhone;
-    private Employee employee;
 
     @OneToOne(mappedBy = "person", optional = true)
+    private Employee employee;
+
+    @Column(name = "last_update", nullable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastUpdate;
+
+    @Column(name = "create_date", nullable = false, updatable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+
+    @Version
+    @Column(name = "version_lock", length = 10)
+    private Integer version;
+
     public Employee getEmployee() {
         return employee;
     }
@@ -55,7 +147,7 @@ public class Person {
         this.employee = employee;
     }
 
-    @Embedded
+
     public IdCard getIdCard() {
         return idCard;
     }
@@ -64,11 +156,6 @@ public class Person {
         this.idCard = idCard;
     }
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    @NotNull
     public Long getId() {
         return id;
     }
@@ -77,8 +164,6 @@ public class Person {
         this.id = id;
     }
 
-
-    @Column(name = "photo_path", length = 100)
     public String getPhotoPath() {
         return photoPath;
     }
@@ -87,7 +172,6 @@ public class Person {
         this.photoPath = photoPath;
     }
 
-    @Column(name = "married", nullable = true, length = 1)
     public Boolean getMarried() {
         return married;
     }
@@ -96,10 +180,6 @@ public class Person {
         this.married = married;
     }
 
-
-    @Column(name = "name", length = 10, nullable = true)
-    @NotNull
-    @Size(min = 2, max = 20, message = "An name must contain between 2 and 20 characters")
     public String getName() {
         return name;
     }
@@ -109,7 +189,6 @@ public class Person {
     }
 
 
-    @Column(name = "hukou_type", nullable = true, length = 10)
     public String getHukouType() {
         return hukouType;
     }
@@ -119,7 +198,6 @@ public class Person {
     }
 
 
-    @Column(name = "partisan", nullable = true, length = 20)
     public String getPartisan() {
         return partisan;
     }
@@ -128,9 +206,6 @@ public class Person {
         this.partisan = partisan;
     }
 
-
-    @Temporal(TemporalType.DATE)
-    @Column(name = "join_party_date", nullable = true, length = 1)
     public Date getJoinPartyDate() {
         return joinPartyDate;
     }
@@ -140,7 +215,6 @@ public class Person {
     }
 
 
-    @Column(name = "hometown", nullable = true, length = 16)
     public String getHometown() {
         return hometown;
     }
@@ -150,7 +224,6 @@ public class Person {
     }
 
 
-    @Column(name = "postal_code", nullable = true, length = 6)
     public String getPostalCode() {
         return postalCode;
     }
@@ -160,7 +233,6 @@ public class Person {
     }
 
 
-    @Column(name = "mobile", nullable = true, length = 16)
     public String getMobile() {
         return mobile;
     }
@@ -170,7 +242,6 @@ public class Person {
     }
 
 
-    @Column(name = "phone", nullable = true, length = 16)
     //@Pattern(regexp = "[0-9][-\\s]{11,20}")
     public String getPhone() {
         return phone;
@@ -181,8 +252,6 @@ public class Person {
     }
 
 
-    @Column(name = "email", nullable = true, length = 45)
-    @Email
     public String getEmail() {
         return email;
     }
@@ -192,8 +261,6 @@ public class Person {
     }
 
 
-    @Column(name = "qq", nullable = true, length = 12)
-    @Pattern(regexp = "^[1-9][0-9]{4,11}]")
     public String getQq() {
         return qq;
     }
@@ -203,7 +270,6 @@ public class Person {
     }
 
 
-    @Column(name = "weixin", nullable = true, length = 20)
     public String getWeixin() {
         return weixin;
     }
@@ -213,7 +279,6 @@ public class Person {
     }
 
 
-    @Column(name = "introduction", nullable = true, length = 500)
     public String getIntroduction() {
         return introduction;
     }
@@ -223,7 +288,6 @@ public class Person {
     }
 
 
-    @Column(name = "last_degree", nullable = true, length = 20)
     public String getLastDegree() {
         return lastDegree;
     }
@@ -233,7 +297,6 @@ public class Person {
     }
 
 
-    @Column(name = "last_school", nullable = true, length = 20)
     public String getLastSchool() {
         return lastSchool;
     }
@@ -243,7 +306,6 @@ public class Person {
     }
 
 
-    @Column(name = "last_major", nullable = true, length = 20)
     public String getLastMajor() {
         return lastMajor;
     }
@@ -253,7 +315,6 @@ public class Person {
     }
 
 
-    @Column(name = "resi_address", nullable = true, length = 50)
     public String getResidentailAddress() {
         return residentailAddress;
     }
@@ -263,7 +324,6 @@ public class Person {
     }
 
 
-    @Column(name = "ec_name", nullable = true, length = 10)
     public String getEmergencyContactName() {
         return emergencyContactName;
     }
@@ -273,7 +333,6 @@ public class Person {
     }
 
 
-    @Column(name = "ec_phone", nullable = true, length = 16)
     public String getEmergencyContactPhone() {
         return emergencyContactPhone;
     }
@@ -283,7 +342,6 @@ public class Person {
     }
 
 
-    @Column(name = "ec_address", nullable = true, length = 1)
     public String getEmergencyContactAddress() {
         return emergencyContactAddress;
     }
@@ -293,7 +351,6 @@ public class Person {
     }
 
 
-    @Column(name = "sp_name", nullable = true, length = 10)
     public String getSponsorName() {
         return sponsorName;
     }
@@ -302,8 +359,6 @@ public class Person {
         this.sponsorName = sponsorName;
     }
 
-
-    @Column(name = "sp_phone", nullable = true, length = 1)
     public String getSponsorPhone() {
         return sponsorPhone;
     }
@@ -312,13 +367,6 @@ public class Person {
         this.sponsorPhone = sponsorPhone;
     }
 
-
-    private Date lastUpdate;
-    private Date createDate;
-    private Integer version;
-
-    @Column(name = "last_update", nullable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getLastUpdate() {
         return lastUpdate;
     }
@@ -327,8 +375,7 @@ public class Person {
         this.lastUpdate = lastUpdate;
     }
 
-    @Version
-    @Column(name = "version_lock", length = 10)
+
     public Integer getVersion() {
         return version;
     }
@@ -337,8 +384,7 @@ public class Person {
         this.version = version;
     }
 
-    @Column(name = "create_date", nullable = false, updatable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
+
     public Date getCreateDate() {
         return createDate;
     }

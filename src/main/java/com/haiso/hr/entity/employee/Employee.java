@@ -10,7 +10,6 @@ import com.haiso.hr.entity.param.EmplStatus;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,20 +22,51 @@ import java.util.Set;
 @Table(name = "t_employee")
 public class Employee {
 
-    private String emplSn;
-    private String introduction;
-    private java.util.Date lastUpdate;
-    private java.util.Date createDate;
+    @Version
+    @Column(name = "version_lock", length = 10)
     private Integer version;
+
+    @Id
+    @Column(name = "empl_sn", nullable = false, insertable = true, updatable = true, length = 20)
+    private String emplSn;
+
+    @Column(name = "introduction", nullable = true, insertable = true, updatable = true, length = 500)
+    private String introduction;
+
+    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date lastUpdate;
+
+    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date createDate;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "empl_dept")
     private Set<Department> departmentSet = new HashSet<Department>();
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "empl_post")
     private Set<Position> positionSet = new HashSet<Position>();
+
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "person_id", nullable = false)
+    @NotNull
     private Person person;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "status", nullable = true)
     private EmplStatus emplStatus;
-    private EmplSequence emplSequence;
-    private EmplLevel emplLevel;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sequence", nullable = true)
+    private EmplSequence emplSequence;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "level", nullable = true)
+    private EmplLevel emplLevel;
+
+
     public EmplSequence getEmplSequence() {
         return emplSequence;
     }
@@ -45,8 +75,6 @@ public class Employee {
         this.emplSequence = emplSequence;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "level", nullable = true)
     public EmplLevel getEmplLevel() {
         return emplLevel;
     }
@@ -55,8 +83,6 @@ public class Employee {
         this.emplLevel = emplLevel;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "status", nullable = true)
     public EmplStatus getEmplStatus() {
         return emplStatus;
     }
@@ -65,10 +91,6 @@ public class Employee {
         this.emplStatus = emplStatus;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
-    @NotNull
-    @Valid
     public Person getPerson() {
         return person;
     }
@@ -77,8 +99,6 @@ public class Employee {
         this.person = person;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "empl_dept")
     public Set<Department> getDepartmentSet() {
         return departmentSet;
     }
@@ -87,8 +107,6 @@ public class Employee {
         this.departmentSet = departmentSet;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "empl_post")
     public Set<Position> getPositionSet() {
         return positionSet;
     }
@@ -97,8 +115,6 @@ public class Employee {
         this.positionSet = positionSet;
     }
 
-    @Version
-    @Column(name = "version_lock", length = 10)
     public Integer getVersion() {
         return version;
     }
@@ -107,8 +123,6 @@ public class Employee {
         this.version = version;
     }
 
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
     public java.util.Date getCreateDate() {
         return createDate;
     }
@@ -117,8 +131,6 @@ public class Employee {
         this.createDate = createDate;
     }
 
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
     public java.util.Date getLastUpdate() {
         return lastUpdate;
     }
@@ -151,21 +163,16 @@ public class Employee {
 
     @PostLoad
     public void postLoad() {
-
     }
 
     @PostRemove
     public void postRemove() {
-
     }
 
     @PostUpdate
     public void postUpdate() {
-
     }
 
-    @Id
-    @Column(name = "empl_sn", nullable = false, insertable = true, updatable = true, length = 20)
     public String getEmplSn() {
         return emplSn;
     }
@@ -174,7 +181,6 @@ public class Employee {
         this.emplSn = emplSn;
     }
 
-    @Column(name = "introduction", nullable = true, insertable = true, updatable = true, length = 500)
     public String getIntroduction() {
         return introduction;
     }

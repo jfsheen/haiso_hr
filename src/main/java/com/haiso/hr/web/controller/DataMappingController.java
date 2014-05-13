@@ -1,6 +1,7 @@
 package com.haiso.hr.web.controller;
 
-import com.haiso.commons.utils.DataTransferUtil.DataMappingConfig;
+import com.google.common.collect.Lists;
+import com.haiso.commons.utils.DataTransferUtil.DataMappingUtil;
 import com.haiso.commons.utils.DataTransferUtil.ExcelReaderV2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,18 +22,39 @@ import java.util.Map;
 @RequestMapping("/dataTransfer")
 public class DataMappingController {
 
-    @ModelAttribute("exceltitles")
-    public List<String> getTitles(@RequestParam(value = "importFrom", required = true) String fileName) {
-//                                  HttpServletRequest request) {
-        List<String> titles = new ArrayList<String>();
+//    @ModelAttribute("excelTitles")
+//    public List<String> getTitles(@RequestParam(value = "importFrom", required = true) String importFrom,
+//                                  @RequestParam(value = "importTo", required = true) String importTo) {
+////                                  HttpServletRequest request) {
+//        List<String> titles = new ArrayList<String>();
+//        try {
+//            // 对读取Excel表格标题测试
+////            String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
+//            String file = importFrom;
+//            System.out.println(file);
+//            InputStream is = new FileInputStream(file);
+//            //ExcelReaderV2 excelReader = new ExcelReaderV2();
+//            titles = ExcelReaderV2.listSheetTitles(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0));
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return titles;
+//    }
+
+    @ModelAttribute("excelTitles")
+    public Map<String, String> getTitles(@RequestParam(value = "importFrom", required = true) String importFrom) {
+        Map<String, String> titles = null;
         try {
             // 对读取Excel表格标题测试
 //            String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
-            String file = fileName;
+            String file = importFrom;
             System.out.println(file);
             InputStream is = new FileInputStream(file);
             //ExcelReaderV2 excelReader = new ExcelReaderV2();
             titles = ExcelReaderV2.listSheetTitles(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0));
+            System.out.println(ExcelReaderV2.getSheetTitlesMapHashcode(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -42,11 +63,14 @@ public class DataMappingController {
         return titles;
     }
 
-    @ModelAttribute("classfields")
-    public Map<String, String> getClassFields(@RequestParam(value = "importTo", required = true) String clazz) throws Exception {
+    @ModelAttribute("importTo")
+    public String getImportTo(@RequestParam(value = "importTo", required = true) String importTo) {
+        return importTo;
+    }
 
-
-        return DataMappingConfig.getEntityFields(Class.forName(clazz));
+    @ModelAttribute("classFields")
+    public List<String> getClassFields(@RequestParam(value = "importTo", required = true) String importTo) throws Exception {
+        return Lists.newArrayList(DataMappingUtil.getEntityFields(importTo));
     }
 /*
 
@@ -81,15 +105,5 @@ public class DataMappingController {
     public String dataMapping() {
         return "DataTransfer/importDataMapping";
     }
-
-    @RequestMapping("/dm4")
-    public String testExcel4() {
-        return "DataTransfer/importDataDo";
-    }
-//    public String printWelcome(ModelMap model) {
-//        model.addAttribute("message", "Hello world!");
-//        return "hello";
-//    }
-//
 
 }

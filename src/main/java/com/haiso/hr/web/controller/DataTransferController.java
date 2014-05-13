@@ -1,5 +1,7 @@
 package com.haiso.hr.web.controller;
 
+import com.haiso.commons.utils.DataTransferUtil.DataMappingUtil;
+import com.haiso.commons.utils.DataTransferUtil.ExcelReaderV2;
 import com.haiso.commons.utils.FileTypeUtil;
 import com.haiso.hr.web.validator.MultipartFileValidator;
 import org.springframework.stereotype.Controller;
@@ -29,27 +31,28 @@ public class DataTransferController {
         return "/DataTransfer/importUploadFile";
     }
 
-    private MultipartFileValidator validator;
+    private MultipartFileValidator multipartFileValidator;
 
     @PostConstruct
     public void initValidator() {
-        validator = new MultipartFileValidator();
-        validator.setAllowedContentTypes(new String[]{"application/vnd.ms-excel", "text/plain", "text/csv"});
+        multipartFileValidator = new MultipartFileValidator();
+        multipartFileValidator.setAllowedContentTypes(new String[]{"application/vnd.ms-excel", "text/plain", "text/csv"});
+        multipartFileValidator.setMaxSize(20 * 1024 * 1024);
     }
 
     @RequestMapping(value = "/import2", method = {RequestMethod.GET, RequestMethod.POST})
     public String uploadFiles(@RequestParam(value = "file", required = false) MultipartFile file,
                               @RequestParam(value = "dataMappingSettings", required = true) String dms,
                               @RequestParam(value = "importTo", required = true) String importTo,
-                              HttpServletRequest request, ModelMap model) {
+                              HttpServletRequest request, ModelMap model) throws Exception {
 
         try {
-            validator.validate(file);
+            multipartFileValidator.validate(file);
         } catch (Throwable e) {
             model.addAttribute("msg", e.getMessage());
             return "/DataTransfer/importUploadFile";
         }
-        String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
+        String path = request.getSession().getServletContext().getRealPath("/static/UploadFiles/");
         String fileName = file.getOriginalFilename();
         fileName = new Date().getTime() + "." + FileTypeUtil.getFileExtension(fileName);
         System.out.println(importTo);
@@ -59,16 +62,20 @@ public class DataTransferController {
         }
         try {
             file.transferTo(targetFile);
+            String xlsHashcode = ExcelReaderV2.getSheetTitlesMapHashcode(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(path + "/" + fileName), 0));
+            String mapPath = request.getSession().getServletContext().getRealPath("/static/DataMapping/");
+            File xmlFile = new File(mapPath + "/" + importTo + ".xml");
+            if (xmlFile.exists() ? !(dms.equals("useIfExists") && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
+                model.addAttribute("importTo", importTo);
+                model.addAttribute("importFrom", path + "/" + fileName);
+                return "redirect:/dataTransfer/dataMapping";
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (dms.equals("reMapping")) {
-            model.addAttribute("importTo", importTo);
-            model.addAttribute("importFrom", path + "/" + fileName);
-            return "redirect:/dataTransfer/dataMapping";
-        }
+
         return "/DataTransfer/importDataDo";
     }
 

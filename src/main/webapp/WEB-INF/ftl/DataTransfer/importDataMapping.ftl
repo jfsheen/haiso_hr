@@ -13,8 +13,13 @@
     <script>
         $(document).ready(function () {
             $("#btn_back").click(function () {
-                var data = JSON.stringify($("form").serializeObject());
-                $("#result").html(data);
+                var mapFrom = $("#mapFrom :input").serializeObject();
+                var mapTo = $("#mapTo :input").serializeObject();
+                var o = new Object();
+                o.importTo = $("#importTo").text();
+                o.mapFrom = mapFrom;
+                o.mapTo = mapTo;
+                var data = JSON.stringify(o);
                 $.ajax({
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
@@ -57,31 +62,40 @@
     </script>
 </head>
 <body>
-<button id="btn_back" style="width: 100px"/>
-Back</button>
+<button id="btn_back" style="width: 160px; height: 40px"/>
+Go Next Step >></button>
 <div id="r"></div>
-<div id="result">this is a test div</div>
-<table border="1" align="center" width="800px">
-<#list exceltitles as title>
-    <#if (title_index+1)%5==1>
-    <tr></#if>
-    <td>${title}</td>
-    <#if (title_index+1)%5==0></tr></#if>
-</#list>
-</table>
+<#--<div id="result">this is a test div</div>-->
+<p>Import data to <span id="importTo">${importTo}</span></p>
+
 <form id="dataMapping" action="/dataTransfer/Step3" method="post">
-    <div id="mapping">
+    <div id="mapFrom">
         <table border="1" align="center" width="800px">
-        <#list classfields?keys as fk>
-            <#if (fk_index+1)%3==1>
-            <tr></#if>
-            <td>${classfields[fk]}:${fk}</td>
-            <td><input type="text" name="${fk}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
-            <#if (fk_index+1)%3==0></tr></#if>
-        </#list>
+        <#if excelTitles?exists>
+            <#list excelTitles?keys as tk>
+                <#if (tk_index+1)%3==1>
+                <tr></#if>
+                <td>${tk}</td>
+                <td><input type="text" name="${tk}" value="${excelTitles[tk]}" readonly></td>
+                <#if (tk_index+1)%3==0></tr></#if>
+            </#list>
+        </#if>
         </table>
     </div>
-    <input type="submit" name="submit" value="Next" style="width: 100px;"/>
+    <div id="mapTo">
+        <table border="1" align="center" width="800px">
+        <#if classFields?exists>
+            <#list classFields as cf>
+                <#if (cf_index+1)%3==1>
+                <tr></#if>
+                <td>${cf}</td>
+                <td><input type="text" name="${cf}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
+                <#if (cf_index+1)%3==0></tr></#if>
+            </#list>
+        </#if>
+        </table>
+    </div>
+    <input type="submit" name="submit" value="Next" style="width: 160px; height: 40px"/>
 </form>
 
 </body>

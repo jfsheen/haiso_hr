@@ -2,6 +2,7 @@ package com.haiso.hr.entity.employee.salary;
 
 import com.google.common.base.Objects;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -12,22 +13,59 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Deduct {
 
+    @Basic
+    @Column(name = "insu_pension", nullable = false, length = 10, precision = 0)
     private Integer insuPension;
+
+    @Basic
+    @Column(name = "insu_medical", nullable = false, length = 10, precision = 0)
     private Integer insuMedical;
+
+    @Basic
+    @Column(name = "insu_unempl", nullable = false, length = 10, precision = 0)
     private Integer insuUnempl;
+
+    @Basic
+    @Column(name = "insu_lqmed", nullable = false, length = 10, precision = 0)
     private Integer insuLqmed;
+
+    @Basic
+    @Column(name = "fund_house", nullable = false, length = 10, precision = 0)
     private Integer fundHouse;
+
+    @Basic
+    @Column(name = "fee_water", nullable = false, length = 10, precision = 0)
     private Integer feeWater;
+
+    @Basic
+    @Column(name = "fee_electric", nullable = false, length = 10, precision = 0)
     private Integer feeElectric;
+
+    @Basic
+    @Column(name = "fee_gas", nullable = false, length = 10, precision = 0)
     private Integer feeGas;
+
+    @Basic
+    @Column(name = "fee_property", nullable = false, length = 10, precision = 0)
     private Integer feeProperty;
+
+    @Basic
+    @Column(name = "dues_union", nullable = false, length = 10, precision = 0)
     private Integer duesUnion;
+
+    @Basic
+    @Column(name = "tax_income", nullable = false, length = 10, precision = 0)
     private Integer taxIncome;
+
+    @Basic
+    @Column(name = "tax_stamp", nullable = false, length = 10, precision = 0)
     private Integer taxStamp;
+
+    @Basic
+    @Column(name = "cost_rent", nullable = false, length = 10, precision = 0)
     private Integer costRent;
 
 
-    @Column(name = "insu_pension", nullable = false, length = 10, precision = 0)
     public Integer getInsuPension() {
         return insuPension;
     }
@@ -37,7 +75,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "insu_medical", nullable = false, length = 10, precision = 0)
     public Integer getInsuMedical() {
         return insuMedical;
     }
@@ -47,7 +84,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "insu_unempl", nullable = false, length = 10, precision = 0)
     public Integer getInsuUnempl() {
         return insuUnempl;
     }
@@ -57,7 +93,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "insu_lqmed", nullable = false, length = 10, precision = 0)
     public Integer getInsuLqmed() {
         return insuLqmed;
     }
@@ -67,7 +102,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "fund_house", nullable = false, length = 10, precision = 0)
     public Integer getFundHouse() {
         return fundHouse;
     }
@@ -77,7 +111,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "fee_water", nullable = false, length = 10, precision = 0)
     public Integer getFeeWater() {
         return feeWater;
     }
@@ -87,7 +120,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "fee_electric", nullable = false, length = 10, precision = 0)
     public Integer getFeeElectric() {
         return feeElectric;
     }
@@ -97,7 +129,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "fee_gas", nullable = false, length = 10, precision = 0)
     public Integer getFeeGas() {
         return feeGas;
     }
@@ -107,7 +138,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "fee_property", nullable = false, length = 10, precision = 0)
     public Integer getFeeProperty() {
         return feeProperty;
     }
@@ -117,7 +147,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "dues_union", nullable = false, length = 10, precision = 0)
     public Integer getDuesUnion() {
         return duesUnion;
     }
@@ -127,7 +156,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "tax_income", nullable = false, length = 10, precision = 0)
     public Integer getTaxIncome() {
         return taxIncome;
     }
@@ -137,7 +165,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "tax_stamp", nullable = false, length = 10, precision = 0)
     public Integer getTaxStamp() {
         return taxStamp;
     }
@@ -147,7 +174,6 @@ public class Deduct {
     }
 
 
-    @Column(name = "cost_rent", nullable = false, length = 10, precision = 0)
     public Integer getCostRent() {
         return costRent;
     }

@@ -12,14 +12,33 @@ import java.util.Date;
 @Entity
 @Table(name = "t_empl_salary")
 public class Salary {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id", nullable = false)
     private Long id;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
+
+    @Basic
+    @Column(name = "period_start", nullable = false, length = 1)
+    @Temporal(TemporalType.DATE)
     private Date periodStart;
+
+    @Basic
+    @Column(name = "period_end", nullable = false, length = 1)
+    @Temporal(TemporalType.DATE)
     private Date periodEnd;
-    private Pay pay;
-    private Deduct deduct;
 
     @Embedded
+    private Pay pay;
+
+    @Embedded
+    private Deduct deduct;
+
+
     public Deduct getDeduct() {
         return deduct;
     }
@@ -28,7 +47,6 @@ public class Salary {
         this.deduct = deduct;
     }
 
-    @Embedded
     public Pay getPay() {
         return pay;
     }
@@ -37,9 +55,6 @@ public class Salary {
         this.pay = pay;
     }
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false)
     public Long getId() {
         return id;
     }
@@ -48,8 +63,6 @@ public class Salary {
         this.id = id;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
     public Person getPerson() {
         return person;
     }
@@ -58,8 +71,6 @@ public class Salary {
         this.person = person;
     }
 
-    @Column(name = "period_start", nullable = false, length = 1)
-    @Temporal(TemporalType.DATE)
     public Date getPeriodStart() {
         return periodStart;
     }
@@ -68,8 +79,6 @@ public class Salary {
         this.periodStart = periodStart;
     }
 
-    @Column(name = "period_end", nullable = false, length = 1)
-    @Temporal(TemporalType.DATE)
     public Date getPeriodEnd() {
         return periodEnd;
     }

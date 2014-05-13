@@ -34,14 +34,14 @@
     </select>
         TO:<select name="importTo" id="importTo">
         <optgroup label="人员信息">
-            <option value="com.haiso.hr.entity.person.Person">Basic Info</option>
-            <option value="com.haiso.hr.entity.person.Education">Education Info</option>
-            <option value="com.haiso.hr.entity.person.WorkExperience">Work Experience</option>
+            <option value="Person">Basic Info</option>
+            <option value="Education">Education Info</option>
+            <option value="WorkExperience">Work Experience</option>
         </optgroup>
         <optgroup label="员工信息">
-            <option value="com.haiso.hr.entity.employee.Employee">Employee</option>
-            <option value="com.haiso.hr.entity.employee.Contract">Contract</option>
-            <option value="com.haiso.hr.entity.employee.salary.Salary">Salary</option>
+            <option value="Employee">Employee</option>
+            <option value="Contract">Contract</option>
+            <option value="Salary">Salary</option>
         </optgroup>
     </select>
     </fieldset>

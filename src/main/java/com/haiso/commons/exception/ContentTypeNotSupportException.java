@@ -31,8 +31,7 @@ public class ContentTypeNotSupportException extends RuntimeException {
         // TODO Auto-generated constructor stub
     }
 
-    public ContentTypeNotSupportException(String string, Object object,
-                                          String string2) {
+    public ContentTypeNotSupportException(String string, Object object, String string2) {
         super(string + object + string2);
     }
 

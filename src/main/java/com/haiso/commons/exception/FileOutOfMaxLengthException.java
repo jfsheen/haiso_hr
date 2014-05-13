@@ -36,8 +36,7 @@ public class FileOutOfMaxLengthException extends RuntimeException {
         // TODO Auto-generated constructor stub
     }
 
-    public FileOutOfMaxLengthException(String string, Object[] objects,
-                                       String string2) {
+    public FileOutOfMaxLengthException(String string, Object[] objects, String string2) {
         super(string + objects[0] + string2);
     }
 

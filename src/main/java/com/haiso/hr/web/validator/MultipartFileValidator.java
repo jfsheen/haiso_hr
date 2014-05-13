@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.PostConstruct;
 
 public class MultipartFileValidator extends HibernateValidator {
-    private final static long MAX_SIZE = 20 * 1024 * 1024;
+    private final static long MAX_SIZE = 1024 * 1024;
 
     /**
      * 文件大小上限

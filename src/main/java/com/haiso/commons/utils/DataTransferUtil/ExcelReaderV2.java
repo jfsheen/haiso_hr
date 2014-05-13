@@ -15,8 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by ff on 5/5/14.
@@ -84,15 +83,33 @@ public final class ExcelReaderV2 {
            }
            return titles;
        }*/
-    public static final List<String> listSheetTitles(Sheet sheet) {
+    /*public static final List<String> listSheetTitles(Sheet sheet) {
         List<String> titles = new ArrayList<String>();
         Row row = sheet.getRow(0);
         for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
             Cell cell = row.getCell(i);
-            if (cell == null) continue;
-            titles.add(getValueFromCell(cell));
+            if (cell == null || cell.toString().equals("")) continue;
+            titles.add(getValueFromCell(cell).toString());
         }
         return titles;
+    }*/
+    public static final Map<String, String> listSheetTitles(Sheet sheet) {
+        Map<String, String> titles = new LinkedHashMap<String, String>();
+        Row row = sheet.getRow(0);
+        for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
+            Cell cell = row.getCell(i);
+            if (cell == null || cell.toString().equals("")) continue;
+            Map.Entry entry = getValueFromCell(cell);
+            String key = (String) entry.getKey();
+            key = key.substring(key.indexOf(",") + 1, key.length() - 1);
+            titles.put(key, (String) entry.getValue());
+        }
+        return titles;
+    }
+
+    public static final String getSheetTitlesMapHashcode(Sheet sheet) {
+        Map map = listSheetTitles(sheet);
+        return ((Integer) map.hashCode()).toString();
     }
 
     /**
@@ -102,9 +119,9 @@ public final class ExcelReaderV2 {
      * @return
      * @date 2013-5-8
      */
-    public static final String getValueFromCell(Cell cell) {
+    public static Map.Entry<Integer, String> getValueFromCell(Cell cell) {
         if (cell == null) {
-            System.out.println("cell is NULL.");
+            System.out.println("Cell is NULL.");
             return null;
         }
         String value = null;
@@ -138,7 +155,8 @@ public final class ExcelReaderV2 {
                 break;
         }
         // 使用[]记录坐标
-        return "[" + cell.getColumnIndex() + "]" + value;
-    }
+        return new AbstractMap.SimpleImmutableEntry(
+                "[" + cell.getRowIndex() + "," + cell.getColumnIndex() + "]", value);
 
+    }
 }

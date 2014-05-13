@@ -2,10 +2,7 @@ package com.haiso.hr.entity.person;
 
 import com.google.common.base.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -14,17 +11,36 @@ import java.util.Date;
 @Embeddable
 public class IdCard {
 
-    private String idCardNum;
-    private String idName;
-    private Boolean gender;
-    private String idAddress;
-    private String ethnic;
-    private String idCardPicPath;
-    private String issueAuth;
-    private Date validStart;
-    private Date validUntil;
-
+    @Basic
     @Column(name = "idcard_num", nullable = true, length = 18)
+    private String idCardNum;
+    @Basic
+    @Column(name = "idcard_name", nullable = true, length = 10)
+    private String idName;
+    @Basic
+    @Column(name = "idcard_gender", nullable = true, length = 1)
+    private Boolean idGender;
+    @Basic
+    @Column(name = "idcard_address", nullable = true, length = 50)
+    private String idAddress;
+    @Basic
+    @Column(name = "idcard_ethnic", nullable = true, length = 10)
+    private String idEthnic;
+    @Basic
+    @Column(name = "idcard_path", nullable = true, length = 100)
+    private String idCardPicPath;
+    @Basic
+    @Column(name = "issue_auth", nullable = true, length = 20)
+    private String idIssueAuth;
+    @Basic
+    @Temporal(TemporalType.DATE)
+    @Column(name = "valid_start", nullable = true, length = 1)
+    private Date idValidStart;
+    @Basic
+    @Temporal(TemporalType.DATE)
+    @Column(name = "valid_until", nullable = true, length = 1)
+    private Date idValidUntil;
+
     public String getIdCardNum() {
         return idCardNum;
     }
@@ -33,7 +49,7 @@ public class IdCard {
         this.idCardNum = idCardNum;
     }
 
-    @Column(name = "idcard_name", nullable = true, length = 10)
+
     public String getIdName() {
         return idName;
     }
@@ -42,16 +58,6 @@ public class IdCard {
         this.idName = idName;
     }
 
-    @Column(name = "idcard_gender", nullable = true, length = 1)
-    public Boolean getGender() {
-        return gender;
-    }
-
-    public void setGender(Boolean gender) {
-        this.gender = gender;
-    }
-
-    @Column(name = "idcard_address", nullable = true, length = 50)
     public String getIdAddress() {
         return idAddress;
     }
@@ -60,16 +66,23 @@ public class IdCard {
         this.idAddress = idAddress;
     }
 
-    @Column(name = "idcard_ethnic", nullable = true, length = 10)
-    public String getEthnic() {
-        return ethnic;
+
+    public Boolean getIdGender() {
+        return idGender;
     }
 
-    public void setEthnic(String ethnic) {
-        this.ethnic = ethnic;
+    public void setIdGender(Boolean idGender) {
+        this.idGender = idGender;
     }
 
-    @Column(name = "idcard_path", nullable = true, length = 100)
+    public String getIdEthnic() {
+        return idEthnic;
+    }
+
+    public void setIdEthnic(String idEthnic) {
+        this.idEthnic = idEthnic;
+    }
+
     public String getIdCardPicPath() {
         return idCardPicPath;
     }
@@ -78,38 +91,33 @@ public class IdCard {
         this.idCardPicPath = idCardPicPath;
     }
 
-    @Column(name = "issue_auth", nullable = true, length = 20)
-    public String getIssueAuth() {
-        return issueAuth;
+    public String getIdIssueAuth() {
+        return idIssueAuth;
     }
 
-    public void setIssueAuth(String issueAuth) {
-        this.issueAuth = issueAuth;
+    public void setIdIssueAuth(String idIssueAuth) {
+        this.idIssueAuth = idIssueAuth;
     }
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "valid_start", nullable = true, length = 1)
-    public Date getValidStart() {
-        return validStart;
+    public Date getIdValidStart() {
+        return idValidStart;
     }
 
-    public void setValidStart(Date validStart) {
-        this.validStart = validStart;
+    public void setIdValidStart(Date idValidStart) {
+        this.idValidStart = idValidStart;
     }
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "valid_until", nullable = true, length = 1)
-    public Date getValidUntil() {
-        return validUntil;
+    public Date getIdValidUntil() {
+        return idValidUntil;
     }
 
-    public void setValidUntil(Date validUntil) {
-        this.validUntil = validUntil;
+    public void setIdValidUntil(Date idValidUntil) {
+        this.idValidUntil = idValidUntil;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(idCardNum, idName, gender, idAddress, ethnic, idCardPicPath, issueAuth, validStart, validUntil);
+        return Objects.hashCode(idCardNum, idName, idGender, idAddress, idEthnic, idCardPicPath, idIssueAuth, idValidStart, idValidUntil);
     }
 
     @Override
@@ -121,6 +129,21 @@ public class IdCard {
             return false;
         }
         final IdCard other = (IdCard) obj;
-        return Objects.equal(this.idCardNum, other.idCardNum) && Objects.equal(this.idName, other.idName) && Objects.equal(this.gender, other.gender) && Objects.equal(this.idAddress, other.idAddress) && Objects.equal(this.ethnic, other.ethnic) && Objects.equal(this.idCardPicPath, other.idCardPicPath) && Objects.equal(this.issueAuth, other.issueAuth) && Objects.equal(this.validStart, other.validStart) && Objects.equal(this.validUntil, other.validUntil);
+        return Objects.equal(this.idCardNum, other.idCardNum) && Objects.equal(this.idName, other.idName) && Objects.equal(this.idGender, other.idGender) && Objects.equal(this.idAddress, other.idAddress) && Objects.equal(this.idEthnic, other.idEthnic) && Objects.equal(this.idCardPicPath, other.idCardPicPath) && Objects.equal(this.idIssueAuth, other.idIssueAuth) && Objects.equal(this.idValidStart, other.idValidStart) && Objects.equal(this.idValidUntil, other.idValidUntil);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("idCardNum", idCardNum)
+                .add("idName", idName)
+                .add("idGender", idGender)
+                .add("idAddress", idAddress)
+                .add("idEthnic", idEthnic)
+                .add("idCardPicPath", idCardPicPath)
+                .add("idIssueAuth", idIssueAuth)
+                .add("idValidStart", idValidStart)
+                .add("idValidUntil", idValidUntil)
+                .toString();
     }
 }
