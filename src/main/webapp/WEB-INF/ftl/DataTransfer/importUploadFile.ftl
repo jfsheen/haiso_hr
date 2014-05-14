@@ -29,10 +29,10 @@
                     //Ajax events
 //                    beforeSend: beforeSendHandler,
                     success: function (msg) {
-                        $("err-msg").html(msg);
+                        $("#err-msg").html(msg);
                     },
                     error: function (msg) {
-                        $("err-msg").html(msg);
+                        $("#err-msg").html(msg);
                     },
                     // Form data
                     data: data,
