@@ -1,8 +1,9 @@
-package com.haiso.commons.utils.DataTransferUtil;
+package com.haiso.commons.utils;
 
 //import static net.yeah.likun_zhang.util.Debug.printf;
 //import net.yeah.likun_zhang.util.Debug;
 
+import com.haiso.commons.utils.DataTransferUtil.DatePattern;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -29,7 +30,7 @@ public final class ExcelReaderV2 {
      * @throws IOException
      * @date 2013-5-11
      */
-    public static final Workbook createWb(String filePath) throws IOException {
+    public Workbook createWb(String filePath) throws IOException {
         if (StringUtils.isBlank(filePath)) {
             throw new IllegalArgumentException("Illegal arguments!");
         }
@@ -42,15 +43,23 @@ public final class ExcelReaderV2 {
         }
     }
 
-    public static final Sheet getSheet(Workbook wb, String sheetName) {
+    public Sheet getSheet(Workbook wb, String sheetName) {
         return wb.getSheet(sheetName);
     }
 
-    public static final Sheet getSheet(Workbook wb, int index) {
+    public Sheet getSheet(Workbook wb, int index) {
         return wb.getSheetAt(index);
     }
 
-    public static final List<Object[]> listFromSheet(Sheet sheet) {
+    public List<Sheet> listSheets(Workbook wb) {
+        List<Sheet> sheets = new ArrayList<Sheet>();
+        for (int i = 0; i < wb.getNumberOfSheets(); i++) {
+            sheets.add(wb.getSheetAt(i));
+        }
+        return sheets;
+    }
+
+    public List<Object[]> listFromSheet(Sheet sheet) {
 
         int rowTotal = sheet.getPhysicalNumberOfRows();
         System.out.println("total row number: " + rowTotal);
@@ -73,7 +82,7 @@ public final class ExcelReaderV2 {
         return list;
     }
 
-    /*   public static final Map<String, String> listSheetTitles(Sheet sheet) {
+    /*   public Map<String, String> listSheetTitles(Sheet sheet) {
            Map<String, String> titles = new TreeMap<String, String>();
            Row row = sheet.getRow(0);
            for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
@@ -83,7 +92,7 @@ public final class ExcelReaderV2 {
            }
            return titles;
        }*/
-    /*public static final List<String> listSheetTitles(Sheet sheet) {
+    /*public List<String> listSheetTitles(Sheet sheet) {
         List<String> titles = new ArrayList<String>();
         Row row = sheet.getRow(0);
         for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
@@ -93,9 +102,10 @@ public final class ExcelReaderV2 {
         }
         return titles;
     }*/
-    public static final Map<String, String> listSheetTitles(Sheet sheet) {
+
+    public Map<String, String> listSheetTitles(Sheet sheet, Integer titleRowIndex) {
         Map<String, String> titles = new LinkedHashMap<String, String>();
-        Row row = sheet.getRow(0);
+        Row row = sheet.getRow(titleRowIndex);
         for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
             Cell cell = row.getCell(i);
             if (cell == null || cell.toString().equals("")) continue;
@@ -107,10 +117,10 @@ public final class ExcelReaderV2 {
         return titles;
     }
 
-    public static final String getSheetTitlesMapHashcode(Sheet sheet) {
-        Map map = listSheetTitles(sheet);
-        return ((Integer) map.hashCode()).toString();
+    public Map<String, String> listSheetTitles(Sheet sheet) {
+        return listSheetTitles(sheet, 0);
     }
+
 
     /**
      * 获取单元格内文本信息

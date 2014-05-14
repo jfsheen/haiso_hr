@@ -2,16 +2,13 @@ package com.haiso.hr.web.controller;
 
 import com.google.common.collect.Lists;
 import com.haiso.commons.utils.DataTransferUtil.DataMappingUtil;
-import com.haiso.commons.utils.DataTransferUtil.ExcelReaderV2;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -22,45 +19,20 @@ import java.util.Map;
 @RequestMapping("/dataTransfer")
 public class DataMappingController {
 
-//    @ModelAttribute("excelTitles")
-//    public List<String> getTitles(@RequestParam(value = "importFrom", required = true) String importFrom,
-//                                  @RequestParam(value = "importTo", required = true) String importTo) {
-////                                  HttpServletRequest request) {
-//        List<String> titles = new ArrayList<String>();
-//        try {
-//            // 对读取Excel表格标题测试
-////            String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
-//            String file = importFrom;
-//            System.out.println(file);
-//            InputStream is = new FileInputStream(file);
-//            //ExcelReaderV2 excelReader = new ExcelReaderV2();
-//            titles = ExcelReaderV2.listSheetTitles(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0));
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return titles;
-//    }
-
     @ModelAttribute("excelTitles")
     public Map<String, String> getTitles(@RequestParam(value = "importFrom", required = true) String importFrom) {
-        Map<String, String> titles = null;
         try {
-            // 对读取Excel表格标题测试
-//            String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
-            String file = importFrom;
-            System.out.println(file);
-            InputStream is = new FileInputStream(file);
-            //ExcelReaderV2 excelReader = new ExcelReaderV2();
-            titles = ExcelReaderV2.listSheetTitles(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0));
-            System.out.println(ExcelReaderV2.getSheetTitlesMapHashcode(ExcelReaderV2.getSheet(ExcelReaderV2.createWb(file), 0)));
+            String fileName = importFrom;
+            System.out.println(fileName);
+//            InputStream is = new FileInputStream(fileName);
+//            ExcelReaderV2 excelReader = new ExcelReaderV2();
+            return DataMappingUtil.getDatasSourceSheetTitles(fileName, 0, 0);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return titles;
+        return null;
     }
 
     @ModelAttribute("importTo")
@@ -72,8 +44,8 @@ public class DataMappingController {
     public List<String> getClassFields(@RequestParam(value = "importTo", required = true) String importTo) throws Exception {
         return Lists.newArrayList(DataMappingUtil.getEntityFields(importTo));
     }
-/*
 
+/*
     try {
         // 对读取Excel表格标题测试
         String path = request.getSession().getServletContext().getRealPath("static/UploadFiles");
@@ -99,7 +71,6 @@ public class DataMappingController {
         e.printStackTrace();
     }
 */
-
 
     @RequestMapping("/dataMapping")
     public String dataMapping() {

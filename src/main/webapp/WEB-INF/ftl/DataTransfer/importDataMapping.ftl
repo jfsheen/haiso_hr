@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>hello.ftl</title>
+    <link rel="stylesheet" href="/static/theme/css/commons.css">
     <link rel="stylesheet" href="/static/theme/css/jquery-ui.css">
     <script src="/static/js/jquery-1.11.1.min.js"></script>
     <script src="/static/js/jquery-ui.min.js"></script>
@@ -62,7 +63,7 @@
     </script>
 </head>
 <body>
-<button id="btn_back" style="width: 160px; height: 40px"/>
+<button id="btn_back"/>
 Go Next Step >></button>
 <div id="r"></div>
 <#--<div id="result">this is a test div</div>-->

@@ -5,9 +5,11 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -20,16 +22,9 @@ import java.util.Map;
 @RequestMapping("/ajax")
 public class DataMappingAjaxController {
 
-    @RequestMapping("/dataMapping")
+    @RequestMapping(value = "/dataMapping", method = {RequestMethod.POST})
     @ResponseBody
-    public String generateDataMappingXML(@RequestBody String json,
-                                         HttpServletRequest request) {
-/*        req.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/plain");
-        resp.setCharacterEncoding("UTF-8");
-        String json = req.getParameter("json").toString();*/
-//        System.out.println(json);
-
+    public String generateDataMappingXML(@RequestBody String json, HttpServletRequest request) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> mapping = objectMapper.readValue(json, Map.class);
@@ -55,6 +50,8 @@ public class DataMappingAjaxController {
             if (!importTo.isEmpty() && !mapFrom.isEmpty() && !mapTo.isEmpty()) {
                 DataMappingUtil.writeXmlDataMapping(importTo, mapFrom, mapTo, request.getSession().getServletContext().getRealPath("/static/DataMapping/"));
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }

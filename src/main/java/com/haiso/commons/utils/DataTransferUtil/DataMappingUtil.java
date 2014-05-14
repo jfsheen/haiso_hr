@@ -1,6 +1,7 @@
 package com.haiso.commons.utils.DataTransferUtil;
 
 import com.haiso.commons.utils.ClassUtilV2;
+import com.haiso.commons.utils.ExcelReaderV2;
 import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
@@ -12,8 +13,12 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 
 /**
@@ -21,12 +26,20 @@ import java.util.*;
  */
 public final class DataMappingUtil {
 
-    private static Set<Class<?>> entitySet = new HashSet<Class<?>>();
-    private static Set<Class<?>> embeddableSet = new HashSet<Class<?>>();
+    private static Set<Class<?>> entitySet = ClassUtilV2.getClassesAnnotated("com.haiso.hr.entity", Entity.class);
+    ;
+    private static Set<Class<?>> embeddableSet = ClassUtilV2.getClassesAnnotated("com.haiso.hr.entity", Embeddable.class);
+    private static String DATAMAPPING_XML_PATH = null;
+    private static ExcelReaderV2 excelReaderV2 = new ExcelReaderV2();
 
-    static {
-        entitySet = ClassUtilV2.getClassesAnnotated("com.haiso.hr.entity", Entity.class);
-        embeddableSet = ClassUtilV2.getClassesAnnotated("com.haiso.hr.entity", Embeddable.class);
+    private static String getFullyQualifiedClassName(Set<Class<?>> classSet, String className) {
+        for (Class c : classSet) {
+            String cname = c.getName();
+            if (cname.substring(cname.lastIndexOf(".") + 1).equals(className)) {
+                return cname;
+            }
+        }
+        return null;
     }
 
     public static void getXmlFieldsMapping(String filePath) throws Exception {
@@ -36,14 +49,12 @@ public final class DataMappingUtil {
         Iterator it = root.elementIterator();
         while (it.hasNext()) {
             Element element = (Element) it.next();
-
             //未知属性名称情况下
             Iterator attrIt = element.attributeIterator();
             while (attrIt.hasNext()) {
                 Attribute a = (Attribute) attrIt.next();
                 System.out.println(a.getValue());
             }
-
             //已知属性名称情况下
 //            System.out.println("id: " + element.attributeValue("id"));
 
@@ -54,7 +65,6 @@ public final class DataMappingUtil {
                 System.out.println(e.getName() + ": " + e.getText());
             }
             System.out.println();
-
             //已知元素名情况下
             /*System.out.println("title: " + element.elementText("title"));
             System.out.println("author: " + element.elementText("author"));
@@ -63,7 +73,7 @@ public final class DataMappingUtil {
     }
 
     public static String getXmlDataMappingFromHashcode(String path, String fileName) throws Exception {
-        return getXmlDataMappingFromHashcode(new File(path + "/" + fileName));
+        return getXmlDataMappingFromHashcode(new File(path, fileName));
     }
 
     public static String getXmlDataMappingFromHashcode(File file) throws Exception {
@@ -74,7 +84,7 @@ public final class DataMappingUtil {
     }
 
     public static String getXmlDataMappingToHashcode(String path, String fileName) throws Exception {
-        return getXmlDataMappingToHashcode(new File(path + "/" + fileName));
+        return getXmlDataMappingToHashcode(new File(path, fileName));
     }
 
     public static String getXmlDataMappingToHashcode(File file) throws Exception {
@@ -85,9 +95,9 @@ public final class DataMappingUtil {
     }
 
 
-    public static Map<String, Integer> readFieldsMapping(String path, String fileName) throws DocumentException {
+    public static Map<String, Integer> readXmlDataMapping(String className) throws DocumentException {
         SAXReader saxReader = new SAXReader();
-        Document document = saxReader.read(new File(path + "/" + fileName));
+        Document document = saxReader.read(new File(DATAMAPPING_XML_PATH, className + ".xml"));
         Element root = document.getRootElement();
         Iterator it = root.elementIterator();
         while (it.hasNext()) {
@@ -124,21 +134,20 @@ public final class DataMappingUtil {
         //创建需要写入的File对象
         //TODO  file name
         String fileName = className + ".xml";
-        File file = new File(path + fileName);
+        File file = new File(path, fileName);
         //生成XMLWriter对象，构造函数中的参数为需要输出的文件流和格式
         XMLWriter writer = new XMLWriter(new FileOutputStream(file), format);
         //开始写入，write方法中包含上面创建的Document对象
         writer.write(doc);
     }
 
-    private static String getFullyQualifiedClassName(Set<Class<?>> classSet, String className) {
-        for (Class c : classSet) {
-            String cname = c.getName();
-            if (cname.substring(cname.lastIndexOf(".") + 1).equals(className)) {
-                return cname;
-            }
-        }
-        return null;
+
+    public static Map<String, String> getDatasSourceSheetTitles(String fileName, Integer sheetIndex, Integer titleRowIndex) throws IOException {
+        return excelReaderV2.listSheetTitles(excelReaderV2.getSheet(excelReaderV2.createWb(fileName), sheetIndex), titleRowIndex);
+    }
+
+    public static String getDataSourceSheetTitlesMapHashcode(String fileName, Integer sheetIndex, Integer titleRowIndex) throws Exception {
+        return ((Integer) getDatasSourceSheetTitles(fileName, sheetIndex, titleRowIndex).hashCode()).toString();
     }
 
     public static Set<String> getEntityFields(String className) {
@@ -162,4 +171,5 @@ public final class DataMappingUtil {
         }
         return fields;
     }
+
 }

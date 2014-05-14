@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>UPLOAD</title>
+    <link rel="stylesheet" href="/static/theme/css/commons.css">
     <link rel="stylesheet" href="/static/theme/css/import.css">
     <link rel="stylesheet" href="/static/theme/css/jquery-ui.css">
     <script src="/static/js/jquery-1.11.1.min.js"></script>
@@ -50,7 +51,7 @@
         <legend>Upload File</legend>
         <span>${msg}</span><br/>
         <input type="file" name="file"/>
-        <input type="submit" value="Upload"/>
+        <button id="btn_upload" value="Next >>"/>
     </fieldset>
 </form>
 </body>
