@@ -1,7 +1,7 @@
-package com.haiso.commons.utils.DataTransferUtil;
+package com.haiso.commons.utils.DataTransfer;
 
-import com.haiso.commons.utils.ClassUtilV2;
-import com.haiso.commons.utils.ExcelReaderV2;
+import com.haiso.commons.utils.ClassUtil;
+import com.haiso.commons.utils.DataTransfer.ExcelHelper.ExcelReader;
 import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
@@ -26,11 +26,11 @@ import java.util.TreeSet;
  */
 public final class DataMappingUtil {
 
-    private static Set<Class<?>> entitySet = ClassUtilV2.getClassesAnnotated("com.haiso.hr.entity", Entity.class);
+    private static Set<Class<?>> entitySet = ClassUtil.getClassesAnnotated("com.haiso.hr.entity", Entity.class);
     ;
-    private static Set<Class<?>> embeddableSet = ClassUtilV2.getClassesAnnotated("com.haiso.hr.entity", Embeddable.class);
+    private static Set<Class<?>> embeddableSet = ClassUtil.getClassesAnnotated("com.haiso.hr.entity", Embeddable.class);
     private static String DATAMAPPING_XML_PATH = null;
-    private static ExcelReaderV2 excelReaderV2 = new ExcelReaderV2();
+    private static ExcelReader excelReader = new ExcelReader();
 
     private static String getFullyQualifiedClassName(Set<Class<?>> classSet, String className) {
         for (Class c : classSet) {
@@ -72,8 +72,8 @@ public final class DataMappingUtil {
         }
     }
 
-    public static String getXmlDataMappingFromHashcode(String path, String fileName) throws Exception {
-        return getXmlDataMappingFromHashcode(new File(path, fileName));
+    public static String getXmlDataMappingFromHashcode(String filePath) throws Exception {
+        return getXmlDataMappingFromHashcode(new File(filePath));
     }
 
     public static String getXmlDataMappingFromHashcode(File file) throws Exception {
@@ -83,8 +83,8 @@ public final class DataMappingUtil {
         return root.attributeValue("from");
     }
 
-    public static String getXmlDataMappingToHashcode(String path, String fileName) throws Exception {
-        return getXmlDataMappingToHashcode(new File(path, fileName));
+    public static String getXmlDataMappingToHashcode(String filePath) throws Exception {
+        return getXmlDataMappingToHashcode(new File(filePath));
     }
 
     public static String getXmlDataMappingToHashcode(File file) throws Exception {
@@ -95,9 +95,9 @@ public final class DataMappingUtil {
     }
 
 
-    public static Map<String, Integer> readXmlDataMapping(String className) throws DocumentException {
+    public static Map<String, Integer> readXmlDataMapping(String filePath) throws DocumentException {
         SAXReader saxReader = new SAXReader();
-        Document document = saxReader.read(new File(DATAMAPPING_XML_PATH, className + ".xml"));
+        Document document = saxReader.read(new File(filePath));
         Element root = document.getRootElement();
         Iterator it = root.elementIterator();
         while (it.hasNext()) {
@@ -142,27 +142,38 @@ public final class DataMappingUtil {
     }
 
 
-    public static Map<String, String> getDatasSourceSheetTitles(String fileName, Integer sheetIndex, Integer titleRowIndex) throws IOException {
-        return excelReaderV2.listSheetTitles(excelReaderV2.getSheet(excelReaderV2.createWb(fileName), sheetIndex), titleRowIndex);
+    public static Map<String, String> getDataSourceSheetTitlesMap(String filePath, Integer sheetIndex, Integer titleRowIndex) throws IOException {
+        return excelReader.listSheetTitles(filePath, sheetIndex, titleRowIndex);
     }
 
-    public static String getDataSourceSheetTitlesMapHashcode(String fileName, Integer sheetIndex, Integer titleRowIndex) throws Exception {
-        return ((Integer) getDatasSourceSheetTitles(fileName, sheetIndex, titleRowIndex).hashCode()).toString();
+    public static Map<String, String> getDataSourceSheetTitlesMap(File file, Integer sheetIndex, Integer titleRowIndex) throws IOException {
+        return excelReader.listSheetTitles(file, sheetIndex, titleRowIndex);
+    }
+
+    //    public static String getDataSourceSheetTitlesMapHashcode(File file, Integer sheetIndex, Integer titleRowIndex) throws Exception {
+//        return
+//    }
+    public static String getDataSourceSheetTitlesMapHashcode(String filePath, Integer sheetIndex, Integer titleRowIndex) throws Exception {
+        return ((Integer) getDataSourceSheetTitlesMap(filePath, sheetIndex, titleRowIndex).hashCode()).toString();
+    }
+
+    public static String getDataSourceSheetTitlesMapHashcode(File file, Integer sheetIndex, Integer titleRowIndex) throws Exception {
+        return ((Integer) getDataSourceSheetTitlesMap(file, sheetIndex, titleRowIndex).hashCode()).toString();
     }
 
     public static Set<String> getEntityFields(String className) {
         Set<String> fields = new TreeSet<String>();
         String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
         if (!fullyQualifiedClassName.isEmpty()) {
-            Set<Field> entityFieldSet = ClassUtilV2.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
+            Set<Field> entityFieldSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for (Field f : entityFieldSet) {
                 fields.add(f.getName());
 //                System.out.println("basic field = " + f.getName());
             }
-            Set<Field> embeddedSet = ClassUtilV2.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
+            Set<Field> embeddedSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
             for (Field es : embeddedSet) {
-//                System.out.println("embedded class = " + es.getType().getName());
-                Set<Field> embeddedFieldSet = ClassUtilV2.getFieldsAnnotated(es.getType().getName(), Basic.class);
+//                System.out.println("embedded class = " + es.getContentType().getName());
+                Set<Field> embeddedFieldSet = ClassUtil.getFieldsAnnotated(es.getType().getName(), Basic.class);
                 for (Field efs : embeddedFieldSet) {
                     fields.add(efs.getName());
 //                    System.out.println("embedded field = " + efs.getName());

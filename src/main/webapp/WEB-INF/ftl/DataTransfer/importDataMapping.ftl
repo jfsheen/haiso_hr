@@ -4,9 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>hello.ftl</title>
     <link rel="stylesheet" href="/static/theme/css/commons.css">
-    <link rel="stylesheet" href="/static/theme/css/jquery-ui.css">
     <script src="/static/js/jquery-1.11.1.min.js"></script>
-    <script src="/static/js/jquery-ui.min.js"></script>
     <script src="/static/js/jquery.json-2.4.min.js"></script>
 <#--<link rel="stylesheet" href="/resources/demos/style.css">-->
     <style>
@@ -23,8 +21,8 @@
                 var data = JSON.stringify(o);
                 $.ajax({
                     type: "POST",
-                    contentType: "application/json; charset=utf-8",
                     url: "/ajax/dataMapping",
+                    contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     anysc: false,
                     data: data,
@@ -77,7 +75,7 @@ Go Next Step >></button>
                 <#if (tk_index+1)%3==1>
                 <tr></#if>
                 <td>${tk}</td>
-                <td><input type="text" name="${tk}" value="${excelTitles[tk]}" readonly></td>
+                <td><input contentType="text" name="${tk}" value="${excelTitles[tk]}" readonly></td>
                 <#if (tk_index+1)%3==0></tr></#if>
             </#list>
         </#if>
@@ -90,13 +88,13 @@ Go Next Step >></button>
                 <#if (cf_index+1)%3==1>
                 <tr></#if>
                 <td>${cf}</td>
-                <td><input type="text" name="${cf}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
+                <td><input contentType="text" name="${cf}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
                 <#if (cf_index+1)%3==0></tr></#if>
             </#list>
         </#if>
         </table>
     </div>
-    <input type="submit" name="submit" value="Next" style="width: 160px; height: 40px"/>
+    <input contentType="submit" name="submit" value="Next" style="width: 160px; height: 40px"/>
 </form>
 
 </body>

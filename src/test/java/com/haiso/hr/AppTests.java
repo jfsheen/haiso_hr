@@ -1,5 +1,6 @@
 package com.haiso.hr;
 
+import com.haiso.commons.utils.DataTransfer.ExcelHelper.ExcelReader;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.io.File;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -32,11 +35,9 @@ public class AppTests {
 
     @Test
     public void testXmlMapping() throws Exception {
-        /*Set<Field> fs = ClassUtilV2.getFieldsAnnotated("com.haiso.hr.entity.person", "Person", Basic.class);
-        for(Field f : fs){
-            System.out.println(f.getName());
-        }*/
-//        ExcelReaderV2.getSheetTitlesMapHashcode()
+        File file = new File("E:\\idea\\haiso_hr\\target\\haiso.hr\\static\\UploadFiles\\11.xlsx");
+        ExcelReader excelReader = new ExcelReader();
+        System.out.println(excelReader.getContentType(file));
     }
 
 

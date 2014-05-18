@@ -1,15 +1,15 @@
 package com.haiso.hr.web.controller;
 
+import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by ff on 5/6/14.RedirectAttributes
@@ -24,31 +24,34 @@ public class DataTransferController {
         return "/DataTransfer/importUploadFile";
     }
 
+    private static final int USE_IF_EXISTS = 1;
+    private static final int REMAPPING_ANYWAY = 0;
     @RequestMapping(value = "/import2", method = {RequestMethod.POST})
-    @ResponseBody
-    public String uploadFile(@RequestParam(value = "file", required = false) MultipartFile file,
-                             HttpServletRequest request, ModelMap model) {
-        /*try {
-            multipartFileValidator.validate(file);
-        } catch (Throwable e) {
-            return e.getMessage();
-        }
+    public String uploadFile(HttpServletRequest request, ModelMap model) {
+
+        Integer titleIndex = 0;
+        String fileName = request.getParameter("dataFile");
+        Integer sheetIndex = Integer.valueOf(request.getParameter("importFrom"));
+        String importTo = request.getParameter("importTo");
+        Integer dms = Integer.valueOf(request.getParameter("dataMappingSettings"));
         String path = request.getSession().getServletContext().getRealPath("/static/UploadFiles/");
-        String fileName = new Date().getTime() + "." + FileTypeUtil.getFileExtension(file.getOriginalFilename());
         File targetFile = new File(path, fileName);
         try {
-            if (!targetFile.exists()) {
-                targetFile.mkdirs();
+            String xlsHashcode = DataMappingUtil.getDataSourceSheetTitlesMapHashcode((targetFile), sheetIndex, titleIndex);
+            String mapPath = request.getSession().getServletContext().getRealPath("/static/DataMapping/");
+            File xmlFile = new File(mapPath, importTo + ".xml");
+            System.out.print(xmlFile.exists());
+            if (xmlFile.exists() ? !(dms == USE_IF_EXISTS && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
+                model.addAttribute("importTo", importTo);
+                model.addAttribute("importFrom", path + "/" + fileName);
+                return "redirect:/dataTransfer/dataMapping";
             }
-            file.transferTo(targetFile);
-            return "Upload succeed!";
-        }catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-*/
-        return "";
+        return "/DataTransfer/importDataDo";
     }
 
     /*@RequestMapping(value = "/import2a", method = {RequestMethod.GET, RequestMethod.POST})

@@ -35,12 +35,9 @@ public class MultipartFileValidator extends HibernateValidator {
     public void validate(MultipartFile file) throws FileOutOfMaxLengthException, ContentTypeNotSupportException {
         Assert.notNull(file, "The multipart file is null!");
         if (file.getSize() > maxSize)
-            throw new FileOutOfMaxLengthException(
-                    "文件大小错误.", new Object[]{maxSize},
-                    "上传的文件大小超过最大值!");
+            throw new FileOutOfMaxLengthException("文件大小错误.", new Object[]{maxSize}, "上传的文件大小超过最大值!");
         if (!ArrayUtils.contains(allowedContentTypes, file.getContentType()))
-            throw new ContentTypeNotSupportException(
-                    "文件类型错误: ", file.getContentType(), "");
+            throw new ContentTypeNotSupportException("文件类型错误: ", file.getContentType(), "");
     }
 
     /**
