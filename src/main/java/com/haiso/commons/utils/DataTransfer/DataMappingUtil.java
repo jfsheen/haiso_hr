@@ -2,6 +2,7 @@ package com.haiso.commons.utils.DataTransfer;
 
 import com.haiso.commons.utils.ClassUtil;
 import com.haiso.commons.utils.DataTransfer.ExcelHelper.ExcelReader;
+import org.apache.commons.lang3.StringUtils;
 import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
@@ -15,10 +16,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 
 /**
@@ -96,15 +94,19 @@ public final class DataMappingUtil {
 
 
     public static Map<String, Integer> readXmlDataMapping(String filePath) throws DocumentException {
+        Map<String, Integer> mapping = new LinkedHashMap<String, Integer>();
         SAXReader saxReader = new SAXReader();
         Document document = saxReader.read(new File(filePath));
         Element root = document.getRootElement();
         Iterator it = root.elementIterator();
         while (it.hasNext()) {
             Element element = (Element) it.next();
+            String name = element.attributeValue("name");
+            String index = element.element("value").attributeValue("index");
+            Integer i = StringUtils.isEmpty(index) ? -1 : Integer.valueOf(index);
+            mapping.put(name, i);
         }
-
-        return null;
+        return mapping;
     }
 
 
@@ -168,19 +170,15 @@ public final class DataMappingUtil {
             Set<Field> entityFieldSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for (Field f : entityFieldSet) {
                 fields.add(f.getName());
-//                System.out.println("basic field = " + f.getName());
             }
             Set<Field> embeddedSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
             for (Field es : embeddedSet) {
-//                System.out.println("embedded class = " + es.getContentType().getName());
                 Set<Field> embeddedFieldSet = ClassUtil.getFieldsAnnotated(es.getType().getName(), Basic.class);
                 for (Field efs : embeddedFieldSet) {
                     fields.add(efs.getName());
-//                    System.out.println("embedded field = " + efs.getName());
                 }
             }
         }
         return fields;
     }
-
 }

@@ -26,6 +26,7 @@ public class DataTransferController {
 
     private static final int USE_IF_EXISTS = 1;
     private static final int REMAPPING_ANYWAY = 0;
+
     @RequestMapping(value = "/import2", method = {RequestMethod.POST})
     public String uploadFile(HttpServletRequest request, ModelMap model) {
 
@@ -53,43 +54,6 @@ public class DataTransferController {
         }
         return "/DataTransfer/importDataDo";
     }
-
-    /*@RequestMapping(value = "/import2a", method = {RequestMethod.GET, RequestMethod.POST})
-    public String analysisFile(@RequestParam(value = "file", required = false) MultipartFile file,
-                              @RequestParam(value = "dataMappingSettings", required = true) String dms,
-                              @RequestParam(value = "importTo", required = true) String importTo,
-                              HttpServletRequest request, ModelMap model) {
-
-        try {
-            multipartFileValidator.validate(file);
-        } catch (Throwable e) {
-            model.addAttribute("msg", e.getMessage());
-            return "/DataTransfer/importUploadFile";
-        }
-        String path = request.getSession().getServletContext().getRealPath("/static/UploadFiles/");
-        String fileName = new Date().getTime() + "." + FileTypeUtil.getFileExtension(file.getOriginalFilename());
-        System.out.println(importTo);
-        File targetFile = new File(path, fileName);
-        if (!targetFile.exists()) {
-            targetFile.mkdirs();
-        }
-        try {
-            file.transferTo(targetFile);
-            String xlsHashcode = DataMappingUtil.getDataSourceSheetTitlesMapHashcode((path + "/" + fileName), 0, 0);
-            String mapPath = request.getSession().getServletContext().getRealPath("/static/DataMapping/");
-            File xmlFile = new File(mapPath, importTo + ".xml");
-            if (xmlFile.exists() ? !(dms.equals("useIfExists") && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
-                model.addAttribute("importTo", importTo);
-                model.addAttribute("importFrom", path + "/" + fileName);
-                return "redirect:/dataTransfer/dataMapping";
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "/DataTransfer/importDataDo";
-    }*/
 
     @RequestMapping("/import3")
     public String dataTransferImportStep3(Model model) {

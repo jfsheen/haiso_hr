@@ -21,4 +21,8 @@ public interface PersonService {
 
     public void importPersons(String filePath);
 
+    public Boolean exists(Person person);
+
+    public Person findOne();
+
 }
