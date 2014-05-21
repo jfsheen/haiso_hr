@@ -1,26 +1,26 @@
 package com.haiso.hr.web.rest;
 
-import com.haiso.commons.utils.DataTransfer.ExcelHelper.model.TitleCellModel;
+import com.haiso.commons.utils.data.excelHelper.model.TitleCellModel;
 
 import java.util.List;
 
 /**
  * Created by Heli on 2014/5/16.
  */
-public class UploadFileTitlesReturn {
+public class UploadFileTitlesRes {
     private Boolean success;
     private Integer code;
     private String msg;
     private List<TitleCellModel> content;
 
-    public UploadFileTitlesReturn(Boolean success, Integer code, String msg, List<TitleCellModel> content) {
+    public UploadFileTitlesRes(Boolean success, Integer code, String msg, List<TitleCellModel> content) {
         this.success = success;
         this.code = code;
         this.msg = msg;
         this.content = content;
     }
 
-    public UploadFileTitlesReturn() {
+    public UploadFileTitlesRes() {
     }
 
     public List<TitleCellModel> getContent() {

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Heli on 2014/5/17.
  */
-public class UploadFileSheetsReturn {
+public class UploadFileSheetsRes {
     private Boolean success;
     private Integer code;
     private String msg;
@@ -52,7 +52,7 @@ public class UploadFileSheetsReturn {
         this.filename = filename;
     }
 
-    public UploadFileSheetsReturn(Boolean success, Integer code, String msg, String filename, List<String> content) {
+    public UploadFileSheetsRes(Boolean success, Integer code, String msg, String filename, List<String> content) {
 
         this.success = success;
         this.code = code;
@@ -61,7 +61,7 @@ public class UploadFileSheetsReturn {
         this.content = content;
     }
 
-    public UploadFileSheetsReturn() {
+    public UploadFileSheetsRes() {
 
     }
 }

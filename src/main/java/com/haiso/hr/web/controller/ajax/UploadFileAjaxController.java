@@ -1,8 +1,8 @@
 package com.haiso.hr.web.controller.ajax;
 
-import com.haiso.commons.utils.DataTransfer.ExcelHelper.ExcelReader;
-import com.haiso.commons.utils.FileTypeUtil;
-import com.haiso.hr.web.rest.UploadFileSheetsReturn;
+import com.haiso.commons.utils.data.excelHelper.ExcelReader;
+import com.haiso.commons.utils.data.FileTypeUtil;
+import com.haiso.hr.web.rest.UploadFileSheetsRes;
 import com.haiso.hr.web.validator.MultipartFileValidator;
 import com.haiso.hr.web.vo.UploadedFile;
 import org.springframework.stereotype.Controller;
@@ -44,7 +44,7 @@ public class UploadFileAjaxController {
 
     @RequestMapping(value = "/uploadFile", method = {RequestMethod.POST})
     public @ResponseBody
-    UploadFileSheetsReturn UploadFile(MultipartHttpServletRequest request, HttpServletResponse response) {
+    UploadFileSheetsRes UploadFile(MultipartHttpServletRequest request, HttpServletResponse response) {
         Iterator<String> iterator = request.getFileNames();
         MultipartFile file = request.getFile(iterator.next());
         try {
@@ -52,7 +52,7 @@ public class UploadFileAjaxController {
         } catch (Throwable e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
-            return new UploadFileSheetsReturn(false, -1, e.getMessage(), null, null);
+            return new UploadFileSheetsRes(false, -1, e.getMessage(), null, null);
         }
         String path = request.getSession().getServletContext().getRealPath("/static/UploadFiles/");
         String fileName = new Date().getTime() + "." + FileTypeUtil.getFileExtension(file.getOriginalFilename());
@@ -65,7 +65,7 @@ public class UploadFileAjaxController {
             uploadedFile = new UploadedFile(file.getBytes().length, file.getOriginalFilename(), file.getContentType(), file.getBytes());
             FileCopyUtils.copy(uploadedFile.getBytes(), targetFile);
             System.out.println("Upload success");
-            return new UploadFileSheetsReturn(true, 1, "Upload success!", fileName, excelReader.listSheetsName(targetFile.getCanonicalPath()));
+            return new UploadFileSheetsRes(true, 1, "Upload success!", fileName, excelReader.listSheetsName(targetFile.getCanonicalPath()));
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

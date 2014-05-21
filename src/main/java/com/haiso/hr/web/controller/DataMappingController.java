@@ -1,12 +1,14 @@
 package com.haiso.hr.web.controller;
 
 import com.google.common.collect.Lists;
-import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
+import com.haiso.commons.utils.data.DataMappingUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -19,14 +21,20 @@ import java.util.Map;
 @RequestMapping("/dataTransfer")
 public class DataMappingController {
 
+    private final String uploadPath = "/static/UploadFiles/";
+
     @ModelAttribute("excelTitles")
-    public Map<String, String> getTitles(@RequestParam(value = "importFrom", required = true) String importFrom) {
+    public Map<String, String> getTitles(HttpServletRequest request) {
+
+        String path = request.getSession().getServletContext().getRealPath(uploadPath);
+        String fileName = request.getParameter("fromFile");
+        Integer sheetIndex = Integer.valueOf(request.getParameter("fromSheet"));
+        System.out.println(path + fileName);
         try {
-            String filePath = importFrom;
-            System.out.println(filePath);
+
 //            InputStream is = new FileInputStream(fileName);
 //            ExcelReader excelReader = new ExcelReader();
-            return DataMappingUtil.getDataSourceSheetTitlesMap(filePath, 0, 0);
+            return DataMappingUtil.getDataSourceSheetTitlesMap(new File(path, fileName), sheetIndex, 0);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

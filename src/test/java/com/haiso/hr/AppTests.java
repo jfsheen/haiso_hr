@@ -1,6 +1,6 @@
 package com.haiso.hr;
 
-import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
+import com.haiso.commons.utils.data.DataMappingUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.haiso.commons.utils.DataTransfer.ExcelHelper;
+package com.haiso.commons.utils.data.excelHelper;
 
 import com.google.common.collect.Lists;
 import org.apache.tika.Tika;
@@ -11,6 +11,15 @@ import java.net.URI;
  * Created by Heli on 2014/5/18.
  */
 public class ExcelFile extends File {
+
+    private Integer sheetIndex = 0;
+    private Integer titleIndex = 0;
+
+    private String[] contentTypes = {
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application/vnd.ms-excel"
+    };
+
     public ExcelFile(String pathname) {
         super(pathname);
     }
@@ -28,12 +37,10 @@ public class ExcelFile extends File {
     }
 
     private Boolean isExcelFile(String filePath) throws IOException {
-        String[] contentTypes = {"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.ms-excel"};
         return Lists.newArrayList(contentTypes).contains(new Tika().detect(filePath));
     }
 
     private Boolean isExcelFile(File file) throws IOException {
-        String[] contentTypes = {"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.ms-excel"};
         return Lists.newArrayList(contentTypes).contains(new Tika().detect(file));
     }
 }

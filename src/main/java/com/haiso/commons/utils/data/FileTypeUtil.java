@@ -1,4 +1,4 @@
-package com.haiso.commons.utils;
+package com.haiso.commons.utils.data;
 
 import java.io.File;
 import java.io.FileInputStream;

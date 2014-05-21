@@ -1,6 +1,7 @@
 package com.haiso.hr.web.controller.ajax;
 
-import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
+import com.haiso.commons.utils.data.DataMappingUtil;
+import com.haiso.hr.web.rest.DataMappingRes;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class DataMappingAjaxController {
     @RequestMapping(value = "/dataMapping", method = {RequestMethod.POST})
     public
     @ResponseBody
-    String generateDataMappingXML(@RequestBody String json, HttpServletRequest request) {
+    DataMappingRes generateDataMappingXML(@RequestBody String json, HttpServletRequest request) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> mapping = objectMapper.readValue(json, Map.class);
@@ -55,13 +55,15 @@ public class DataMappingAjaxController {
                     dir.mkdirs();
                 }
                 DataMappingUtil.writeXmlDataMapping(importTo, mapFrom, mapTo, dir.getPath());
+                return new DataMappingRes(true,1,"success",importTo);
+
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        /*} catch (IOException e) {
+            e.printStackTrace();*/
         } catch (Exception e) {
             e.printStackTrace();
+            return new DataMappingRes(false,0,e.getMessage(),null);
         }
-
-        return "success";
+        return new DataMappingRes(false,-1,"Unknown error!",null);
     }
 }

@@ -1,8 +1,8 @@
-package com.haiso.commons.utils.DataTransfer;
+package com.haiso.commons.utils.data;
 
-import com.haiso.commons.utils.ClassUtil;
-import com.haiso.commons.utils.DataTransfer.ExcelHelper.ExcelReader;
-import org.apache.commons.lang3.StringUtils;
+import com.haiso.commons.utils.fieldHelper.ClassUtil;
+import com.haiso.commons.utils.data.excelHelper.ExcelReader;
+import com.haiso.hr.web.vo.dataMapping.Mapping;
 import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
@@ -92,16 +92,46 @@ public final class DataMappingUtil {
         return root.attributeValue("to");
     }
 
-    public static Map<String, Map.Entry<Integer, String>> readXmlDataMapping(String path, String fileName) throws DocumentException {
+    public static Map<String, String> readXmlSimpleDataMapping(String filePath) throws DocumentException{
+        return readXmlSimpleDataMapping(new File(filePath));
+    }
+    public static Map<String, String> readXmlSimpleDataMapping(String path, String fileName) throws DocumentException{
+        return readXmlSimpleDataMapping(new File(path,fileName));
+    }
+
+    public static Map<String, String> readXmlSimpleDataMapping(File file) throws DocumentException{
+        Map<String, String[]> map = readXmlDataMapping(file);
+        Map<String,String> mapping = new LinkedHashMap<String, String>();
+        for(Map.Entry<String, String[]> entry : map.entrySet()){
+            mapping.put(entry.getKey(), entry.getValue()[1]);
+        }
+        return mapping;
+    }
+
+    public static Map<String, String[]> readXmlDataMapping(String filePath) throws DocumentException {
+        return readXmlDataMapping(new File(filePath));
+
+    }
+    public static Map<String, String[]> readXmlDataMapping(String path, String fileName) throws DocumentException {
         return readXmlDataMapping(new File(path, fileName));
     }
-
-    public static Map<String, Map.Entry<Integer, String>> readXmlDataMapping(String filePath) throws DocumentException {
-        return readXmlDataMapping(new File(filePath));
+    public static Map<String, String[]> readXmlDataMapping(File file) throws DocumentException {
+        Map<String, String[]> mapping = new LinkedHashMap<String, String[]>();
+        Map<String, ArrayList<String>> map = readXmlDataMappingA(file);
+        for( Map.Entry<String, ArrayList<String>> entry : map.entrySet()){
+            mapping.put(entry.getKey(),entry.getValue().toArray(new String[entry.getValue().size()]));
+        }
+        return mapping;
     }
 
-    public static Map<String, Map.Entry<Integer, String>> readXmlDataMapping(File file) throws DocumentException {
-        Map<String, Map.Entry<Integer, String>> mapping = new LinkedHashMap<String, Map.Entry<Integer, String>>();
+    private static Mapping readXmlDataMappingB(File file) throws DocumentException{
+        Mapping mapping = new Mapping();
+
+        return mapping;
+    }
+
+    private static Map<String, ArrayList<String>> readXmlDataMappingA(File file) throws DocumentException {
+        Map<String, ArrayList<String>> mapping = new LinkedHashMap<String, ArrayList<String>>();
         SAXReader saxReader = new SAXReader();
         Document document = saxReader.read(file);
         Element root = document.getRootElement();
@@ -110,15 +140,21 @@ public final class DataMappingUtil {
             Element element = (Element) it.next();
             String name = element.attributeValue("name");
             String index = element.element("value").attributeValue("index");
-            Integer i = StringUtils.isEmpty(index) ? -1 : Integer.valueOf(index);
             String title = element.element("value").attributeValue("title");
-            mapping.put(name, new AbstractMap.SimpleImmutableEntry<Integer, String>(i,title));
+            ArrayList<String> list = new ArrayList<String>();
+            list.add(index);
+            list.add(title);
+            mapping.put(name, list);
         }
         return mapping;
     }
 
+    public static Boolean writeXmlDataMapping(Mapping mapping){
 
-    public static void writeXmlDataMapping(String className, Map<String, String> mapFrom, Map<String, String> mapTo, String path)
+        return false;
+    }
+
+    public static Boolean writeXmlDataMapping(String className, Map<String, String> mapFrom, Map<String, String> mapTo, String path)
             throws Exception {
         Document doc = DocumentHelper.createDocument();
         //增加根节点
@@ -152,7 +188,9 @@ public final class DataMappingUtil {
             writer.write(doc);
         }catch (IOException e){
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
 
@@ -164,15 +202,34 @@ public final class DataMappingUtil {
         return excelReader.listSheetTitles(file, sheetIndex, titleRowIndex);
     }
 
-    //    public static String getDataSourceSheetTitlesMapHashcode(File file, Integer sheetIndex, Integer titleRowIndex) throws Exception {
-//        return
-//    }
+
     public static String getDataSourceSheetTitlesMapHashcode(String filePath, Integer sheetIndex, Integer titleRowIndex) throws Exception {
         return ((Integer) getDataSourceSheetTitlesMap(filePath, sheetIndex, titleRowIndex).hashCode()).toString();
     }
 
     public static String getDataSourceSheetTitlesMapHashcode(File file, Integer sheetIndex, Integer titleRowIndex) throws Exception {
         return ((Integer) getDataSourceSheetTitlesMap(file, sheetIndex, titleRowIndex).hashCode()).toString();
+    }
+
+    //  return map(fieldHelper name, fieldHelper type)
+    public static Map<String, String> getEntityFiledsMap(String className){
+        Map<String, String> fieldsMap = new LinkedHashMap<String, String>();
+
+        String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
+        if (!fullyQualifiedClassName.isEmpty()) {
+            Set<Field> entityFieldSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
+            for (Field f : entityFieldSet) {
+                fieldsMap.put(f.getName(), f.getGenericType().toString());
+            }
+            Set<Field> embeddedSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
+            for (Field es : embeddedSet) {
+                Set<Field> embeddedFieldSet = ClassUtil.getFieldsAnnotated(es.getType().getName(), Basic.class);
+                for (Field efs : embeddedFieldSet) {
+                    fieldsMap.put(efs.getName(), efs.getGenericType().toString());
+                }
+            }
+        }
+        return fieldsMap;
     }
 
     public static Set<String> getEntityFields(String className) {

@@ -1,17 +1,17 @@
 package com.haiso.hr.web.controller;
 
-import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
+import com.haiso.commons.utils.data.DataMappingUtil;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -50,7 +50,8 @@ public class DataTransferController {
             System.out.print(xmlFile.exists());
             if (xmlFile.exists() ? !(dms == USE_IF_EXISTS && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
                 model.addAttribute("importTo", importTo);
-                model.addAttribute("importFrom", path + "/" + fileName);
+                model.addAttribute("fromFile", fileName);
+                model.addAttribute("fromSheet", sheetIndex);
                 return "redirect:/dataTransfer/dataMapping";
             }
         } catch (IOException e) {
@@ -59,29 +60,29 @@ public class DataTransferController {
             e.printStackTrace();
         }
         model.addAttribute("importTo", importTo);
-        model.addAttribute("importFrom", path + "/" + fileName);
+        model.addAttribute("fromFile", fileName);
+        model.addAttribute("fromSheet", sheetIndex);
         return "redirect:/dataTransfer/import3";
     }
 
     @RequestMapping("/import3")
-    public ModelAndView dataImportStep3(HttpServletRequest request) {
+    public String dataImportStep3(HttpServletRequest request, ModelMap model) {
         String mapPath = request.getSession().getServletContext().getRealPath(mapFilePath);
         String importTo = request.getParameter("importTo");
-        System.out.println("importTo = " + mapPath + "$$$" + importTo);
-        importTo = importTo == null ? "Person" : importTo;
-        Map<String, Map.Entry<Integer, String>> mapping = null;
-        ModelAndView mav = new ModelAndView("DataTransfer/doImportData");
+        String fileName = request.getParameter("fromFile");
+        Integer sheetIndex = Integer.valueOf(request.getParameter("fromSheet"));
+        System.out.println("importTo = " + mapPath + "/" + importTo);
+        System.out.println("importFrom = " + fileName + "/" + sheetIndex);
+        Map<String, String> mapping = null;
         try{
-            mapping = DataMappingUtil.readXmlDataMapping(mapPath, importTo + ".xml");
-            //todo
-//            mav.
-//            model.addAttribute("mapping", mapping);
+            mapping = DataMappingUtil.readXmlSimpleDataMapping(mapPath, importTo + ".xml");
         }catch (DocumentException e){
             e.printStackTrace();
-//            model.addAttribute("mapping", "no map");
         }
-        return mav;
-
+        //todo
+        model.addAttribute("mapping", mapping);
+        model.addAttribute("importTo", importTo);
+        return "/DataTransfer/doImportData";
     }
 
     @RequestMapping("/import4")

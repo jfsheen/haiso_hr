@@ -1054,7 +1054,7 @@
     };
 
     /**
-     * Serializes all field elements in the jQuery object into a query string.
+     * Serializes all fieldHelper elements in the jQuery object into a query string.
      * This method will return a string in the format: name1=value1&amp;name2=value2
      */
     $.fn.fieldSerialize = function (successful) {
@@ -1108,7 +1108,7 @@
      *  // if first radio is checked
      *  v == ['C1']
      *
-     * The successful argument controls whether or not the field element must be 'successful'
+     * The successful argument controls whether or not the fieldHelper element must be 'successful'
      * (per http://www.w3.org/TR/html4/interact/forms.html#successful-controls).
      * The default value of the successful argument is true.  If this value is false the value(s)
      * for each element is returned.
@@ -1134,7 +1134,7 @@
     };
 
     /**
-     * Returns the value of the field element.
+     * Returns the value of the fieldHelper element.
      */
     $.fieldValue = function (el, successful) {
         var n = el.name, t = el.type, tag = el.tagName.toLowerCase();

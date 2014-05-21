@@ -99,7 +99,7 @@
                 <option value="Salary">Salary</option>
             </optgroup>
         </select>
-        <button id="btn_import" disabled>Import</button>
+        <button id="btn_import" disabled> Next >> </button>
     </form>
 </fieldset>
 </body>

@@ -1,4 +1,4 @@
-package com.haiso.commons.utils.DataTransfer.ExcelHelper.model;
+package com.haiso.commons.utils.data.excelHelper.model;
 
 import com.haiso.commons.enumeration.ExcelCellDataType;
 
