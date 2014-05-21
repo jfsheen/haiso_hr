@@ -60,5 +60,16 @@ public class PersonServiceImpl implements PersonService {
         return personDao.findByName(name);
     }
 
+    @Override
+    public Boolean exists(Person person) {
+        return null;
+    }
+
+    @Override
+    public Person findOne() {
+//        personDao.findOne();
+        return null;
+    }
+
 }
 

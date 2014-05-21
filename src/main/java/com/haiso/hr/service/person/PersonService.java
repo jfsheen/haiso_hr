@@ -23,4 +23,8 @@ public interface PersonService {
 
     public List<Person> findByName(String name);
 
+    public Boolean exists(Person person);
+
+    public Person findOne();
+
 }

@@ -75,7 +75,7 @@
                 <#if (tk_index+1)%3==1>
                 <tr></#if>
                 <td>${tk}</td>
-                <td><input type="text" name="${tk}" value="${excelTitles[tk]}" readonly></td>
+                <td><input contentType="text" name="${tk}" value="${excelTitles[tk]}" readonly></td>
                 <#if (tk_index+1)%3==0></tr></#if>
             </#list>
         </#if>
@@ -88,13 +88,17 @@
                 <#if (cf_index+1)%3==1>
                 <tr></#if>
                 <td>${cf}</td>
-                <td><input type="text" name="${cf}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
+                <td><input contentType="text" name="${cf}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
                 <#if (cf_index+1)%3==0></tr></#if>
             </#list>
         </#if>
         </table>
     </div>
+<<<<<<< HEAD
     <button id="doImport">Next step</button>
+=======
+    <input contentType="submit" name="submit" value="Next" style="width: 160px; height: 40px"/>
+>>>>>>> ed70ad83f966fa22b7b98a8085c038396786ee9f
 </form>
 </body>
 </html>
