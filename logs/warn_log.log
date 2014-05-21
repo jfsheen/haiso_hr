@@ -1037,3 +1037,14 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:305)
 	... 70 more
 >>>>>>> ed70ad83f966fa22b7b98a8085c038396786ee9f
+[LOG] 2014-05-21 09:20:25,260 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7522 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: create table t_dom (P_TYPE varchar(31) not null, id integer not null auto_increment, fileName varchar(255), filePath varchar(255), originalName varchar(255), uploadDate datetime, cellType tinyblob, fieldName varchar(255), index integer, titleIndex integer, titleName varchar(255), entityName varchar(255), sheetName varchar(255), manager_empl_sn varchar(20), sheet_id integer, wb_id integer, primary key (id)) ENGINE=InnoDB
+[LOG] 2014-05-21 09:20:25,263 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7525 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'integer,
+        titleIndex integer,
+        titleName varchar(255),
+        ent' at line 10
+[LOG] 2014-05-21 09:20:25,266 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7528 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: alter table t_dom add index FK_nntdp98eri3tkiuqhs85bo654 (manager_empl_sn), add constraint FK_nntdp98eri3tkiuqhs85bo654 foreign key (manager_empl_sn) references t_employee (empl_sn)
+[LOG] 2014-05-21 09:20:25,268 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7530 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Table 'haisodb0418.t_dom' doesn't exist
+[LOG] 2014-05-21 09:20:25,270 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7532 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: alter table t_dom add index FK_gkgfq33hvnpc7fppv4o1c6cjd (sheet_id), add constraint FK_gkgfq33hvnpc7fppv4o1c6cjd foreign key (sheet_id) references t_dom (id)
+[LOG] 2014-05-21 09:20:25,271 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7533 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Table 'haisodb0418.t_dom' doesn't exist
+[LOG] 2014-05-21 09:20:25,272 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7534 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - HHH000388: Unsuccessful: alter table t_dom add index FK_a9d8eqqevn57eh44peqlt06ic (wb_id), add constraint FK_a9d8eqqevn57eh44peqlt06ic foreign key (wb_id) references t_dom (id)
+[LOG] 2014-05-21 09:20:25,274 - org.hibernate.tool.hbm2ddl.SchemaUpdate -7536 [main] ERROR org.hibernate.tool.hbm2ddl.SchemaUpdate  - Table 'haisodb0418.t_dom' doesn't exist

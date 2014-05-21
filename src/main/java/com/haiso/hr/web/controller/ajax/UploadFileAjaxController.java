@@ -4,11 +4,7 @@ import com.haiso.commons.utils.DataTransfer.ExcelHelper.ExcelReader;
 import com.haiso.commons.utils.FileTypeUtil;
 import com.haiso.hr.web.rest.UploadFileSheetsReturn;
 import com.haiso.hr.web.validator.MultipartFileValidator;
-<<<<<<< HEAD
 import com.haiso.hr.web.vo.UploadedFile;
-=======
-import com.haiso.hr.web.vo.UploadFileModel;
->>>>>>> ed70ad83f966fa22b7b98a8085c038396786ee9f
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,15 +28,9 @@ import java.util.Iterator;
 @RequestMapping("/ajax")
 public class UploadFileAjaxController {
 
-<<<<<<< HEAD
     private MultipartFileValidator multipartFileValidator = null;
     private UploadedFile uploadedFile = null;
     private ExcelReader excelReader = null;
-=======
-    private MultipartFileValidator multipartFileValidator;
-    private UploadFileModel uploadFileModel;
-    private ExcelReader excelReader;
->>>>>>> ed70ad83f966fa22b7b98a8085c038396786ee9f
     @PostConstruct
     public void init() {
         multipartFileValidator = new MultipartFileValidator();
@@ -50,23 +40,11 @@ public class UploadFileAjaxController {
         excelReader = new ExcelReader();
     }
 
-<<<<<<< HEAD
     public UploadFileAjaxController() { }
 
     @RequestMapping(value = "/uploadFile", method = {RequestMethod.POST})
     public @ResponseBody
     UploadFileSheetsReturn UploadFile(MultipartHttpServletRequest request, HttpServletResponse response) {
-=======
-    public UploadFileAjaxController() {
-        uploadFileModel = new UploadFileModel();
-        excelReader = new ExcelReader();
-    }
-    @RequestMapping(value = "/uploadFile", method = {RequestMethod.POST})
-    public
-    @ResponseBody
-    UploadFileSheetsReturn UploadFile(MultipartHttpServletRequest request, HttpServletResponse response) {
-
->>>>>>> ed70ad83f966fa22b7b98a8085c038396786ee9f
         Iterator<String> iterator = request.getFileNames();
         MultipartFile file = request.getFile(iterator.next());
         try {
@@ -84,24 +62,10 @@ public class UploadFileAjaxController {
         }
         File targetFile = new File(path, fileName);
         try {
-<<<<<<< HEAD
             uploadedFile = new UploadedFile(file.getBytes().length, file.getOriginalFilename(), file.getContentType(), file.getBytes());
             FileCopyUtils.copy(uploadedFile.getBytes(), targetFile);
             System.out.println("Upload success");
             return new UploadFileSheetsReturn(true, 1, "Upload success!", fileName, excelReader.listSheetsName(targetFile.getCanonicalPath()));
-=======
-            uploadFileModel.setLength(file.getBytes().length);
-            uploadFileModel.setBytes(file.getBytes());
-            uploadFileModel.setName(file.getOriginalFilename());
-            uploadFileModel.setContentType(file.getContentType());
-            /*if (!targetFile.exists()) {
-                    targetFile.mkdirs();
-            }*/
-            FileCopyUtils.copy(uploadFileModel.getBytes(), targetFile);
-            System.out.println("Upload success");
-            return new UploadFileSheetsReturn(true, 1, "success", fileName, excelReader.listSheetsName(targetFile.getCanonicalPath()));
-//            return new UploadFileTitlesReturn(true,1,"success",excelReader.listSheetTitlesModel(targetFile.getCanonicalPath(),0,0));
->>>>>>> ed70ad83f966fa22b7b98a8085c038396786ee9f
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

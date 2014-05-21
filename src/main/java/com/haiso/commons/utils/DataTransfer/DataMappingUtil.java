@@ -92,11 +92,18 @@ public final class DataMappingUtil {
         return root.attributeValue("to");
     }
 
+    public static Map<String, Map.Entry<Integer, String>> readXmlDataMapping(String path, String fileName) throws DocumentException {
+        return readXmlDataMapping(new File(path, fileName));
+    }
 
-    public static Map<String, Integer> readXmlDataMapping(String filePath) throws DocumentException {
-        Map<String, Integer> mapping = new LinkedHashMap<String, Integer>();
+    public static Map<String, Map.Entry<Integer, String>> readXmlDataMapping(String filePath) throws DocumentException {
+        return readXmlDataMapping(new File(filePath));
+    }
+
+    public static Map<String, Map.Entry<Integer, String>> readXmlDataMapping(File file) throws DocumentException {
+        Map<String, Map.Entry<Integer, String>> mapping = new LinkedHashMap<String, Map.Entry<Integer, String>>();
         SAXReader saxReader = new SAXReader();
-        Document document = saxReader.read(new File(filePath));
+        Document document = saxReader.read(file);
         Element root = document.getRootElement();
         Iterator it = root.elementIterator();
         while (it.hasNext()) {
@@ -104,7 +111,8 @@ public final class DataMappingUtil {
             String name = element.attributeValue("name");
             String index = element.element("value").attributeValue("index");
             Integer i = StringUtils.isEmpty(index) ? -1 : Integer.valueOf(index);
-            mapping.put(name, i);
+            String title = element.element("value").attributeValue("title");
+            mapping.put(name, new AbstractMap.SimpleImmutableEntry<Integer, String>(i,title));
         }
         return mapping;
     }
@@ -137,10 +145,14 @@ public final class DataMappingUtil {
         //TODO  file name
         String fileName = className + ".xml";
         File file = new File(path, fileName);
-        //生成XMLWriter对象，构造函数中的参数为需要输出的文件流和格式
-        XMLWriter writer = new XMLWriter(new FileOutputStream(file), format);
-        //开始写入，write方法中包含上面创建的Document对象
-        writer.write(doc);
+        try{
+            //生成XMLWriter对象，构造函数中的参数为需要输出的文件流和格式
+            XMLWriter writer = new XMLWriter(new FileOutputStream(file), format);
+            //开始写入，write方法中包含上面创建的Document对象
+            writer.write(doc);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 

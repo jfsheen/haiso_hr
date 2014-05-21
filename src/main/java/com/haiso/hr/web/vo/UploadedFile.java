@@ -3,16 +3,16 @@ package com.haiso.hr.web.vo;
 /**
  * Created by Heli on 2014/5/16.
  */
-public class UploadFileModel {
+public class UploadedFile {
     private int length;
     private byte[] bytes;
     private String name;
     private String contentType;
 
-    public UploadFileModel() {
+    public UploadedFile() {
     }
 
-    public UploadFileModel(int length, byte[] bytes, String name, String contentType) {
+    public UploadedFile(int length, String name, String contentType , byte[] bytes) {
         this.length = length;
         this.bytes = bytes;
         this.name = name;

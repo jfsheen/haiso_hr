@@ -50,19 +50,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Boolean exists(Person person) {
-
-        return false;
-    }
-
-    @Override
     public List<Person> findByName(String name) {
         return personDao.findByName(name);
-    }
-
-    @Override
-    public Boolean exists(Person person) {
-        return null;
     }
 
     @Override
