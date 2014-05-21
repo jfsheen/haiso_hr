@@ -1,6 +1,8 @@
 package com.haiso.hr.web.controller;
 
+import com.haiso.commons.model.DataTransferParam;
 import com.haiso.commons.utils.data.DataMappingUtil;
+import com.haiso.commons.utils.json.JsonUtils;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -49,9 +50,10 @@ public class DataTransferController {
             File xmlFile = new File(mapPath, importTo + ".xml");
             System.out.print(xmlFile.exists());
             if (xmlFile.exists() ? !(dms == USE_IF_EXISTS && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
-                model.addAttribute("importTo", importTo);
+                model.addAttribute("param", JsonUtils.toJson(new DataTransferParam(true, fileName, importTo, importTo + ".xml", sheetIndex, titleIndex)));
+                /*model.addAttribute("importTo", importTo);
                 model.addAttribute("fromFile", fileName);
-                model.addAttribute("fromSheet", sheetIndex);
+                model.addAttribute("fromSheet", sheetIndex);*/
                 return "redirect:/dataTransfer/dataMapping";
             }
         } catch (IOException e) {
@@ -59,6 +61,7 @@ public class DataTransferController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        model.addAttribute("param", new DataTransferParam(true,fileName,importTo,importTo + ".xml",sheetIndex,titleIndex));
         model.addAttribute("importTo", importTo);
         model.addAttribute("fromFile", fileName);
         model.addAttribute("fromSheet", sheetIndex);

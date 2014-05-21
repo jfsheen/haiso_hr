@@ -4,9 +4,9 @@ package com.haiso.commons.utils.data.excelHelper;
 //import net.yeah.likun_zhang.util.Debug;
 
 import com.haiso.commons.enumeration.ExcelCellDataType;
+import com.haiso.commons.model.excel.DataCell;
 import com.haiso.commons.utils.data.DatePattern;
-import com.haiso.commons.utils.data.excelHelper.model.DataCellModel;
-import com.haiso.commons.utils.data.excelHelper.model.TitleCellModel;
+import com.haiso.commons.model.excel.TitleCell;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -174,23 +174,23 @@ public class ExcelReader {
         return listSheetTitles(getSheet(createWb(file), sheetIndex), titleRowIndex);
     }
 
-    private List<TitleCellModel> listSheetTitlesModel(Sheet sheet, Integer titleRowIndex) {
-        List<TitleCellModel> titles = new ArrayList<TitleCellModel>();
+    private List<TitleCell> listSheetTitlesModel(Sheet sheet, Integer titleRowIndex) {
+        List<TitleCell> titles = new ArrayList<TitleCell>();
         Row row = sheet.getRow(titleRowIndex);
         for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
             Cell cell = row.getCell(i);
             if (cell == null || cell.toString().equals("")) continue;
-            TitleCellModel titleCellModel = getTitleModelFromCell(cell);
+            TitleCell titleCellModel = getTitleModelFromCell(cell);
             titles.add(titleCellModel);
         }
         return titles;
     }
 
-    public List<TitleCellModel> listSheetTitlesModel(String filePath, Integer sheetIndex, Integer titleRowIndex) throws IOException {
+    public List<TitleCell> listSheetTitlesModel(String filePath, Integer sheetIndex, Integer titleRowIndex) throws IOException {
         return listSheetTitlesModel(getSheet(createWb(filePath), sheetIndex), titleRowIndex);
     }
 
-    public List<TitleCellModel> listSheetTitlesModel(File file, Integer sheetIndex, Integer titleRowIndex) throws IOException {
+    public List<TitleCell> listSheetTitlesModel(File file, Integer sheetIndex, Integer titleRowIndex) throws IOException {
         return listSheetTitlesModel(getSheet(createWb(file), sheetIndex), titleRowIndex);
     }
 
@@ -203,61 +203,61 @@ public class ExcelReader {
      * @date 2013-5-8
      */
 
-    private TitleCellModel getTitleModelFromCell(Cell cell) {
-        return new TitleCellModel(cell.getRowIndex(), cell.getColumnIndex(), (String) getDataCellModelFromCell(cell).getValue());
+    private TitleCell getTitleModelFromCell(Cell cell) {
+        return new TitleCell(cell.getRowIndex(), cell.getColumnIndex(), (String) getDataCellModelFromCell(cell).getValue());
     }
 
-    public DataCellModel getDataCellModelFromCell(Cell cell) {
+    public DataCell getDataCellModelFromCell(Cell cell) {
         if (cell == null) {
             System.out.println("Cell is NULL.");
             return null;
         }
-        DataCellModel dataCellModel = new DataCellModel();
+        DataCell dataCell = new DataCell();
         switch (cell.getCellType()) {
             case Cell.CELL_TYPE_NUMERIC:    // 数字
                 if (HSSFDateUtil.isCellDateFormatted(cell)) {
-                    dataCellModel.setCellDataType(ExcelCellDataType.DATE);// 如果是日期类型
-                    dataCellModel.setValue(new SimpleDateFormat(DatePattern.LOCALE_ZH_DATE.getValue()).format(cell.getDateCellValue()));
+                    dataCell.setCellDataType(ExcelCellDataType.DATE);// 如果是日期类型
+                    dataCell.setValue(new SimpleDateFormat(DatePattern.LOCALE_ZH_DATE.getValue()).format(cell.getDateCellValue()));
                 } else {
-                    dataCellModel.setCellDataType(ExcelCellDataType.NUMERIC);
-                    dataCellModel.setValue(cell.getNumericCellValue());
+                    dataCell.setCellDataType(ExcelCellDataType.NUMERIC);
+                    dataCell.setValue(cell.getNumericCellValue());
                 }
                 break;
             case Cell.CELL_TYPE_STRING:
-                dataCellModel.setCellDataType(ExcelCellDataType.STRING);// 字符串
-                dataCellModel.setValue(cell.getStringCellValue());
+                dataCell.setCellDataType(ExcelCellDataType.STRING);// 字符串
+                dataCell.setValue(cell.getStringCellValue());
                 break;
             case Cell.CELL_TYPE_FORMULA:    // 公式
                 // 用数字方式获取公式结果，根据值判断是否为日期类型
                 double numericValue = cell.getNumericCellValue();
                 if (HSSFDateUtil.isValidExcelDate(numericValue)) {    // 如果是日期类型
-                    dataCellModel.setCellDataType(ExcelCellDataType.DATE);
-                    dataCellModel.setValue(new SimpleDateFormat(DatePattern.LOCALE_ZH_DATE.getValue()).format(cell.getDateCellValue()));
+                    dataCell.setCellDataType(ExcelCellDataType.DATE);
+                    dataCell.setValue(new SimpleDateFormat(DatePattern.LOCALE_ZH_DATE.getValue()).format(cell.getDateCellValue()));
                 } else {
-                    dataCellModel.setCellDataType(ExcelCellDataType.NUMERIC);
-                    dataCellModel.setValue(numericValue);
+                    dataCell.setCellDataType(ExcelCellDataType.NUMERIC);
+                    dataCell.setValue(numericValue);
                 }
                 break;
             case Cell.CELL_TYPE_BLANK:                // 空白
-                dataCellModel.setCellDataType(ExcelCellDataType.BLANK);
-                dataCellModel.setValue(null);//ExcelConstants.EMPTY_CELL_VALUE ;
+                dataCell.setCellDataType(ExcelCellDataType.BLANK);
+                dataCell.setValue(null);//ExcelConstants.EMPTY_CELL_VALUE ;
                 break;
             case Cell.CELL_TYPE_BOOLEAN:            // Boolean
-                dataCellModel.setCellDataType(ExcelCellDataType.BOOLEAN);
-                dataCellModel.setValue(cell.getBooleanCellValue());
+                dataCell.setCellDataType(ExcelCellDataType.BOOLEAN);
+                dataCell.setValue(cell.getBooleanCellValue());
                 break;
             case Cell.CELL_TYPE_ERROR:                // Error，返回错误码
-                dataCellModel.setCellDataType(ExcelCellDataType.ERROR);
-                dataCellModel.setValue(String.valueOf(cell.getErrorCellValue()));
+                dataCell.setCellDataType(ExcelCellDataType.ERROR);
+                dataCell.setValue(String.valueOf(cell.getErrorCellValue()));
                 break;
             default:
-                dataCellModel.setCellDataType(ExcelCellDataType.EMPTY);
-                dataCellModel.setValue(StringUtils.EMPTY);
+                dataCell.setCellDataType(ExcelCellDataType.EMPTY);
+                dataCell.setValue(StringUtils.EMPTY);
                 break;
         }
-        dataCellModel.setRowIndex(cell.getRowIndex());
-        dataCellModel.setColIndex(cell.getColumnIndex());
-        return dataCellModel;
+        dataCell.setRowIndex(cell.getRowIndex());
+        dataCell.setColIndex(cell.getColumnIndex());
+        return dataCell;
     }
 
     public Map.Entry<String, String> getValueFromCell(Cell cell) {

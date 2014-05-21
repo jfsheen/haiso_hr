@@ -1,20 +1,20 @@
-package com.haiso.commons.utils.data.excelHelper.model;
+package com.haiso.commons.model.excel;
 
 import com.haiso.commons.enumeration.ExcelCellDataType;
 
 /**
  * Created by Heli on 2014/5/17.
  */
-public class DataCellModel {
+public class DataCell {
     private Integer rowIndex;
     private Integer colIndex;
     private Enum<ExcelCellDataType> cellDataType;
     private Object value;
 
-    public DataCellModel() {
+    public DataCell() {
     }
 
-    public DataCellModel(Integer rowIndex, Integer colIndex, Enum<ExcelCellDataType> cellDataType, Object value) {
+    public DataCell(Integer rowIndex, Integer colIndex, Enum<ExcelCellDataType> cellDataType, Object value) {
         this.rowIndex = rowIndex;
         this.colIndex = colIndex;
         this.cellDataType = cellDataType;

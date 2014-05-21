@@ -1,4 +1,4 @@
-package com.haiso.hr.web.vo;
+package com.haiso.commons.model;
 
 /**
  * Created by Heli on 2014/5/16.

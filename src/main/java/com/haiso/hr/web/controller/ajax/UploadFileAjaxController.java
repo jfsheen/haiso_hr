@@ -4,7 +4,7 @@ import com.haiso.commons.utils.data.excelHelper.ExcelReader;
 import com.haiso.commons.utils.data.FileTypeUtil;
 import com.haiso.hr.web.rest.UploadFileSheetsRes;
 import com.haiso.hr.web.validator.MultipartFileValidator;
-import com.haiso.hr.web.vo.UploadedFile;
+import com.haiso.commons.model.UploadedFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,13 +1,16 @@
 package com.haiso.hr.web.controller;
 
 import com.google.common.collect.Lists;
+import com.haiso.commons.model.DataTransferParam;
 import com.haiso.commons.utils.data.DataMappingUtil;
+import com.haiso.commons.utils.json.JsonUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,11 +27,17 @@ public class DataMappingController {
     private final String uploadPath = "/static/UploadFiles/";
 
     @ModelAttribute("excelTitles")
-    public Map<String, String> getTitles(HttpServletRequest request) {
+    public Map<String, String> getTitles(@ModelAttribute("param") String param, HttpServletRequest request) {
 
         String path = request.getSession().getServletContext().getRealPath(uploadPath);
-        String fileName = request.getParameter("fromFile");
-        Integer sheetIndex = Integer.valueOf(request.getParameter("fromSheet"));
+        DataTransferParam dtp = JsonUtils.readValue(param, DataTransferParam.class);
+        if(!dtp.getFileToDB()) {
+            return null;
+        }
+        String fileName = dtp.getOrigin();
+        Integer sheetIndex = dtp.getExcelSheetIndex();
+//        String fileName = request.getParameter("fromFile");
+//        Integer sheetIndex = Integer.valueOf(request.getParameter("fromSheet"));
         System.out.println(path + fileName);
         try {
 
@@ -44,13 +53,15 @@ public class DataMappingController {
     }
 
     @ModelAttribute("importTo")
-    public String getImportTo(@RequestParam(value = "importTo", required = true) String importTo) {
-        return importTo;
+    public String getImportTo(@ModelAttribute("param") String param) {
+        DataTransferParam dtp = JsonUtils.readValue(param, DataTransferParam.class);
+        return dtp.getDest();
     }
 
     @ModelAttribute("classFields")
-    public List<String> getClassFields(@RequestParam(value = "importTo", required = true) String importTo) throws Exception {
-        return Lists.newArrayList(DataMappingUtil.getEntityFields(importTo));
+    public List<String> getClassFields(@ModelAttribute("param") String param) throws Exception {
+        DataTransferParam dtp = JsonUtils.readValue(param, DataTransferParam.class);
+        return Lists.newArrayList(DataMappingUtil.getEntityFields(dtp.getDest()));
     }
 
 /*

@@ -1,4 +1,4 @@
-package com.haiso.commons.utils.fieldHelper;
+package com.haiso.commons.utils.data.fieldHelper;
 
 import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;

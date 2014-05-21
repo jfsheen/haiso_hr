@@ -1,37 +1,29 @@
 package com.haiso.hr.web.rest;
 
-import com.haiso.commons.model.excel.TitleCell;
-
 import java.util.List;
 
 /**
- * Created by Heli on 2014/5/16.
+ * Created by Heli on 2014/5/21.
  */
-public class UploadFileTitlesRes {
+public abstract class AbstractRest<T> {
     private Boolean success;
     private Integer code;
     private String msg;
-    private List<TitleCell> content;
+    private List<T> content;
 
-    public UploadFileTitlesRes(Boolean success, Integer code, String msg, List<TitleCell> content) {
+    protected AbstractRest(Boolean success, Integer code, String msg, List<T> content) {
         this.success = success;
         this.code = code;
         this.msg = msg;
         this.content = content;
     }
 
-    public UploadFileTitlesRes() {
-    }
+    protected AbstractRest() {
 
-    public List<TitleCell> getContent() {
-        return content;
-    }
-
-    public void setContent(List<TitleCell> content) {
-        this.content = content;
     }
 
     public Boolean getSuccess() {
+
         return success;
     }
 
@@ -55,5 +47,11 @@ public class UploadFileTitlesRes {
         this.msg = msg;
     }
 
+    public List<T> getContent() {
+        return content;
+    }
 
+    public void setContent(List<T> content) {
+        this.content = content;
+    }
 }

@@ -1,6 +1,6 @@
 package com.haiso.commons.utils.data;
 
-import com.haiso.commons.utils.fieldHelper.ClassUtil;
+import com.haiso.commons.utils.data.fieldHelper.ClassUtil;
 import com.haiso.commons.utils.data.excelHelper.ExcelReader;
 import com.haiso.hr.web.vo.dataMapping.Mapping;
 import org.dom4j.*;
