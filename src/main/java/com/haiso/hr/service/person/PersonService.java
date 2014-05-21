@@ -9,16 +9,18 @@ import java.util.List;
  */
 public interface PersonService {
 
-    public void addPerson(Person person);
+    public void add(Person person);
 
-    public void removePerson(Person person);
+    public void remove(Person person);
 
     public void removePersonById(long id);
 
-    public Person findPersonById(long id);
+    public Person findById(long id);
 
     public List<Person> findAll();
 
-    public void importPersons(String filePath);
+    public Boolean exists(Person person);
+
+    public List<Person> findByName(String name);
 
 }

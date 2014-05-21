@@ -19,7 +19,7 @@
         <property name="cacheSeconds" value="60"/>
         <property name="basenames">
             <list>
-                <value>classpath:/Validation/zh_CN</value>
+                <value>classpath:/message/error/</value>
             </list>
         </property>
     </bean>

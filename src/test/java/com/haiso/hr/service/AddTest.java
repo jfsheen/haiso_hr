@@ -58,10 +58,8 @@ public class AddTest {
         Employee e = new Employee();
         e.setPerson(p);
         //e.setEmplLevel(lvl);
-        //personService.addPerson(p);
+        //personService.add(p);
         employeeService.addEmployee(e);
-        System.out.println(personService.findPersonById(1).getName());
-        System.out.println(personService.findPersonById(1).getEmployee().getEmplSn());
         System.out.println(employeeService.findEmployeeBySn("em-sn00001").getPerson().getName());
 
     }

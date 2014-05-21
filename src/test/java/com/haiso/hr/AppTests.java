@@ -1,5 +1,6 @@
 package com.haiso.hr;
 
+import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,11 +33,11 @@ public class AppTests {
 
     @Test
     public void testXmlMapping() throws Exception {
-        /*Set<Field> fs = ClassUtilV2.getFieldsAnnotated("com.haiso.hr.entity.person", "Person", Basic.class);
-        for(Field f : fs){
-            System.out.println(f.getName());
-        }*/
-//        ExcelReaderV2.getSheetTitlesMapHashcode()
+       /* File file = new File("E:\\idea\\haiso_hr\\target\\haiso.hr\\static\\UploadFiles\\11.xlsx");
+        ExcelReader excelReader = new ExcelReader();
+        System.out.println(excelReader.getContentType(file));*/
+        String fp = "E:\\idea\\haiso_hr\\target\\haiso.hr\\static\\DataMapping\\Person.xml";
+        System.out.println(DataMappingUtil.readXmlDataMapping(fp));
     }
 
 

@@ -5,81 +5,86 @@
     <title>UPLOAD</title>
     <link rel="stylesheet" href="/static/theme/css/commons.css">
     <link rel="stylesheet" href="/static/theme/css/import.css">
-    <link rel="stylesheet" href="/static/theme/css/jquery-ui.css">
     <script src="/static/js/jquery-1.11.1.min.js"></script>
-    <script src="/static/js/jquery-ui.min.js"></script>
     <script src="/static/js/jquery.json-2.4.min.js"></script>
-<#--<script src="/static/js/jquery-fileupload.min.js"></script>-->
     <script>
         $(document).ready(function () {
-            $("#btn_upload").click(function (e) {
-                e.preventDefault();
+            $("#btn_upload").click(function (event) {
+                event.preventDefault();
                 var data = new FormData();
                 data.append("file", file.files[0]);
                 $.ajax({
                     url: "/ajax/uploadFile",  //Server script to process data
                     type: "POST",
-                    xhr: function () {  // Custom XMLHttpRequest
+                    xhr: function () {
                         var myXhr = $.ajaxSettings.xhr();
-                        if (myXhr.upload) { // Check if upload property exists
-                            myXhr.upload.addEventListener('progress', progressHandling, false); // For handling the progress of the upload
+                        if (myXhr.upload) {
+                            myXhr.upload.addEventListener('progress', progressHandling, false);
                         }
                         return myXhr;
                     },
-                    //Ajax events
 //                    beforeSend: beforeSendHandler,
-                    success: function (msg) {
-                        $("err-msg").html(msg);
+                    success: function (ret) {
+                        if (ret.success) {
+                            $("#err-msg").html("<font color=green>" + ret.msg + "</font>");
+                            $("#importFrom").empty();
+                            $("#importFrom").prop("disabled", false);
+                            $("#btn_import").prop("disabled", false);
+                            $("input:hidden").val(ret.filename);
+                            $("#importFrom").append("<optgroup label=" + ret.filename + "></optgroup>");
+                            var sheets = ret.content;
+                            $.each(sheets, function (i, sheet) {
+                                $("#importFrom optgroup").append('<option value="' + i + '">' + sheet + '</option>');
+                            });
+                        }
                     },
                     error: function (msg) {
-                        $("err-msg").html(msg);
+                        $("#err-msg").html("<font color=red>" + msg + "</font>");
                     },
-                    // Form data
                     data: data,
-                    dataType: "text", //important !!!!!!!
-                    //Options to tell jQuery not to process data or worry about content-type.
+                    anysc: false,
+                    dataType: "json",
                     cache: false,
                     contentType: false,
                     processData: false
                 });
             });
+            /*$("#btn_import").click(function (event) {
+                event.preventDefault();
+
+            });*/
         });
         function progressHandling(e) {
             if (e.lengthComputable) {
                 $('progress').attr({value: e.loaded, max: e.total});
             }
         }
-        /*$("#file").change(function(){
-            var file = this.files[0];
-            var name = file.name;
-            var size = file.size;
-            var type = file.type;
-            $("#btn_upload").html(name);
-        });*/
     </script>
 </head>
 <body>
 <h1>STEP 2</h1>
 <fieldset>
     <legend>Upload File</legend>
-    <div class="err-msg"></div>
+    <div id="err-msg"></div>
     <form id="uploadForm" action="/ajax/uploadFile" method="post" enctype="multipart/form-data">
         <input id="file" type="file" size="60" name="file">
-        <button id="btn_upload">Ajax File Upload</button>
     </form>
+    <button id="btn_upload">Ajax File Upload</button>
+    <br/>
     <progress></progress>
 </fieldset>
-<form id="settingsForm" action="/dataTransfer/import2" method="post">
-    <fieldset>
-        <legend>Import Settings</legend>
-        <input type="radio" name="dataMappingSettings" value="useIfExists" checked>use data mapping settings if exists
+<fieldset>
+    <legend>Import Settings</legend>
+    <form id="settingsForm" action="/dataTransfer/import2" method="post">
+        <input type="radio" name="dataMappingSettings" value="1" checked>use data mapping settings if exists
         <br/>
-        <input type="radio" name="dataMappingSettings" value="reMapping">re-mapping data settings
+        <input type="radio" name="dataMappingSettings" value="0">re-mapping data settings
         <br/>
         <hr/>
         FROM:
-        <select name="importFrom" disabled>
-            <option value="xls" selected>MS Excel</option>
+        <input type="hidden" id="dataFile" name="dataFile">
+        <select name="importFrom" id="importFrom" disabled>
+            <option>(select data source)</option>
         </select>
         TO:
         <select name="importTo" id="importTo">
@@ -94,8 +99,8 @@
                 <option value="Salary">Salary</option>
             </optgroup>
         </select>
-    </fieldset>
-    <button id="btn_import">Import</button>
-</form>
+        <button id="btn_import" disabled>Import</button>
+    </form>
+</fieldset>
 </body>
 </html>

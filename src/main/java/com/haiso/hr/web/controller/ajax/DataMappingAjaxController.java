@@ -1,6 +1,6 @@
 package com.haiso.hr.web.controller.ajax;
 
-import com.haiso.commons.utils.DataTransferUtil.DataMappingUtil;
+import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -23,8 +24,9 @@ import java.util.Map;
 public class DataMappingAjaxController {
 
     @RequestMapping(value = "/dataMapping", method = {RequestMethod.POST})
+    public
     @ResponseBody
-    public String generateDataMappingXML(@RequestBody String json, HttpServletRequest request) {
+    String generateDataMappingXML(@RequestBody String json, HttpServletRequest request) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> mapping = objectMapper.readValue(json, Map.class);
@@ -48,7 +50,11 @@ public class DataMappingAjaxController {
                 }
             }
             if (!importTo.isEmpty() && !mapFrom.isEmpty() && !mapTo.isEmpty()) {
-                DataMappingUtil.writeXmlDataMapping(importTo, mapFrom, mapTo, request.getSession().getServletContext().getRealPath("/static/DataMapping/"));
+                File dir = new File(request.getSession().getServletContext().getRealPath("/static/DataMapping/"));
+                if(!dir.exists() || !dir.isDirectory()){
+                    dir.mkdirs();
+                }
+                DataMappingUtil.writeXmlDataMapping(importTo, mapFrom, mapTo, dir.getPath());
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -22,14 +22,13 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     @Transactional
-    public void addPerson(Person person) {
-
+    public void add(Person person) {
         personDao.save(person);
     }
 
     @Override
     @Transactional
-    public void removePerson(Person person) {
+    public void remove(Person person) {
         personDao.delete(person.getId());
 
     }
@@ -41,20 +40,24 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person findPersonById(long id) {
-        Person person = personDao.findOne(id);
-        return person;
+    public Person findById(long id) {
+        return personDao.findById(id);
     }
 
     @Override
     public List<Person> findAll() {
-        return Lists.newArrayList(personDao.findAll());
+        return (List<Person>)personDao.findAll();
     }
 
     @Override
-    public void importPersons(String filePath) {
+    public Boolean exists(Person person) {
 
+        return false;
+    }
 
+    @Override
+    public List<Person> findByName(String name) {
+        return personDao.findByName(name);
     }
 
 }

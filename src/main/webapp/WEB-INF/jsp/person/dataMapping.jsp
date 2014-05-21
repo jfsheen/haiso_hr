@@ -12,7 +12,7 @@
 </head>
 <body>
 <form>
-    <input type="">
+    <input contentType="">
 </form>
 </body>
 </html>

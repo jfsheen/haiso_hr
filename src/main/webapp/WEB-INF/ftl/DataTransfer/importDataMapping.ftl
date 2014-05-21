@@ -4,9 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>hello.ftl</title>
     <link rel="stylesheet" href="/static/theme/css/commons.css">
-    <link rel="stylesheet" href="/static/theme/css/jquery-ui.css">
     <script src="/static/js/jquery-1.11.1.min.js"></script>
-    <script src="/static/js/jquery-ui.min.js"></script>
     <script src="/static/js/jquery.json-2.4.min.js"></script>
 <#--<link rel="stylesheet" href="/resources/demos/style.css">-->
     <style>
@@ -23,8 +21,8 @@
                 var data = JSON.stringify(o);
                 $.ajax({
                     type: "POST",
-                    contentType: "application/json; charset=utf-8",
                     url: "/ajax/dataMapping",
+                    contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     anysc: false,
                     data: data,
@@ -63,13 +61,13 @@
     </script>
 </head>
 <body>
-<button id="btn_back"/>
-Go Next Step >></button>
+<button id="btn_back">Go Next Step >></button>
 <div id="r"></div>
 <#--<div id="result">this is a test div</div>-->
 <p>Import data to <span id="importTo">${importTo}</span></p>
 
-<form id="dataMapping" action="/dataTransfer/Step3" method="post">
+<form id="dataMapping" action="/dataTransfer/import3" method="post">
+    <input type="hidden" id="importTo" value="${importTo}">
     <div id="mapFrom">
         <table border="1" align="center" width="800px">
         <#if excelTitles?exists>
@@ -96,8 +94,7 @@ Go Next Step >></button>
         </#if>
         </table>
     </div>
-    <input type="submit" name="submit" value="Next" style="width: 160px; height: 40px"/>
+    <button id="doImport">Next step</button>
 </form>
-
 </body>
 </html>

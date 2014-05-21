@@ -11,7 +11,7 @@
     <script src="/static/js/jquery.json-2.4.min.js"></script>
     <script>
         //        $(document).ready(function () {
-        //            $("input[type='submit']").click(function(){
+        //            $("input[contentType='submit']").click(function(){
         //
         //            });
         //        });
@@ -23,9 +23,10 @@
 <form action="/dataTransfer/import2" method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Import Settings</legend>
-        <input type="radio" name="dataMappingSettings" value="useIfExists" checked>use data mapping settings if exists
+        <input contentType="radio" name="dataMappingSettings" value="useIfExists" checked>use data mapping settings if
+        exists
         <br/>
-        <input type="radio" name="dataMappingSettings" value="reMapping">re-mapping data settings
+        <input contentType="radio" name="dataMappingSettings" value="reMapping">re-mapping data settings
         <br/>
         <hr/>
         FROM:<select name="importFrom">
@@ -50,7 +51,7 @@
     <fieldset>
         <legend>Upload File</legend>
         <span>${msg}</span><br/>
-        <input type="file" name="file"/>
+        <input contentType="file" name="file"/>
         <button id="btn_upload" value="Next >>"/>
     </fieldset>
 </form>

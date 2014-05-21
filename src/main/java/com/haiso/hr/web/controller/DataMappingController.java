@@ -1,7 +1,7 @@
 package com.haiso.hr.web.controller;
 
 import com.google.common.collect.Lists;
-import com.haiso.commons.utils.DataTransferUtil.DataMappingUtil;
+import com.haiso.commons.utils.DataTransfer.DataMappingUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +22,11 @@ public class DataMappingController {
     @ModelAttribute("excelTitles")
     public Map<String, String> getTitles(@RequestParam(value = "importFrom", required = true) String importFrom) {
         try {
-            String fileName = importFrom;
-            System.out.println(fileName);
+            String filePath = importFrom;
+            System.out.println(filePath);
 //            InputStream is = new FileInputStream(fileName);
-//            ExcelReaderV2 excelReader = new ExcelReaderV2();
-            return DataMappingUtil.getDatasSourceSheetTitles(fileName, 0, 0);
+//            ExcelReader excelReader = new ExcelReader();
+            return DataMappingUtil.getDataSourceSheetTitlesMap(filePath, 0, 0);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
