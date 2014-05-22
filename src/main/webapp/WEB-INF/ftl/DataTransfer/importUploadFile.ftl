@@ -30,7 +30,7 @@
                             $("#importFrom").empty();
                             $("#importFrom").prop("disabled", false);
                             $("#btn_import").prop("disabled", false);
-                            $("input:hidden").val(ret.filename);
+                            $("#dataFile").val(ret.filename);
                             $("#importFrom").append("<optgroup label=" + ret.filename + "></optgroup>");
                             var sheets = ret.content;
                             $.each(sheets, function (i, sheet) {
@@ -49,16 +49,27 @@
                     processData: false
                 });
             });
-            /*$("#btn_import").click(function (event) {
-                event.preventDefault();
 
-            });*/
+            $("#btn_import").click(function(event){
+                event.preventDefault();
+                var dtp = Object();
+                dtp.titleIndex = "0";
+                dtp.sheetIndex = $("#importFrom").val();
+                dtp.dms = $("input[type='radio']").val();
+                dtp.origin = $("#dataFile").val();
+                dtp.dest = $("#importTo").val();
+                var data = JSON.stringify(dtp);
+                $("#ipdata").val(data);
+                $("#submitForm").submit();
+            });
         });
+
         function progressHandling(e) {
             if (e.lengthComputable) {
                 $('progress').attr({value: e.loaded, max: e.total});
             }
         }
+
     </script>
 </head>
 <body>
@@ -75,7 +86,7 @@
 </fieldset>
 <fieldset>
     <legend>Import Settings</legend>
-    <form id="settingsForm" action="/dataTransfer/import2" method="post">
+    <form id="settingsForm" action="" method="post">
         <input type="radio" name="dataMappingSettings" value="1" checked>use data mapping settings if exists
         <br/>
         <input type="radio" name="dataMappingSettings" value="0">re-mapping data settings
@@ -99,6 +110,9 @@
                 <option value="Salary">Salary</option>
             </optgroup>
         </select>
+    </form>
+    <form id="submitForm" action="/dataTransfer/import2" method="post">
+        <input type="hidden" id="ipdata" name="ipdata">
         <button id="btn_import" disabled> Next >> </button>
     </form>
 </fieldset>

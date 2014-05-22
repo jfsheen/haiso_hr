@@ -1,4 +1,4 @@
-package com.haiso.commons.utils;
+package com.haiso.commons.utils.param;
 
 import org.apache.commons.codec.binary.Base64;
 
@@ -10,16 +10,23 @@ import java.util.zip.*;
 /**
  * Created by Heli on 2014/5/22.
  */
-public class CompressUtil{
-    public static String gzip(String primStr) {
-        if (primStr == null || primStr.length() == 0) {
-            return primStr;
+public final class PackUtil {
+    public static String Pack(String in){
+        return new Base64().encodeAsString(gzip(in));
+    }
+    public static String Unpack(String in){
+        return new String(gunzip(new Base64().decode(in.getBytes())));
+    }
+
+    private static byte[] gzip(String str) {
+        if (str == null || str.length() == 0) {
+            return null;
         }
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         GZIPOutputStream gzip = null;
         try {
             gzip = new GZIPOutputStream(out);
-            gzip.write(primStr.getBytes());
+            gzip.write(str.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -31,39 +38,37 @@ public class CompressUtil{
                 }
             }
         }
-        return new String(out.toByteArray());
+        return out.toByteArray();
     }
+
     /**
      * 使用gzip进行解压缩
-     * @param compressedStr
-     * @return 解压后的字符串
+     * @param bytes
+     * @return 解压后的byte[]
      */
-    //todo 字符串不base64
-    public static String gunzip(String compressedStr) {
-        if (compressedStr == null) {
+    private static byte[] gunzip(byte[] bytes) {
+        if (bytes == null || bytes.length == 0) {
             return null;
         }
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         ByteArrayInputStream in = null;
-        GZIPInputStream ginzip = null;
-        byte[] compressed = null;
-        String decompressed = null;
+        GZIPInputStream gzipis = null;
+        byte[] decompressed = null;
         try {
-            compressed = new Base64().decode(compressedStr.getBytes());
-            in = new ByteArrayInputStream(compressed);
-            ginzip = new GZIPInputStream(in);
+            in = new ByteArrayInputStream(bytes);
+            gzipis = new GZIPInputStream(in);
             byte[] buffer = new byte[1024];
             int offset = -1;
-            while ((offset = ginzip.read(buffer)) != -1) {
+            while ((offset = gzipis.read(buffer)) != -1) {
                 out.write(buffer, 0, offset);
             }
-            decompressed = out.toString();
+            decompressed = out.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (ginzip != null) {
+            if (gzipis != null) {
                 try {
-                    ginzip.close();
+                    gzipis.close();
                 } catch (IOException e) {
                 }
             }
@@ -84,14 +89,13 @@ public class CompressUtil{
     }
     /**
      * 使用zip进行压缩
-     *
      * @param str  压缩前的文本
-     * @return 返回压缩后的文本
+     * @return 返回压缩后的bytes
      */
-    public static final String zip(String str) {
+    private static byte[] zip(String str) {
         if (str == null || str.length() == 0)
-            return str;
-        byte[] compressed;
+            return null;
+        byte[] compressed = null;
         ByteArrayOutputStream out = null;
         ZipOutputStream zout = null;
         String compressedStr = null;
@@ -102,9 +106,8 @@ public class CompressUtil{
             zout.write(str.getBytes());
             zout.closeEntry();
             compressed = out.toByteArray();
-            compressedStr = new String(compressed);
         } catch (IOException e) {
-            compressed = null;
+            e.printStackTrace();
         } finally {
             if (zout != null) {
                 try {
@@ -119,27 +122,24 @@ public class CompressUtil{
                 }
             }
         }
-        return compressedStr;
+        return compressed;
     }
 
     /**
      * 使用zip进行解压缩
-     *
-     * @param compressedStr
-     *            压缩后的文本
-     * @return 解压后的字符串
+     * @param compressed  压缩后的文本
+     * @return 解压后的byte
      */
 
-    public static final String unzip(String compressedStr) {
-        if (compressedStr == null) {
+    private static byte[] unzip(byte[] compressed) {
+        if (compressed == null || compressed.length ==0) {
             return null;
         }
         ByteArrayOutputStream out = null;
         ByteArrayInputStream in = null;
         ZipInputStream zin = null;
-        String decompressed = null;
+        byte[] decompressed = null;
         try {
-            byte[] compressed = new Base64().decode(compressedStr.getBytes());
             out = new ByteArrayOutputStream();
             in = new ByteArrayInputStream(compressed);
             zin = new ZipInputStream(in);
@@ -149,7 +149,7 @@ public class CompressUtil{
             while ((offset = zin.read(buffer)) != -1) {
                 out.write(buffer, 0, offset);
             }
-            decompressed = out.toString();
+            decompressed = out.toByteArray();
         } catch (IOException e) {
             decompressed = null;
         } finally {

@@ -3,14 +3,13 @@ package com.haiso.hr.web.controller;
 import com.google.common.collect.Lists;
 import com.haiso.commons.model.DataTransferParam;
 import com.haiso.commons.utils.data.DataMappingUtil;
-import com.haiso.commons.utils.json.JsonUtils;
+import com.haiso.commons.utils.json.JsonUtil;
+import com.haiso.commons.utils.param.PackUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,7 +29,7 @@ public class DataMappingController {
     public Map<String, String> getTitles(@ModelAttribute("param") String param, HttpServletRequest request) {
 
         String path = request.getSession().getServletContext().getRealPath(uploadPath);
-        DataTransferParam dtp = JsonUtils.readValue(param, DataTransferParam.class);
+        DataTransferParam dtp = JsonUtil.readValue(PackUtil.Unpack(param), DataTransferParam.class);
         if(!dtp.getFileToDB()) {
             return null;
         }
@@ -54,13 +53,13 @@ public class DataMappingController {
 
     @ModelAttribute("importTo")
     public String getImportTo(@ModelAttribute("param") String param) {
-        DataTransferParam dtp = JsonUtils.readValue(param, DataTransferParam.class);
+        DataTransferParam dtp = JsonUtil.readValue(PackUtil.Unpack(param), DataTransferParam.class);
         return dtp.getDest();
     }
 
     @ModelAttribute("classFields")
     public List<String> getClassFields(@ModelAttribute("param") String param) throws Exception {
-        DataTransferParam dtp = JsonUtils.readValue(param, DataTransferParam.class);
+        DataTransferParam dtp = JsonUtil.readValue(PackUtil.Unpack(param), DataTransferParam.class);
         return Lists.newArrayList(DataMappingUtil.getEntityFields(dtp.getDest()));
     }
 
