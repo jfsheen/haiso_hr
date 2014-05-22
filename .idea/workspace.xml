@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="990dcdf1-8fc5-434e-9e4e-439a1bddad3c" name="Default" comment="0521">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/param/PackUtil.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/CompressUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/param/Package.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/json/JsonUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/json/JsonUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataMappingController.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataMappingController.java" />
+    <list default="true" id="990dcdf1-8fc5-434e-9e4e-439a1bddad3c" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataMappingController.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataMappingAjaxController.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataMappingAjaxController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/model/DataTransferParam.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/commons/model/DataTransferParam.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/doImportData.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/doImportData.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importDataMapping.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importDataMapping.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/info_log.log" afterPath="$PROJECT_DIR$/logs/info_log.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="haiso.520bM.iws" />
@@ -71,23 +69,6 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java" line="83" class="com.haiso.hr.web.controller.DataTransferController" package="com.haiso.hr.web.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -97,57 +78,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DataMappingController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataMappingController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="73" selection-start="2372" selection-end="2372" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1350">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PackUtil.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PackUtil.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/param/PackUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.16135459" vertical-offset="174" max-vertical-offset="2745">
+            <state line="17" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2745">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractRest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/AbstractRest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="22" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="690">
-              <folding>
-                <element signature="e#527#528#0" expanded="false" />
-                <element signature="e#558#559#0" expanded="false" />
-                <element signature="e#605#606#0" expanded="false" />
-                <element signature="e#643#644#0" expanded="false" />
-                <element signature="e#675#676#0" expanded="false" />
-                <element signature="e#702#703#0" expanded="false" />
-                <element signature="e#743#744#0" expanded="false" />
-                <element signature="e#775#776#0" expanded="false" />
-                <element signature="e#805#806#0" expanded="false" />
-                <element signature="e#831#832#0" expanded="false" />
-                <element signature="e#869#870#0" expanded="false" />
-                <element signature="e#899#900#0" expanded="false" />
-                <element signature="e#934#935#0" expanded="false" />
-                <element signature="e#964#965#0" expanded="false" />
-                <element signature="e#1011#1012#0" expanded="false" />
-                <element signature="e#1049#1050#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExcelFile.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/excel/ExcelFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,10 +98,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UploadFileSheetsRes.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/UploadFileSheetsRes.java">
+      <file leaf-file-name="DataMappingAjaxController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataMappingAjaxController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+            <state line="57" column="69" selection-start="2490" selection-end="2490" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="doImportData.ftl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/doImportData.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="35" selection-start="919" selection-end="919" vertical-scroll-proportion="-6.2083335" vertical-offset="181" max-vertical-offset="825">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FieldUtil.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/fieldHelper/FieldUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="9" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="825">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="importUploadFile.ftl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="43" selection-start="3066" selection-end="3066" vertical-scroll-proportion="0.49275362" vertical-offset="741" max-vertical-offset="1935">
               <folding />
             </state>
           </provider>
@@ -173,19 +137,17 @@
       <file leaf-file-name="DataTransferController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="0" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1815">
+            <state line="52" column="85" selection-start="2024" selection-end="2024" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1935">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java">
+      <file leaf-file-name="UploadFileAjaxController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/UploadFileAjaxController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="38" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.0" vertical-offset="339" max-vertical-offset="930">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="27" column="24" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0" vertical-offset="253" max-vertical-offset="945">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -209,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/dao/PersonDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/DataMappingReturn.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importDataMapping.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/vo/DataMapping.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/vo/DataMapping/DataMapping.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/vo/dataMap/Mapping.java" />
@@ -219,13 +180,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/DataTransfer/DataMappingUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/field/FieldUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/vo/dataMapping/MappingEntry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataMappingAjaxController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/DataMappingUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/DataImportingReturn.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/ExcelHelper/ExcelFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/excelHelper/ExcelReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataImportingAjaxController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/doImportData.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/excelHelper/ExcelFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/excelHelper/ExcelHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/model/excel/SheetRow.java" />
@@ -236,17 +195,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/model/excel/ExcelFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/model/DataMapping.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/json/Object2Json.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/model/DataTransferParam.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/json/Json2Object.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/json/JsonUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/param/Package.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/json/JsonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/CompressUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/param/PackUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/model/DataTransferParam.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataMappingController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importDataMapping.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataMappingAjaxController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/doImportData.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/fieldHelper/FieldUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl" />
       </list>
     </option>
   </component>
@@ -608,6 +571,48 @@
               <option name="myItemId" value="hr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ajax" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haiso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haiso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haiso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -754,6 +759,48 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haiso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haiso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haiso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fieldHelper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1086,12 +1133,16 @@
       <created>1400637189502</created>
       <updated>1400637189502</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="0522">
+      <created>1400740770853</created>
+      <updated>1400740770853</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="-4" width="1319" height="773" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1104,18 +1155,18 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15620214" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25421134" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.431853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38284838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20313725" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25882354" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2580392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1137,7 +1188,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="0521" />
-    <option name="LAST_COMMIT_MESSAGE" value="0521" />
+    <MESSAGE value="0522" />
+    <option name="LAST_COMMIT_MESSAGE" value="0522" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1145,13 +1197,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importDataMapping.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1218,13 +1263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataMappingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1251,13 +1289,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/UploadFileAjaxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/service/person/PersonService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
@@ -1275,13 +1306,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/UploadedFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/vo/dataMapping/MappingEntry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
@@ -1292,26 +1316,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/fieldHelper/FieldUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataImportingAjaxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/doImportData.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataMappingAjaxController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
@@ -1332,7 +1337,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/excel/TitleCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/excel/SheetRow.java">
@@ -1410,44 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/UploadFileSheetsRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/DataMappingUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/AbstractRest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="690">
-          <folding>
-            <element signature="e#527#528#0" expanded="false" />
-            <element signature="e#558#559#0" expanded="false" />
-            <element signature="e#605#606#0" expanded="false" />
-            <element signature="e#643#644#0" expanded="false" />
-            <element signature="e#675#676#0" expanded="false" />
-            <element signature="e#702#703#0" expanded="false" />
-            <element signature="e#743#744#0" expanded="false" />
-            <element signature="e#775#776#0" expanded="false" />
-            <element signature="e#805#806#0" expanded="false" />
-            <element signature="e#831#832#0" expanded="false" />
-            <element signature="e#869#870#0" expanded="false" />
-            <element signature="e#899#900#0" expanded="false" />
-            <element signature="e#934#935#0" expanded="false" />
-            <element signature="e#964#965#0" expanded="false" />
-            <element signature="e#1011#1012#0" expanded="false" />
-            <element signature="e#1049#1050#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/DataImportingRes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
@@ -1458,20 +1427,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/json/JsonUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="0" selection-start="1019" selection-end="1019" vertical-scroll-proportion="1.0824742" vertical-offset="0" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importDataMapping.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="36" selection-start="2685" selection-end="2685" vertical-scroll-proportion="-9.958333" vertical-offset="586" max-vertical-offset="1890">
           <folding />
         </state>
       </provider>
@@ -1490,25 +1445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="38" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.0" vertical-offset="339" max-vertical-offset="930">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/DataTransferParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="19" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.83756346" vertical-offset="0" max-vertical-offset="885">
-          <folding>
-            <element signature="e#1106#1107#0" expanded="true" />
-            <element signature="e#1144#1145#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/excel/ExcelFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
@@ -1516,26 +1452,131 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataMappingController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/AbstractRest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="73" selection-start="2372" selection-end="2372" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1350">
+        <state line="7" column="22" selection-start="119" selection-end="119" vertical-scroll-proportion="-0.001992032" vertical-offset="106" max-vertical-offset="690">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/UploadedFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1815">
+        <state line="9" column="31" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/UploadFileAjaxController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="24" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="945">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/model/DataTransferParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="35" selection-start="1971" selection-end="1971" vertical-scroll-proportion="1.0797873" vertical-offset="434" max-vertical-offset="1035">
+          <folding>
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/rest/UploadFileSheetsRes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.4.RELEASE/spring-web-4.0.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="29" selection-start="2403" selection-end="2403" vertical-scroll-proportion="1.6" vertical-offset="80" max-vertical-offset="645">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/param/PackUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.16135459" vertical-offset="174" max-vertical-offset="2745">
+        <state line="17" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2745">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="38" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.89166665" vertical-offset="339" max-vertical-offset="930">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/ajax/DataMappingAjaxController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="69" selection-start="2490" selection-end="2490" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importDataMapping.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="33" selection-start="890" selection-end="890" vertical-scroll-proportion="-8.125" vertical-offset="90" max-vertical-offset="1635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/DataMappingUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="32" selection-start="7851" selection-end="7851" vertical-scroll-proportion="0.0" vertical-offset="2265" max-vertical-offset="3645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/fieldHelper/ClassUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="19" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/fieldHelper/FieldUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="9" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="242" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Integer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="0" selection-start="4091" selection-end="4091" vertical-scroll-proportion="0.814433" vertical-offset="1165" max-vertical-offset="1650">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/doImportData.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="35" selection-start="919" selection-end="919" vertical-scroll-proportion="-6.2083335" vertical-offset="181" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/haiso/hr/web/controller/DataTransferController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="85" selection-start="2024" selection-end="2024" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/DataTransfer/importUploadFile.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="43" selection-start="3066" selection-end="3066" vertical-scroll-proportion="0.49275362" vertical-offset="741" max-vertical-offset="1935">
+          <folding />
         </state>
       </provider>
     </entry>

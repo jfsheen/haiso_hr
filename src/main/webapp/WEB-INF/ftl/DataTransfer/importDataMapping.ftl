@@ -11,12 +11,13 @@
     </style>
     <script>
         $(document).ready(function () {
-            $("#btn_back").click(function (event) {
+            $("#btn_next").click(function (event) {
                 event.preventDefault();
                 var mapFrom = $("#mapFrom :input").serializeObject();
                 var mapTo = $("#mapTo :input").serializeObject();
+                var ito = $("#ito").val();
                 var o = new Object();
-                o.importTo = $("#importTo").text();
+                o.importTo = ito;
                 o.mapFrom = mapFrom;
                 o.mapTo = mapTo;
                 var data = JSON.stringify(o);
@@ -29,7 +30,6 @@
                     data: data,
                     success: function (ret) {
                         if(ret.success){
-                            $("input:hidden").val(ret.mapFile);
                             $("#dataImport").submit();
                         }
                     }
@@ -66,8 +66,9 @@
 </head>
 <body>
 <#--<div id="result">this is a test div</div>-->
-<p>Import data to <span id="importTo">${importTo}</span></p>
+<#--<p>Import data to <span id="importTo">${importTo}</span></p>-->
 <form id="dataMapping" action="/ajax/dataMapping" method="post">
+    <input type="hidden" id="ito" name="ito" value="${importTo}">
     <div id="mapFrom">
         <table border="1" align="center" width="800px">
         <#if excelTitles?exists>
@@ -95,9 +96,8 @@
         </table>
     </div>
 </form>
-    <button id="btn_back">Go Next Step >></button>
+<button id="btn_next">Go Next Step >></button>
 <form id="dataImport" action="/dataTransfer/import3" method="post">
-    <input type="hidden" id="importTo" name="importTo">
 </form>
 <div id="r"></div>
 </body>

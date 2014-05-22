@@ -30,10 +30,10 @@ public class DataMappingAjaxController {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             Map<String, Object> mapping = objectMapper.readValue(json, Map.class);
-            Map<String, String> mapFrom = new LinkedHashMap<String, String>();
-            Map<String, String> mapTo = new LinkedHashMap<String, String>();
-            String importTo = null;
-            Iterator iter = mapping.entrySet().iterator();
+            Map<String, String> mapFrom = (LinkedHashMap)mapping.get("mapFrom");
+            Map<String, String> mapTo = (LinkedHashMap)mapping.get("mapTo");
+            String importTo = (String)mapping.get("importTo");
+            /*Iterator iter = mapping.entrySet().iterator();
             while (iter.hasNext()) {
                 Map.Entry entry = (Map.Entry) iter.next();
                 String key = (String) entry.getKey();
@@ -48,7 +48,7 @@ public class DataMappingAjaxController {
                     //todo
                     System.out.println("Map is null.");
                 }
-            }
+            }*/
             if (!importTo.isEmpty() && !mapFrom.isEmpty() && !mapTo.isEmpty()) {
                 File dir = new File(request.getSession().getServletContext().getRealPath("/static/DataMapping/"));
                 if(!dir.exists() || !dir.isDirectory()){

@@ -53,13 +53,15 @@
             $("#btn_import").click(function(event){
                 event.preventDefault();
                 var dtp = Object();
-                dtp.titleIndex = "0";
-                dtp.sheetIndex = $("#importFrom").val();
-                dtp.dms = $("input[type='radio']").val();
+                dtp.fileToDB = true;
                 dtp.origin = $("#dataFile").val();
                 dtp.dest = $("#importTo").val();
+                dtp.excelTitleIndex = 0;
+                dtp.excelSheetIndex = parseInt($("#importFrom").val());
+                dtp.preserved = -1;
                 var data = JSON.stringify(dtp);
                 $("#ipdata").val(data);
+                $("#dms").val($("#dmsetting").val());
                 $("#submitForm").submit();
             });
         });
@@ -87,9 +89,9 @@
 <fieldset>
     <legend>Import Settings</legend>
     <form id="settingsForm" action="" method="post">
-        <input type="radio" name="dataMappingSettings" value="1" checked>use data mapping settings if exists
+        <input type="radio" id="dmsetting" name="dataMappingSettings" value="1" checked>use data mapping settings if exists
         <br/>
-        <input type="radio" name="dataMappingSettings" value="0">re-mapping data settings
+        <input type="radio" id="dmsetting" name="dataMappingSettings" value="0">re-mapping data settings
         <br/>
         <hr/>
         FROM:
@@ -113,6 +115,7 @@
     </form>
     <form id="submitForm" action="/dataTransfer/import2" method="post">
         <input type="hidden" id="ipdata" name="ipdata">
+        <input type="hidden" id="dms" name="dms">
         <button id="btn_import" disabled> Next >> </button>
     </form>
 </fieldset>

@@ -20,7 +20,7 @@
                 dataType: "json",
                 cache: false,
                 contentType: false,
-                processData: false
+                processData: false,
                 success:function(){},
                 error:function(){}
             });
