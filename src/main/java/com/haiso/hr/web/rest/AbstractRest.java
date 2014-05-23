@@ -9,9 +9,9 @@ public abstract class AbstractRest<T> {
     private Boolean success;
     private Integer code;
     private String msg;
-    private List<T> content;
+    private T content;
 
-    protected AbstractRest(Boolean success, Integer code, String msg, List<T> content) {
+    protected AbstractRest(Boolean success, Integer code, String msg, T content) {
         this.success = success;
         this.code = code;
         this.msg = msg;
@@ -47,11 +47,11 @@ public abstract class AbstractRest<T> {
         this.msg = msg;
     }
 
-    public List<T> getContent() {
+    public T getContent() {
         return content;
     }
 
-    public void setContent(List<T> content) {
+    public void setContent(T content) {
         this.content = content;
     }
 }

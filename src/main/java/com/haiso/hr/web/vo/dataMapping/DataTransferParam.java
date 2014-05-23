@@ -1,21 +1,21 @@
-package com.haiso.commons.model;
+package com.haiso.hr.web.vo.dataMapping;
 
 /**
  * Created by Heli on 2014/5/21.
  */
-public class DataTransferParam<T>{
+public class DataTransferParam{
     private Boolean fileToDB;
     private String origin;
     private String dest;
     private Integer excelSheetIndex;
     private Integer excelTitleIndex;
-    private T preserved = null;
+    private String preserved = null;
 
-    public T getPreserved() {
+    public String getPreserved() {
         return preserved;
     }
 
-    public void setPreserved(T preserved) {
+    public void setPreserved(String preserved) {
         this.preserved = preserved;
     }
 
@@ -68,7 +68,7 @@ public class DataTransferParam<T>{
         this.excelTitleIndex = excelTitleIndex;
     }
 
-    public DataTransferParam(Boolean fileToDB, String origin, String dest, Integer excelSheetIndex, Integer excelTitleIndex, T preserved) {
+    public DataTransferParam(Boolean fileToDB, String origin, String dest, Integer excelSheetIndex, Integer excelTitleIndex, String preserved) {
         this.fileToDB = fileToDB;
         this.origin = origin;
         this.dest = dest;

@@ -2,7 +2,6 @@ package com.haiso.commons.utils.data;
 
 import com.haiso.commons.utils.data.fieldHelper.ClassUtil;
 import com.haiso.commons.utils.data.excelHelper.ExcelReader;
-import com.haiso.hr.web.vo.dataMapping.Mapping;
 import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
@@ -124,11 +123,11 @@ public final class DataMappingUtil {
         return mapping;
     }
 
-    private static Mapping readXmlDataMappingB(File file) throws DocumentException{
+    /*private static Mapping readXmlDataMappingB(File file) throws DocumentException{
         Mapping mapping = new Mapping();
 
         return mapping;
-    }
+    }*/
 
     private static Map<String, ArrayList<String>> readXmlDataMappingA(File file) throws DocumentException {
         Map<String, ArrayList<String>> mapping = new LinkedHashMap<String, ArrayList<String>>();
@@ -149,10 +148,10 @@ public final class DataMappingUtil {
         return mapping;
     }
 
-    public static Boolean writeXmlDataMapping(Mapping mapping){
+/*    public static Boolean writeXmlDataMapping(Mapping mapping){
 
         return false;
-    }
+    }*/
 
     public static Boolean writeXmlDataMapping(String className, Map<String, String> mapFrom, Map<String, String> mapTo, String path)
             throws Exception {

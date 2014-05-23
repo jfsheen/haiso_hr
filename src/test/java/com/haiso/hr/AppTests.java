@@ -1,9 +1,7 @@
 package com.haiso.hr;
 
-import com.haiso.commons.utils.data.DataMappingUtil;
-import com.haiso.commons.utils.param.PackUtil;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.compress.compressors.pack200.Pack200Utils;
+import com.haiso.commons.utils.PackUtil;
+import com.haiso.hr.commons.Constants;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,6 +43,7 @@ public class AppTests {
         String b = PackUtil.Unpack(a);
         System.out.println(a + a.length());
         System.out.println(b + b.length());
+//        System.out.println(new Constants().getUploadFilePath("/"));
     }
 
 

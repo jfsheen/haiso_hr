@@ -11,7 +11,7 @@
         $(document).ready(function () {
             $("#btn_upload").click(function (event) {
                 event.preventDefault();
-                var data = new FormData();
+                var data = new FormData();    //todo
                 data.append("file", file.files[0]);
                 $.ajax({
                     url: "/ajax/uploadFile",  //Server script to process data
@@ -25,21 +25,21 @@
                     },
 //                    beforeSend: beforeSendHandler,
                     success: function (ret) {
-                        if (ret.success) {
+
+                        if (ret.success) { //success, code, msg, content, sheets
                             $("#err-msg").html("<font color=green>" + ret.msg + "</font>");
                             $("#importFrom").empty();
                             $("#importFrom").prop("disabled", false);
                             $("#btn_import").prop("disabled", false);
-                            $("#dataFile").val(ret.filename);
-                            $("#importFrom").append("<optgroup label=" + ret.filename + "></optgroup>");
-                            var sheets = ret.content;
-                            $.each(sheets, function (i, sheet) {
-                                $("#importFrom optgroup").append('<option value="' + i + '">' + sheet + '</option>');
+                            $("#dataFile").val(ret.content);
+                            $("#importFrom").append("<optgroup label=" + ret.content + "></optgroup>");
+                            $.each(ret.sheets, function (i, s) {
+                                $("#importFrom optgroup").append('<option value="' + i + '">' + s + '</option>');
                             });
                         }
                     },
-                    error: function (msg) {
-                        $("#err-msg").html("<font color=red>" + msg + "</font>");
+                    error: function (ret) {
+                        $("#err-msg").html("<font color=red>" + ret + "</font>");
                     },
                     data: data,
                     anysc: false,
@@ -59,10 +59,24 @@
                 dtp.excelTitleIndex = 0;
                 dtp.excelSheetIndex = parseInt($("#importFrom").val());
                 dtp.preserved = -1;
-                var data = JSON.stringify(dtp);
-                $("#ipdata").val(data);
-                $("#dms").val($("#dmsetting").val());
-                $("#submitForm").submit();
+                var data2 = JSON.stringify(dtp);
+                $.ajax({
+                    url: "/ajax/importPrep",
+                    type:"POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: data2,
+//                    beforeSend: beforeSendHandler,
+                    success: function (ret) {
+                        if (ret.success) {
+                            window.location.href = ret.content;
+                        }
+                    },
+                    error: function (ret) {},
+                    anysc: false,
+                    dataType: "json",
+                    cache: false,
+                    processData: false
+                });
             });
         });
 
@@ -71,7 +85,6 @@
                 $('progress').attr({value: e.loaded, max: e.total});
             }
         }
-
     </script>
 </head>
 <body>
@@ -113,11 +126,10 @@
             </optgroup>
         </select>
     </form>
-    <form id="submitForm" action="/dataTransfer/import2" method="post">
-        <input type="hidden" id="ipdata" name="ipdata">
-        <input type="hidden" id="dms" name="dms">
-        <button id="btn_import" disabled> Next >> </button>
-    </form>
+    <button id="btn_import" disabled> Next >> </button>
 </fieldset>
+/*
+*/
+<div id="aaa"></div>
 </body>
 </html>

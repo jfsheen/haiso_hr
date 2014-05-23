@@ -1,4 +1,4 @@
-package com.haiso.commons.utils.param;
+package com.haiso.commons.utils;
 
 import org.apache.commons.codec.binary.Base64;
 

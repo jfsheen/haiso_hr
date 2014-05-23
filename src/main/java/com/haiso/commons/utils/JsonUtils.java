@@ -1,11 +1,11 @@
-package com.haiso.commons.utils.json;
+package com.haiso.commons.utils;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  * Created by Heli on 2014/5/22.
  */
-public class JsonUtil {
+public class JsonUtils {
 
     static ObjectMapper objectMapper;
 
