@@ -67,7 +67,7 @@
 <body>
 <#--<div id="result">this is a test div</div>-->
 <#--<p>Import data to <span id="importTo">${importTo}</span></p>-->
-<form id="dataMapping" action="/ajax/dataMapping" method="post">
+<form id="dataMapping" action="" method="post">
     <input type="hidden" id="ito" name="ito" value="${importTo}">
     <div id="mapFrom">
         <table border="1" align="center" width="800px">

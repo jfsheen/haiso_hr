@@ -2,6 +2,8 @@ package com.haiso.hr.web.controller;
 
 import com.google.common.collect.Lists;
 import com.haiso.base.BaseController;
+import com.haiso.commons.utils.JsonUtils;
+import com.haiso.commons.utils.PackUtil;
 import com.haiso.hr.web.vo.dataMapping.DataTransferParam;
 import com.haiso.commons.utils.data.DataMappingUtil;
 import org.dom4j.DocumentException;
@@ -28,10 +30,6 @@ import java.util.Map;
 @SessionAttributes({"dataTransferParam"})
 public class DataTransferController extends BaseController{
 
-
-    private String path = null;
-    private String mapPath = null;
-
     @RequestMapping("/import1")
     public String step1(Model model) {
         model.addAttribute("msg", "");
@@ -40,25 +38,42 @@ public class DataTransferController extends BaseController{
 
     @RequestMapping(value = "/import2", method = {RequestMethod.POST})
     public String uploadFile(HttpServletRequest request, ModelMap model) {
-        /*if(null != dataTransferParam){
-            System.out.println("old="+dataTransferParam.getOrigin()+dataTransferParam.getPreserved());
-            dataTransferParam = null;
+        Integer titleIndex = Integer.valueOf(request.getParameter("titleIndex"));
+        Integer sheetIndex = Integer.valueOf(request.getParameter("importFrom"));
+        String origin = request.getParameter("dataFile");
+        String dest = request.getParameter("importTo");
+        Integer dms = Integer.valueOf(request.getParameter("dataMappingSettings"));
+        DataTransferParam dataTransferParam = new DataTransferParam(true,origin,dest,sheetIndex,titleIndex,null);
+        model.addAttribute("dataTransferParam", dataTransferParam);
+        String path = getUploadedFilePath(request);
+        File targetFile = new File(path, origin);
+        try {
+            String xlsHashcode = DataMappingUtil.getDataSourceSheetTitlesMapHashcode((targetFile), sheetIndex, titleIndex);
+            String mapPath = getMappingFilePath(request);
+            File xmlFile = new File(mapPath, dest + ".xml");
+            System.out.print(xmlFile.exists());
+            if (xmlFile.exists() ? !(dms == 1 && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
+                model.addAttribute("importTo", dest);
+                model.addAttribute("importFrom", path + "/" + origin);
+                return "redirect:/dataTransfer/dataMapping";
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        dataTransferParam = JsonUtils.readValue(request.getParameter("ipdata"), DataTransferParam.class);
-        dataTransferParam.setPreserved(Integer.valueOf(request.getParameter("dms")));
-        System.out.println("fresh="+dataTransferParam.getOrigin()+dataTransferParam.getPreserved());*/
-        return "";
-
+        return "/DataTransfer/doImportData";
     }
 
+
     @RequestMapping(value = "/dataMapping", method = {RequestMethod.POST, RequestMethod.GET})
-    public String dataMapping(@ModelAttribute DataTransferParam dataTransferParam, ModelMap model) {
+    public String dataMapping(@ModelAttribute DataTransferParam dataTransferParam, HttpServletRequest request, ModelMap model) {
         if(!dataTransferParam.getFileToDB()) {
             return null;//todo
         }
         try {
             Map map = DataMappingUtil.getDataSourceSheetTitlesMap(
-                    new File(path, dataTransferParam.getOrigin()),
+                    new File(getUploadedFilePath(request), dataTransferParam.getOrigin()),
                     dataTransferParam.getExcelSheetIndex(),
                     dataTransferParam.getExcelTitleIndex());
             List list = Lists.newArrayList(DataMappingUtil.getEntityFields(dataTransferParam.getDest()));
@@ -80,7 +95,7 @@ public class DataTransferController extends BaseController{
         }
         Map<String, String> mapping = null;
         try{
-            mapping = DataMappingUtil.readXmlSimpleDataMapping(mapPath, dataTransferParam.getDest() + ".xml");
+            mapping = DataMappingUtil.readXmlSimpleDataMapping(getMappingFilePath(request), dataTransferParam.getDest() + ".xml");
         }catch (DocumentException e){
             e.printStackTrace();
         }

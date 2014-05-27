@@ -11,4 +11,6 @@ public class CommonsConstant {
 
     public static String uploadedFilePath = "/static/UploadFiles";
     public static String mappingFilePath = "/static/DataMapping";
+
+    public static Integer MAX_NUM_OF_EMPTY_ROWS = 5;
 }

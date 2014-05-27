@@ -11,11 +11,10 @@
     $.(document).ready(function(){
         $("#btn_import").click(funciton(event){
             event.preventDefault();
-            var to = $("input:hidden").val();
             $.ajax({
-                url: "/ajax/importing",
-                type:post,
-                data: to,
+                url: "/ajax/doImport",
+                type:"POST",
+                data: "",
                 anysc: false,
                 dataType: "json",
                 cache: false,
@@ -30,7 +29,6 @@
 </head>
 <body>
 <h1>Importing </h1>
-<#--<div>${mapping}</div>-->
 <#if mapping?exists>
 <ul>
     <#list mapping?keys as mk>
@@ -42,9 +40,6 @@
 </#if>
 <div id="importMsg"></div>
 <progress></progress>
-<form action="/ajax/dataImporting" method="post">
-    <input type="hidden" id="importTo" name="importTo" value="${importTo}">
-</form>
 <button id="btn_import">Confirm and Import</button>
 </body>
 </html>

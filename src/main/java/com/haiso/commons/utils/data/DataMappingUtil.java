@@ -102,7 +102,7 @@ public final class DataMappingUtil {
         Map<String, String[]> map = readXmlDataMapping(file);
         Map<String,String> mapping = new LinkedHashMap<String, String>();
         for(Map.Entry<String, String[]> entry : map.entrySet()){
-            mapping.put(entry.getKey(), entry.getValue()[1]);
+            mapping.put(entry.getKey(), entry.getValue()[0]);
         }
         return mapping;
     }
@@ -249,4 +249,5 @@ public final class DataMappingUtil {
         }
         return fields;
     }
+
 }

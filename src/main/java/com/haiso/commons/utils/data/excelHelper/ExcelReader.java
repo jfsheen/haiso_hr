@@ -27,6 +27,9 @@ import java.util.*;
  * Created by ff on 5/5/14.
  */
 public class ExcelReader {
+
+
+
     /**
      * 创建工作簿对象
      *
@@ -35,41 +38,13 @@ public class ExcelReader {
      * @throws IOException
      * @date 2013-5-11
      */
-    /*protected Workbook createWb(Object o) throws IOException{
-        File file = null;
-        if(o instanceof String){
-            String filePath = ((String) o).trim();
-            if (StringUtils.isBlank(filePath)) {
-                throw new IllegalArgumentException("Illegal arguments!");
-            }
-            file = new File(filePath);
-        }else if(o instanceof File){
-            file = (File)o;
-        }else{
-            throw new IllegalArgumentException("Not a file.");
-        }
-        if(file==null) {
-            throw new IllegalArgumentException("Illegal arguments!");
-        }
-        if(getContentType(file).equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")){
-            return new XSSFWorkbook(new FileInputStream(file));
-        }else if (getContentType(file).equals("application/vnd.ms-excel")){
-            return new HSSFWorkbook(new FileInputStream(file));
-        }else{
-            throw new IllegalArgumentException("Wrong file type.");
-        }
-    }*/
+
     private Workbook createWb(String filePath) throws IOException {
         if (StringUtils.isBlank(filePath)) {
             throw new IllegalArgumentException("Illegal arguments!");
         }
-        if (filePath.trim().toLowerCase().endsWith("xls")) {
-            return new HSSFWorkbook(new FileInputStream(filePath));
-        } else if (filePath.trim().toLowerCase().endsWith("xlsx")) {
-            return new XSSFWorkbook(new FileInputStream(filePath));
-        } else {
-            throw new IllegalArgumentException("Wrong file type.");
-        }
+        System.out.println(getContentType(new File(filePath)));
+        return createWb(new File(filePath));
     }
 
     private Workbook createWb(File file) throws IOException {
@@ -85,6 +60,23 @@ public class ExcelReader {
         }
     }
 
+    private Workbook createWb(FileInputStream is) throws IOException{
+        if(is == null){
+            throw new IllegalArgumentException("Illegal arguments!");
+        }
+        System.out.println(getContentType(is));
+        if (getContentType(is).equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")) {
+            return new XSSFWorkbook(is);
+        } else if (getContentType(is).equals("application/vnd.ms-excel")) {
+            return new HSSFWorkbook(is);
+        } else {
+            throw new IllegalArgumentException("Wrong file type.");
+        }
+    }
+
+    public String getContentType(FileInputStream is) throws IOException{
+        return new Tika().detect(is);
+    }
     public String getContentType(File file) throws IOException {
         return new Tika().detect(file);
     }
@@ -194,6 +186,31 @@ public class ExcelReader {
         return listSheetTitlesModel(getSheet(createWb(file), sheetIndex), titleRowIndex);
     }
 
+    public Map<Integer, DataCell> fetchDataRowByMapping(File file, Integer sheetIndex, Integer rowIndex, List cols) throws IOException {
+        return fetchDataRowByMapping(createWb(file), sheetIndex, rowIndex, cols);
+    }
+    private Map<Integer, DataCell> fetchDataRowByMapping(Workbook wb, Integer sheetIndex, Integer rowIndex, List cols) throws IOException{
+        if(rowIndex < 0 || sheetIndex > wb.getNumberOfSheets() || cols.isEmpty()){
+            throw new IllegalArgumentException("Illegal arguments!");
+        }
+        Sheet sheet = getSheet(wb, sheetIndex);
+        Row row = sheet.getRow(rowIndex);
+        if(row == null)
+            return null;
+        Map<Integer, DataCell> dataMap = new LinkedHashMap<Integer, DataCell>();
+        Iterator<Object> it = cols.iterator();
+        while(it.hasNext()){
+            Object col = it.next();
+            Integer iCol = (col instanceof String) ? Integer.valueOf((String)col) : (Integer)col;
+            Cell cell = row.getCell(iCol);
+            if(cell == null) continue;
+            DataCell dataCell = getDataCellModelFromCell(row.getCell(iCol));
+            if(!(dataCell.getValue() == null || dataCell.getValue().toString().isEmpty())){
+                dataMap.put(iCol, dataCell);
+            }
+        }
+        return dataMap;
+    }
 
     /**
      * 获取单元格内文本信息
@@ -240,7 +257,7 @@ public class ExcelReader {
                 break;
             case Cell.CELL_TYPE_BLANK:                // 空白
                 dataCell.setCellDataType(ExcelCellDataType.BLANK);
-                dataCell.setValue(null);//ExcelConstants.EMPTY_CELL_VALUE ;
+                dataCell.setValue(StringUtils.EMPTY);//ExcelConstants.EMPTY_CELL_VALUE ;
                 break;
             case Cell.CELL_TYPE_BOOLEAN:            // Boolean
                 dataCell.setCellDataType(ExcelCellDataType.BOOLEAN);
@@ -248,7 +265,7 @@ public class ExcelReader {
                 break;
             case Cell.CELL_TYPE_ERROR:                // Error，返回错误码
                 dataCell.setCellDataType(ExcelCellDataType.ERROR);
-                dataCell.setValue(String.valueOf(cell.getErrorCellValue()));
+                dataCell.setValue(StringUtils.EMPTY);
                 break;
             default:
                 dataCell.setCellDataType(ExcelCellDataType.EMPTY);

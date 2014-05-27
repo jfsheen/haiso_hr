@@ -52,31 +52,7 @@
 
             $("#btn_import").click(function(event){
                 event.preventDefault();
-                var dtp = Object();
-                dtp.fileToDB = true;
-                dtp.origin = $("#dataFile").val();
-                dtp.dest = $("#importTo").val();
-                dtp.excelTitleIndex = 0;
-                dtp.excelSheetIndex = parseInt($("#importFrom").val());
-                dtp.preserved = -1;
-                var data2 = JSON.stringify(dtp);
-                $.ajax({
-                    url: "/ajax/importPrep",
-                    type:"POST",
-                    contentType: "application/json; charset=utf-8",
-                    data: data2,
-//                    beforeSend: beforeSendHandler,
-                    success: function (ret) {
-                        if (ret.success) {
-                            window.location.href = ret.content;
-                        }
-                    },
-                    error: function (ret) {},
-                    anysc: false,
-                    dataType: "json",
-                    cache: false,
-                    processData: false
-                });
+                $("#settingsForm").submit();
             });
         });
 
@@ -101,7 +77,7 @@
 </fieldset>
 <fieldset>
     <legend>Import Settings</legend>
-    <form id="settingsForm" action="" method="post">
+    <form id="settingsForm" action="/dataTransfer/import2" method="post">
         <input type="radio" id="dmsetting" name="dataMappingSettings" value="1" checked>use data mapping settings if exists
         <br/>
         <input type="radio" id="dmsetting" name="dataMappingSettings" value="0">re-mapping data settings
@@ -125,11 +101,10 @@
                 <option value="Salary">Salary</option>
             </optgroup>
         </select>
+        Title Index: <input type="text" id="titleIndex" name="titleIndex" value="0">
     </form>
     <button id="btn_import" disabled> Next >> </button>
 </fieldset>
-/*
-*/
 <div id="aaa"></div>
 </body>
 </html>
