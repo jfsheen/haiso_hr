@@ -1,6 +1,7 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.base.BaseEntity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,21 +12,27 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "t_empl_contract")
-public class Contract {
-    private Integer id;
+public class Contract extends BaseEntity {
+    @Basic
+    @Column(name = "contract_sn")
     private String contractSn;
+    @Basic
+    @Column(name = "contract_date")
     private Date contractDate;
+    @Basic
+    @Column(name = "expiry_date")
     private Date expiryDate;
+    @Basic
+    @Column(name = "location")
     private String location;
+    @Basic
+    @Column(name = "remark")
     private String remark;
-    private java.util.Date lastUpdate;
-    private java.util.Date createDate;
-    private Integer version;
-
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "empl_sn")
     private Employee employee;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "empl_sn", nullable = false, insertable = true, updatable = false)
+
     public Employee getEmployee() {
         return employee;
     }
@@ -34,84 +41,7 @@ public class Contract {
         this.employee = employee;
     }
 
-    @Version
-    @Column(name = "version_lock", length = 10)
-    public Integer getVersion() {
-        return version;
-    }
 
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
-    public java.util.Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(java.util.Date createDate) {
-        this.createDate = createDate;
-    }
-
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
-    public java.util.Date getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(java.util.Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.lastUpdate = new java.util.Date();
-    }
-
-    @PrePersist
-    public void prePersist() {
-        this.createDate = new java.util.Date();
-        this.lastUpdate = new java.util.Date();
-        System.out.println("person @PrePersist run!");
-    }
-
-    @PreRemove
-    public void preRemove() {
-
-    }
-
-    @PostPersist
-    public void postPersist() {
-
-    }
-
-    @PostLoad
-    public void postLoad() {
-
-    }
-
-    @PostRemove
-    public void postRemove() {
-
-    }
-
-    @PostUpdate
-    public void postUpdate() {
-
-    }
-
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Column(name = "contract_sn", nullable = true, insertable = true, updatable = true, length = 16, precision = 0)
     public String getContractSn() {
         return contractSn;
     }
@@ -120,7 +50,7 @@ public class Contract {
         this.contractSn = contractSn;
     }
 
-    @Column(name = "contract_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+
     public Date getContractDate() {
         return contractDate;
     }
@@ -129,7 +59,7 @@ public class Contract {
         this.contractDate = contractDate;
     }
 
-    @Column(name = "expiry_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
+
     public Date getExpiryDate() {
         return expiryDate;
     }
@@ -138,7 +68,7 @@ public class Contract {
         this.expiryDate = expiryDate;
     }
 
-    @Column(name = "location", nullable = true, insertable = true, updatable = true, length = 20, precision = 0)
+
     public String getLocation() {
         return location;
     }
@@ -147,7 +77,7 @@ public class Contract {
         this.location = location;
     }
 
-    @Column(name = "remark", nullable = true, insertable = true, updatable = true, length = 100, precision = 0)
+
     public String getRemark() {
         return remark;
     }
@@ -157,8 +87,20 @@ public class Contract {
     }
 
     @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("contractSn", contractSn)
+                .add("contractDate", contractDate)
+                .add("expiryDate", expiryDate)
+                .add("location", location)
+                .add("remark", remark)
+                .add("employee", employee)
+                .toString();
+    }
+
+    @Override
     public int hashCode() {
-        return Objects.hashCode(id, contractSn, contractDate, expiryDate, location, remark, lastUpdate, createDate, version, employee);
+        return 31 * super.hashCode() + Objects.hashCode(contractSn, contractDate, expiryDate, location, remark, employee);
     }
 
     @Override
@@ -169,7 +111,10 @@ public class Contract {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         final Contract other = (Contract) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.contractSn, other.contractSn) && Objects.equal(this.contractDate, other.contractDate) && Objects.equal(this.expiryDate, other.expiryDate) && Objects.equal(this.location, other.location) && Objects.equal(this.remark, other.remark) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
+        return Objects.equal(this.contractSn, other.contractSn) && Objects.equal(this.contractDate, other.contractDate) && Objects.equal(this.expiryDate, other.expiryDate) && Objects.equal(this.location, other.location) && Objects.equal(this.remark, other.remark) && Objects.equal(this.employee, other.employee);
     }
 }

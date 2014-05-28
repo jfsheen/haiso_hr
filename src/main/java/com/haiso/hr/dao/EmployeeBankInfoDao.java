@@ -1,6 +1,6 @@
 package com.haiso.hr.dao;
 
-import com.haiso.hr.entity.employee.BankInfo;
+import com.haiso.hr.entity.employee.salary.BankInfo;
 import org.springframework.data.repository.CrudRepository;
 
 /**

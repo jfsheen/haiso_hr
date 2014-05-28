@@ -1,6 +1,7 @@
 package com.haiso.hr.entity.person;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.base.BaseEntity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,19 +12,32 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "t_prsn_edu")
-public class Education {
-    private Integer id;
+public class Education extends BaseEntity{
+
+    @Basic
+    @Column(name = "school")
     private String school;
+    @Basic
+    @Column(name = "major")
     private String major;
+    @Basic
+    @Column(name = "start_date")
+    @Temporal(TemporalType.DATE)
     private Date startDate;
+    @Basic
+    @Column(name = "end_date")
+    @Temporal(TemporalType.DATE)
     private Date endDate;
+    @Basic
+    @Column(name = "qualify")
     private String qualify;
+    @Basic
+    @Column(name = "degree")
     private String degree;
-
-    private Person person;
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "person_id", nullable = false)
+    private Person person;
+
     public Person getPerson() {
         return person;
     }
@@ -32,19 +46,6 @@ public class Education {
         this.person = person;
     }
 
-
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    @Column(name = "school", nullable = false, insertable = true, updatable = true, length = 45, precision = 0)
     public String getSchool() {
         return school;
     }
@@ -54,7 +55,6 @@ public class Education {
     }
 
 
-    @Column(name = "major", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
     public String getMajor() {
         return major;
     }
@@ -64,7 +64,6 @@ public class Education {
     }
 
 
-    @Column(name = "start_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getStartDate() {
         return startDate;
     }
@@ -74,7 +73,6 @@ public class Education {
     }
 
 
-    @Column(name = "end_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getEndDate() {
         return endDate;
     }
@@ -84,7 +82,6 @@ public class Education {
     }
 
 
-    @Column(name = "qualify", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getQualify() {
         return qualify;
     }
@@ -94,7 +91,6 @@ public class Education {
     }
 
 
-    @Column(name = "degree", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public String getDegree() {
         return degree;
     }
@@ -103,20 +99,4 @@ public class Education {
         this.degree = degree;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id, school, major, startDate, endDate, qualify, degree, person);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        final Education other = (Education) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.school, other.school) && Objects.equal(this.major, other.major) && Objects.equal(this.startDate, other.startDate) && Objects.equal(this.endDate, other.endDate) && Objects.equal(this.qualify, other.qualify) && Objects.equal(this.degree, other.degree) && Objects.equal(this.person, other.person);
-    }
 }

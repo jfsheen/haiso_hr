@@ -10,7 +10,7 @@ import java.util.zip.*;
 /**
  * Created by Heli on 2014/5/22.
  */
-public final class PackUtil {
+public final class PackUtils {
     public static String Pack(String in){
         return new Base64().encodeAsString(gzip(in));
     }

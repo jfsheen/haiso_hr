@@ -15,20 +15,16 @@ public class Salary {
 
     @Id
     @GeneratedValue
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
-    private Person person;
-
     @Basic
-    @Column(name = "period_start", nullable = false, length = 1)
+    @Column(name = "period_start")
     @Temporal(TemporalType.DATE)
     private Date periodStart;
 
     @Basic
-    @Column(name = "period_end", nullable = false, length = 1)
+    @Column(name = "period_end")
     @Temporal(TemporalType.DATE)
     private Date periodEnd;
 
@@ -38,6 +34,13 @@ public class Salary {
     @Embedded
     private Deduct deduct;
 
+    @Basic
+    @Column(name="real_salary")
+    private Integer realSalary;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     public Deduct getDeduct() {
         return deduct;
@@ -102,5 +105,17 @@ public class Salary {
         }
         final Salary other = (Salary) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.person, other.person) && Objects.equal(this.periodStart, other.periodStart) && Objects.equal(this.periodEnd, other.periodEnd) && Objects.equal(this.pay, other.pay) && Objects.equal(this.deduct, other.deduct);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("person", person)
+                .add("periodStart", periodStart)
+                .add("periodEnd", periodEnd)
+                .add("pay", pay)
+                .add("deduct", deduct)
+                .toString();
     }
 }

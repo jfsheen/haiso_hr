@@ -1,6 +1,6 @@
 package com.haiso.commons.utils.data;
 
-import com.haiso.commons.utils.data.fieldHelper.ClassUtil;
+import com.haiso.commons.utils.data.entityHelper.EntityUtils;
 import com.haiso.commons.utils.data.excelHelper.ExcelReader;
 import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
@@ -21,11 +21,11 @@ import java.util.*;
 /**
  * Created by ff on 5/5/14.
  */
-public final class DataMappingUtil {
+public final class DataMappingUtils {
 
-    private static Set<Class<?>> entitySet = ClassUtil.getClassesAnnotated("com.haiso.hr.entity", Entity.class);
+    private static Set<Class<?>> entitySet = EntityUtils.getClassesAnnotated("com.haiso.hr.entity", Entity.class);
     ;
-    private static Set<Class<?>> embeddableSet = ClassUtil.getClassesAnnotated("com.haiso.hr.entity", Embeddable.class);
+    private static Set<Class<?>> embeddableSet = EntityUtils.getClassesAnnotated("com.haiso.hr.entity", Embeddable.class);
     private static String DATAMAPPING_XML_PATH = null;
     private static ExcelReader excelReader = new ExcelReader();
 
@@ -210,19 +210,19 @@ public final class DataMappingUtil {
         return ((Integer) getDataSourceSheetTitlesMap(file, sheetIndex, titleRowIndex).hashCode()).toString();
     }
 
-    //  return map(fieldHelper name, fieldHelper type)
+    //  return map(entityHelper name, entityHelper type)
     public static Map<String, String> getEntityFiledsMap(String className){
         Map<String, String> fieldsMap = new LinkedHashMap<String, String>();
 
         String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
         if (!fullyQualifiedClassName.isEmpty()) {
-            Set<Field> entityFieldSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
+            Set<Field> entityFieldSet = EntityUtils.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for (Field f : entityFieldSet) {
                 fieldsMap.put(f.getName(), f.getGenericType().toString());
             }
-            Set<Field> embeddedSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
+            Set<Field> embeddedSet = EntityUtils.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
             for (Field es : embeddedSet) {
-                Set<Field> embeddedFieldSet = ClassUtil.getFieldsAnnotated(es.getType().getName(), Basic.class);
+                Set<Field> embeddedFieldSet = EntityUtils.getFieldsAnnotated(es.getType().getName(), Basic.class);
                 for (Field efs : embeddedFieldSet) {
                     fieldsMap.put(efs.getName(), efs.getGenericType().toString());
                 }
@@ -235,13 +235,13 @@ public final class DataMappingUtil {
         Set<String> fields = new TreeSet<String>();
         String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
         if (!fullyQualifiedClassName.isEmpty()) {
-            Set<Field> entityFieldSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
+            Set<Field> entityFieldSet = EntityUtils.getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for (Field f : entityFieldSet) {
                 fields.add(f.getName());
             }
-            Set<Field> embeddedSet = ClassUtil.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
+            Set<Field> embeddedSet = EntityUtils.getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
             for (Field es : embeddedSet) {
-                Set<Field> embeddedFieldSet = ClassUtil.getFieldsAnnotated(es.getType().getName(), Basic.class);
+                Set<Field> embeddedFieldSet = EntityUtils.getFieldsAnnotated(es.getType().getName(), Basic.class);
                 for (Field efs : embeddedFieldSet) {
                     fields.add(efs.getName());
                 }

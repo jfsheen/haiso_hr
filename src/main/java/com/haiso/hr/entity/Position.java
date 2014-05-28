@@ -1,13 +1,9 @@
 package com.haiso.hr.entity;
 
 import com.google.common.base.Objects;
-import com.haiso.commons.utils.SnGenerator;
-import com.haiso.hr.entity.employee.Employee;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by ff on 4/15/14.
@@ -15,172 +11,33 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "t_position")
-public class Position {
+public class Position extends AuditBaseEntity{
 
-    private String positionSn;
+    @Basic
+    @Column(name = "post_sn")
+    private String postSn;
+    @Basic
+    @Column(name = "title")
     private String title;
-    private String sequence;
-    private Byte amountLimit;
-    private String postDuty;
-    private String remark;
-    private Date lastUpdate;
-    private Date createDate;
-    private Integer version;
-
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    @Version
-    @Column(name = "version_lock", length = 10)
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-
-    private Department department;
-    private Set<Employee> employeeSet = new HashSet<Employee>();
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_sn", nullable = false)
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    @ManyToMany(mappedBy = "positionSet")
-    public Set<Employee> getEmployeeSet() {
-        return employeeSet;
-    }
-
-    public void setEmployeeSet(Set<Employee> employeeSet) {
-        this.employeeSet = employeeSet;
-    }
-
-    @Id
-    @Column(name = "position_sn", nullable = false, insertable = true, updatable = true, length = 20)
-    public String getPositionSn() {
-        return positionSn;
-    }
-
-    public void setPositionSn(String positionSn) {
-        this.positionSn = positionSn;
-    }
-
     @Basic
-    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 20)
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String name) {
-        this.title = name;
-    }
-
-    @Basic
-    @Column(name = "sequence", nullable = false, insertable = true, updatable = true, length = 20)
-    public String getSequence() {
-        return sequence;
-    }
-
-    public void setSequence(String sequence) {
-        this.sequence = sequence;
-    }
-
+    @Column(name = "post_sequence", nullable = false, insertable = true, updatable = true, length = 20)
+    private Byte postSeq;
     @Basic
     @Column(name = "amount_limit", nullable = false, insertable = true, updatable = true, length = 3)
-    public Byte getAmountLimit() {
-        return amountLimit;
-    }
-
-    public void setAmountLimit(Byte amountLimit) {
-        this.amountLimit = amountLimit;
-    }
-
+    private Byte amountLimit;
     @Basic
-    @Column(name = "duty", nullable = true, insertable = true, updatable = true, length = 500)
-    public String getPostDuty() {
-        return postDuty;
-    }
-
-    public void setPostDuty(String duty) {
-        this.postDuty = duty;
-    }
-
+    @Column(name = "post_duty", nullable = true, insertable = true, updatable = true, length = 500)
+    private String postDuty;
     @Basic
     @Column(name = "remark", nullable = true, insertable = true, updatable = true, length = 500)
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-
-    @PreUpdate
-    public void preUpdate() {
-        this.lastUpdate = new Date();
-    }
-
-    @PrePersist
-    public void prePersist() {
-        this.positionSn = SnGenerator.PositionSnGenerator();
-        this.createDate = new Date();
-        this.lastUpdate = new Date();
-    }
-
-    @PreRemove
-    public void preRemove() {
-
-    }
-
-    @PostPersist
-    public void postPersist() {
-
-    }
-
-    @PostLoad
-    public void postLoad() {
-
-    }
-
-    @PostRemove
-    public void postRemove() {
-
-    }
-
-    @PostUpdate
-    public void postUpdate() {
-
-    }
+    private String remark;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "dept_id", nullable = false)
+    private Department department;
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(positionSn, title, sequence, amountLimit, postDuty, remark, lastUpdate, createDate, version, department, employeeSet);
+        return 31 * super.hashCode() + Objects.hashCode(postSn, title, postSeq, amountLimit, postDuty, remark, department);
     }
 
     @Override
@@ -191,7 +48,79 @@ public class Position {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         final Position other = (Position) obj;
-        return Objects.equal(this.positionSn, other.positionSn) && Objects.equal(this.title, other.title) && Objects.equal(this.sequence, other.sequence) && Objects.equal(this.amountLimit, other.amountLimit) && Objects.equal(this.postDuty, other.postDuty) && Objects.equal(this.remark, other.remark) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.department, other.department) && Objects.equal(this.employeeSet, other.employeeSet);
+        return Objects.equal(this.postSn, other.postSn) && Objects.equal(this.title, other.title) && Objects.equal(this.postSeq, other.postSeq) && Objects.equal(this.amountLimit, other.amountLimit) && Objects.equal(this.postDuty, other.postDuty) && Objects.equal(this.remark, other.remark) && Objects.equal(this.department, other.department);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("postSn", postSn)
+                .add("title", title)
+                .add("postSeq", postSeq)
+                .add("amountLimit", amountLimit)
+                .add("postDuty", postDuty)
+                .add("remark", remark)
+                .add("department", department)
+                .toString();
+    }
+
+    public String getPostSn() {
+        return postSn;
+    }
+
+    public void setPostSn(String postSn) {
+        this.postSn = postSn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Byte getPostSeq() {
+        return postSeq;
+    }
+
+    public void setPostSeq(Byte postSeq) {
+        this.postSeq = postSeq;
+    }
+
+    public Byte getAmountLimit() {
+        return amountLimit;
+    }
+
+    public void setAmountLimit(Byte amountLimit) {
+        this.amountLimit = amountLimit;
+    }
+
+    public String getPostDuty() {
+        return postDuty;
+    }
+
+    public void setPostDuty(String postDuty) {
+        this.postDuty = postDuty;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

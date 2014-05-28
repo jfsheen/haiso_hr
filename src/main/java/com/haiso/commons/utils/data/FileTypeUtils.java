@@ -11,11 +11,11 @@ import java.util.Map;
 /**
  * Created by ff on 5/9/14.
  */
-public final class FileTypeUtil {
+public final class FileTypeUtils {
 
     private final static Map<String, String> FILE_TYPE_MAP = new HashMap<String, String>();
 
-    private FileTypeUtil() {
+    private FileTypeUtils() {
     }
 
     static {

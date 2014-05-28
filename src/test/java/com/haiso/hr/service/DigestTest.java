@@ -1,6 +1,6 @@
 package com.haiso.hr.service;
 
-import com.haiso.commons.utils.IdCardUtil;
+import com.haiso.commons.utils.IdCardUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -40,20 +40,20 @@ public class DigestTest {
 
         System.out.println("the end");
 
-        if (IdCardUtil.validateCard("42070319890908291X"))
+        if (IdCardUtils.validateCard("42070319890908291X"))
             System.out.println("908 = true");
         String d = "42070319890829291";
         String[] s = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "x"};
         for (int i = 0; i < s.length; i++) {
             String id = "";
             id = d + s[i];
-            if (IdCardUtil.validateCard(id))
+            if (IdCardUtils.validateCard(id))
                 System.out.println(id + "true");
             else
                 System.out.println(id + "false");
 
         }
-        if (IdCardUtil.validateCard("42070319890829291X"))
+        if (IdCardUtils.validateCard("42070319890829291X"))
             System.out.println("829 = true");
     }
 }

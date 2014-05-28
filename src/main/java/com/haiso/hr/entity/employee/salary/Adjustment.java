@@ -14,14 +14,50 @@ import java.util.Date;
 @Table(name = "t_empl_salary_adjust")
 public class Adjustment {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Integer id;
-    private Integer amount; //单位为:分
+    @Basic
+    @Column(name = "amount")
+    private Integer amount; //单位为:li
+    @Basic
+    @Column(name = "remark")
     private String remark; //备注，必填
+    @Basic
+    @Column(name = "time_adjust")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date timeAdjust;
-    private Integer version;
-
+    @Column(name = "last_update")
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date lastUpdate;
+    @Column(name = "create_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date createDate;
     @Version
     @Column(name = "version_lock", length = 10)
+    private Integer version;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "empl_sn")
+    private Employee employee;
+
+
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
     public Integer getVersion() {
         return version;
     }
@@ -30,10 +66,8 @@ public class Adjustment {
         this.version = version;
     }
 
-    private Employee employee;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "empl_sn", nullable = false, insertable = true, updatable = false)
+
     public Employee getEmployee() {
         return employee;
     }
@@ -42,8 +76,7 @@ public class Adjustment {
         this.employee = employee;
     }
 
-    @Column(name = "time_adjust", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
+
     public java.util.Date getTimeAdjust() {
         return timeAdjust;
     }
@@ -87,9 +120,6 @@ public class Adjustment {
 
     }
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Integer getId() {
         return id;
     }
@@ -98,8 +128,7 @@ public class Adjustment {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "amount", nullable = false, insertable = true, updatable = false, length = 10, precision = 0)
+
     public Integer getAmount() {
         return amount;
     }
@@ -108,8 +137,7 @@ public class Adjustment {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "remark", nullable = false, insertable = true, updatable = true, length = 50, precision = 0)
+
     public String getRemark() {
         return remark;
     }
@@ -120,7 +148,7 @@ public class Adjustment {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, amount, remark, timeAdjust, version, employee);
+        return Objects.hashCode(id, amount, remark, timeAdjust, lastUpdate, createDate, version, employee);
     }
 
     @Override
@@ -132,6 +160,20 @@ public class Adjustment {
             return false;
         }
         final Adjustment other = (Adjustment) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.amount, other.amount) && Objects.equal(this.remark, other.remark) && Objects.equal(this.timeAdjust, other.timeAdjust) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
+        return Objects.equal(this.id, other.id) && Objects.equal(this.amount, other.amount) && Objects.equal(this.remark, other.remark) && Objects.equal(this.timeAdjust, other.timeAdjust) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("amount", amount)
+                .add("remark", remark)
+                .add("timeAdjust", timeAdjust)
+                .add("lastUpdate", lastUpdate)
+                .add("createDate", createDate)
+                .add("version", version)
+                .add("employee", employee)
+                .toString();
     }
 }

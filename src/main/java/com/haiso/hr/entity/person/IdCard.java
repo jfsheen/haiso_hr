@@ -12,33 +12,33 @@ import java.util.Date;
 public class IdCard {
 
     @Basic
-    @Column(name = "idcard_num", nullable = true, length = 18)
+    @Column(name = "idcard_num")
     private String idCardNum;
     @Basic
-    @Column(name = "idcard_name", nullable = true, length = 10)
+    @Column(name = "idcard_name")
     private String idName;
     @Basic
-    @Column(name = "idcard_gender", nullable = true, length = 1)
+    @Column(name = "idcard_gender")
     private Boolean idGender;
     @Basic
-    @Column(name = "idcard_address", nullable = true, length = 50)
+    @Column(name = "idcard_address")
     private String idAddress;
     @Basic
-    @Column(name = "idcard_ethnic", nullable = true, length = 10)
+    @Column(name = "idcard_ethnic")
     private String idEthnic;
     @Basic
-    @Column(name = "idcard_path", nullable = true, length = 100)
+    @Column(name = "idcard_path")
     private String idCardPicPath;
     @Basic
-    @Column(name = "issue_auth", nullable = true, length = 20)
+    @Column(name = "issue_auth")
     private String idIssueAuth;
     @Basic
     @Temporal(TemporalType.DATE)
-    @Column(name = "valid_start", nullable = true, length = 1)
+    @Column(name = "valid_start")
     private Date idValidStart;
     @Basic
     @Temporal(TemporalType.DATE)
-    @Column(name = "valid_until", nullable = true, length = 1)
+    @Column(name = "valid_until")
     private Date idValidUntil;
 
     public String getIdCardNum() {
@@ -48,7 +48,6 @@ public class IdCard {
     public void setIdCardNum(String idCardNum) {
         this.idCardNum = idCardNum;
     }
-
 
     public String getIdName() {
         return idName;
@@ -65,7 +64,6 @@ public class IdCard {
     public void setIdAddress(String idAddress) {
         this.idAddress = idAddress;
     }
-
 
     public Boolean getIdGender() {
         return idGender;

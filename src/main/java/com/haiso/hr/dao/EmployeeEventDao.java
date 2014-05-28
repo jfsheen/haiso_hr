@@ -1,6 +1,6 @@
 package com.haiso.hr.dao;
 
-import com.haiso.hr.entity.employee.Event;
+import com.haiso.hr.entity.event.Event;
 import org.springframework.data.repository.CrudRepository;
 
 /**

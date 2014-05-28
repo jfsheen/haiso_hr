@@ -1,6 +1,8 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.Department;
+import com.haiso.hr.entity.base.BaseEntity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,19 +13,27 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "t_empl_rwpns")
-public class RewardsPunishment {
-    private Integer id;
-    private String school;
-    private String major;
-    private Date startDate;
-    private Date endDate;
-    private String qualify;
-    private String degree;
+public class RewardsPunishment extends BaseEntity {
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "empl_id", nullable = false)
     private Employee employee;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "empl_sn", nullable = false, insertable = true, updatable = false)
+    @Basic
+    @Column(name = "is_reward")
+    private Boolean isReward;
+    @Basic
+    @Column(name = "subject")
+    private String subject;
+    @Basic
+    @Column(name = "content")
+    private String content;
+    @Basic
+    @Column(name = "impl_date")
+    @Temporal(TemporalType.DATE)
+    private Date implDate;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "impl_dept")
+    private Department implDept;
     public Employee getEmployee() {
         return employee;
     }
@@ -32,80 +42,49 @@ public class RewardsPunishment {
         this.employee = employee;
     }
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public Integer getId() {
-        return id;
+    public Boolean getIsReward() {
+        return isReward;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIsReward(Boolean isReward) {
+        this.isReward = isReward;
     }
 
-    @Basic
-    @Column(name = "school", nullable = false, insertable = true, updatable = true, length = 45, precision = 0)
-    public String getSchool() {
-        return school;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setSchool(String school) {
-        this.school = school;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    @Basic
-    @Column(name = "major", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
-    public String getMajor() {
-        return major;
+    public String getContent() {
+        return content;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    @Basic
-    @Column(name = "start_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public Date getStartDate() {
-        return startDate;
+    public Date getImplDate() {
+        return implDate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setImplDate(Date implDate) {
+        this.implDate = implDate;
     }
 
-    @Basic
-    @Column(name = "end_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public Date getEndDate() {
-        return endDate;
+    public Department getImplDept() {
+        return implDept;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    @Basic
-    @Column(name = "qualify", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public String getQualify() {
-        return qualify;
-    }
-
-    public void setQualify(String qualify) {
-        this.qualify = qualify;
-    }
-
-    @Basic
-    @Column(name = "degree", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public String getDegree() {
-        return degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setImplDept(Department implDept) {
+        this.implDept = implDept;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, school, major, startDate, endDate, qualify, degree, employee);
+        return 31 * super.hashCode() + Objects.hashCode(employee, isReward, subject, content, implDate, implDept);
     }
 
     @Override
@@ -116,7 +95,22 @@ public class RewardsPunishment {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         final RewardsPunishment other = (RewardsPunishment) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.school, other.school) && Objects.equal(this.major, other.major) && Objects.equal(this.startDate, other.startDate) && Objects.equal(this.endDate, other.endDate) && Objects.equal(this.qualify, other.qualify) && Objects.equal(this.degree, other.degree) && Objects.equal(this.employee, other.employee);
+        return Objects.equal(this.employee, other.employee) && Objects.equal(this.isReward, other.isReward) && Objects.equal(this.subject, other.subject) && Objects.equal(this.content, other.content) && Objects.equal(this.implDate, other.implDate) && Objects.equal(this.implDept, other.implDept);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("employee", employee)
+                .add("isReward", isReward)
+                .add("subject", subject)
+                .add("content", content)
+                .add("implDate", implDate)
+                .add("implDept", implDept)
+                .toString();
     }
 }

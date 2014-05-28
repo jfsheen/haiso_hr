@@ -1,5 +1,7 @@
 package com.haiso.hr.entity.person;
 
+import com.haiso.hr.entity.base.BaseEntity;
+
 import javax.persistence.*;
 
 /**
@@ -9,18 +11,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "t_prsn_info")
-public class BasicInfo {
+public class BasicInfo extends BaseEntity{
 
-    private Integer id;
-
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, length = 10)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

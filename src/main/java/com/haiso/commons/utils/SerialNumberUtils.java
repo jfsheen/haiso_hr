@@ -3,7 +3,7 @@ package com.haiso.commons.utils;
 /**
  * Created by ff on 4/18/14.
  */
-public final class SnGenerator {
+public final class SerialNumberUtils {
 
     public static String EmployeeSnGenerator() {
         String time = String.valueOf(System.currentTimeMillis());

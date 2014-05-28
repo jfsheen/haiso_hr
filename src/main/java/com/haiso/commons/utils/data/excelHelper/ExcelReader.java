@@ -16,6 +16,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.tika.Tika;
+import org.joda.time.DateTime;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -234,9 +235,9 @@ public class ExcelReader {
             case Cell.CELL_TYPE_NUMERIC:    // 数字
                 if (HSSFDateUtil.isCellDateFormatted(cell)) {
                     dataCell.setCellDataType(ExcelCellDataType.DATE);// 如果是日期类型
-                    dataCell.setValue(new SimpleDateFormat(DatePattern.LOCALE_ZH_DATE.getValue()).format(cell.getDateCellValue()));
+                    dataCell.setValue(new DateTime(cell.getDateCellValue()).toDate());
                 } else {
-                    dataCell.setCellDataType(ExcelCellDataType.NUMERIC);
+                    dataCell.setCellDataType(ExcelCellDataType.DOUBLE);
                     dataCell.setValue(cell.getNumericCellValue());
                 }
                 break;
@@ -249,23 +250,23 @@ public class ExcelReader {
                 double numericValue = cell.getNumericCellValue();
                 if (HSSFDateUtil.isValidExcelDate(numericValue)) {    // 如果是日期类型
                     dataCell.setCellDataType(ExcelCellDataType.DATE);
-                    dataCell.setValue(new SimpleDateFormat(DatePattern.LOCALE_ZH_DATE.getValue()).format(cell.getDateCellValue()));
+                    dataCell.setValue(new DateTime(cell.getDateCellValue()).toDate());
                 } else {
-                    dataCell.setCellDataType(ExcelCellDataType.NUMERIC);
+                    dataCell.setCellDataType(ExcelCellDataType.DOUBLE);
                     dataCell.setValue(numericValue);
                 }
-                break;
-            case Cell.CELL_TYPE_BLANK:                // 空白
-                dataCell.setCellDataType(ExcelCellDataType.BLANK);
-                dataCell.setValue(StringUtils.EMPTY);//ExcelConstants.EMPTY_CELL_VALUE ;
                 break;
             case Cell.CELL_TYPE_BOOLEAN:            // Boolean
                 dataCell.setCellDataType(ExcelCellDataType.BOOLEAN);
                 dataCell.setValue(cell.getBooleanCellValue());
                 break;
+            case Cell.CELL_TYPE_BLANK:                // 空白
+                dataCell.setCellDataType(ExcelCellDataType.EMPTY);
+                dataCell.setValue(StringUtils.EMPTY);//ExcelConstants.EMPTY_CELL_VALUE ;
+                break;
             case Cell.CELL_TYPE_ERROR:                // Error，返回错误码
                 dataCell.setCellDataType(ExcelCellDataType.ERROR);
-                dataCell.setValue(StringUtils.EMPTY);
+                dataCell.setValue(null);
                 break;
             default:
                 dataCell.setCellDataType(ExcelCellDataType.EMPTY);

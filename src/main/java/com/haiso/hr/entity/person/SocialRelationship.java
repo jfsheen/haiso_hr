@@ -1,6 +1,7 @@
 package com.haiso.hr.entity.person;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.base.BaseEntity;
 
 import javax.persistence.*;
 
@@ -10,20 +11,31 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "t_prsn_sclrlt")
-public class SocialRelationship {
+public class SocialRelationship extends BaseEntity{
 
-    private Integer id;
+    @Basic
+    @Column(name = "relation")
     private String relation;
+    @Basic
+    @Column(name = "name")
     private String name;
+    @Basic
+    @Column(name = "age")
     private Integer age;
+    @Basic
+    @Column(name = "company")
     private String company;
-    private String post;
+    @Basic
+    @Column(name = "position")
+    private String position;
+    @Basic
+    @Column(name = "phone")
     private String phone;
-
-    private Person person;
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "person_id", nullable = false)
+    private Person person;
+
+
     public Person getPerson() {
         return person;
     }
@@ -32,14 +44,6 @@ public class SocialRelationship {
         this.person = person;
     }
 
-    @Id
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getAge() {
         return age;
@@ -73,12 +77,12 @@ public class SocialRelationship {
         this.company = company;
     }
 
-    public String getPost() {
-        return post;
+    public String getPosition() {
+        return position;
     }
 
-    public void setPost(String post) {
-        this.post = post;
+    public void setPosition(String post) {
+        this.position = post;
     }
 
     public String getPhone() {
@@ -97,7 +101,7 @@ public class SocialRelationship {
                 .add("name", name)
                 .add("age", age)
                 .add("company", company)
-                .add("post", post)
+                .add("post", position)
                 .add("phone", phone)
                 .add("person", person)
                 .toString();
@@ -105,7 +109,7 @@ public class SocialRelationship {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, relation, name, age, company, post, phone, person);
+        return Objects.hashCode(id, relation, name, age, company, position, phone, person);
     }
 
     @Override
@@ -117,6 +121,6 @@ public class SocialRelationship {
             return false;
         }
         final SocialRelationship other = (SocialRelationship) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.relation, other.relation) && Objects.equal(this.name, other.name) && Objects.equal(this.age, other.age) && Objects.equal(this.company, other.company) && Objects.equal(this.post, other.post) && Objects.equal(this.phone, other.phone) && Objects.equal(this.person, other.person);
+        return Objects.equal(this.id, other.id) && Objects.equal(this.relation, other.relation) && Objects.equal(this.name, other.name) && Objects.equal(this.age, other.age) && Objects.equal(this.company, other.company) && Objects.equal(this.position, other.position) && Objects.equal(this.phone, other.phone) && Objects.equal(this.person, other.person);
     }
 }

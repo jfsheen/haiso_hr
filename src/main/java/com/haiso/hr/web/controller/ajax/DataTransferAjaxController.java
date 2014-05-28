@@ -4,13 +4,13 @@ import com.google.common.collect.Lists;
 import com.haiso.base.BaseController;
 import com.haiso.commons.constant.CommonsConstant;
 import com.haiso.commons.model.excel.DataCell;
+import com.haiso.commons.utils.data.DataMappingUtils;
+import com.haiso.commons.utils.data.FileTypeUtils;
 import com.haiso.hr.entity.person.Person;
 import com.haiso.hr.web.enumeration.HrEntityEnum;
 import com.haiso.hr.web.rest.*;
 import com.haiso.hr.web.vo.dataMapping.DataTransferParam;
 import com.haiso.commons.model.UploadedFile;
-import com.haiso.commons.utils.data.DataMappingUtil;
-import com.haiso.commons.utils.data.FileTypeUtil;
 import com.haiso.commons.utils.data.excelHelper.ExcelReader;
 import com.haiso.hr.service.person.PersonService;
 import com.haiso.hr.web.validator.MultipartFileValidator;
@@ -55,7 +55,7 @@ public class DataTransferAjaxController extends BaseController{
             e.printStackTrace();
             return new UploadFileSheetsRest(false, -1, e.getMessage(), null, null);
         }
-        String fileName = new Date().getTime() + "." + FileTypeUtil.getFileExtension(file.getOriginalFilename());
+        String fileName = new Date().getTime() + "." + FileTypeUtils.getFileExtension(file.getOriginalFilename());
         String path = getUploadedFilePath(request);
         File dir = new File(path);
         if(!dir.exists() || !dir.isDirectory()){
@@ -80,14 +80,14 @@ public class DataTransferAjaxController extends BaseController{
     CommonsRest importPrepare(@RequestBody String json, HttpServletRequest request, ModelMap model){
         /*dataTransferParam = JsonUtils.readValue(json, DataTransferParam.class);
 //        model.addAttribute("dataTransferParam", dataTransferParam);
-        String param = PackUtil.Pack(JsonUtils.toJson(dataTransferParam));
+        String param = PackUtils.Pack(JsonUtils.toJson(dataTransferParam));
         String path = getUploadedFilePath(request);
         String mapPath = getMappingFilePath(request);
         try {
             File targetFile = new File(path, dataTransferParam.getOrigin());
-            String xlsHashcode = DataMappingUtil.getDataSourceSheetTitlesMapHashcode((targetFile), dataTransferParam.getExcelSheetIndex(), dataTransferParam.getExcelTitleIndex());
+            String xlsHashcode = DataMappingUtils.getDataSourceSheetTitlesMapHashcode((targetFile), dataTransferParam.getExcelSheetIndex(), dataTransferParam.getExcelTitleIndex());
             File xmlFile = new File(mapPath, dataTransferParam.getDest() + ".xml");
-            if (xmlFile.exists() ? !(dataTransferParam.getPreserved().equals("1") && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
+            if (xmlFile.exists() ? !(dataTransferParam.getPreserved().equals("1") && (DataMappingUtils.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
                 return new CommonsRest(true, 1, param, "/dataTransfer/dataMapping");
             }
         } catch (IOException e) {
@@ -117,7 +117,7 @@ public class DataTransferAjaxController extends BaseController{
                     if(!dir.exists() || !dir.isDirectory()){
                         dir.mkdirs();
                     }
-                    DataMappingUtil.writeXmlDataMapping(importTo, mapFrom, mapTo, dir.getPath());
+                    DataMappingUtils.writeXmlDataMapping(importTo, mapFrom, mapTo, dir.getPath());
                     return new CommonsRest(true,1,"success",importTo);
                 }
             } catch (Exception e) {
@@ -142,7 +142,7 @@ public class DataTransferAjaxController extends BaseController{
         if(dataTransferParam != null){
             Map<String, String> mapping = null;
             try{
-                mapping = DataMappingUtil.readXmlSimpleDataMapping(getMappingFilePath(request), dataTransferParam.getDest() + ".xml");
+                mapping = DataMappingUtils.readXmlSimpleDataMapping(getMappingFilePath(request), dataTransferParam.getDest() + ".xml");
                 //todo {remove NULL-value list elements}
                 List<String> nnCols = new ArrayList<String>();
                 Iterator<String> it = Lists.newArrayList(mapping.values()).iterator();
@@ -166,16 +166,15 @@ public class DataTransferAjaxController extends BaseController{
                     if(data == null){
                         l++;
                         continue;
-                    }
-                    else
+                    }else{
                         l = 0;
+                    }
 
                     HrEntityEnum entity = HrEntityEnum.valueOf(dataTransferParam.getDest());
 
                     switch (entity){
                         case Person:
                             Person person = new Person();
-
                             break;
                         case Employee:
                             break;

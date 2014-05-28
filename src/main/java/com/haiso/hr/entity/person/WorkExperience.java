@@ -1,6 +1,7 @@
 package com.haiso.hr.entity.person;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.base.BaseEntity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,21 +12,36 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "t_prsn_wrkexp")
-public class WorkExperience {
-    private Integer id;
+public class WorkExperience extends BaseEntity{
+    @Basic
+    @Column(name = "company")
     private String companyName;
+    @Basic
+    @Column(name = "position")
     private String position;
+    @Basic
+    @Column(name = "start_date")
     private Date startDate;
+    @Basic
+    @Column(name = "end_date")
     private Date endDate;
+    @Basic
+    @Column(name = "com_phone")
     private String comPhone;
+    @Basic
+    @Column(name = "com_address")
     private String comAddress;
+    @Basic
+    @Column(name = "com_website")
     private String comWebsite;
+    @Basic
+    @Column(name = "com_email")
     private String comEmail;
-
-    private Person person;
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "person_id", nullable = false)
+    private Person person;
+
+
     public Person getPerson() {
         return person;
     }
@@ -34,7 +50,6 @@ public class WorkExperience {
         this.person = person;
     }
 
-    @Column(name = "com_address")
     public String getComAddress() {
         return comAddress;
     }
@@ -43,7 +58,6 @@ public class WorkExperience {
         this.comAddress = comAddress;
     }
 
-    @Column(name = "com_website")
     public String getComWebsite() {
         return comWebsite;
     }
@@ -52,7 +66,6 @@ public class WorkExperience {
         this.comWebsite = com_website;
     }
 
-    @Column(name = "com_email")
     public String getComEmail() {
         return comEmail;
     }
@@ -61,18 +74,6 @@ public class WorkExperience {
         this.comEmail = com_email;
     }
 
-    @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    @Column(name = "company", nullable = false, insertable = true, updatable = true, length = 50, precision = 0)
     public String getCompanyName() {
         return companyName;
     }
@@ -81,8 +82,6 @@ public class WorkExperience {
         this.companyName = company;
     }
 
-
-    @Column(name = "position", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
     public String getPosition() {
         return position;
     }
@@ -91,8 +90,6 @@ public class WorkExperience {
         this.position = position;
     }
 
-
-    @Column(name = "start_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getStartDate() {
         return startDate;
     }
@@ -101,8 +98,6 @@ public class WorkExperience {
         this.startDate = startDate;
     }
 
-
-    @Column(name = "end_date", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     public Date getEndDate() {
         return endDate;
     }
@@ -112,7 +107,6 @@ public class WorkExperience {
     }
 
 
-    @Column(name = "com_phone", nullable = true, insertable = true, updatable = true, length = 50, precision = 0)
     public String getComPhone() {
         return comPhone;
     }

@@ -1,12 +1,9 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
-import com.haiso.commons.utils.SnGenerator;
 import com.haiso.hr.entity.Department;
 import com.haiso.hr.entity.Position;
-import com.haiso.hr.entity.param.EmplLevel;
-import com.haiso.hr.entity.param.EmplSequence;
-import com.haiso.hr.entity.param.EmplStatus;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
@@ -20,75 +17,93 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "t_employee")
-public class Employee {
+public class Employee extends AuditBaseEntity{
 
-    @Version
-    @Column(name = "version_lock", length = 10)
-    private Integer version;
-
-    @Id
+    @Basic
     @Column(name = "empl_sn", nullable = false, insertable = true, updatable = true, length = 20)
     private String emplSn;
-
+    @Basic
     @Column(name = "introduction", nullable = true, insertable = true, updatable = true, length = 500)
     private String introduction;
-
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date lastUpdate;
-
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
-    private java.util.Date createDate;
-
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "empl_dept")
     private Set<Department> departmentSet = new HashSet<Department>();
-
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "empl_post")
     private Set<Position> positionSet = new HashSet<Position>();
-
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "person_id", nullable = false)
     @NotNull
     private Person person;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "status", nullable = true)
-    private EmplStatus emplStatus;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "sequence", nullable = true)
-    private EmplSequence emplSequence;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "level", nullable = true)
-    private EmplLevel emplLevel;
+    @Basic
+    @Column(name = "status")
+    private Byte emplStatus;
+    @Basic
+    @Column(name = "sequence")
+    private Byte emplSequence;
+    @Basic
+    @Column(name = "level")
+    private Byte emplLevel;
 
 
-    public EmplSequence getEmplSequence() {
-        return emplSequence;
+   //todo override @PrePersist method
+
+    @Override
+    public int hashCode() {
+        return 31 * super.hashCode() + Objects.hashCode(emplSn, introduction, departmentSet, positionSet, person, emplStatus, emplSequence, emplLevel);
     }
 
-    public void setEmplSequence(EmplSequence emplSequence) {
-        this.emplSequence = emplSequence;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        final Employee other = (Employee) obj;
+        return Objects.equal(this.emplSn, other.emplSn) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.departmentSet, other.departmentSet) && Objects.equal(this.positionSet, other.positionSet) && Objects.equal(this.person, other.person) && Objects.equal(this.emplStatus, other.emplStatus) && Objects.equal(this.emplSequence, other.emplSequence) && Objects.equal(this.emplLevel, other.emplLevel);
     }
 
-    public EmplLevel getEmplLevel() {
-        return emplLevel;
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("emplSn", emplSn)
+                .add("introduction", introduction)
+                .add("departmentSet", departmentSet)
+                .add("positionSet", positionSet)
+                .add("person", person)
+                .add("emplStatus", emplStatus)
+                .add("emplSequence", emplSequence)
+                .add("emplLevel", emplLevel)
+                .toString();
     }
 
-    public void setEmplLevel(EmplLevel emplLevel) {
-        this.emplLevel = emplLevel;
-    }
-
-    public EmplStatus getEmplStatus() {
+    public Byte getEmplStatus() {
         return emplStatus;
     }
 
-    public void setEmplStatus(EmplStatus emplStatus) {
+    public void setEmplStatus(Byte emplStatus) {
         this.emplStatus = emplStatus;
+    }
+
+    public Byte getEmplSequence() {
+        return emplSequence;
+    }
+
+    public void setEmplSequence(Byte emplSequence) {
+        this.emplSequence = emplSequence;
+    }
+
+    public Byte getEmplLevel() {
+        return emplLevel;
+    }
+
+    public void setEmplLevel(Byte emplLevel) {
+        this.emplLevel = emplLevel;
     }
 
     public Person getPerson() {
@@ -115,64 +130,6 @@ public class Employee {
         this.positionSet = positionSet;
     }
 
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    public java.util.Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(java.util.Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public java.util.Date getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(java.util.Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.lastUpdate = new java.util.Date();
-    }
-
-    @PrePersist
-    public void prePersist() {
-        this.emplSn = SnGenerator.EmployeeSnGenerator();
-        this.createDate = new java.util.Date();
-        this.lastUpdate = new java.util.Date();
-    }
-
-    @PreRemove
-    public void preRemove() {
-
-    }
-
-    @PostPersist
-    public void postPersist() {
-
-    }
-
-    @PostLoad
-    public void postLoad() {
-    }
-
-    @PostRemove
-    public void postRemove() {
-    }
-
-    @PostUpdate
-    public void postUpdate() {
-    }
-
     public String getEmplSn() {
         return emplSn;
     }
@@ -189,20 +146,5 @@ public class Employee {
         this.introduction = introduction;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(emplSn, introduction, lastUpdate, createDate, version, departmentSet, positionSet, person, emplStatus, emplSequence, emplLevel);
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        final Employee other = (Employee) obj;
-        return Objects.equal(this.emplSn, other.emplSn) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.departmentSet, other.departmentSet) && Objects.equal(this.positionSet, other.positionSet) && Objects.equal(this.person, other.person) && Objects.equal(this.emplStatus, other.emplStatus) && Objects.equal(this.emplSequence, other.emplSequence) && Objects.equal(this.emplLevel, other.emplLevel);
-    }
 }

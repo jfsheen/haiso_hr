@@ -1,7 +1,8 @@
 package com.haiso.hr;
 
-import com.haiso.commons.utils.PackUtil;
-import com.haiso.hr.commons.Constants;
+import com.haiso.commons.utils.PackUtils;
+import com.haiso.commons.utils.data.entityHelper.FieldUtils;
+import com.haiso.hr.entity.person.Person;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.util.Date;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -39,11 +42,18 @@ public class AppTests {
         System.out.println(excelReader.getContentType(file));*/
         //http://localhost:8080/dataTransfer/import3?param=H4sIAAAAAAAAAKtWSsvMSQ3Jd3FSsiopKk3VUcovykzPzFOyUjI0MTAwN7I0NDU0NzLRq8gpVtJRSkktLgFKBaQWFefnAfm5iQV%2BibmpcCG9itwcoHBqRXJqTnBGamqJZ15KaoWSlQFULCSzJCcVJlYLAIHMcRN9AAAA
         String str = "RN9AAAA";
-        String a = PackUtil.Pack(str);
-        String b = PackUtil.Unpack(a);
+        String a = PackUtils.Pack(str);
+        String b = PackUtils.Unpack(a);
         System.out.println(a + a.length());
         System.out.println(b + b.length());
 //        System.out.println(new Constants().getUploadFilePath("/"));
+
+        Person person = new Person();
+        FieldUtils fu = new FieldUtils();
+        fu.setFieldValue(person, "id", new Long(1));
+        fu.setFieldValue(person, "name", new String("zhangsan"));
+//        fu.setFieldValue(person, "joinPartyDate", new Date("2012-01-01"));
+        System.out.println(person.toString());
     }
 
 

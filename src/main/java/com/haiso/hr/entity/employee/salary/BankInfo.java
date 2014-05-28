@@ -1,6 +1,7 @@
-package com.haiso.hr.entity.employee;
+package com.haiso.hr.entity.employee.salary;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
 
@@ -11,20 +12,36 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_empl_bankinfo")
 public class BankInfo {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+    @Basic
+    @Column(name = "acc_owner")
     private String accOwner;
+    @Basic
+    @Column(name = "bankcard_num")
     private String bankcardNum;
+    @Basic
+    @Column(name = "cardpic_path")
     private String cardpicPath;
+    @Basic
+    @Column(name = "acc_bank")
     private String accBank;
+    @Column(name = "last_update")
+    @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date lastUpdate;
+    @Column(name = "create_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date createDate;
+    @Version
+    @Column(name = "version_lock")
     private Integer version;
-
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "empl_sn")
     private Employee employee;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "empl_sn", nullable = false, insertable = true, updatable = false)
+    
     public Employee getEmployee() {
         return employee;
     }
@@ -33,8 +50,7 @@ public class BankInfo {
         this.employee = employee;
     }
 
-    @Version
-    @Column(name = "version_lock", length = 10)
+    
     public Integer getVersion() {
         return version;
     }
@@ -43,9 +59,7 @@ public class BankInfo {
         this.version = version;
     }
 
-    @Basic
-    @Column(name = "create_date", nullable = false, insertable = true, updatable = false, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
+
     public java.util.Date getCreateDate() {
         return createDate;
     }
@@ -54,9 +68,7 @@ public class BankInfo {
         this.createDate = createDate;
     }
 
-    @Basic
-    @Column(name = "last_update", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
-    @Temporal(TemporalType.TIMESTAMP)
+
     public java.util.Date getLastUpdate() {
         return lastUpdate;
     }
@@ -101,9 +113,7 @@ public class BankInfo {
 
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false, length = 10, precision = 0)
+
     public Integer getId() {
         return id;
     }
@@ -112,7 +122,7 @@ public class BankInfo {
         this.id = id;
     }
 
-    @Column(name = "acc_owner", nullable = false, length = 20, precision = 0)
+
     public String getAccOwner() {
         return accOwner;
     }
@@ -121,7 +131,7 @@ public class BankInfo {
         this.accOwner = accOwner;
     }
 
-    @Column(name = "bankcard_num", nullable = false, length = 20, precision = 0)
+
     public String getBankcardNum() {
         return bankcardNum;
     }
@@ -130,7 +140,7 @@ public class BankInfo {
         this.bankcardNum = bankcardNum;
     }
 
-    @Column(name = "cardpic_path", nullable = true, length = 100, precision = 0)
+
     public String getCardpicPath() {
         return cardpicPath;
     }
@@ -139,7 +149,6 @@ public class BankInfo {
         this.cardpicPath = cardpicPath;
     }
 
-    @Column(name = "acc_bank", nullable = false, length = 40, precision = 0)
     public String getAccBank() {
         return accBank;
     }
@@ -163,5 +172,20 @@ public class BankInfo {
         }
         final BankInfo other = (BankInfo) obj;
         return Objects.equal(this.id, other.id) && Objects.equal(this.accOwner, other.accOwner) && Objects.equal(this.bankcardNum, other.bankcardNum) && Objects.equal(this.cardpicPath, other.cardpicPath) && Objects.equal(this.accBank, other.accBank) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("accOwner", accOwner)
+                .add("bankcardNum", bankcardNum)
+                .add("cardpicPath", cardpicPath)
+                .add("accBank", accBank)
+                .add("lastUpdate", lastUpdate)
+                .add("createDate", createDate)
+                .add("version", version)
+                .add("employee", employee)
+                .toString();
     }
 }

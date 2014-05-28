@@ -1,6 +1,8 @@
-package com.haiso.hr.entity.employee;
+package com.haiso.hr.entity.event;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.base.BaseEntity;
+import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,36 +13,68 @@ import java.util.Date;
 
 @Entity
 @Table(name = "t_empl_event")
-public class Event {
-
-    private Integer id;
-    private Employee employee;
-    private Date createDate;
-    private Date dateStart;
-    private Date dateEnd;
-    private Employee deptLeader;
-    private Date deptDate;
-    private String deptOpinion;
-    private Employee hrLeader;
-    private Date hrDate;
-    private String hrOpinion;
-    private Employee comLeader;
-    private Date comDate;
-    private String comOpinion;
-    private Employee manager;
-
-    @Id
-    @GeneratedValue
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+public class Event extends BaseEntity {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "empl_sn", nullable = true)
+    private Employee employee;
+    @Basic
+    @Column(name = "create_date", nullable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+    @Basic
+    @Column(name = "date_start", nullable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateStart;
+    @Basic
+    @Column(name = "date_end", nullable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateEnd;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "dept_leader", nullable = true)
+    private Employee deptLeader;
+    @Basic
+    @Column(name = "dept_date", nullable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date deptDate;
+    @Basic
+    @Column(name = "dept_opinion", length = 50)
+    private String deptOpinion;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "hr_leader", nullable = true)
+    private Employee hrLeader;
+    @Basic
+    @Column(name = "hr_date", nullable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date hrDate;
+    @Basic
+    @Column(name = "hr_opinion", length = 50)
+    private String hrOpinion;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "com_leader", nullable = true)
+    private Employee comLeader;
+    @Basic
+    @Column(name = "com_date", nullable = false, length = 1)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date comDate;
+    @Basic
+    @Column(name = "com_opinion", length = 50)
+    private String comOpinion;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "event_manager", nullable = true)
+    private Employee manager;
+    @Basic
+    @Column(name = "progress_percent")
+    private Short progress;
+
+    public Short getProgress() {
+        return progress;
+    }
+
+    public void setProgress(Short progress) {
+        this.progress = progress;
+    }
+
     public Employee getEmployee() {
         return employee;
     }
@@ -49,26 +83,18 @@ public class Event {
         this.employee = employee;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "com_leader", nullable = true)
     public Employee getComLeader() {
         return comLeader;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "hr_leader", nullable = true)
     public Employee getHrLeader() {
         return hrLeader;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_leader", nullable = true)
     public Employee getDeptLeader() {
         return deptLeader;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "event_manager", nullable = true)
     public Employee getManager() {
         return manager;
     }
@@ -89,8 +115,6 @@ public class Event {
         this.manager = manager;
     }
 
-    @Column(name = "create_date", nullable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getCreateDate() {
         return createDate;
     }
@@ -99,8 +123,6 @@ public class Event {
         this.createDate = createDate;
     }
 
-    @Column(name = "date_start", nullable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getDateStart() {
         return dateStart;
     }
@@ -109,8 +131,6 @@ public class Event {
         this.dateStart = dateStart;
     }
 
-    @Column(name = "date_end", nullable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getDateEnd() {
         return dateEnd;
     }
@@ -119,9 +139,6 @@ public class Event {
         this.dateEnd = dateEnd;
     }
 
-
-    @Column(name = "dept_date", nullable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getDeptDate() {
         return deptDate;
     }
@@ -130,7 +147,6 @@ public class Event {
         this.deptDate = deptDate;
     }
 
-    @Column(name = "dept_opinion", length = 50)
     public String getDeptOpinion() {
         return deptOpinion;
     }
@@ -139,8 +155,6 @@ public class Event {
         this.deptOpinion = deptOpinion;
     }
 
-    @Column(name = "hr_date", nullable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getHrDate() {
         return hrDate;
     }
@@ -149,7 +163,6 @@ public class Event {
         this.hrDate = hrDate;
     }
 
-    @Column(name = "hr_opinion", length = 50)
     public String getHrOpinion() {
         return hrOpinion;
     }
@@ -158,9 +171,6 @@ public class Event {
         this.hrOpinion = hrOpinion;
     }
 
-
-    @Column(name = "com_date", nullable = false, length = 1)
-    @Temporal(TemporalType.TIMESTAMP)
     public Date getComDate() {
         return comDate;
     }
@@ -169,7 +179,6 @@ public class Event {
         this.comDate = comDate;
     }
 
-    @Column(name = "com_opinion", length = 50)
     public String getComOpinion() {
         return comOpinion;
     }
@@ -179,26 +188,8 @@ public class Event {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(id, employee, createDate, dateStart, dateEnd, deptLeader, deptDate, deptOpinion, hrLeader, hrDate, hrOpinion, comLeader, comDate, comOpinion, manager);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        final Event other = (Event) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.employee, other.employee) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.dateStart, other.dateStart) && Objects.equal(this.dateEnd, other.dateEnd) && Objects.equal(this.deptLeader, other.deptLeader) && Objects.equal(this.deptDate, other.deptDate) && Objects.equal(this.deptOpinion, other.deptOpinion) && Objects.equal(this.hrLeader, other.hrLeader) && Objects.equal(this.hrDate, other.hrDate) && Objects.equal(this.hrOpinion, other.hrOpinion) && Objects.equal(this.comLeader, other.comLeader) && Objects.equal(this.comDate, other.comDate) && Objects.equal(this.comOpinion, other.comOpinion) && Objects.equal(this.manager, other.manager);
-    }
-
-    @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("id", id)
                 .add("employee", employee)
                 .add("createDate", createDate)
                 .add("dateStart", dateStart)
@@ -213,6 +204,27 @@ public class Event {
                 .add("comDate", comDate)
                 .add("comOpinion", comOpinion)
                 .add("manager", manager)
+                .add("progress", progress)
                 .toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * super.hashCode() + Objects.hashCode(employee, createDate, dateStart, dateEnd, deptLeader, deptDate, deptOpinion, hrLeader, hrDate, hrOpinion, comLeader, comDate, comOpinion, manager, progress);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        final Event other = (Event) obj;
+        return Objects.equal(this.employee, other.employee) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.dateStart, other.dateStart) && Objects.equal(this.dateEnd, other.dateEnd) && Objects.equal(this.deptLeader, other.deptLeader) && Objects.equal(this.deptDate, other.deptDate) && Objects.equal(this.deptOpinion, other.deptOpinion) && Objects.equal(this.hrLeader, other.hrLeader) && Objects.equal(this.hrDate, other.hrDate) && Objects.equal(this.hrOpinion, other.hrOpinion) && Objects.equal(this.comLeader, other.comLeader) && Objects.equal(this.comDate, other.comDate) && Objects.equal(this.comOpinion, other.comOpinion) && Objects.equal(this.manager, other.manager) && Objects.equal(this.progress, other.progress);
     }
 }

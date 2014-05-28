@@ -2,10 +2,8 @@ package com.haiso.hr.web.controller;
 
 import com.google.common.collect.Lists;
 import com.haiso.base.BaseController;
-import com.haiso.commons.utils.JsonUtils;
-import com.haiso.commons.utils.PackUtil;
+import com.haiso.commons.utils.data.DataMappingUtils;
 import com.haiso.hr.web.vo.dataMapping.DataTransferParam;
-import com.haiso.commons.utils.data.DataMappingUtil;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,11 +46,11 @@ public class DataTransferController extends BaseController{
         String path = getUploadedFilePath(request);
         File targetFile = new File(path, origin);
         try {
-            String xlsHashcode = DataMappingUtil.getDataSourceSheetTitlesMapHashcode((targetFile), sheetIndex, titleIndex);
+            String xlsHashcode = DataMappingUtils.getDataSourceSheetTitlesMapHashcode((targetFile), sheetIndex, titleIndex);
             String mapPath = getMappingFilePath(request);
             File xmlFile = new File(mapPath, dest + ".xml");
             System.out.print(xmlFile.exists());
-            if (xmlFile.exists() ? !(dms == 1 && (DataMappingUtil.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
+            if (xmlFile.exists() ? !(dms == 1 && (DataMappingUtils.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
                 model.addAttribute("importTo", dest);
                 model.addAttribute("importFrom", path + "/" + origin);
                 return "redirect:/dataTransfer/dataMapping";
@@ -72,11 +70,11 @@ public class DataTransferController extends BaseController{
             return null;//todo
         }
         try {
-            Map map = DataMappingUtil.getDataSourceSheetTitlesMap(
+            Map map = DataMappingUtils.getDataSourceSheetTitlesMap(
                     new File(getUploadedFilePath(request), dataTransferParam.getOrigin()),
                     dataTransferParam.getExcelSheetIndex(),
                     dataTransferParam.getExcelTitleIndex());
-            List list = Lists.newArrayList(DataMappingUtil.getEntityFields(dataTransferParam.getDest()));
+            List list = Lists.newArrayList(DataMappingUtils.getEntityFields(dataTransferParam.getDest()));
             model.addAttribute("excelTitles", map);
             model.addAttribute("classFields", list);
             model.addAttribute("importTo", dataTransferParam.getDest());
@@ -95,7 +93,7 @@ public class DataTransferController extends BaseController{
         }
         Map<String, String> mapping = null;
         try{
-            mapping = DataMappingUtil.readXmlSimpleDataMapping(getMappingFilePath(request), dataTransferParam.getDest() + ".xml");
+            mapping = DataMappingUtils.readXmlSimpleDataMapping(getMappingFilePath(request), dataTransferParam.getDest() + ".xml");
         }catch (DocumentException e){
             e.printStackTrace();
         }

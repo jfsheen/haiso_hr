@@ -14,57 +14,68 @@ import javax.persistence.Embeddable;
 public class Deduct {
 
     @Basic
-    @Column(name = "insu_pension", nullable = false, length = 10, precision = 0)
+    @Column(name = "insu_pension")
     private Integer insuPension;
 
     @Basic
-    @Column(name = "insu_medical", nullable = false, length = 10, precision = 0)
+    @Column(name = "insu_medical")
     private Integer insuMedical;
 
     @Basic
-    @Column(name = "insu_unempl", nullable = false, length = 10, precision = 0)
+    @Column(name = "insu_unempl")
     private Integer insuUnempl;
 
     @Basic
-    @Column(name = "insu_lqmed", nullable = false, length = 10, precision = 0)
+    @Column(name = "insu_lqmed")
     private Integer insuLqmed;
 
     @Basic
-    @Column(name = "fund_house", nullable = false, length = 10, precision = 0)
+    @Column(name = "fund_house")
     private Integer fundHouse;
 
     @Basic
-    @Column(name = "fee_water", nullable = false, length = 10, precision = 0)
+    @Column(name = "fee_water")
     private Integer feeWater;
 
     @Basic
-    @Column(name = "fee_electric", nullable = false, length = 10, precision = 0)
+    @Column(name = "fee_electric")
     private Integer feeElectric;
 
     @Basic
-    @Column(name = "fee_gas", nullable = false, length = 10, precision = 0)
+    @Column(name = "fee_gas")
     private Integer feeGas;
 
     @Basic
-    @Column(name = "fee_property", nullable = false, length = 10, precision = 0)
+    @Column(name = "fee_property")
     private Integer feeProperty;
 
     @Basic
-    @Column(name = "dues_union", nullable = false, length = 10, precision = 0)
+    @Column(name = "dues_union")
     private Integer duesUnion;
 
     @Basic
-    @Column(name = "tax_income", nullable = false, length = 10, precision = 0)
+    @Column(name = "tax_income")
     private Integer taxIncome;
 
     @Basic
-    @Column(name = "tax_stamp", nullable = false, length = 10, precision = 0)
+    @Column(name = "tax_stamp")
     private Integer taxStamp;
 
     @Basic
-    @Column(name = "cost_rent", nullable = false, length = 10, precision = 0)
+    @Column(name = "cost_rent")
     private Integer costRent;
 
+    @Basic
+    @Column(name="fee_union")
+    private Integer feeUnion;
+
+    public Integer getFeeUnion() {
+        return feeUnion;
+    }
+
+    public void setFeeUnion(Integer feeUnion) {
+        this.feeUnion = feeUnion;
+    }
 
     public Integer getInsuPension() {
         return insuPension;
@@ -184,7 +195,7 @@ public class Deduct {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(insuPension, insuMedical, insuUnempl, insuLqmed, fundHouse, feeWater, feeElectric, feeGas, feeProperty, duesUnion, taxIncome, taxStamp, costRent);
+        return Objects.hashCode(insuPension, insuMedical, insuUnempl, insuLqmed, fundHouse, feeWater, feeElectric, feeGas, feeProperty, duesUnion, taxIncome, taxStamp, costRent, feeUnion);
     }
 
     @Override
@@ -196,6 +207,26 @@ public class Deduct {
             return false;
         }
         final Deduct other = (Deduct) obj;
-        return Objects.equal(this.insuPension, other.insuPension) && Objects.equal(this.insuMedical, other.insuMedical) && Objects.equal(this.insuUnempl, other.insuUnempl) && Objects.equal(this.insuLqmed, other.insuLqmed) && Objects.equal(this.fundHouse, other.fundHouse) && Objects.equal(this.feeWater, other.feeWater) && Objects.equal(this.feeElectric, other.feeElectric) && Objects.equal(this.feeGas, other.feeGas) && Objects.equal(this.feeProperty, other.feeProperty) && Objects.equal(this.duesUnion, other.duesUnion) && Objects.equal(this.taxIncome, other.taxIncome) && Objects.equal(this.taxStamp, other.taxStamp) && Objects.equal(this.costRent, other.costRent);
+        return Objects.equal(this.insuPension, other.insuPension) && Objects.equal(this.insuMedical, other.insuMedical) && Objects.equal(this.insuUnempl, other.insuUnempl) && Objects.equal(this.insuLqmed, other.insuLqmed) && Objects.equal(this.fundHouse, other.fundHouse) && Objects.equal(this.feeWater, other.feeWater) && Objects.equal(this.feeElectric, other.feeElectric) && Objects.equal(this.feeGas, other.feeGas) && Objects.equal(this.feeProperty, other.feeProperty) && Objects.equal(this.duesUnion, other.duesUnion) && Objects.equal(this.taxIncome, other.taxIncome) && Objects.equal(this.taxStamp, other.taxStamp) && Objects.equal(this.costRent, other.costRent) && Objects.equal(this.feeUnion, other.feeUnion);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("insuPension", insuPension)
+                .add("insuMedical", insuMedical)
+                .add("insuUnempl", insuUnempl)
+                .add("insuLqmed", insuLqmed)
+                .add("fundHouse", fundHouse)
+                .add("feeWater", feeWater)
+                .add("feeElectric", feeElectric)
+                .add("feeGas", feeGas)
+                .add("feeProperty", feeProperty)
+                .add("duesUnion", duesUnion)
+                .add("taxIncome", taxIncome)
+                .add("taxStamp", taxStamp)
+                .add("costRent", costRent)
+                .add("feeUnion", feeUnion)
+                .toString();
     }
 }
