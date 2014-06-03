@@ -73,11 +73,11 @@
         <table border="1" align="center" width="800px">
         <#if excelTitles?exists>
             <#list excelTitles?keys as tk>
-                <#if (tk_index+1)%3==1>
+                <#if (tk_index+1)%5==1>
                 <tr></#if>
                 <td>${tk}</td>
-                <td><input type="text" name="${tk}" value="${excelTitles[tk]}" readonly></td>
-                <#if (tk_index+1)%3==0></tr></#if>
+                <td><input class="ixt" type="text" name="${tk}" value="${excelTitles[tk]}" readonly></td>
+                <#if (tk_index+1)%5==0></tr></#if>
             </#list>
         </#if>
         </table>
@@ -86,11 +86,11 @@
         <table border="1" align="center" width="800px">
         <#if classFields?exists>
             <#list classFields as cf>
-                <#if (cf_index+1)%3==1>
+                <#if (cf_index+1)%5==1>
                 <tr></#if>
                 <td>${cf}</td>
                 <td><input type="text" name="${cf}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
-                <#if (cf_index+1)%3==0></tr></#if>
+                <#if (cf_index+1)%5==0></tr></#if>
             </#list>
         </#if>
         </table>

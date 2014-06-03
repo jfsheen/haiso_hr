@@ -13,4 +13,6 @@ public class CommonsConstant {
     public static String mappingFilePath = "/static/DataMapping";
 
     public static Integer MAX_NUM_OF_EMPTY_ROWS = 5;
+
+    public static String ENTITY_PACKAGE = "com.haiso.hr.entity";
 }

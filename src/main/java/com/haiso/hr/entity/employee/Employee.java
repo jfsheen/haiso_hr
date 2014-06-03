@@ -7,7 +7,9 @@ import com.haiso.hr.entity.base.AuditBaseEntity;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,10 +22,12 @@ import java.util.Set;
 public class Employee extends AuditBaseEntity{
 
     @Basic
-    @Column(name = "empl_sn", nullable = false, insertable = true, updatable = true, length = 20)
+    @Column(name = "empl_sn")
+    @NotNull
+    @Size(min = 10, max = 15, message = "empl_sn msg")
     private String emplSn;
     @Basic
-    @Column(name = "introduction", nullable = true, insertable = true, updatable = true, length = 500)
+    @Column(name = "introduction")
     private String introduction;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "empl_dept")
@@ -32,7 +36,7 @@ public class Employee extends AuditBaseEntity{
     @JoinTable(name = "empl_post")
     private Set<Position> positionSet = new HashSet<Position>();
     @OneToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
+    @JoinColumn(name = "person_id")
     @NotNull
     private Person person;
     @Basic

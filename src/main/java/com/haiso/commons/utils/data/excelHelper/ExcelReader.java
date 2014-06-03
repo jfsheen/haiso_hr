@@ -191,7 +191,7 @@ public class ExcelReader {
         return fetchDataRowByMapping(createWb(file), sheetIndex, rowIndex, cols);
     }
     private Map<Integer, DataCell> fetchDataRowByMapping(Workbook wb, Integer sheetIndex, Integer rowIndex, List cols) throws IOException{
-        if(rowIndex < 0 || sheetIndex > wb.getNumberOfSheets() || cols.isEmpty()){
+        if(rowIndex < 0 || sheetIndex > wb.getNumberOfSheets() || cols.size() == 0){
             throw new IllegalArgumentException("Illegal arguments!");
         }
         Sheet sheet = getSheet(wb, sheetIndex);

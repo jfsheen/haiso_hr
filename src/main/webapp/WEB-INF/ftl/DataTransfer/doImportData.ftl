@@ -39,7 +39,6 @@
 </ul>
 </#if>
 <div id="importMsg"></div>
-<progress></progress>
 <button id="btn_import">Confirm and Import</button>
 </body>
 </html>

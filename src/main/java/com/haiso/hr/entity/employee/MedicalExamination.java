@@ -31,7 +31,7 @@ public class MedicalExamination extends BaseEntity {
     @Column(name = "cod_cncls")
     private String coDoctorConclusion;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "empl_id", nullable = true)
+    @JoinColumn(name = "doc_emplsn", nullable = true)
     private Employee coDoctor;
     @Basic
     @Column(name = "remark")

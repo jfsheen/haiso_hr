@@ -32,7 +32,7 @@ public class SocialRelationship extends BaseEntity{
     @Column(name = "phone")
     private String phone;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
+    @JoinColumn(name = "person_id")
     private Person person;
 
 

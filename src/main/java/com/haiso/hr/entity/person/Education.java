@@ -1,10 +1,9 @@
 package com.haiso.hr.entity.person;
 
-import com.google.common.base.Objects;
 import com.haiso.hr.entity.base.BaseEntity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by ff on 4/15/14.
@@ -35,7 +34,7 @@ public class Education extends BaseEntity{
     @Column(name = "degree")
     private String degree;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
+    @JoinColumn(name = "person_id")
     private Person person;
 
     public Person getPerson() {

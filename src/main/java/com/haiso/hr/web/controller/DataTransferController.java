@@ -3,6 +3,7 @@ package com.haiso.hr.web.controller;
 import com.google.common.collect.Lists;
 import com.haiso.base.BaseController;
 import com.haiso.commons.utils.data.DataMappingUtils;
+import com.haiso.commons.utils.data.entityHelper.EntityUtils;
 import com.haiso.hr.web.vo.dataMapping.DataTransferParam;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Controller;
@@ -51,16 +52,14 @@ public class DataTransferController extends BaseController{
             File xmlFile = new File(mapPath, dest + ".xml");
             System.out.print(xmlFile.exists());
             if (xmlFile.exists() ? !(dms == 1 && (DataMappingUtils.getXmlDataMappingFromHashcode(xmlFile)).equals(xlsHashcode)) : true) {
-                model.addAttribute("importTo", dest);
-                model.addAttribute("importFrom", path + "/" + origin);
-                return "redirect:/dataTransfer/dataMapping";
+                return redirect("/dataTransfer/dataMapping");
             }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "/DataTransfer/doImportData";
+        return redirect("/dataTransfer/import3");
     }
 
 
@@ -74,7 +73,7 @@ public class DataTransferController extends BaseController{
                     new File(getUploadedFilePath(request), dataTransferParam.getOrigin()),
                     dataTransferParam.getExcelSheetIndex(),
                     dataTransferParam.getExcelTitleIndex());
-            List list = Lists.newArrayList(DataMappingUtils.getEntityFields(dataTransferParam.getDest()));
+            List list = Lists.newArrayList(new EntityUtils().getEntityFields(dataTransferParam.getDest()));
             model.addAttribute("excelTitles", map);
             model.addAttribute("classFields", list);
             model.addAttribute("importTo", dataTransferParam.getDest());

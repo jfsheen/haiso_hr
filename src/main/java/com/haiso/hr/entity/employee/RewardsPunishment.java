@@ -5,7 +5,7 @@ import com.haiso.hr.entity.Department;
 import com.haiso.hr.entity.base.BaseEntity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by ff on 4/15/14.

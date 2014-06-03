@@ -35,7 +35,7 @@ public class Certificate extends BaseEntity{
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-    @Column(name = "edu_id")
+    @JoinColumn(name = "edu_id")
     private Education education;
 
     @Override

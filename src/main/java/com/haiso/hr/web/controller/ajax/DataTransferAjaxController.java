@@ -1,11 +1,15 @@
 package com.haiso.hr.web.controller.ajax;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.haiso.base.BaseController;
 import com.haiso.commons.constant.CommonsConstant;
 import com.haiso.commons.model.excel.DataCell;
 import com.haiso.commons.utils.data.DataMappingUtils;
 import com.haiso.commons.utils.data.FileTypeUtils;
+import com.haiso.commons.utils.data.entityHelper.EntityUtils;
+import com.haiso.commons.utils.data.entityHelper.FieldUtils;
+import com.haiso.hr.entity.person.IdCard;
 import com.haiso.hr.entity.person.Person;
 import com.haiso.hr.web.enumeration.HrEntityEnum;
 import com.haiso.hr.web.rest.*;
@@ -14,10 +18,10 @@ import com.haiso.commons.model.UploadedFile;
 import com.haiso.commons.utils.data.excelHelper.ExcelReader;
 import com.haiso.hr.service.person.PersonService;
 import com.haiso.hr.web.validator.MultipartFileValidator;
+import org.apache.commons.collections.CollectionUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,6 +31,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.*;
 
 /**
@@ -75,10 +80,10 @@ public class DataTransferAjaxController extends BaseController{
 
     //===================================================================================================================
 
-    @RequestMapping("/importPrep")
+/*    @RequestMapping("/importPrep")
     public @ResponseBody
     CommonsRest importPrepare(@RequestBody String json, HttpServletRequest request, ModelMap model){
-        /*dataTransferParam = JsonUtils.readValue(json, DataTransferParam.class);
+        *//*dataTransferParam = JsonUtils.readValue(json, DataTransferParam.class);
 //        model.addAttribute("dataTransferParam", dataTransferParam);
         String param = PackUtils.Pack(JsonUtils.toJson(dataTransferParam));
         String path = getUploadedFilePath(request);
@@ -94,9 +99,9 @@ public class DataTransferAjaxController extends BaseController{
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }*//*
         return new CommonsRest(true, 2, "unknown error","/dataTransfer/import3");
-    }
+    }*/
     //====================@RequestBody String json, ===============================================================================================
 
     @RequestMapping(value = "/dataMapping", method = {RequestMethod.POST})
@@ -105,7 +110,7 @@ public class DataTransferAjaxController extends BaseController{
                             @ModelAttribute DataTransferParam dataTransferParam,
                             @RequestBody String json) {
         if(dataTransferParam != null){
-            System.out.println(dataTransferParam.getOrigin());
+            System.out.println(dataTransferParam.getOrigin());//todo
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
                 Map<String, Object> mapping = objectMapper.readValue(json, Map.class);
@@ -144,39 +149,106 @@ public class DataTransferAjaxController extends BaseController{
             try{
                 mapping = DataMappingUtils.readXmlSimpleDataMapping(getMappingFilePath(request), dataTransferParam.getDest() + ".xml");
                 //todo {remove NULL-value list elements}
-                List<String> nnCols = new ArrayList<String>();
-                Iterator<String> it = Lists.newArrayList(mapping.values()).iterator();
+                Iterator<Map.Entry<String, String>> it = mapping.entrySet().iterator();
                 while(it.hasNext()){
-                    String s = it.next();
-                    if(!(s.isEmpty() || s == null)){
-                        nnCols.add(s);
-                    }
+                    Map.Entry<String, String> entry=it.next();
+                    if(entry.getValue().isEmpty() || entry.getValue() == null)
+                        it.remove();
                 }
                 ExcelReader excelReader = new ExcelReader();
-                Map<Integer, DataCell> data = null;
-                int i = 1;
-                int l = 0;
+                Map<Integer, DataCell> rd = null;
+                int idr = 1;
+                int ner = 0;
                 File file = new File(getUploadedFilePath(request), dataTransferParam.getOrigin());
-                while(l < CommonsConstant.MAX_NUM_OF_EMPTY_ROWS) {
-                    data = excelReader.fetchDataRowByMapping(file,
+                while(ner < CommonsConstant.MAX_NUM_OF_EMPTY_ROWS) {
+                    rd = excelReader.fetchDataRowByMapping(file,
                             dataTransferParam.getExcelSheetIndex(),
-                            dataTransferParam.getExcelTitleIndex() + i,
-                            nnCols);
-                    i++;
-                    if(data == null){
-                        l++;
+                            dataTransferParam.getExcelTitleIndex() + idr,
+                            Lists.newArrayList(mapping.values()));
+                    idr++;
+                    if(rd == null){
+                        ner++;
                         continue;
                     }else{
-                        l = 0;
+                        ner = 0;
                     }
 
                     HrEntityEnum entity = HrEntityEnum.valueOf(dataTransferParam.getDest());
-
+                    FieldUtils fieldUtils= new FieldUtils();
+                    EntityUtils entityUtils = new EntityUtils();
                     switch (entity){
                         case Person:
+                            IdCard idCard = new IdCard();
                             Person person = new Person();
+                            Set<String> idc = new EntityUtils().getEmbeddedFields("IdCard");
+                            Set<String> ps = Sets.newHashSet(CollectionUtils.union(mapping.keySet(), idc));//todo union error!!!
+                            Iterator<String> it2 = ps.iterator();
+                            while(it2.hasNext()){
+                                DataCell dc = rd.get(Integer.valueOf(mapping.get(it2.next())));
+                                fieldUtils.setFieldValue(idCard, it2.next(), dc.getValue());
+                            }
+                            person.setIdCard(idCard);
+                            ps = Sets.newHashSet(CollectionUtils.subtract(mapping.keySet(), idc));
+                            it2 = ps.iterator();
+                            while(it2.hasNext()){
+                                DataCell dc = rd.get(Integer.valueOf(mapping.get(it2.next())));
+                                fieldUtils.setFieldValue(person, it2.next(), dc.getValue());
+                            }
+                            personService.add(person);
+                            break;
+                        case Adjustment:
+                            break;
+                        case Deduct:
+                            break;
+                        case EmplInfo:
+                            break;
+                        case Pay:
+                            break;
+                        case Salary:
+                            break;
+                        case Assessment:
+                            break;
+                        case BankInfo:
+                            break;
+                        case Contract:
                             break;
                         case Employee:
+                            break;
+                        case Event:
+                            break;
+                        case PhysicalExamination:
+                            break;
+                        case PostTransaction:
+                            break;
+                        case RewardsPunishment:
+                            break;
+                        case EmplLevel:
+                            break;
+                        case EmplSequence:
+                            break;
+                        case EmplStatus:
+                            break;
+                        case InsuLocation:
+                            break;
+                        case Param:
+                            break;
+                        case BasicInfo:
+                            break;
+                        case Certificate:
+                            break;
+                        case Education:
+                            break;
+                        case IdCard:
+                            break;
+                        case SocialRelationship:
+                            break;
+                        case WorkExperience:
+                            break;
+                        case Department:
+                            break;
+                        case Log:
+                            break;
+                        case Position:
                             break;
                     }
 

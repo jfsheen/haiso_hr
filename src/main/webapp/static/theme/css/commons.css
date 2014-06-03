@@ -1,3 +1,8 @@
+/*input,select{
+    -webkit-appearance:none;
+    appearance:none;
+}*/
+
 button {
     width: 160px;
     height: 40px;
@@ -6,4 +11,9 @@ button {
 .err-msg {
     color: #ff0000;
     font-style: italic;
+}
+
+.ixt{
+    size:4;
+    border:0;
 }

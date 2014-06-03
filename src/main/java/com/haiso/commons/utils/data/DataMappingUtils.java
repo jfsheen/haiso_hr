@@ -23,21 +23,8 @@ import java.util.*;
  */
 public final class DataMappingUtils {
 
-    private static Set<Class<?>> entitySet = EntityUtils.getClassesAnnotated("com.haiso.hr.entity", Entity.class);
-    ;
-    private static Set<Class<?>> embeddableSet = EntityUtils.getClassesAnnotated("com.haiso.hr.entity", Embeddable.class);
     private static String DATAMAPPING_XML_PATH = null;
     private static ExcelReader excelReader = new ExcelReader();
-
-    private static String getFullyQualifiedClassName(Set<Class<?>> classSet, String className) {
-        for (Class c : classSet) {
-            String cname = c.getName();
-            if (cname.substring(cname.lastIndexOf(".") + 1).equals(className)) {
-                return cname;
-            }
-        }
-        return null;
-    }
 
     public static void getXmlFieldsMapping(String filePath) throws Exception {
         SAXReader saxReader = new SAXReader();
@@ -210,7 +197,7 @@ public final class DataMappingUtils {
         return ((Integer) getDataSourceSheetTitlesMap(file, sheetIndex, titleRowIndex).hashCode()).toString();
     }
 
-    //  return map(entityHelper name, entityHelper type)
+    /*//  return map(entityHelper name, entityHelper type)
     public static Map<String, String> getEntityFiledsMap(String className){
         Map<String, String> fieldsMap = new LinkedHashMap<String, String>();
 
@@ -249,5 +236,5 @@ public final class DataMappingUtils {
         }
         return fields;
     }
-
+*/
 }

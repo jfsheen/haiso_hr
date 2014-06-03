@@ -1,6 +1,7 @@
 package com.haiso.hr;
 
 import com.haiso.commons.utils.PackUtils;
+import com.haiso.commons.utils.data.entityHelper.EntityUtils;
 import com.haiso.commons.utils.data.entityHelper.FieldUtils;
 import com.haiso.hr.entity.person.Person;
 import org.junit.Before;
@@ -12,8 +13,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.Date;
+import java.util.Set;
+import java.util.TreeSet;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -54,6 +58,9 @@ public class AppTests {
         fu.setFieldValue(person, "name", new String("zhangsan"));
 //        fu.setFieldValue(person, "joinPartyDate", new Date("2012-01-01"));
         System.out.println(person.toString());
+        Set<String> set = new TreeSet<String>();
+        set = new EntityUtils().getEmbeddedFields("IdCard");
+        System.out.println(set.toArray().toString());
     }
 
 

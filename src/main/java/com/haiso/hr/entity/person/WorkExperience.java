@@ -38,7 +38,7 @@ public class WorkExperience extends BaseEntity{
     @Column(name = "com_email")
     private String comEmail;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "person_id", nullable = false)
+    @JoinColumn(name = "person_id")
     private Person person;
 
 
