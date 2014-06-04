@@ -1,10 +1,10 @@
 package com.haiso.hr.entity.employee.salary;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by ff on 4/15/14.
@@ -12,11 +12,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_empl_salary_info")
-public class SalaryInfo {
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
+public class SalaryInfo extends AuditBaseEntity{
+
     @Basic
     @Column(name = "is_post")
     private Boolean isPost;
@@ -44,26 +41,10 @@ public class SalaryInfo {
     @Basic
     @Column(name = "lsn_fundhouse")
     private Short lsnInsuHouse;//location SN fund of housing
-    @Column(name = "last_update")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastUpdate;
-    @Column(name = "create_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
-    @Version
-    @Column(name = "version_lock")
-    private Integer version;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "empl_sn", nullable = false)
     private Employee employee;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Boolean getIsPost() {
         return isPost;
@@ -137,29 +118,6 @@ public class SalaryInfo {
         this.lsnInsuHouse = lsnInsuHouse;
     }
 
-    public Date getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
 
     public Employee getEmployee() {
         return employee;
@@ -169,45 +127,9 @@ public class SalaryInfo {
         this.employee = employee;
     }
 
-    @PreUpdate
-    public void preUpdate() {
-        this.lastUpdate = new java.util.Date();
-    }
-
-    @PrePersist
-    public void prePersist() {
-        this.createDate = new java.util.Date();
-        this.lastUpdate = new java.util.Date();
-    }
-
-    @PreRemove
-    public void preRemove() {
-
-    }
-
-    @PostPersist
-    public void postPersist() {
-
-    }
-
-    @PostLoad
-    public void postLoad() {
-
-    }
-
-    @PostRemove
-    public void postRemove() {
-
-    }
-
-    @PostUpdate
-    public void postUpdate() {
-
-    }
-
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, isPost, byTime, byPiece, ratioEval, ratioPrepay, lsnInsuPesn, lsnInsuMed, lsnInsuLqMed, lsnInsuHouse, lastUpdate, createDate, version, employee);
+        return 31 * super.hashCode() + Objects.hashCode(isPost, byTime, byPiece, ratioEval, ratioPrepay, lsnInsuPesn, lsnInsuMed, lsnInsuLqMed, lsnInsuHouse, employee);
     }
 
     @Override
@@ -218,14 +140,16 @@ public class SalaryInfo {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         final SalaryInfo other = (SalaryInfo) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.isPost, other.isPost) && Objects.equal(this.byTime, other.byTime) && Objects.equal(this.byPiece, other.byPiece) && Objects.equal(this.ratioEval, other.ratioEval) && Objects.equal(this.ratioPrepay, other.ratioPrepay) && Objects.equal(this.lsnInsuPesn, other.lsnInsuPesn) && Objects.equal(this.lsnInsuMed, other.lsnInsuMed) && Objects.equal(this.lsnInsuLqMed, other.lsnInsuLqMed) && Objects.equal(this.lsnInsuHouse, other.lsnInsuHouse) && Objects.equal(this.lastUpdate, other.lastUpdate) && Objects.equal(this.createDate, other.createDate) && Objects.equal(this.version, other.version) && Objects.equal(this.employee, other.employee);
+        return Objects.equal(this.isPost, other.isPost) && Objects.equal(this.byTime, other.byTime) && Objects.equal(this.byPiece, other.byPiece) && Objects.equal(this.ratioEval, other.ratioEval) && Objects.equal(this.ratioPrepay, other.ratioPrepay) && Objects.equal(this.lsnInsuPesn, other.lsnInsuPesn) && Objects.equal(this.lsnInsuMed, other.lsnInsuMed) && Objects.equal(this.lsnInsuLqMed, other.lsnInsuLqMed) && Objects.equal(this.lsnInsuHouse, other.lsnInsuHouse) && Objects.equal(this.employee, other.employee);
     }
 
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("id", id)
                 .add("isPost", isPost)
                 .add("byTime", byTime)
                 .add("byPiece", byPiece)
@@ -235,9 +159,6 @@ public class SalaryInfo {
                 .add("lsnInsuMed", lsnInsuMed)
                 .add("lsnInsuLqMed", lsnInsuLqMed)
                 .add("lsnInsuHouse", lsnInsuHouse)
-                .add("lastUpdate", lastUpdate)
-                .add("createDate", createDate)
-                .add("version", version)
                 .add("employee", employee)
                 .toString();
     }

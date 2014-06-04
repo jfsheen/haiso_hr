@@ -15,214 +15,214 @@ public class Pay {
 
     @Basic
     @Column(name = "pay_regular")
-    private Integer payRegular;
+    private Long payRegular;
 
     @Basic
     @Column(name = "pay_callback")
-    private Integer payCallback;
+    private Long payCallback;
 
     @Basic
     @Column(name = "pay_seniority")
-    private Integer paySeniority;
+    private Long paySeniority;
 
 
     @Basic
     @Column(name = "pay_post")
-    private Integer payPost;
+    private Long payPost;
 
     @Basic
     @Column(name = "allo_duty")
-    private Integer alloDuty;
+    private Long alloDuty;
 
     @Basic
     @Column(name = "fee_coultant")
-    private Integer feeCoultant;
+    private Long feeCoultant;
 
     @Basic
     @Column(name = "pay_merit")
-    private Integer payMerit;
+    private Long payMerit;
 
     @Basic
     @Column(name = "pay_attendance")
-    private Integer payAttendance;
+    private Long payAttendance;
 
     @Basic
     @Column(name = "pay_watcher")
-    private Integer payWatcher;
+    private Long payWatcher;
 
     @Basic
     @Column(name = "allo_health")
-    private Integer alloHealth;
+    private Long alloHealth;
 
     @Basic
     @Column(name = "allo_educate")
-    private Integer alloEducate;
+    private Long alloEducate;
 
     @Basic
     @Column(name = "subsidy")
-    private Integer subsidy;
+    private Long subsidy;
 
     @Basic
     @Column(name = "perquisite")
-    private Integer perquisite;
+    private Long perquisite;
 
     @Basic
     @Column(name = "bonus")
-    private Integer bonus;
+    private Long bonus;
 
     @Basic
     @Column(name = "allo_child")
-    private Integer alloChild;
+    private Long alloChild;
 
     @Basic
     @Column(name = "allo_meal")
-    private Integer alloMeal;
+    private Long alloMeal;
 
     @Basic
     @Column(name = "subs_rent")
-    private Integer subsRent;
+    private Long subsRent;
 
-    public Integer getPayRegular() {
+    public Long getPayRegular() {
         return payRegular;
     }
 
-    public void setPayRegular(Integer payRegular) {
+    public void setPayRegular(Long payRegular) {
         this.payRegular = payRegular;
     }
 
-    public Integer getPaySeniority() {
+    public Long getPaySeniority() {
         return paySeniority;
     }
 
-    public void setPaySeniority(Integer paySeniority) {
+    public void setPaySeniority(Long paySeniority) {
         this.paySeniority = paySeniority;
     }
 
-    public Integer getPayPost() {
+    public Long getPayPost() {
         return payPost;
     }
 
-    public void setPayPost(Integer payPost) {
+    public void setPayPost(Long payPost) {
         this.payPost = payPost;
     }
 
-    public Integer getAlloDuty() {
+    public Long getAlloDuty() {
         return alloDuty;
     }
 
-    public void setAlloDuty(Integer alloDuty) {
+    public void setAlloDuty(Long alloDuty) {
         this.alloDuty = alloDuty;
     }
 
-    public Integer getFeeCoultant() {
+    public Long getFeeCoultant() {
         return feeCoultant;
     }
 
-    public void setFeeCoultant(Integer feeCoultant) {
+    public void setFeeCoultant(Long feeCoultant) {
         this.feeCoultant = feeCoultant;
     }
 
-    public Integer getPayMerit() {
+    public Long getPayMerit() {
         return payMerit;
     }
 
-    public void setPayMerit(Integer payMerit) {
+    public void setPayMerit(Long payMerit) {
         this.payMerit = payMerit;
     }
 
-    public Integer getPayAttendance() {
+    public Long getPayAttendance() {
         return payAttendance;
     }
 
-    public void setPayAttendance(Integer payAttendance) {
+    public void setPayAttendance(Long payAttendance) {
         this.payAttendance = payAttendance;
     }
 
-    public Integer getPayCallback() {
+    public Long getPayCallback() {
         return payCallback;
     }
 
-    public void setPayCallback(Integer payCallback) {
+    public void setPayCallback(Long payCallback) {
         this.payCallback = payCallback;
     }
 
-    public Integer getPayWatcher() {
+    public Long getPayWatcher() {
         return payWatcher;
     }
 
-    public void setPayWatcher(Integer payWatcher) {
+    public void setPayWatcher(Long payWatcher) {
         this.payWatcher = payWatcher;
     }
 
-    public Integer getAlloHealth() {
+    public Long getAlloHealth() {
         return alloHealth;
     }
 
-    public void setAlloHealth(Integer alloHealth) {
+    public void setAlloHealth(Long alloHealth) {
         this.alloHealth = alloHealth;
     }
 
 
-    public Integer getAlloEducate() {
+    public Long getAlloEducate() {
         return alloEducate;
     }
 
-    public void setAlloEducate(Integer alloEducate) {
+    public void setAlloEducate(Long alloEducate) {
         this.alloEducate = alloEducate;
     }
 
-    public Integer getSubsidy() {
+    public Long getSubsidy() {
         return subsidy;
     }
 
-    public void setSubsidy(Integer subsidy) {
+    public void setSubsidy(Long subsidy) {
         this.subsidy = subsidy;
     }
 
-    public Integer getPerquisite() {
+    public Long getPerquisite() {
         return perquisite;
     }
 
-    public void setPerquisite(Integer perquisite) {
+    public void setPerquisite(Long perquisite) {
         this.perquisite = perquisite;
     }
 
-    public Integer getBonus() {
+    public Long getBonus() {
         return bonus;
     }
 
-    public void setBonus(Integer bonus) {
+    public void setBonus(Long bonus) {
         this.bonus = bonus;
     }
 
-    public Integer getAlloChild() {
+    public Long getAlloChild() {
         return alloChild;
     }
 
-    public void setAlloChild(Integer alloChild) {
+    public void setAlloChild(Long alloChild) {
         this.alloChild = alloChild;
     }
 
 
-    public Integer getAlloMeal() {
+    public Long getAlloMeal() {
         return alloMeal;
     }
 
-    public void setAlloMeal(Integer alloMeal) {
+    public void setAlloMeal(Long alloMeal) {
         this.alloMeal = alloMeal;
     }
 
-    public Integer getSubsRent() {
+    public Long getSubsRent() {
         return subsRent;
     }
 
-    public void setSubsRent(Integer subsRent) {
+    public void setSubsRent(Long subsRent) {
         this.subsRent = subsRent;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(payRegular, paySeniority, payPost, alloDuty, feeCoultant, payMerit, payAttendance, payCallback, payWatcher, alloHealth, alloEducate, subsidy, perquisite, bonus, alloChild, alloMeal, subsRent);
+        return Objects.hashCode(payRegular, payCallback, paySeniority, payPost, alloDuty, feeCoultant, payMerit, payAttendance, payWatcher, alloHealth, alloEducate, subsidy, perquisite, bonus, alloChild, alloMeal, subsRent);
     }
 
     @Override
@@ -234,7 +234,7 @@ public class Pay {
             return false;
         }
         final Pay other = (Pay) obj;
-        return Objects.equal(this.payRegular, other.payRegular) && Objects.equal(this.paySeniority, other.paySeniority) && Objects.equal(this.payPost, other.payPost) && Objects.equal(this.alloDuty, other.alloDuty) && Objects.equal(this.feeCoultant, other.feeCoultant) && Objects.equal(this.payMerit, other.payMerit) && Objects.equal(this.payAttendance, other.payAttendance) && Objects.equal(this.payCallback, other.payCallback) && Objects.equal(this.payWatcher, other.payWatcher) && Objects.equal(this.alloHealth, other.alloHealth) && Objects.equal(this.alloEducate, other.alloEducate) && Objects.equal(this.subsidy, other.subsidy) && Objects.equal(this.perquisite, other.perquisite) && Objects.equal(this.bonus, other.bonus) && Objects.equal(this.alloChild, other.alloChild) && Objects.equal(this.alloMeal, other.alloMeal) && Objects.equal(this.subsRent, other.subsRent);
+        return Objects.equal(this.payRegular, other.payRegular) && Objects.equal(this.payCallback, other.payCallback) && Objects.equal(this.paySeniority, other.paySeniority) && Objects.equal(this.payPost, other.payPost) && Objects.equal(this.alloDuty, other.alloDuty) && Objects.equal(this.feeCoultant, other.feeCoultant) && Objects.equal(this.payMerit, other.payMerit) && Objects.equal(this.payAttendance, other.payAttendance) && Objects.equal(this.payWatcher, other.payWatcher) && Objects.equal(this.alloHealth, other.alloHealth) && Objects.equal(this.alloEducate, other.alloEducate) && Objects.equal(this.subsidy, other.subsidy) && Objects.equal(this.perquisite, other.perquisite) && Objects.equal(this.bonus, other.bonus) && Objects.equal(this.alloChild, other.alloChild) && Objects.equal(this.alloMeal, other.alloMeal) && Objects.equal(this.subsRent, other.subsRent);
     }
 
     @Override

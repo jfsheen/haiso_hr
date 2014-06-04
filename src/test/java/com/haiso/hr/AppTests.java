@@ -1,9 +1,11 @@
 package com.haiso.hr;
 
+import com.google.common.collect.Sets;
 import com.haiso.commons.utils.PackUtils;
 import com.haiso.commons.utils.data.entityHelper.EntityUtils;
 import com.haiso.commons.utils.data.entityHelper.FieldUtils;
 import com.haiso.hr.entity.person.Person;
+import org.apache.commons.collections.CollectionUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,9 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 import sun.reflect.generics.tree.Tree;
 
-import java.util.Date;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -52,15 +52,44 @@ public class AppTests {
         System.out.println(b + b.length());
 //        System.out.println(new Constants().getUploadFilePath("/"));
 
-        Person person = new Person();
+/*        Person person = new Person();
         FieldUtils fu = new FieldUtils();
         fu.setFieldValue(person, "id", new Long(1));
         fu.setFieldValue(person, "name", new String("zhangsan"));
 //        fu.setFieldValue(person, "joinPartyDate", new Date("2012-01-01"));
-        System.out.println(person.toString());
-        Set<String> set = new TreeSet<String>();
-        set = new EntityUtils().getEmbeddedFields("IdCard");
+        System.out.println(person.toString());*/
+        Set<String> set1 = new TreeSet<String>();
+        set1.add("a");
+        set1.add("b");
+        set1.add("c");
+        set1.add("d");
+        Set<String> set2 = new TreeSet<String>();
+        set2.add("a");
+        set2.add("c");
+        set2.add("e");
+        set2.add("2");
+        Set set = Sets.newTreeSet(CollectionUtils.union(set1, set2));
+        set = Sets.newTreeSet(CollectionUtils.disjunction(set1,set2));
+        set = Sets.newTreeSet(CollectionUtils.intersection(set1, set2));
+        set = Sets.newTreeSet(CollectionUtils.subtract(set1, set2));
         System.out.println(set.toArray().toString());
+
+        Map<String, String> map1 = new LinkedHashMap<String, String>();
+        Map<Integer, String> map2 = new LinkedHashMap<Integer, String>();
+        map1.put("a","a1");
+        map1.put("b","b1");
+        map1.put("c","c1");
+        map1.put("d","d1");
+        map1.put("e","e1");
+        map2.put(1,"2a");
+        map2.put(3,"2b");
+        map2.put(5,"2c");
+        map2.put(7,"2d");
+        map2.put(9,"2e");
+        String m2 = map2.get(1);
+        m2 = map2.get("1");
+        System.out.println(map2.get(2));
+
     }
 
 

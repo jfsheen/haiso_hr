@@ -13,12 +13,14 @@ import com.haiso.hr.entity.person.IdCard;
 import com.haiso.hr.entity.person.Person;
 import com.haiso.hr.web.enumeration.HrEntityEnum;
 import com.haiso.hr.web.rest.*;
+import com.haiso.hr.web.vo.Entities;
 import com.haiso.hr.web.vo.dataMapping.DataTransferParam;
 import com.haiso.commons.model.UploadedFile;
 import com.haiso.commons.utils.data.excelHelper.ExcelReader;
 import com.haiso.hr.service.person.PersonService;
 import com.haiso.hr.web.validator.MultipartFileValidator;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.*;
 
 /**
@@ -144,6 +145,7 @@ public class DataTransferAjaxController extends BaseController{
     public @ResponseBody
     CommonsRest dataImporting(@ModelAttribute DataTransferParam dataTransferParam,
                               HttpServletRequest request, HttpServletResponse response){
+        String res = "";
         if(dataTransferParam != null){
             Map<String, String> mapping = null;
             try{
@@ -156,17 +158,16 @@ public class DataTransferAjaxController extends BaseController{
                         it.remove();
                 }
                 ExcelReader excelReader = new ExcelReader();
-                Map<Integer, DataCell> rd = null;
                 int idr = 1;
                 int ner = 0;
                 File file = new File(getUploadedFilePath(request), dataTransferParam.getOrigin());
+                Sheet sheet = excelReader.getSheet(excelReader.createWb(file), dataTransferParam.getExcelSheetIndex());
                 while(ner < CommonsConstant.MAX_NUM_OF_EMPTY_ROWS) {
-                    rd = excelReader.fetchDataRowByMapping(file,
-                            dataTransferParam.getExcelSheetIndex(),
+                    Map<String, DataCell> rd = excelReader.fetchDataRowByMapping(sheet,
                             dataTransferParam.getExcelTitleIndex() + idr,
                             Lists.newArrayList(mapping.values()));
                     idr++;
-                    if(rd == null){
+                    if(rd == null || rd.isEmpty()){
                         ner++;
                         continue;
                     }else{
@@ -180,21 +181,26 @@ public class DataTransferAjaxController extends BaseController{
                         case Person:
                             IdCard idCard = new IdCard();
                             Person person = new Person();
-                            Set<String> idc = new EntityUtils().getEmbeddedFields("IdCard");
-                            Set<String> ps = Sets.newHashSet(CollectionUtils.union(mapping.keySet(), idc));//todo union error!!!
+                            Set<String> ids = Sets.newHashSet(Entities.idCard.keySet());
+                            Set<String> ps = Sets.newHashSet(CollectionUtils.intersection(mapping.keySet(), ids));
                             Iterator<String> it2 = ps.iterator();
                             while(it2.hasNext()){
-                                DataCell dc = rd.get(Integer.valueOf(mapping.get(it2.next())));
-                                fieldUtils.setFieldValue(idCard, it2.next(), dc.getValue());
+                                String fn = it2.next();
+                                DataCell dc = rd.get(mapping.get(fn));
+                                Object val = fn.equals("idGender") ? dc.getValue().equals(CommonsConstant.GENDER_MALE) : dc.getValue();
+                                fieldUtils.setFieldValue(idCard, fn, val);
                             }
                             person.setIdCard(idCard);
-                            ps = Sets.newHashSet(CollectionUtils.subtract(mapping.keySet(), idc));
+                            ps = Sets.newHashSet(CollectionUtils.subtract(mapping.keySet(), ids));
                             it2 = ps.iterator();
                             while(it2.hasNext()){
-                                DataCell dc = rd.get(Integer.valueOf(mapping.get(it2.next())));
-                                fieldUtils.setFieldValue(person, it2.next(), dc.getValue());
+                                String fn = it2.next();
+                                DataCell dc = rd.get(mapping.get(fn));
+                                Object val = fn.equals("married") ? dc.getValue().equals(CommonsConstant.MARRIED_TRUE) : dc.getValue();
+                                fieldUtils.setFieldValue(idCard, fn, val);
                             }
-                            personService.add(person);
+                            res = person.toString();
+//                            personService.add(person);
                             break;
                         case Adjustment:
                             break;
@@ -259,6 +265,6 @@ public class DataTransferAjaxController extends BaseController{
             }
 
         }
-        return new CommonsRest(false,-1,"Unknown error!",null);
+        return new CommonsRest(true,1, res, null);
     }
 }

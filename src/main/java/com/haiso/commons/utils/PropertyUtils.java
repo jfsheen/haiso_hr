@@ -15,14 +15,14 @@ public class PropertyUtils extends org.apache.commons.beanutils.PropertyUtils {
 
     public static Properties readFromResource(Resource resource)
             throws IOException {
-        Properties pro = new Properties();
+        Properties prop = new Properties();
         InputStream ins = null;
         ins = resource.getInputStream();
         if (null != ins) {
-            pro.load(ins);
+            prop.load(ins);
         } else {
             throw new IOException("inputstream of resource is null！");
         }
-        return pro;
+        return prop;
     }
 }

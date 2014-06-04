@@ -40,7 +40,7 @@ public class ExcelReader {
      * @date 2013-5-11
      */
 
-    private Workbook createWb(String filePath) throws IOException {
+    public Workbook createWb(String filePath) throws IOException {
         if (StringUtils.isBlank(filePath)) {
             throw new IllegalArgumentException("Illegal arguments!");
         }
@@ -48,7 +48,7 @@ public class ExcelReader {
         return createWb(new File(filePath));
     }
 
-    private Workbook createWb(File file) throws IOException {
+    public Workbook createWb(File file) throws IOException {
         if (file == null) {
             throw new IllegalArgumentException("Illegal arguments!");
         }
@@ -61,7 +61,7 @@ public class ExcelReader {
         }
     }
 
-    private Workbook createWb(FileInputStream is) throws IOException{
+    public Workbook createWb(FileInputStream is) throws IOException{
         if(is == null){
             throw new IllegalArgumentException("Illegal arguments!");
         }
@@ -82,15 +82,15 @@ public class ExcelReader {
         return new Tika().detect(file);
     }
 
-    private Sheet getSheet(Workbook wb, String sheetName) {
+    public Sheet getSheet(Workbook wb, String sheetName) {
         return wb.getSheet(sheetName);
     }
 
-    private Sheet getSheet(Workbook wb, int index) {
+    public Sheet getSheet(Workbook wb, int index) {
         return wb.getSheetAt(index);
     }
 
-    private List<Sheet> listSheets(Workbook wb) {
+    public List<Sheet> listSheets(Workbook wb) {
         List<Sheet> sheets = new ArrayList<Sheet>();
         for (int i = 0; i < wb.getNumberOfSheets(); i++) {
             sheets.add(wb.getSheetAt(i));
@@ -98,11 +98,11 @@ public class ExcelReader {
         return sheets;
     }
 
-    private List<Sheet> listSheets(String filePath) throws IOException {
+    public List<Sheet> listSheets(String filePath) throws IOException {
         return listSheets(createWb(filePath));
     }
 
-    private List<Sheet> listSheets(File file) throws IOException {
+    public List<Sheet> listSheets(File file) throws IOException {
         return listSheets(createWb(file));
     }
 
@@ -145,7 +145,7 @@ public class ExcelReader {
         return list;
     }*/
 
-    private Map<String, String> listSheetTitles(Sheet sheet, Integer titleRowIndex) {
+    public Map<String, String> listSheetTitles(Sheet sheet, Integer titleRowIndex) {
         Map<String, String> titles = new LinkedHashMap<String, String>();
         Row row = sheet.getRow(titleRowIndex);
         for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
@@ -167,7 +167,7 @@ public class ExcelReader {
         return listSheetTitles(getSheet(createWb(file), sheetIndex), titleRowIndex);
     }
 
-    private List<TitleCell> listSheetTitlesModel(Sheet sheet, Integer titleRowIndex) {
+    public List<TitleCell> listSheetTitlesModel(Sheet sheet, Integer titleRowIndex) {
         List<TitleCell> titles = new ArrayList<TitleCell>();
         Row row = sheet.getRow(titleRowIndex);
         for (int i = row.getFirstCellNum(); i <= row.getLastCellNum(); i++) {
@@ -187,18 +187,14 @@ public class ExcelReader {
         return listSheetTitlesModel(getSheet(createWb(file), sheetIndex), titleRowIndex);
     }
 
-    public Map<Integer, DataCell> fetchDataRowByMapping(File file, Integer sheetIndex, Integer rowIndex, List cols) throws IOException {
-        return fetchDataRowByMapping(createWb(file), sheetIndex, rowIndex, cols);
-    }
-    private Map<Integer, DataCell> fetchDataRowByMapping(Workbook wb, Integer sheetIndex, Integer rowIndex, List cols) throws IOException{
-        if(rowIndex < 0 || sheetIndex > wb.getNumberOfSheets() || cols.size() == 0){
+    public Map<String, DataCell> fetchDataRowByMapping(Sheet sheet, Integer rowIndex, List cols) throws IOException {
+        if(rowIndex < 0 || sheet == null || cols.size() == 0){
             throw new IllegalArgumentException("Illegal arguments!");
         }
-        Sheet sheet = getSheet(wb, sheetIndex);
         Row row = sheet.getRow(rowIndex);
         if(row == null)
             return null;
-        Map<Integer, DataCell> dataMap = new LinkedHashMap<Integer, DataCell>();
+        Map<String, DataCell> dataMap = new LinkedHashMap<String, DataCell>();
         Iterator<Object> it = cols.iterator();
         while(it.hasNext()){
             Object col = it.next();
@@ -207,12 +203,21 @@ public class ExcelReader {
             if(cell == null) continue;
             DataCell dataCell = getDataCellModelFromCell(row.getCell(iCol));
             if(!(dataCell.getValue() == null || dataCell.getValue().toString().isEmpty())){
-                dataMap.put(iCol, dataCell);
+                dataMap.put((String)col, dataCell);
             }
         }
         return dataMap;
     }
 
+    public Map<String, DataCell> fetchDataRowByMapping(Workbook wb, Integer sheetIndex, Integer rowIndex, List cols) throws IOException{
+        Sheet sheet = getSheet(wb, sheetIndex);
+        return fetchDataRowByMapping(sheet, rowIndex, cols);
+
+    }
+
+    public Map<String, DataCell> fetchDataRowByMapping(File file, Integer sheetIndex, Integer rowIndex, List cols) throws IOException {
+        return fetchDataRowByMapping(createWb(file), sheetIndex, rowIndex, cols);
+    }
     /**
      * 获取单元格内文本信息
      *
@@ -221,7 +226,7 @@ public class ExcelReader {
      * @date 2013-5-8
      */
 
-    private TitleCell getTitleModelFromCell(Cell cell) {
+    public TitleCell getTitleModelFromCell(Cell cell) {
         return new TitleCell(cell.getRowIndex(), cell.getColumnIndex(), (String) getDataCellModelFromCell(cell).getValue());
     }
 

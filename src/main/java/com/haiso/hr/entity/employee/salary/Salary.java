@@ -1,6 +1,7 @@
 package com.haiso.hr.entity.employee.salary;
 
 import com.google.common.base.Objects;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
@@ -11,12 +12,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_empl_salary")
-public class Salary {
+public class Salary extends AuditBaseEntity{
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private Long id;
 
     @Basic
     @Column(name = "period_start")
@@ -36,7 +33,7 @@ public class Salary {
 
     @Basic
     @Column(name="real_salary")
-    private Integer realSalary;
+    private Long realSalary;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "person_id")
@@ -56,14 +53,6 @@ public class Salary {
 
     public void setPay(Pay pay) {
         this.pay = pay;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Person getPerson() {
@@ -92,7 +81,7 @@ public class Salary {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, person, periodStart, periodEnd, pay, deduct);
+        return 31 * super.hashCode() + Objects.hashCode(periodStart, periodEnd, pay, deduct, realSalary, person);
     }
 
     @Override
@@ -103,19 +92,22 @@ public class Salary {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         final Salary other = (Salary) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.person, other.person) && Objects.equal(this.periodStart, other.periodStart) && Objects.equal(this.periodEnd, other.periodEnd) && Objects.equal(this.pay, other.pay) && Objects.equal(this.deduct, other.deduct);
+        return Objects.equal(this.periodStart, other.periodStart) && Objects.equal(this.periodEnd, other.periodEnd) && Objects.equal(this.pay, other.pay) && Objects.equal(this.deduct, other.deduct) && Objects.equal(this.realSalary, other.realSalary) && Objects.equal(this.person, other.person);
     }
 
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("id", id)
-                .add("person", person)
                 .add("periodStart", periodStart)
                 .add("periodEnd", periodEnd)
                 .add("pay", pay)
                 .add("deduct", deduct)
+                .add("realSalary", realSalary)
+                .add("person", person)
                 .toString();
     }
 }

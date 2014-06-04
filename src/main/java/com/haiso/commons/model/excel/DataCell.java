@@ -8,13 +8,13 @@ import com.haiso.commons.enumeration.ExcelCellDataType;
 public class DataCell {
     private Integer rowIndex;
     private Integer colIndex;
-    private Enum<ExcelCellDataType> cellDataType;
+    private ExcelCellDataType cellDataType;
     private Object value;
 
     public DataCell() {
     }
 
-    public DataCell(Integer rowIndex, Integer colIndex, Enum<ExcelCellDataType> cellDataType, Object value) {
+    public DataCell(Integer rowIndex, Integer colIndex, ExcelCellDataType cellDataType, Object value) {
         this.rowIndex = rowIndex;
         this.colIndex = colIndex;
         this.cellDataType = cellDataType;
@@ -37,12 +37,12 @@ public class DataCell {
         this.colIndex = colIndex;
     }
 
-    public Enum<ExcelCellDataType> getCellDataType() {
+    public ExcelCellDataType getCellDataType() {
 
         return cellDataType;
     }
 
-    public void setCellDataType(Enum<ExcelCellDataType> cellDataType) {
+    public void setCellDataType(ExcelCellDataType cellDataType) {
         this.cellDataType = cellDataType;
     }
 

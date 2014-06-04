@@ -1,6 +1,14 @@
 package com.haiso.commons.utils.data.entityHelper;
 
+import com.haiso.commons.constant.CommonsConstant;
+import com.haiso.commons.enumeration.ExcelCellDataType;
+import com.haiso.commons.model.excel.DataCell;
+import com.haiso.commons.utils.StringUtils;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+import org.joda.time.format.DateTimeFormatterBuilder;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -34,6 +42,137 @@ public final class FieldUtils {
         return result;
     }
 
+    private Boolean convertCellDataToBoolean(DataCell dc){
+        Boolean res = null;
+        switch(dc.getCellDataType()){
+            case STRING:
+                String s = (String)dc.getValue();
+                res = s.equals(CommonsConstant.BOOLEAN_YES) ||
+                        s.equals(CommonsConstant.GENDER_MALE) ||
+                        s.equals(CommonsConstant.EMPLOYED_TRUE) ||
+                        s.equals(CommonsConstant.MARRIED_TRUE);
+                break;
+            case BOOLEAN:
+                res = (Boolean)dc.getValue();
+                break;
+            case DOUBLE:
+                Double d = (Double)dc.getValue();
+                res = d > 0;
+                break;
+            default:
+                res = null;
+                break;
+        }
+        return res;
+    }
+    private Date convertCellDataToDate(DataCell dc){
+        Date res = null;
+        switch(dc.getCellDataType()){
+            case STRING:
+                try{//todo
+                    res = DateTimeFormat.forPattern(CommonsConstant.DATE_TIME_FORMATTER).parseDateTime((String)dc.getValue()).toDate();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                break;
+            case DATE:
+                res = new DateTime(dc.getValue()).toDate();
+                break;
+            case DOUBLE:
+                res = new DateTime(Math.round((Double)dc.getValue())).toDate();
+                break;
+            default:
+                res = null;
+                break;
+        }
+        return res;
+    }
+    private Double convertCellDataToNumeric(DataCell dc){
+        Double res = null;
+        switch(dc.getCellDataType()){
+            case STRING:
+                try{
+                    res = Double.parseDouble((String)dc.getValue());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                break;
+            case DATE:
+                res = Double.longBitsToDouble(new DateTime(dc.getValue()).getMillis());
+                break;
+            case DOUBLE:
+                res = (Double)dc.getValue();
+                break;
+            case BOOLEAN:
+                res = Double.longBitsToDouble((Boolean)dc.getValue() ? 1 : 0);
+                break;
+            default:
+                res = Double.NaN;
+                break;
+        }
+        return res;
+    }
+
+    private String convertCellDataToString(DataCell dc){
+        String res = null;
+        switch(dc.getCellDataType()){
+            case STRING:
+                res = (String)dc.getValue();
+                break;
+            case DATE:
+                DateTimeFormatter dtf = DateTimeFormat.forPattern(CommonsConstant.DATE_TIME_FORMATTER);
+                res = new DateTime(dc.getValue()).toString(dtf);
+                break;
+            case DOUBLE:
+                res = dc.getValue().toString();
+                break;
+            case BOOLEAN:
+                res = dc.getValue().toString();
+                break;
+            default:
+                res = "";
+                break;
+        }
+        return res;
+    }
+    public Object setFieldValue(Object o, String fieldName, DataCell val) {
+        Object result = null;
+        try {
+            Field fu = o.getClass().getDeclaredField(fieldName); // 获取对象的属性域
+            try {
+                fu.setAccessible(true); // 设置对象属性域的访问属性
+                String t = fu.getType().getSimpleName();
+                if (null != val && !"".equals(val) && !"null".equals(val)) {
+                    if ("String".equals(t)) {
+                        String v = convertCellDataToString(val); // 设置对象属性域的属性值
+                        fu.set(o,v);
+                    } else if ("Date".equals(t)) {
+                        Date v = convertCellDataToDate(val);
+                        fu.set(o,v);
+                    } else if ("Integer".equals(t) || "int".equals(t)) {
+                        Long v = Math.round(convertCellDataToNumeric(val));//todo
+                        fu.set(o,v);
+                    } else if ("Long".equalsIgnoreCase(t)) {
+                        Long v = Math.round(convertCellDataToNumeric(val));
+                        fu.set(o,v);
+                    } else if ("Double".equalsIgnoreCase(t)) {
+                        Double v = convertCellDataToNumeric(val);
+                        fu.set(o,v);
+                    } else if ("Boolean".equalsIgnoreCase(t)) {
+                        Boolean v = convertCellDataToBoolean(val);
+                    } else {
+                        System.out.println("Type not support: " + t);
+                    }
+                }
+                result = fu.get(o); // 获取对象属性域的属性值
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     /**
      * 给对象属性赋值
      * @param o

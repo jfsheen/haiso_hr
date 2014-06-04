@@ -11,185 +11,185 @@ import javax.persistence.Embeddable;
  * 工资应扣记录
  */
 @Embeddable
-public class Deduct {
+public class Deduct{
 
     @Basic
     @Column(name = "insu_pension")
-    private Integer insuPension;
+    private Long insuPension;
 
     @Basic
     @Column(name = "insu_medical")
-    private Integer insuMedical;
+    private Long insuMedical;
 
     @Basic
     @Column(name = "insu_unempl")
-    private Integer insuUnempl;
+    private Long insuUnempl;
 
     @Basic
     @Column(name = "insu_lqmed")
-    private Integer insuLqmed;
+    private Long insuLqmed;
 
     @Basic
     @Column(name = "fund_house")
-    private Integer fundHouse;
+    private Long fundHouse;
 
     @Basic
     @Column(name = "fee_water")
-    private Integer feeWater;
+    private Long feeWater;
 
     @Basic
     @Column(name = "fee_electric")
-    private Integer feeElectric;
+    private Long feeElectric;
 
     @Basic
     @Column(name = "fee_gas")
-    private Integer feeGas;
+    private Long feeGas;
 
     @Basic
     @Column(name = "fee_property")
-    private Integer feeProperty;
+    private Long feeProperty;
 
     @Basic
     @Column(name = "dues_union")
-    private Integer duesUnion;
+    private Long duesUnion;
 
     @Basic
     @Column(name = "tax_income")
-    private Integer taxIncome;
+    private Long taxIncome;
 
     @Basic
     @Column(name = "tax_stamp")
-    private Integer taxStamp;
+    private Long taxStamp;
 
     @Basic
     @Column(name = "cost_rent")
-    private Integer costRent;
+    private Long costRent;
 
     @Basic
     @Column(name="fee_union")
-    private Integer feeUnion;
+    private Long feeUnion;
 
-    public Integer getFeeUnion() {
+    public Long getFeeUnion() {
         return feeUnion;
     }
 
-    public void setFeeUnion(Integer feeUnion) {
+    public void setFeeUnion(Long feeUnion) {
         this.feeUnion = feeUnion;
     }
 
-    public Integer getInsuPension() {
+    public Long getInsuPension() {
         return insuPension;
     }
 
-    public void setInsuPension(Integer insuPension) {
+    public void setInsuPension(Long insuPension) {
         this.insuPension = insuPension;
     }
 
 
-    public Integer getInsuMedical() {
+    public Long getInsuMedical() {
         return insuMedical;
     }
 
-    public void setInsuMedical(Integer insuMedical) {
+    public void setInsuMedical(Long insuMedical) {
         this.insuMedical = insuMedical;
     }
 
 
-    public Integer getInsuUnempl() {
+    public Long getInsuUnempl() {
         return insuUnempl;
     }
 
-    public void setInsuUnempl(Integer insuUnempl) {
+    public void setInsuUnempl(Long insuUnempl) {
         this.insuUnempl = insuUnempl;
     }
 
 
-    public Integer getInsuLqmed() {
+    public Long getInsuLqmed() {
         return insuLqmed;
     }
 
-    public void setInsuLqmed(Integer insuLqmed) {
+    public void setInsuLqmed(Long insuLqmed) {
         this.insuLqmed = insuLqmed;
     }
 
 
-    public Integer getFundHouse() {
+    public Long getFundHouse() {
         return fundHouse;
     }
 
-    public void setFundHouse(Integer fundHouse) {
+    public void setFundHouse(Long fundHouse) {
         this.fundHouse = fundHouse;
     }
 
 
-    public Integer getFeeWater() {
+    public Long getFeeWater() {
         return feeWater;
     }
 
-    public void setFeeWater(Integer feeWater) {
+    public void setFeeWater(Long feeWater) {
         this.feeWater = feeWater;
     }
 
 
-    public Integer getFeeElectric() {
+    public Long getFeeElectric() {
         return feeElectric;
     }
 
-    public void setFeeElectric(Integer feeElectric) {
+    public void setFeeElectric(Long feeElectric) {
         this.feeElectric = feeElectric;
     }
 
 
-    public Integer getFeeGas() {
+    public Long getFeeGas() {
         return feeGas;
     }
 
-    public void setFeeGas(Integer feeGas) {
+    public void setFeeGas(Long feeGas) {
         this.feeGas = feeGas;
     }
 
 
-    public Integer getFeeProperty() {
+    public Long getFeeProperty() {
         return feeProperty;
     }
 
-    public void setFeeProperty(Integer feeProperty) {
+    public void setFeeProperty(Long feeProperty) {
         this.feeProperty = feeProperty;
     }
 
 
-    public Integer getDuesUnion() {
+    public Long getDuesUnion() {
         return duesUnion;
     }
 
-    public void setDuesUnion(Integer duesUnion) {
+    public void setDuesUnion(Long duesUnion) {
         this.duesUnion = duesUnion;
     }
 
 
-    public Integer getTaxIncome() {
+    public Long getTaxIncome() {
         return taxIncome;
     }
 
-    public void setTaxIncome(Integer taxIncome) {
+    public void setTaxIncome(Long taxIncome) {
         this.taxIncome = taxIncome;
     }
 
 
-    public Integer getTaxStamp() {
+    public Long getTaxStamp() {
         return taxStamp;
     }
 
-    public void setTaxStamp(Integer taxStamp) {
+    public void setTaxStamp(Long taxStamp) {
         this.taxStamp = taxStamp;
     }
 
 
-    public Integer getCostRent() {
+    public Long getCostRent() {
         return costRent;
     }
 
-    public void setCostRent(Integer costRent) {
+    public void setCostRent(Long costRent) {
         this.costRent = costRent;
     }
 
