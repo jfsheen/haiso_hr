@@ -88,8 +88,8 @@
             <#list classFields as cf>
                 <#if (cf_index+1)%5==1>
                 <tr></#if>
-                <td>${cf}</td>
                 <td><input type="text" name="${cf}" maxlength="3" size="3" onkeypress="isNum(event)"></td>
+                <td>${cf}</td>
                 <#if (cf_index+1)%5==0></tr></#if>
             </#list>
         </#if>

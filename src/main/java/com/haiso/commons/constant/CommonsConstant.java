@@ -20,8 +20,10 @@ public class CommonsConstant {
     public static String MARRIED_FALSE = "未婚";
     public static String EMPLOYED_TRUE = "在职";
     public static String EMPLOYED_FALSE = "离职";
-    public static String BOOLEAN_YES = "是";
-    public static String BOOLEAN_NO = "否";
+
+    public static String [] BOOLEAN_TRUE = {"是", GENDER_MALE, MARRIED_TRUE, EMPLOYED_TRUE};
+    public static String [] BOOLEAN_FALSE = {"否"};
+
 
 
     public static String DATE_TIME_FORMATTER = "yyyy-MM-dd HH:MM:SS";

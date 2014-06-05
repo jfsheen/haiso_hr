@@ -2,6 +2,7 @@ package com.haiso.hr.entity.person;
 
 import com.google.common.base.Objects;
 import com.haiso.hr.entity.base.BaseEntity;
+import com.haiso.hr.entity.commons.Address;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -27,16 +28,25 @@ public class WorkExperience extends BaseEntity{
     private Date endDate;
     @Basic
     @Column(name = "com_phone")
-    private String comPhone;
+    private String companyPhone;
+
+    @AttributeOverrides({@AttributeOverride(name="country", column=@Column(name="com_country")),
+            @AttributeOverride(name="province", column=@Column(name="com_province")),
+            @AttributeOverride(name="city", column=@Column(name="com_city")),
+            @AttributeOverride(name="district", column=@Column(name="com_district")),
+            @AttributeOverride(name="street", column=@Column(name="com_street")),
+            @AttributeOverride(name="details", column=@Column(name="com_details")),
+            @AttributeOverride(name="zip", column=@Column(name="com_zip"))
+    })
+    @Embedded
+    private Address comAddress;
+    
     @Basic
-    @Column(name = "com_address")
-    private String comAddress;
-    @Basic
-    @Column(name = "com_website")
-    private String comWebsite;
+    @Column(name = "website_add")
+    private String websiteAddress;
     @Basic
     @Column(name = "com_email")
-    private String comEmail;
+    private String companyEmail;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "person_id")
     private Person person;
@@ -50,30 +60,7 @@ public class WorkExperience extends BaseEntity{
         this.person = person;
     }
 
-    public String getComAddress() {
-        return comAddress;
-    }
-
-    public void setComAddress(String comAddress) {
-        this.comAddress = comAddress;
-    }
-
-    public String getComWebsite() {
-        return comWebsite;
-    }
-
-    public void setComWebsite(String com_website) {
-        this.comWebsite = com_website;
-    }
-
-    public String getComEmail() {
-        return comEmail;
-    }
-
-    public void setComEmail(String com_email) {
-        this.comEmail = com_email;
-    }
-
+    
     public String getCompanyName() {
         return companyName;
     }
@@ -106,18 +93,9 @@ public class WorkExperience extends BaseEntity{
         this.endDate = endDate;
     }
 
-
-    public String getComPhone() {
-        return comPhone;
-    }
-
-    public void setComPhone(String contact) {
-        this.comPhone = contact;
-    }
-
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, companyName, position, startDate, endDate, comPhone, comAddress, comWebsite, comEmail, person);
+        return 31 * super.hashCode() + Objects.hashCode(companyName, position, startDate, endDate, companyPhone, comAddress, websiteAddress, companyEmail, person);
     }
 
     @Override
@@ -128,23 +106,57 @@ public class WorkExperience extends BaseEntity{
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+        if (!super.equals(obj)) {
+            return false;
+        }
         final WorkExperience other = (WorkExperience) obj;
-        return Objects.equal(this.id, other.id) && Objects.equal(this.companyName, other.companyName) && Objects.equal(this.position, other.position) && Objects.equal(this.startDate, other.startDate) && Objects.equal(this.endDate, other.endDate) && Objects.equal(this.comPhone, other.comPhone) && Objects.equal(this.comAddress, other.comAddress) && Objects.equal(this.comWebsite, other.comWebsite) && Objects.equal(this.comEmail, other.comEmail) && Objects.equal(this.person, other.person);
+        return Objects.equal(this.companyName, other.companyName) && Objects.equal(this.position, other.position) && Objects.equal(this.startDate, other.startDate) && Objects.equal(this.endDate, other.endDate) && Objects.equal(this.companyPhone, other.companyPhone) && Objects.equal(this.comAddress, other.comAddress) && Objects.equal(this.websiteAddress, other.websiteAddress) && Objects.equal(this.companyEmail, other.companyEmail) && Objects.equal(this.person, other.person);
     }
 
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("id", id)
                 .add("companyName", companyName)
                 .add("position", position)
                 .add("startDate", startDate)
                 .add("endDate", endDate)
-                .add("comPhone", comPhone)
+                .add("companyPhone", companyPhone)
                 .add("comAddress", comAddress)
-                .add("comWebsite", comWebsite)
-                .add("comEmail", comEmail)
+                .add("websiteAddress", websiteAddress)
+                .add("companyEmail", companyEmail)
                 .add("person", person)
                 .toString();
+    }
+
+    public String getCompanyPhone() {
+        return companyPhone;
+    }
+
+    public void setCompanyPhone(String companyPhone) {
+        this.companyPhone = companyPhone;
+    }
+
+    public Address getComAddress() {
+        return comAddress;
+    }
+
+    public void setComAddress(Address comAddress) {
+        this.comAddress = comAddress;
+    }
+
+    public String getWebsiteAddress() {
+        return websiteAddress;
+    }
+
+    public void setWebsiteAddress(String websiteAddress) {
+        this.websiteAddress = websiteAddress;
+    }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
     }
 }

@@ -9,7 +9,7 @@ import com.haiso.commons.utils.data.DataMappingUtils;
 import com.haiso.commons.utils.data.FileTypeUtils;
 import com.haiso.commons.utils.data.entityHelper.EntityUtils;
 import com.haiso.commons.utils.data.entityHelper.FieldUtils;
-import com.haiso.hr.entity.person.IdCard;
+import com.haiso.hr.entity.commons.IdCard;
 import com.haiso.hr.entity.person.Person;
 import com.haiso.hr.web.enumeration.HrEntityEnum;
 import com.haiso.hr.web.rest.*;
@@ -50,7 +50,7 @@ public class DataTransferAjaxController extends BaseController{
     public @ResponseBody
     UploadFileSheetsRest UploadFile(MultipartHttpServletRequest request) {
         MultipartFileValidator multipartFileValidator = new MultipartFileValidator();
-        multipartFileValidator.setAllowedContentTypes(new String[]{"application/vnd.ms-excel", "text/plain", "text/csv"});
+        multipartFileValidator.setAllowedContentTypes(new String[]{"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.ms-excel", "text/plain", "text/csv"});
         multipartFileValidator.setMaxSize(20 * 1024 * 1024);
 
         Iterator<String> iterator = request.getFileNames();
@@ -187,20 +187,20 @@ public class DataTransferAjaxController extends BaseController{
                             while(it2.hasNext()){
                                 String fn = it2.next();
                                 DataCell dc = rd.get(mapping.get(fn));
-                                Object val = fn.equals("idGender") ? dc.getValue().equals(CommonsConstant.GENDER_MALE) : dc.getValue();
-                                fieldUtils.setFieldValue(idCard, fn, val);
+//                                Object val = fn.equals("idGender") ? dc.getValue().equals(CommonsConstant.GENDER_MALE) : dc.getValue();
+                                fieldUtils.setFieldValue(idCard, fn, dc);
                             }
-                            person.setIdCard(idCard);
                             ps = Sets.newHashSet(CollectionUtils.subtract(mapping.keySet(), ids));
                             it2 = ps.iterator();
                             while(it2.hasNext()){
                                 String fn = it2.next();
                                 DataCell dc = rd.get(mapping.get(fn));
-                                Object val = fn.equals("married") ? dc.getValue().equals(CommonsConstant.MARRIED_TRUE) : dc.getValue();
-                                fieldUtils.setFieldValue(idCard, fn, val);
+//                                Object val = fn.equals("married") ? dc.getValue().equals(CommonsConstant.MARRIED_TRUE) : dc.getValue();
+                                fieldUtils.setFieldValue(person, fn, dc);
                             }
-                            res = person.toString();
-//                            personService.add(person);
+                            person.setIdCard(idCard);
+                            res += person.toString();
+                            personService.add(person);
                             break;
                         case Adjustment:
                             break;

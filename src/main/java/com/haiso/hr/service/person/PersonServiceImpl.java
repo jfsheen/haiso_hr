@@ -22,8 +22,8 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     @Transactional
-    public void add(Person person) {
-        personDao.save(person);
+    public Long add(Person person) {
+        return personDao.save(person).getId();
     }
 
     @Override

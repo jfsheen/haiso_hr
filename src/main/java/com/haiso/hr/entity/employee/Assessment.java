@@ -1,7 +1,7 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
-import com.haiso.hr.entity.base.BaseEntity;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_empl_assess")
-public class Assessment extends BaseEntity {
+public class Assessment extends AuditBaseEntity {
 
     @Basic
     @Column(name = "title")

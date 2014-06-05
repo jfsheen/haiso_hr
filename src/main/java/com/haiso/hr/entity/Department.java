@@ -32,7 +32,6 @@ public class Department extends AuditBaseEntity{
     @JoinColumn(name = "parent_dept")
     private Department parentDept;
     @OneToMany(mappedBy = "parentDept", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name = "child_dept")
     private Set<Department> childDept;
 
     @Override

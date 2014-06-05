@@ -1,14 +1,11 @@
 package com.haiso.commons.utils.data.entityHelper;
 
+import com.google.common.collect.Lists;
 import com.haiso.commons.constant.CommonsConstant;
-import com.haiso.commons.enumeration.ExcelCellDataType;
 import com.haiso.commons.model.excel.DataCell;
-import com.haiso.commons.utils.StringUtils;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.DateTimeFormatterBuilder;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -47,10 +44,7 @@ public final class FieldUtils {
         switch(dc.getCellDataType()){
             case STRING:
                 String s = (String)dc.getValue();
-                res = s.equals(CommonsConstant.BOOLEAN_YES) ||
-                        s.equals(CommonsConstant.GENDER_MALE) ||
-                        s.equals(CommonsConstant.EMPLOYED_TRUE) ||
-                        s.equals(CommonsConstant.MARRIED_TRUE);
+                res = Lists.newArrayList(CommonsConstant.BOOLEAN_TRUE).contains(s);
                 break;
             case BOOLEAN:
                 res = (Boolean)dc.getValue();
@@ -135,6 +129,13 @@ public final class FieldUtils {
         }
         return res;
     }
+    /**
+     * 给对象属性赋值
+     * @param o
+     * @param fieldName
+     * @param val DateCell
+     * @return
+     */
     public Object setFieldValue(Object o, String fieldName, DataCell val) {
         Object result = null;
         try {
@@ -150,7 +151,7 @@ public final class FieldUtils {
                         Date v = convertCellDataToDate(val);
                         fu.set(o,v);
                     } else if ("Integer".equals(t) || "int".equals(t)) {
-                        Long v = Math.round(convertCellDataToNumeric(val));//todo
+                        Integer v = ((Long)Math.round(convertCellDataToNumeric(val))).intValue();//todo
                         fu.set(o,v);
                     } else if ("Long".equalsIgnoreCase(t)) {
                         Long v = Math.round(convertCellDataToNumeric(val));
@@ -160,6 +161,7 @@ public final class FieldUtils {
                         fu.set(o,v);
                     } else if ("Boolean".equalsIgnoreCase(t)) {
                         Boolean v = convertCellDataToBoolean(val);
+                        fu.set(o,v);
                     } else {
                         System.out.println("Type not support: " + t);
                     }

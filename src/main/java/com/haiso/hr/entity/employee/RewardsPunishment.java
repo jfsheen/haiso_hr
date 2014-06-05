@@ -2,7 +2,7 @@ package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
 import com.haiso.hr.entity.Department;
-import com.haiso.hr.entity.base.BaseEntity;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_empl_rwpns")
-public class RewardsPunishment extends BaseEntity {
+public class RewardsPunishment extends AuditBaseEntity {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "empl_id", nullable = false)

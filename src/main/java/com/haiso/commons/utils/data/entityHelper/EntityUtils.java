@@ -1,6 +1,8 @@
 package com.haiso.commons.utils.data.entityHelper;
 
 import com.haiso.commons.constant.CommonsConstant;
+import org.codehaus.jackson.JsonGenerator;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;
 
@@ -8,20 +10,18 @@ import javax.persistence.Basic;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Created by ff on 5/12/14.
  */
 public final class EntityUtils {
 
-    private String entityPkg = CommonsConstant.ENTITY_PACKAGE;
-    private Set<Class<?>> entitySet = getClassesAnnotated(entityPkg, Entity.class);
-    private Set<Class<?>> embeddableSet = getClassesAnnotated(entityPkg, Embeddable.class);
+    private String entityPackage = CommonsConstant.ENTITY_PACKAGE;
+    private Set<Class<?>> entitySet = getClassesAnnotated(entityPackage, Entity.class);
+    private Set<Class<?>> embeddableSet = getClassesAnnotated(entityPackage, Embeddable.class);
     
     private Set<Class<?>> getClassesAnnotated(String packageName, Class<? extends java.lang.annotation.Annotation> annotation) {
         Reflections reflections = new Reflections(packageName);
@@ -47,6 +47,10 @@ public final class EntityUtils {
             }
         }
         return null;
+    }
+
+    public Set<Object> getEntityFields(String className){
+
     }
 
     public Set<String> getEmbeddedFields(String className) {
@@ -79,6 +83,32 @@ public final class EntityUtils {
         }
         return fields;
     }
+
+
+    public String getJsonEntityFields(String className){
+        Set<String> fields = new TreeSet<String>();
+        ObjectMapper mapper = new ObjectMapper();
+        String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
+        if (fullyQualifiedClassName != null) {
+            Set<Field> entityFieldSet = null;
+            while (!(entityFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Embedded.class)).isEmpty()){
+                fullyQualifiedClassName =
+                for (Field f : entityFieldSet) {
+                    fields.add(f.getName());
+                }
+            }
+
+
+        }
+        String res = null;
+        try {
+            res = mapper.writeValueAsString(fields);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
     //  return map(entityHelper name, entityHelper type)
     public Map<String, String> getEntityFiledsMap(String className){
         Map<String, String> fieldsMap = new LinkedHashMap<String, String>();

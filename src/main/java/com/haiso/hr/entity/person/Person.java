@@ -2,12 +2,13 @@ package com.haiso.hr.entity.person;
 
 import com.google.common.base.Objects;
 import com.haiso.hr.entity.base.AuditBaseEntity;
+import com.haiso.hr.entity.commons.Address;
+import com.haiso.hr.entity.commons.IdCard;
 import com.haiso.hr.entity.employee.Employee;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -65,9 +66,24 @@ public class Person extends AuditBaseEntity{
     @Column(name = "last_major")
     private String lastMajor;
 
-    @Basic
-    @Column(name = "resi_address")
-    private String residentailAddress;
+    @AttributeOverrides({@AttributeOverride(name="country", column=@Column(name="resi_country")),
+            @AttributeOverride(name="province", column=@Column(name="resi_province")),
+            @AttributeOverride(name="city", column=@Column(name="resi_city")),
+            @AttributeOverride(name="district", column=@Column(name="resi_district")),
+            @AttributeOverride(name="street", column=@Column(name="resi_street")),
+            @AttributeOverride(name="details", column=@Column(name="resi_details")),
+            @AttributeOverride(name="zip", column=@Column(name="resi_zip"))
+    })
+    @Embedded
+    private Address residentailAddress;
+
+    public Address getResidentailAddress() {
+        return residentailAddress;
+    }
+
+    public void setResidentailAddress(Address residentailAddress) {
+        this.residentailAddress = residentailAddress;
+    }
 
     @Basic
     @Column(name = "postal_code")
@@ -88,7 +104,7 @@ public class Person extends AuditBaseEntity{
 
     @Basic
     @Column(name = "qq")
-    @Pattern(regexp = "^[1-9][0-9]{4,11}]")
+//    @Pattern(regexp = "^[1-9][0-9]{4,11}]")
     private String qq;
 
     @Basic
@@ -98,26 +114,6 @@ public class Person extends AuditBaseEntity{
     @Basic
     @Column(name = "introduction")
     private String introduction;
-
-    @Basic
-    @Column(name = "ec_name")
-    private String emergencyContactName;
-
-    @Basic
-    @Column(name = "ec_phone")
-    private String emergencyContactPhone;
-
-    @Basic
-    @Column(name = "ec_address")
-    private String emergencyContactAddress;
-
-    @Basic
-    @Column(name = "sp_name")
-    private String sponsorName;
-
-    @Basic
-    @Column(name = "sp_phone")
-    private String sponsorPhone;
 
     @OneToOne(mappedBy = "person", optional = true)
     private Employee employee;
@@ -218,8 +214,6 @@ public class Person extends AuditBaseEntity{
         this.mobile = mobile;
     }
 
-
-    //@Pattern(regexp = "[0-9][-\\s]{11,20}")
     public String getPhone() {
         return phone;
     }
@@ -289,58 +283,9 @@ public class Person extends AuditBaseEntity{
         this.lastMajor = lastMajor;
     }
 
-
-    public String getResidentailAddress() {
-        return residentailAddress;
-    }
-
-    public void setResidentailAddress(String currentAddress) {
-        this.residentailAddress = currentAddress;
-    }
-
-    public String getEmergencyContactName() {
-        return emergencyContactName;
-    }
-
-    public void setEmergencyContactName(String emergencyContactName) {
-        this.emergencyContactName = emergencyContactName;
-    }
-
-    public String getEmergencyContactPhone() {
-        return emergencyContactPhone;
-    }
-
-    public void setEmergencyContactPhone(String emergencyContactPhone) {
-        this.emergencyContactPhone = emergencyContactPhone;
-    }
-
-    public String getEmergencyContactAddress() {
-        return emergencyContactAddress;
-    }
-
-    public void setEmergencyContactAddress(String emergencyContactAddress) {
-        this.emergencyContactAddress = emergencyContactAddress;
-    }
-
-    public String getSponsorName() {
-        return sponsorName;
-    }
-
-    public void setSponsorName(String sponsorName) {
-        this.sponsorName = sponsorName;
-    }
-
-    public String getSponsorPhone() {
-        return sponsorPhone;
-    }
-
-    public void setSponsorPhone(String sponsorPhone) {
-        this.sponsorPhone = sponsorPhone;
-    }
-
     @Override
     public int hashCode() {
-        return 31 * super.hashCode() + Objects.hashCode(idCard, name, photoPath, married, partisan, joinPartyDate, hukouType, hometown, lastDegree, lastSchool, lastMajor, residentailAddress, postalCode, mobile, phone, email, qq, weixin, introduction, emergencyContactName, emergencyContactPhone, emergencyContactAddress, sponsorName, sponsorPhone, employee);
+        return 31 * super.hashCode() + Objects.hashCode(idCard, name, photoPath, married, partisan, joinPartyDate, hukouType, hometown, lastDegree, lastSchool, lastMajor, residentailAddress, postalCode, mobile, phone, email, qq, weixin, introduction, employee);
     }
 
     @Override
@@ -355,7 +300,7 @@ public class Person extends AuditBaseEntity{
             return false;
         }
         final Person other = (Person) obj;
-        return Objects.equal(this.idCard, other.idCard) && Objects.equal(this.name, other.name) && Objects.equal(this.photoPath, other.photoPath) && Objects.equal(this.married, other.married) && Objects.equal(this.partisan, other.partisan) && Objects.equal(this.joinPartyDate, other.joinPartyDate) && Objects.equal(this.hukouType, other.hukouType) && Objects.equal(this.hometown, other.hometown) && Objects.equal(this.lastDegree, other.lastDegree) && Objects.equal(this.lastSchool, other.lastSchool) && Objects.equal(this.lastMajor, other.lastMajor) && Objects.equal(this.residentailAddress, other.residentailAddress) && Objects.equal(this.postalCode, other.postalCode) && Objects.equal(this.mobile, other.mobile) && Objects.equal(this.phone, other.phone) && Objects.equal(this.email, other.email) && Objects.equal(this.qq, other.qq) && Objects.equal(this.weixin, other.weixin) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.emergencyContactName, other.emergencyContactName) && Objects.equal(this.emergencyContactPhone, other.emergencyContactPhone) && Objects.equal(this.emergencyContactAddress, other.emergencyContactAddress) && Objects.equal(this.sponsorName, other.sponsorName) && Objects.equal(this.sponsorPhone, other.sponsorPhone) && Objects.equal(this.employee, other.employee);
+        return Objects.equal(this.idCard, other.idCard) && Objects.equal(this.name, other.name) && Objects.equal(this.photoPath, other.photoPath) && Objects.equal(this.married, other.married) && Objects.equal(this.partisan, other.partisan) && Objects.equal(this.joinPartyDate, other.joinPartyDate) && Objects.equal(this.hukouType, other.hukouType) && Objects.equal(this.hometown, other.hometown) && Objects.equal(this.lastDegree, other.lastDegree) && Objects.equal(this.lastSchool, other.lastSchool) && Objects.equal(this.lastMajor, other.lastMajor) && Objects.equal(this.residentailAddress, other.residentailAddress) && Objects.equal(this.postalCode, other.postalCode) && Objects.equal(this.mobile, other.mobile) && Objects.equal(this.phone, other.phone) && Objects.equal(this.email, other.email) && Objects.equal(this.qq, other.qq) && Objects.equal(this.weixin, other.weixin) && Objects.equal(this.introduction, other.introduction) && Objects.equal(this.employee, other.employee);
     }
 
     @Override
@@ -380,11 +325,6 @@ public class Person extends AuditBaseEntity{
                 .add("qq", qq)
                 .add("weixin", weixin)
                 .add("introduction", introduction)
-                .add("emergencyContactName", emergencyContactName)
-                .add("emergencyContactPhone", emergencyContactPhone)
-                .add("emergencyContactAddress", emergencyContactAddress)
-                .add("sponsorName", sponsorName)
-                .add("sponsorPhone", sponsorPhone)
                 .add("employee", employee)
                 .toString();
     }

@@ -1,4 +1,4 @@
-package com.haiso.hr.entity.person;
+package com.haiso.hr.entity.commons;
 
 import com.google.common.base.Objects;
 
@@ -20,9 +20,18 @@ public class IdCard {
     @Basic
     @Column(name = "idcard_gender")
     private Boolean idGender;
-    @Basic
-    @Column(name = "idcard_address")
-    private String idAddress;
+
+    @AttributeOverrides({@AttributeOverride(name="country", column=@Column(name="id_add_country")),
+            @AttributeOverride(name="province", column=@Column(name="id_add_province")),
+            @AttributeOverride(name="city", column=@Column(name="id_add_city")),
+            @AttributeOverride(name="district", column=@Column(name="id_add_district")),
+            @AttributeOverride(name="street", column=@Column(name="id_add_street")),
+            @AttributeOverride(name="details", column=@Column(name="id_add_details")),
+            @AttributeOverride(name="zip", column=@Column(name="id_add_zip"))
+    })
+    @Embedded
+    private Address idAddress;
+
     @Basic
     @Column(name = "idcard_ethnic")
     private String idEthnic;
@@ -55,14 +64,6 @@ public class IdCard {
 
     public void setIdName(String idName) {
         this.idName = idName;
-    }
-
-    public String getIdAddress() {
-        return idAddress;
-    }
-
-    public void setIdAddress(String idAddress) {
-        this.idAddress = idAddress;
     }
 
     public Boolean getIdGender() {
@@ -143,5 +144,13 @@ public class IdCard {
                 .add("idValidStart", idValidStart)
                 .add("idValidUntil", idValidUntil)
                 .toString();
+    }
+
+    public Address getIdAddress() {
+        return idAddress;
+    }
+
+    public void setIdAddress(Address idAddress) {
+        this.idAddress = idAddress;
     }
 }

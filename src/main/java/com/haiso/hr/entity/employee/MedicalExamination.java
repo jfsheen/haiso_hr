@@ -1,7 +1,7 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
-import com.haiso.hr.entity.base.BaseEntity;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_med_exam")
-public class MedicalExamination extends BaseEntity {
+public class MedicalExamination extends AuditBaseEntity {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "person_id", nullable = true)

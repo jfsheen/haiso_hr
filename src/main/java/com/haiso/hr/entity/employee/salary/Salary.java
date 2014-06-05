@@ -14,7 +14,6 @@ import java.util.Date;
 @Table(name = "t_empl_salary")
 public class Salary extends AuditBaseEntity{
 
-
     @Basic
     @Column(name = "period_start")
     @Temporal(TemporalType.DATE)
@@ -109,5 +108,13 @@ public class Salary extends AuditBaseEntity{
                 .add("realSalary", realSalary)
                 .add("person", person)
                 .toString();
+    }
+
+    public Long getRealSalary() {
+        return realSalary;
+    }
+
+    public void setRealSalary(Long realSalary) {
+        this.realSalary = realSalary;
     }
 }

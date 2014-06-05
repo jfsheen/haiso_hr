@@ -74,22 +74,7 @@ public class AppTests {
         set = Sets.newTreeSet(CollectionUtils.subtract(set1, set2));
         System.out.println(set.toArray().toString());
 
-        Map<String, String> map1 = new LinkedHashMap<String, String>();
-        Map<Integer, String> map2 = new LinkedHashMap<Integer, String>();
-        map1.put("a","a1");
-        map1.put("b","b1");
-        map1.put("c","c1");
-        map1.put("d","d1");
-        map1.put("e","e1");
-        map2.put(1,"2a");
-        map2.put(3,"2b");
-        map2.put(5,"2c");
-        map2.put(7,"2d");
-        map2.put(9,"2e");
-        String m2 = map2.get(1);
-        m2 = map2.get("1");
-        System.out.println(map2.get(2));
-
+        System.out.println(new EntityUtils().getJsonEntityFields("Person"));
     }
 
 

@@ -1,7 +1,7 @@
 package com.haiso.hr.entity.event;
 
 import com.google.common.base.Objects;
-import com.haiso.hr.entity.base.BaseEntity;
+import com.haiso.hr.entity.base.AuditBaseEntity;
 import com.haiso.hr.entity.employee.Employee;
 
 import javax.persistence.*;
@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "t_empl_event")
-public class Event extends BaseEntity {
+public class Event extends AuditBaseEntity {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "empl_sn", nullable = true)

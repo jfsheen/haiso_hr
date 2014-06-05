@@ -4,7 +4,7 @@ import com.haiso.hr.entity.employee.Employee;
 import com.haiso.hr.entity.param.EmplLevel;
 import com.haiso.hr.entity.param.EmplSequence;
 import com.haiso.hr.entity.param.EmplStatus;
-import com.haiso.hr.entity.person.IdCard;
+import com.haiso.hr.entity.commons.IdCard;
 import com.haiso.hr.entity.person.Person;
 import com.haiso.hr.service.employee.EmployeeService;
 import com.haiso.hr.service.param.ParamService;

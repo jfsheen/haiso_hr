@@ -20,53 +20,20 @@ public class Position extends AuditBaseEntity{
     @Column(name = "title")
     private String title;
     @Basic
-    @Column(name = "post_sequence", nullable = false, insertable = true, updatable = true, length = 20)
+    @Column(name = "post_sequence")
     private Byte postSeq;
     @Basic
-    @Column(name = "amount_limit", nullable = false, insertable = true, updatable = true, length = 3)
+    @Column(name = "amount_limit")
     private Byte amountLimit;
     @Basic
-    @Column(name = "post_duty", nullable = true, insertable = true, updatable = true, length = 500)
+    @Column(name = "post_duty")
     private String postDuty;
     @Basic
-    @Column(name = "remark", nullable = true, insertable = true, updatable = true, length = 500)
+    @Column(name = "remark")
     private String remark;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "dept_id", nullable = false)
     private Department department;
-
-    @Override
-    public int hashCode() {
-        return 31 * super.hashCode() + Objects.hashCode(postSn, title, postSeq, amountLimit, postDuty, remark, department);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        final Position other = (Position) obj;
-        return Objects.equal(this.postSn, other.postSn) && Objects.equal(this.title, other.title) && Objects.equal(this.postSeq, other.postSeq) && Objects.equal(this.amountLimit, other.amountLimit) && Objects.equal(this.postDuty, other.postDuty) && Objects.equal(this.remark, other.remark) && Objects.equal(this.department, other.department);
-    }
-
-    @Override
-    public String toString() {
-        return Objects.toStringHelper(this)
-                .add("postSn", postSn)
-                .add("title", title)
-                .add("postSeq", postSeq)
-                .add("amountLimit", amountLimit)
-                .add("postDuty", postDuty)
-                .add("remark", remark)
-                .add("department", department)
-                .toString();
-    }
 
     public String getPostSn() {
         return postSn;
@@ -123,4 +90,39 @@ public class Position extends AuditBaseEntity{
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+
+    @Override
+    public int hashCode() {
+        return 31 * super.hashCode() + Objects.hashCode(postSn, title, postSeq, amountLimit, postDuty, remark, department);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        final Position other = (Position) obj;
+        return Objects.equal(this.postSn, other.postSn) && Objects.equal(this.title, other.title) && Objects.equal(this.postSeq, other.postSeq) && Objects.equal(this.amountLimit, other.amountLimit) && Objects.equal(this.postDuty, other.postDuty) && Objects.equal(this.remark, other.remark) && Objects.equal(this.department, other.department);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("postSn", postSn)
+                .add("title", title)
+                .add("postSeq", postSeq)
+                .add("amountLimit", amountLimit)
+                .add("postDuty", postDuty)
+                .add("remark", remark)
+                .add("department", department)
+                .toString();
+    }
+
 }
