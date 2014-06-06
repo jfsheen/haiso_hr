@@ -1,7 +1,9 @@
 package com.haiso.commons.utils.data.entityHelper;
 
+import com.google.common.collect.Sets;
 import com.haiso.commons.constant.CommonsConstant;
-import org.codehaus.jackson.JsonGenerator;
+import com.haiso.commons.utils.data.entityHelper.vo.FieldNode;
+import org.apache.commons.collections.CollectionUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;
@@ -39,23 +41,23 @@ public final class EntityUtils {
     }
 
 
-    private String getFullyQualifiedClassName(Set<Class<?>> classSet, String className) {
+    private String getFullyQualifiedClassName(String className) {
+        Set<Class<?>> classSet = Sets.newHashSet(CollectionUtils.union(entitySet, embeddableSet));
         for (Class c : classSet) {
-            String cname = c.getName();
-            if (cname.substring(cname.lastIndexOf(".") + 1).equals(className)) {
-                return cname;
+            if (c.getSimpleName().equals(className)) {
+                return c.getName();
             }
         }
         return null;
     }
 
-    public Set<Object> getEntityFields(String className){
+    /*public Set<Object> getEntityFields(String className){
 
-    }
+    }*/
 
     public Set<String> getEmbeddedFields(String className) {
         Set<String> fields = new TreeSet<String>();
-        String fullyQualifiedClassName = getFullyQualifiedClassName(embeddableSet, className);
+        String fullyQualifiedClassName = getFullyQualifiedClassName(className);
         if (!fullyQualifiedClassName.isEmpty() && fullyQualifiedClassName != null) {
             Set<Field> fieldSet = getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for (Field f : fieldSet) {
@@ -67,7 +69,7 @@ public final class EntityUtils {
 
     public Set<String> getEntityFields(String className) {
         Set<String> fields = new TreeSet<String>();
-        String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
+        String fullyQualifiedClassName = getFullyQualifiedClassName(className);
         if (!fullyQualifiedClassName.isEmpty() && fullyQualifiedClassName != null) {
             Set<Field> entityFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for (Field f : entityFieldSet) {
@@ -84,15 +86,34 @@ public final class EntityUtils {
         return fields;
     }
 
+    public void traverseEntity(String entityName, FieldNode fieldNode){
+        String fullyQualifiedClassName = getFullyQualifiedClassName(entityName);
+        String fieldName = entityName;
+        Set<Field> embeddedFieldSet = null;
+        Set<Field> basicFieldSet = null;
+        if (fullyQualifiedClassName != null) {
+            embeddedFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
+            basicFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
+            System.out.println(fieldName);
+            System.out.println(Arrays.toString(basicFieldSet.toArray()));
+            if(!embeddedFieldSet.isEmpty()){
+                for(Field field : embeddedFieldSet){
+                    FieldNode fieldNode1 = new FieldNode();
+                    fieldNode1.setParentField(fieldNode);
+                    traverseEntity(field.getType().getSimpleName(), fieldNode1);
+                }
+            }
+        }
+    }
 
     public String getJsonEntityFields(String className){
         Set<String> fields = new TreeSet<String>();
         ObjectMapper mapper = new ObjectMapper();
-        String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
+        String fullyQualifiedClassName = getFullyQualifiedClassName(className);
         if (fullyQualifiedClassName != null) {
             Set<Field> entityFieldSet = null;
             while (!(entityFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Embedded.class)).isEmpty()){
-                fullyQualifiedClassName =
+//                fullyQualifiedClassName =
                 for (Field f : entityFieldSet) {
                     fields.add(f.getName());
                 }
@@ -113,7 +134,7 @@ public final class EntityUtils {
     public Map<String, String> getEntityFiledsMap(String className){
         Map<String, String> fieldsMap = new LinkedHashMap<String, String>();
 
-        String fullyQualifiedClassName = getFullyQualifiedClassName(entitySet, className);
+        String fullyQualifiedClassName = getFullyQualifiedClassName(className);
         if (!fullyQualifiedClassName.isEmpty()) {
             Set<Field> entityFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for (Field f : entityFieldSet) {

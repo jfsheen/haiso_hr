@@ -4,6 +4,7 @@ import com.google.common.collect.Sets;
 import com.haiso.commons.utils.PackUtils;
 import com.haiso.commons.utils.data.entityHelper.EntityUtils;
 import com.haiso.commons.utils.data.entityHelper.FieldUtils;
+import com.haiso.commons.utils.data.entityHelper.vo.FieldNode;
 import com.haiso.hr.entity.person.Person;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Before;
@@ -58,7 +59,7 @@ public class AppTests {
         fu.setFieldValue(person, "name", new String("zhangsan"));
 //        fu.setFieldValue(person, "joinPartyDate", new Date("2012-01-01"));
         System.out.println(person.toString());*/
-        Set<String> set1 = new TreeSet<String>();
+        /*Set<String> set1 = new TreeSet<String>();
         set1.add("a");
         set1.add("b");
         set1.add("c");
@@ -72,9 +73,10 @@ public class AppTests {
         set = Sets.newTreeSet(CollectionUtils.disjunction(set1,set2));
         set = Sets.newTreeSet(CollectionUtils.intersection(set1, set2));
         set = Sets.newTreeSet(CollectionUtils.subtract(set1, set2));
-        System.out.println(set.toArray().toString());
+        System.out.println(set.toArray().toString());*/
+        FieldNode fieldNode = new FieldNode();
+        new EntityUtils().traverseEntity("Person");
 
-        System.out.println(new EntityUtils().getJsonEntityFields("Person"));
     }
 
 
