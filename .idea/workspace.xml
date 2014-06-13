@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="990dcdf1-8fc5-434e-9e4e-439a1bddad3c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/hr/commons/EntityFields.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/EntityFields.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/FieldBranch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/FieldNode.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/FieldsTree.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/TreeHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/TreeNode.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/FieldNodeA.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/vo/EntityField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/haiso/hr/AppTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/EntityUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/haiso/commons/utils/data/entityHelper/EntityUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/info_log.log" afterPath="$PROJECT_DIR$/logs/info_log.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/warn_log.log" afterPath="$PROJECT_DIR$/logs/warn_log.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="haiso.520bM.iws" />
@@ -1419,7 +1407,11 @@
       <created>1402023309414</created>
       <updated>1402023309414</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="0613 try RESTful">
+      <created>1402623993157</created>
+      <updated>1402623993157</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1440,6 +1432,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.84686065" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20313725" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1453,7 +1446,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.78407353" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.84686065" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1477,7 +1469,8 @@
     <MESSAGE value="0528final" />
     <MESSAGE value="0604final" />
     <MESSAGE value="0605final" />
-    <option name="LAST_COMMIT_MESSAGE" value="0605final" />
+    <MESSAGE value="0613 try RESTful" />
+    <option name="LAST_COMMIT_MESSAGE" value="0613 try RESTful" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
