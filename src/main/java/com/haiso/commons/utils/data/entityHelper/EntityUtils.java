@@ -2,7 +2,7 @@ package com.haiso.commons.utils.data.entityHelper;
 
 import com.google.common.collect.Sets;
 import com.haiso.commons.constant.CommonsConstant;
-import com.haiso.commons.utils.data.entityHelper.vo.FieldNode;
+import com.haiso.commons.utils.data.entityHelper.vo.EntityField;
 import org.apache.commons.collections.CollectionUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.reflections.Reflections;
@@ -86,6 +86,28 @@ public final class EntityUtils {
         return fields;
     }
 
+    public EntityField traverseEntity(String entityName, EntityField entityField){
+        /*if(entityField == null){
+        EntityField entityField = new EntityField();
+        }*/
+        String fullyQualifiedClassName = getFullyQualifiedClassName(entityName);
+        Set<Field> embeddedFieldSet = null;
+        Set<Field> basicFieldSet = null;
+        if (fullyQualifiedClassName != null) {
+            entityField.setFieldType(fullyQualifiedClassName);
+            entityField.setDescription(entityName);
+            embeddedFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
+            basicFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
+            for(Field field : basicFieldSet){
+                entityField.getEmbeddedFields().add(new EntityField(field.getType().getName(), field.getName(), field.getName(), null));
+            }
+            for(Field field : embeddedFieldSet){
+                entityField.addEmbeddedField(traverseEntity(field.getType().getSimpleName(), new EntityField(field.getName())));//todo logic error
+            }
+        }
+        return entityField;
+    }
+    /*
     public void traverseEntity(String entityName, FieldNode fieldNode){
         String fullyQualifiedClassName = getFullyQualifiedClassName(entityName);
         String fieldName = entityName;
@@ -94,17 +116,20 @@ public final class EntityUtils {
         if (fullyQualifiedClassName != null) {
             embeddedFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
             basicFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
+//            fieldNode.setParentField(null);
+            fieldNode.setFieldName(entityName);
+            fieldNode.setFieldSet(basicFieldSet);
             System.out.println(fieldName);
             System.out.println(Arrays.toString(basicFieldSet.toArray()));
             if(!embeddedFieldSet.isEmpty()){
                 for(Field field : embeddedFieldSet){
                     FieldNode fieldNode1 = new FieldNode();
-                    fieldNode1.setParentField(fieldNode);
+                    fieldNode1.setParentNode(fieldNode);
                     traverseEntity(field.getType().getSimpleName(), fieldNode1);
                 }
             }
         }
-    }
+    }*/
 
     public String getJsonEntityFields(String className){
         Set<String> fields = new TreeSet<String>();

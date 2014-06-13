@@ -1,12 +1,10 @@
 package com.haiso.hr;
 
-import com.google.common.collect.Sets;
+import com.haiso.commons.utils.JsonUtils;
 import com.haiso.commons.utils.PackUtils;
 import com.haiso.commons.utils.data.entityHelper.EntityUtils;
-import com.haiso.commons.utils.data.entityHelper.FieldUtils;
-import com.haiso.commons.utils.data.entityHelper.vo.FieldNode;
-import com.haiso.hr.entity.person.Person;
-import org.apache.commons.collections.CollectionUtils;
+import com.haiso.commons.utils.data.entityHelper.vo.EntityField;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,9 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
-import sun.reflect.generics.tree.Tree;
-
-import java.util.*;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -74,8 +69,7 @@ public class AppTests {
         set = Sets.newTreeSet(CollectionUtils.intersection(set1, set2));
         set = Sets.newTreeSet(CollectionUtils.subtract(set1, set2));
         System.out.println(set.toArray().toString());*/
-        FieldNode fieldNode = new FieldNode();
-        new EntityUtils().traverseEntity("Person");
+        System.out.println(JsonUtils.toJson(new EntityUtils().traverseEntity("Person", new EntityField("person"))));
 
     }
 

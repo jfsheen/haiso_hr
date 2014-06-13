@@ -1,39 +1,67 @@
 package com.haiso.commons.utils.data.entityHelper.vo;
 
+import com.google.common.base.Objects;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by ff on 6/5/14.
  */
-public class FieldNodeA {
+public class EntityField {
     private String fieldName;
     private String fieldType;
     private String description;
-    private FieldNode parentField;
-    private List<FieldNode> embeddedFields;
+    private List<EntityField> embeddedFields;
 
 
-    public FieldNodeA() {
+    public EntityField(String fieldType, String fieldName, String description, List<EntityField> embeddedFields) {
+        this.fieldName = fieldName;
+        this.fieldType = fieldType;
+        this.description = description;
+        this.embeddedFields = embeddedFields;
+    }
+
+    public EntityField() {
         initEmbeddedFields();
     }
 
     public void initEmbeddedFields(){
         if(embeddedFields == null){
-            embeddedFields = new ArrayList<FieldNode>();
+            embeddedFields = new ArrayList<EntityField>();
         }
     }
+    public EntityField(String fieldName) {
+        initEmbeddedFields();
+        this.fieldName = fieldName;
+    }
 
-    /* 插入一个child节点到当前节点中 */
-    public void addEmbeddedField(FieldNode fieldNodeA) {
+    public void addEmbeddedField(EntityField entityField) {
+        List<EntityField> list = this.getEmbeddedFields();
+        list.add(entityField);
+        this.setEmbeddedFields(list);
+    }
+
+    @Override
+    public String toString() {
+        return Objects.toStringHelper(this)
+                .add("fieldName", fieldName)
+                .add("fieldType", fieldType)
+                .add("description", description)
+                .add("embeddedFields", embeddedFields)
+                .toString();
+    }
+
+    /* 插入一个child节点到当前节点中 *//*
+    public void addEmbeddedField(FieldNode entityField) {
         initEmbeddedFields();
         embeddedFields.add(fieldNode);
     }
 
-    /* 返回当前节点的父辈节点集合 */
+    *//* 返回当前节点的父辈节点集合 *//*
     public List<FieldNode> getElders() {
         List<FieldNode> elderList = new ArrayList<FieldNode>();
-        FieldNode fieldNodeA = this.getParentField();
+        FieldNode entityField = this.getParentField();
         if (fieldNode == null) {
             return elderList;
         } else {
@@ -43,7 +71,7 @@ public class FieldNodeA {
         }
     }
 
-    /* 返回当前节点的晚辈集合 */
+    *//* 返回当前节点的晚辈集合 *//*
     public List<FieldNode> getJuniors() {
         List<FieldNode> juniorList = new ArrayList<FieldNode>();
         List<FieldNode> embeddedFields = this.getEmbeddedFields();
@@ -60,12 +88,12 @@ public class FieldNodeA {
         }
     }
 
-    /* 返回当前节点的孩子集合 */
-/*    public List<FieldNodeA> getChildList() {
+    *//* 返回当前节点的孩子集合 *//*
+*//*    public List<EntityField> getChildList() {
         return childList;
-    }*/
+    }*//*
 
-    /* 删除节点和它下面的晚辈 */
+    *//* 删除节点和它下面的晚辈 *//*
     public void deleteNode() {
         FieldNode parentField = this.getParentField();
         String fieldName = parentField.getFieldName();
@@ -74,7 +102,7 @@ public class FieldNodeA {
         }
     }
 
-    /* 删除当前节点的某个子节点 */
+    *//* 删除当前节点的某个子节点 *//*
     public void deleteChildNode(String fieldName) {
         List<FieldNode> embeddedFields = this.getEmbeddedFields();
         int num = embeddedFields.size();
@@ -85,21 +113,21 @@ public class FieldNodeA {
                 return;
             }
         }
-    }
+    }*/
 
     /* 动态的插入一个新的节点到当前树中 */
-    /*public boolean insertJuniorNode(FieldNodeA fieldNodeA) {
-        String juniorFieldName = fieldNodeA.getFieldName();
+    /*public boolean insertJuniorNode(EntityField entityField) {
+        String juniorFieldName = entityField.getFieldName();
         if (this.parentId == juniorParentId) {
             addChildNode(treeNode);
             return true;
         } else {
-            List<FieldNodeA> childList = this.getChildList();
+            List<EntityField> childList = this.getChildList();
             int childNumber = childList.size();
             boolean insertFlag;
 
             for (int i = 0; i < childNumber; i++) {
-                FieldNodeA childNode = childList.get(i);
+                EntityField childNode = childList.get(i);
                 insertFlag = childNode.insertJuniorNode(treeNode);
                 if (insertFlag == true)
                     return true;
@@ -109,7 +137,7 @@ public class FieldNodeA {
     }
 
     *//* 找到一颗树中某个节点 *//*
-    public FieldNodeA findFieldNodeById(int id) {
+    public EntityField findFieldNodeById(int id) {
         if (this.selfId == id)
             return this;
         if (childList.isEmpty() || childList == null) {
@@ -117,8 +145,8 @@ public class FieldNodeA {
         } else {
             int childNumber = childList.size();
             for (int i = 0; i < childNumber; i++) {
-                FieldNodeA child = childList.get(i);
-                FieldNodeA resultNode = child.findFieldNodeById(id);
+                EntityField child = childList.get(i);
+                EntityField resultNode = child.findFieldNodeById(id);
                 if (resultNode != null) {
                     return resultNode;
                 }
@@ -136,18 +164,10 @@ public class FieldNodeA {
             return;
         int childNumber = childList.size();
         for (int i = 0; i < childNumber; i++) {
-            FieldNodeA child = childList.get(i);
+            EntityField child = childList.get(i);
             child.traverse();
         }
     }*/
-
-    public FieldNode getParentField() {
-        return parentField;
-    }
-
-    public void setParentField(FieldNode parentField) {
-        this.parentField = parentField;
-    }
 
     public String getFieldType() {
         return fieldType;
@@ -157,11 +177,11 @@ public class FieldNodeA {
         this.fieldType = fieldType;
     }
 
-    public List<FieldNode> getEmbeddedFields() {
+    public List<EntityField> getEmbeddedFields() {
         return embeddedFields;
     }
 
-    public void setEmbeddedFields(List<FieldNode> embeddedFields) {
+    public void setEmbeddedFields(List<EntityField> embeddedFields) {
         this.embeddedFields = embeddedFields;
     }
 
