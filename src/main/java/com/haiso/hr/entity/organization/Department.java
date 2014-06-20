@@ -1,9 +1,10 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.organization;
 
 import com.google.common.base.Objects;
 import com.haiso.hr.entity.base.AuditBaseEntity;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -29,10 +30,10 @@ public class Department extends AuditBaseEntity{
     @Column(name = "is_child")
     private Boolean isChild;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "parent_dept")
+    @JoinColumn(name = "parent_dept_id")
     private Department parentDept;
     @OneToMany(mappedBy = "parentDept", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Department> childDept;
+    private Set<Department> childDept = new LinkedHashSet<Department>();
 
     @Override
     public String toString() {

@@ -8,37 +8,37 @@ import java.util.List;
 /**
  * Created by ff on 6/5/14.
  */
-public class EntityField {
+public class FieldNode {
     private String fieldName;
     private String fieldType;
     private String description;
-    private List<EntityField> embeddedFields;
+    private List<FieldNode> embeddedFields;
 
 
-    public EntityField(String fieldType, String fieldName, String description, List<EntityField> embeddedFields) {
+    public FieldNode(String fieldType, String fieldName, String description, List<FieldNode> embeddedFields) {
         this.fieldName = fieldName;
         this.fieldType = fieldType;
         this.description = description;
         this.embeddedFields = embeddedFields;
     }
 
-    public EntityField() {
+    public FieldNode() {
         initEmbeddedFields();
     }
 
     public void initEmbeddedFields(){
         if(embeddedFields == null){
-            embeddedFields = new ArrayList<EntityField>();
+            embeddedFields = new ArrayList<FieldNode>();
         }
     }
-    public EntityField(String fieldName) {
+    public FieldNode(String fieldName) {
         initEmbeddedFields();
         this.fieldName = fieldName;
     }
 
-    public void addEmbeddedField(EntityField entityField) {
-        List<EntityField> list = this.getEmbeddedFields();
-        list.add(entityField);
+    public void addEmbeddedField(FieldNode fieldNode) {
+        List<FieldNode> list = this.getEmbeddedFields();
+        list.add(fieldNode);
         this.setEmbeddedFields(list);
     }
 
@@ -53,7 +53,7 @@ public class EntityField {
     }
 
     /* 插入一个child节点到当前节点中 *//*
-    public void addEmbeddedField(FieldNode entityField) {
+    public void addEmbeddedField(FieldNode fieldNode) {
         initEmbeddedFields();
         embeddedFields.add(fieldNode);
     }
@@ -61,7 +61,7 @@ public class EntityField {
     *//* 返回当前节点的父辈节点集合 *//*
     public List<FieldNode> getElders() {
         List<FieldNode> elderList = new ArrayList<FieldNode>();
-        FieldNode entityField = this.getParentField();
+        FieldNode fieldNode = this.getParentField();
         if (fieldNode == null) {
             return elderList;
         } else {
@@ -89,7 +89,7 @@ public class EntityField {
     }
 
     *//* 返回当前节点的孩子集合 *//*
-*//*    public List<EntityField> getChildList() {
+*//*    public List<FieldNode> getChildList() {
         return childList;
     }*//*
 
@@ -116,18 +116,18 @@ public class EntityField {
     }*/
 
     /* 动态的插入一个新的节点到当前树中 */
-    /*public boolean insertJuniorNode(EntityField entityField) {
-        String juniorFieldName = entityField.getFieldName();
+    /*public boolean insertJuniorNode(FieldNode fieldNode) {
+        String juniorFieldName = fieldNode.getFieldName();
         if (this.parentId == juniorParentId) {
             addChildNode(treeNode);
             return true;
         } else {
-            List<EntityField> childList = this.getChildList();
+            List<FieldNode> childList = this.getChildList();
             int childNumber = childList.size();
             boolean insertFlag;
 
             for (int i = 0; i < childNumber; i++) {
-                EntityField childNode = childList.get(i);
+                FieldNode childNode = childList.get(i);
                 insertFlag = childNode.insertJuniorNode(treeNode);
                 if (insertFlag == true)
                     return true;
@@ -137,7 +137,7 @@ public class EntityField {
     }
 
     *//* 找到一颗树中某个节点 *//*
-    public EntityField findFieldNodeById(int id) {
+    public FieldNode findFieldNodeById(int id) {
         if (this.selfId == id)
             return this;
         if (childList.isEmpty() || childList == null) {
@@ -145,8 +145,8 @@ public class EntityField {
         } else {
             int childNumber = childList.size();
             for (int i = 0; i < childNumber; i++) {
-                EntityField child = childList.get(i);
-                EntityField resultNode = child.findFieldNodeById(id);
+                FieldNode child = childList.get(i);
+                FieldNode resultNode = child.findFieldNodeById(id);
                 if (resultNode != null) {
                     return resultNode;
                 }
@@ -164,7 +164,7 @@ public class EntityField {
             return;
         int childNumber = childList.size();
         for (int i = 0; i < childNumber; i++) {
-            EntityField child = childList.get(i);
+            FieldNode child = childList.get(i);
             child.traverse();
         }
     }*/
@@ -177,11 +177,11 @@ public class EntityField {
         this.fieldType = fieldType;
     }
 
-    public List<EntityField> getEmbeddedFields() {
+    public List<FieldNode> getEmbeddedFields() {
         return embeddedFields;
     }
 
-    public void setEmbeddedFields(List<EntityField> embeddedFields) {
+    public void setEmbeddedFields(List<FieldNode> embeddedFields) {
         this.embeddedFields = embeddedFields;
     }
 

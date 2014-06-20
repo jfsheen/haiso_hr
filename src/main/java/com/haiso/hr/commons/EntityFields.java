@@ -1,12 +1,12 @@
 package com.haiso.hr.commons;
 
-import com.haiso.commons.utils.data.entityHelper.vo.EntityField;
+import com.haiso.commons.utils.data.entityHelper.vo.FieldNode;
 
 /**
  * Created by ff on 6/10/14.
  */
 public class EntityFields {
-    public static EntityField person = new EntityField();
+    public static FieldNode person = new FieldNode();
     static {
 
         person.setFieldName("Person");

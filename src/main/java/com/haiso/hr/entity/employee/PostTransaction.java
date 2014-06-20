@@ -1,7 +1,7 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
-import com.haiso.hr.entity.Position;
+import com.haiso.hr.entity.organization.Position;
 import com.haiso.hr.entity.base.AuditBaseEntity;
 
 import javax.persistence.*;

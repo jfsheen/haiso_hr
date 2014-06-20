@@ -18,9 +18,7 @@
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="cacheSeconds" value="60"/>
         <property name="basenames">
-            <list>
-                <value>classpath:/message/error/</value>
-            </list>
+            <value>message</value>
         </property>
     </bean>
 

@@ -39,7 +39,7 @@ import java.util.*;
  * Created by ff on 5/23/14.
  */
 @Controller
-@RequestMapping("/ajax")
+@RequestMapping("/ajax/dt")
 @SessionAttributes({"dataTransferParam"})
 public class DataTransferAjaxController extends BaseController{
 

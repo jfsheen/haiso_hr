@@ -1,13 +1,12 @@
 package com.haiso.hr.entity.employee;
 
 import com.google.common.base.Objects;
-import com.haiso.hr.entity.Department;
-import com.haiso.hr.entity.Position;
+import com.haiso.hr.entity.organization.Department;
+import com.haiso.hr.entity.organization.Position;
 import com.haiso.hr.entity.base.AuditBaseEntity;
 import com.haiso.hr.entity.person.Person;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.HashSet;

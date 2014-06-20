@@ -2,7 +2,7 @@ package com.haiso.commons.utils.data.entityHelper;
 
 import com.google.common.collect.Sets;
 import com.haiso.commons.constant.CommonsConstant;
-import com.haiso.commons.utils.data.entityHelper.vo.EntityField;
+import com.haiso.commons.utils.data.entityHelper.vo.FieldNode;
 import org.apache.commons.collections.CollectionUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.reflections.Reflections;
@@ -86,26 +86,26 @@ public final class EntityUtils {
         return fields;
     }
 
-    public EntityField traverseEntity(String entityName, EntityField entityField){
-        /*if(entityField == null){
-        EntityField entityField = new EntityField();
+    public FieldNode traverseEntity(String entityName, FieldNode fieldNode){
+        /*if(fieldNode == null){
+        FieldNode fieldNode = new FieldNode();
         }*/
         String fullyQualifiedClassName = getFullyQualifiedClassName(entityName);
         Set<Field> embeddedFieldSet = null;
         Set<Field> basicFieldSet = null;
         if (fullyQualifiedClassName != null) {
-            entityField.setFieldType(fullyQualifiedClassName);
-            entityField.setDescription(entityName);
+            fieldNode.setFieldType(fullyQualifiedClassName);
+            fieldNode.setDescription(entityName);
             embeddedFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Embedded.class);
             basicFieldSet = getFieldsAnnotated(fullyQualifiedClassName, Basic.class);
             for(Field field : basicFieldSet){
-                entityField.getEmbeddedFields().add(new EntityField(field.getType().getName(), field.getName(), field.getName(), null));
+                fieldNode.getEmbeddedFields().add(new FieldNode(field.getType().getName(), field.getName(), field.getName(), null));
             }
             for(Field field : embeddedFieldSet){
-                entityField.addEmbeddedField(traverseEntity(field.getType().getSimpleName(), new EntityField(field.getName())));//todo logic error
+                fieldNode.addEmbeddedField(traverseEntity(field.getType().getSimpleName(), new FieldNode(field.getName())));//todo logic error
             }
         }
-        return entityField;
+        return fieldNode;
     }
     /*
     public void traverseEntity(String entityName, FieldNode fieldNode){

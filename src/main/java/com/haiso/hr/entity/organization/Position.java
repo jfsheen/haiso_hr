@@ -1,4 +1,4 @@
-package com.haiso.hr.entity;
+package com.haiso.hr.entity.organization;
 
 import com.google.common.base.Objects;
 import com.haiso.hr.entity.base.AuditBaseEntity;

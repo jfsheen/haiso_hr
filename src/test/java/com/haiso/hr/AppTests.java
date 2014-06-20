@@ -1,10 +1,8 @@
 package com.haiso.hr;
 
-import com.haiso.commons.utils.JsonUtils;
 import com.haiso.commons.utils.PackUtils;
-import com.haiso.commons.utils.data.entityHelper.EntityUtils;
-import com.haiso.commons.utils.data.entityHelper.vo.EntityField;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.haiso.hr.entity.manage.Menu;
+import com.haiso.hr.service.manage.MenuService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,8 +35,11 @@ public class AppTests {
         this.mockMvc = webAppContextSetup(this.wac).build();
     }
 
+    @Autowired
+    private MenuService menuService;
+
     @Test
-    public void testXmlMapping() throws Exception {
+    public void test() throws Exception {
        /* File file = new File("E:\\idea\\haiso_hr\\target\\haiso.hr\\static\\UploadFiles\\11.xlsx");
         ExcelReader excelReader = new ExcelReader();
         System.out.println(excelReader.getContentType(file));*/
@@ -69,10 +72,47 @@ public class AppTests {
         set = Sets.newTreeSet(CollectionUtils.intersection(set1, set2));
         set = Sets.newTreeSet(CollectionUtils.subtract(set1, set2));
         System.out.println(set.toArray().toString());*/
-        System.out.println(JsonUtils.toJson(new EntityUtils().traverseEntity("Person", new EntityField("person"))));
+
+//        System.out.println(JsonUtils.toJson(new EntityUtils().traverseEntity("Person", new FieldNode("person"))));
+
+        testAddMenu();
+
+        List<Menu> menu = menuService.getMenuByLevel((short)1);
+
+        System.out.println("menu");
 
     }
 
+    public void testAddMenu(){
+        Menu root = new Menu("Menu", "top Menu", "this is top menu", (short)0);
+        Menu m1 = new Menu("m1","","",(short)1);
+        Menu m2 = new Menu("m2","","",(short)1);
+        Menu m10 = new Menu("m10","","",(short)2);
+        Menu m11 = new Menu("m11","","",(short)2);
+        Menu m20 = new Menu("m20","","",(short)2);
+        Menu m3 = new Menu("m3","","",(short)1);
+        Menu m30 = new Menu("m30","","",(short)2);
+        Menu m31 = new Menu("m31","","",(short)2);
+        root.getSubMenuSet().add(m1);
+        root.getSubMenuSet().add(m2);
+        root.getSubMenuSet().add(m3);
+        m1.getSubMenuSet().add(m10);
+        m1.getSubMenuSet().add(m11);
+        m2.getSubMenuSet().add(m20);
+        m3.getSubMenuSet().add(m30);
+        m3.getSubMenuSet().add(m31);
+        m1.setParentMenu(root);
+        m2.setParentMenu(root);
+        m3.setParentMenu(root);
+        m10.setParentMenu(m1);
+        m11.setParentMenu(m1);
+        m20.setParentMenu(m2);
+        m30.setParentMenu(m3);
+        m31.setParentMenu(m3);
+
+        menuService.addMenu(root);
+
+    }
 
     public void simple() throws Exception {
         mockMvc.perform(get("/"))
